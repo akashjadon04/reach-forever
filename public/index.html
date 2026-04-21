@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    
+    <meta name="description" content="Reach Forever is the Best Digital Marketing Agency in India, specializing in lead generation, automated websites, and high-ROI ads in Punjab, Phagwara, and Jalandhar. We build autonomous revenue machines.">
+    <meta name="keywords" content="Best Digital Marketing Agency in India, Top Marketing Agency Punjab, Digital Marketing Phagwara, SEO Agency Jalandhar, Facebook Ads, Web Development, Reach Forever">
+    <meta name="author" content="Zyrova Digital | Designed by Akash Jadon">
+    <meta name="theme-color" content="#0A0B0E">
+    <title>Reach Forever | Best Digital Marketing Agency in India, Punjab, Phagwara, Jalandhar</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* SCROLL PROGRESS BAR */
+        #scrollProgress { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, #556B2F, #D4AF37); z-index: 999999; width: 0%; transition: width 0.1s ease-out; border-top-right-radius: 4px; border-bottom-right-radius: 4px; box-shadow: 0 2px 10px rgba(212,175,55,0.5);}
+
+        /* 1. PAN-INDIA RADAR GRID (REPLACES THE MAP) */
+        .radar-section { padding: 8rem 0; position: relative; z-index: 5; background: var(--bg-surface); border-radius: 60px; margin: 0 2%; border: 1px solid var(--border-soft); box-shadow: var(--shadow-soft); overflow: hidden;}
+        .radar-container { position: relative; width: 100%; height: 500px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 40px; background: radial-gradient(circle at center, #F8F7F4 0%, #FFFFFF 100%); border: 1px solid var(--border-soft); margin-top: 40px;}
+        .radar-grid { position: absolute; bottom: -50%; left: -50%; width: 200%; height: 200%; background-image: linear-gradient(rgba(212, 175, 55, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(212, 175, 55, 0.2) 1px, transparent 1px); background-size: 60px 60px; transform: perspective(600px) rotateX(70deg); animation: radarMove 15s linear infinite; opacity: 0.6; pointer-events: none;}
+        @keyframes radarMove { 0% { transform: perspective(600px) rotateX(70deg) translateY(0); } 100% { transform: perspective(600px) rotateX(70deg) translateY(60px); } }
+
+        .city-card { position: absolute; background: rgba(255,255,255,0.9); backdrop-filter: blur(20px); border: 1px solid rgba(212, 175, 55, 0.5); padding: 15px 25px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 15px; opacity: 0; transform: scale(0.5); will-change: transform, opacity;}
+        .cc-icon { width: 40px; height: 40px; background: var(--accent-gold); color: #FFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);}
+        .cc-info { display: flex; flex-direction: column; }
+        .cc-city { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--text-dark); line-height: 1.1;}
+        .cc-leads { font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--accent-olive); text-transform: uppercase; letter-spacing: 1px;}
+        
+        .cc-1 { top: 20%; left: 15%; }
+        .cc-2 { top: 55%; right: 15%; }
+        .cc-3 { bottom: 15%; left: 35%; }
+        @media (max-width: 768px) { .radar-container { height: 400px; } .cc-1 { top: 10%; left: 5%; } .cc-2 { top: 45%; right: 5%; } .cc-3 { bottom: 10%; left: 20%; } .city-card { padding: 10px 15px; } .cc-city { font-size: 1.2rem;} }
+
+        /* 2. THE GROWTH ENGINE */
+        .growth-engine-section { background: var(--bg-dark); color: var(--text-light); padding: 8rem 5%; position: relative; z-index: 5; border-radius: 60px; margin: 40px 2%; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 80px rgba(0,0,0,0.2); overflow: hidden;}
+        .ge-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; max-width: 1400px; margin: 0 auto; align-items: center;}
+        
+        .ge-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5.5rem); color: #FFF; line-height: 1.1; margin-bottom: 20px;}
+        .ge-text p { font-family: 'Outfit', sans-serif; font-size: 1.15rem; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 30px;}
+        .ge-features { display: flex; flex-direction: column; gap: 15px; }
+        .ge-feat { display: flex; align-items: center; gap: 12px; font-family: 'Outfit', sans-serif; font-size: 1.1rem; color: #FFF; font-weight: 500;}
+        .ge-feat i { color: var(--accent-gold); font-size: 1.5rem; }
+
+        .ge-visual { position: relative; width: 100%; height: 500px; border-radius: 30px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);}
+        .ge-visual img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: transform 0.8s ease;}
+        .ge-visual:hover img { transform: scale(1.05); }
+        
+        .ge-floating-ui { position: absolute; bottom: 40px; left: -30px; background: rgba(10, 11, 14, 0.85); backdrop-filter: blur(20px); border: 1px solid rgba(212, 175, 55, 0.4); padding: 25px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); display: flex; align-items: center; gap: 20px;}
+        .ge-ui-icon { width: 50px; height: 50px; border-radius: 50%; background: rgba(85, 107, 47, 0.2); color: #556B2F; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; border: 1px solid #556B2F;}
+        .ge-ui-text h4 { font-family: 'Outfit', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;}
+        .ge-ui-text span { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: #FFF; line-height: 1;}
+
+        @media (max-width: 1024px) { .ge-grid { grid-template-columns: 1fr; text-align: center; gap: 40px;} .ge-features { align-items: center; } .ge-visual { height: 400px; overflow: visible;} .ge-floating-ui { left: 50%; transform: translateX(-50%); bottom: -20px; width: 90%; justify-content: center;} }
+
+        /* HERO TEXT ROTATOR FIX (SMOOTH & READABLE) */
+        .text-rotator-wrap { display: inline-block; position: relative; height: 1.05em; vertical-align: bottom; overflow: hidden; padding-bottom: 5px;}
+        .text-rotator { display: inline-flex; flex-direction: column; animation: spinWordsCSS 15s cubic-bezier(0.85, 0, 0.15, 1) infinite; }
+        .tr-word { display: block; height: 1.05em; font-family: var(--font-serif); font-style: italic; font-weight: 600;}
+
+        @keyframes spinWordsCSS {
+            0%, 13% { transform: translateY(0); }
+            16%, 29% { transform: translateY(-1.05em); }
+            33%, 46% { transform: translateY(-2.1em); }
+            50%, 63% { transform: translateY(-3.15em); }
+            66%, 79% { transform: translateY(-4.2em); }
+            83%, 96% { transform: translateY(-5.25em); }
+            100% { transform: translateY(-6.3em); }
+        }
+
+        /* MOBILE HERO FIXES */
+        @media (max-width: 1024px) {
+            .hero-social-float { display: none !important; }
+            .hero-grid { grid-template-columns: 1fr !important; text-align: center; gap: 50px !important; }
+            .hero-text { margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+            .hero-desc { border-left: none !important; padding-left: 0 !important; max-width: 100% !important; }
+            .hero-actions { justify-content: center; }
+            .iphone-mockup { 
+                margin: 0 auto;
+                transform: scale(0.9) !important; 
+            }
+            .review-indicator { left: 50%; transform: translateX(-50%); top: -30px; animation: none; }
+        }
+
+        /* CHATBOT UI ENHANCEMENTS */
+        @keyframes slideUpFade { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        .msg { animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .msg.user { background: linear-gradient(135deg, #556B2F 0%, #435525 100%); box-shadow: 0 5px 15px rgba(85, 107, 47, 0.3); color: #FFF; }
+        .msg.ai { border-radius: 20px; border-bottom-left-radius: 4px; background: #FFFFFF; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 8px 20px rgba(0,0,0,0.05); color: #1A1C20; }
+        #auraBody::-webkit-scrollbar { width: 4px; }
+        #auraBody::-webkit-scrollbar-track { background: transparent; }
+        #auraBody::-webkit-scrollbar-thumb { background: rgba(212, 175, 55, 0.5); border-radius: 10px; }
+    </style>
+</head>
+<body class="hover-target">
+
+    <div id="scrollProgress"></div>
+
+    <div id="preloader">
+        <div class="pl-logo" style="font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 700; color: #1A1C20;"><span>REACH.</span></div>
+        <div class="pl-progress-box" style="width: 200px; height: 2px; background: rgba(0,0,0,0.1); margin-top: 30px; position: relative; overflow: hidden;">
+            <div id="pl-bar" style="position: absolute; top:0; left:0; height: 100%; width: 0%; background: #D4AF37;"></div>
+        </div>
+    </div>
+
+    <canvas id="particle-canvas" style="position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; opacity: 0.8;"></canvas>
+
+    <div class="sticky-cta" id="stickyCta" style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); opacity: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 8px 8px 20px; border-radius: 100px; display: flex; align-items: center; gap: 20px; z-index: 99990; box-shadow: 0 20px 40px rgba(0,0,0,0.1); transition: 0.5s; pointer-events: none;">
+        <div class="sc-text" data-cms="sticky_cta_text" style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.95rem; color: #1A1C20;">Ready to get more customers?</div>
+        <a href="form.html" class="btn btn-olive" data-cms="sticky_cta_btn" style="background: #556B2F; color: #FFF; padding: 12px 25px; border-radius: 100px; font-family: 'Outfit', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none;">Book Strategy Call</a>
+    </div>
+
+    <div class="cursor-dot" id="cursorDot" style="position: fixed; width: 10px; height: 10px; background: #556B2F; border-radius: 50%; pointer-events: none; z-index: 999999; transform: translate(-50%, -50%); transition: opacity 0.2s;"></div>
+    <div class="cursor-ring" id="cursorRing" style="position: fixed; width: 50px; height: 50px; border: 1px solid #556B2F; border-radius: 50%; pointer-events: none; z-index: 999998; transform: translate(-50%, -50%); transition: width 0.4s, height 0.4s, background 0.4s, border-color 0.4s;"></div>
+
+    <div class="main-wrapper" style="position: relative; z-index: 2; background-color: #FDFDFB; border-bottom-left-radius: 60px; border-bottom-right-radius: 60px; box-shadow: 0 40px 100px rgba(0,0,0,0.3); margin-bottom: 85vh;">
+        
+        <div class="header-wrap" id="headerWrap" style="position: fixed; top: 15px; left: 0; width: 100%; z-index: 1000; display: flex; justify-content: center; transition: top 0.4s ease; pointer-events: none;">
+            <nav class="navbar" id="navbar" style="pointer-events: auto; width: 92%; max-width: 1250px; height: 70px; background: rgba(253, 253, 251, 0.85); backdrop-filter: blur(35px); border-radius: 100px; border: 1px solid #D4AF37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4), inset 0 0 15px rgba(212, 175, 55, 0.1); display: flex; justify-content: space-between; align-items: center; padding: 0 10px 0 25px;">
+                <a href="index.html" class="nav-brand magnetic-wrap" style="display: flex; align-items: center; height: 100%; text-decoration: none;">
+                    <span class="magnetic-inner" style="display: inline-block;">
+                        <img src="https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png" alt="Reach Forever Logo" data-cms="header_logo" style="max-height: 45px; width: auto; object-fit: contain;"> 
+                    </span>
+                </a>
+                <ul class="nav-links" style="display: flex; gap: 5px; list-style: none;">
+                    <li class="magnetic-wrap"><a href="index.html" class="nav-pill magnetic-inner" data-cms="nav_link_1" style="padding: 10px 24px; border-radius: 100px; color: #1A1C20; font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; text-decoration: none;">Growth</a></li>
+                    <li class="magnetic-wrap"><a href="services.html" class="nav-pill magnetic-inner" data-cms="nav_link_2" style="padding: 10px 24px; border-radius: 100px; color: #1A1C20; font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; text-decoration: none;">Services</a></li>
+                    <li class="magnetic-wrap"><a href="reviews.html" class="nav-pill magnetic-inner" data-cms="nav_link_3" style="padding: 10px 24px; border-radius: 100px; color: #1A1C20; font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; text-decoration: none;">Reviews</a></li>
+                </ul>
+                <div class="magnetic-wrap nav-btn-wrap">
+                    <a href="form.html" class="btn btn-olive magnetic-inner" data-cms="nav_btn" style="background: #556B2F; color: #FFF; padding: 12px 28px; border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; box-shadow: 0 10px 25px rgba(85, 107, 47, 0.25);">Book Strategy Call</a>
+                </div>
+            </nav>
+        </div>
+
+        <div class="mobile-nav">
+            <a href="index.html" class="m-nav-item active"><i class="ri-funds-line"></i>Growth</a>
+            <a href="services.html" class="m-nav-item"><i class="ri-stack-fill"></i>Services</a>
+            <a href="reviews.html" class="m-nav-item"><i class="ri-vidicon-fill"></i>Reviews</a>
+            <a href="form.html" class="m-nav-item"><i class="ri-calendar-event-fill"></i>Book</a>
+        </div>
+
+        <section class="hero" id="hero" style="position: relative; min-height: 90vh; display: flex; align-items: center; padding-top: 130px; padding-bottom: 40px; z-index: 5; overflow: hidden;">
+            
+            <div class="hero-social-float hsf-fb" style="position: absolute; top: 12%; left: 3%; width: 65px; height: 65px; border-radius: 18px; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border: 1px solid rgba(212,175,55,0.4); display: flex; justify-content: center; align-items: center; font-size: 2.2rem; color: #1877F2; box-shadow: 0 10px 30px rgba(0,0,0,0.04); z-index: 5; animation: sfFloat 4s infinite alternate ease-in-out;"><i class="ri-facebook-circle-fill"></i></div>
+            <div class="hero-social-float hsf-ig" style="position: absolute; bottom: 15%; right: 3%; width: 65px; height: 65px; border-radius: 18px; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border: 1px solid rgba(212,175,55,0.4); display: flex; justify-content: center; align-items: center; font-size: 2.2rem; color: #E4405F; box-shadow: 0 10px 30px rgba(0,0,0,0.04); z-index: 5; animation: sfFloat 6s infinite alternate-reverse ease-in-out;"><i class="ri-instagram-line"></i></div>
+            <div class="hero-social-float hsf-yt" style="position: absolute; top: 18%; right: 4%; width: 65px; height: 65px; border-radius: 18px; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border: 1px solid rgba(212,175,55,0.4); display: flex; justify-content: center; align-items: center; font-size: 2.2rem; color: #FF0000; box-shadow: 0 10px 30px rgba(0,0,0,0.04); z-index: 5; animation: sfFloat 5s infinite alternate ease-in-out;"><i class="ri-youtube-fill"></i></div>
+            <div class="hero-social-float hsf-li" style="position: absolute; bottom: 12%; left: 4%; width: 65px; height: 65px; border-radius: 18px; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border: 1px solid rgba(212,175,55,0.4); display: flex; justify-content: center; align-items: center; font-size: 2.2rem; color: #0A66C2; box-shadow: 0 10px 30px rgba(0,0,0,0.04); z-index: 5; animation: sfFloat 7s infinite alternate-reverse ease-in-out;"><i class="ri-linkedin-fill"></i></div>
+            <style>@keyframes sfFloat { 0% { transform: translateY(0) rotate(-8deg); } 100% { transform: translateY(-25px) rotate(8deg); } }</style>
+
+            <div class="container hero-grid" style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; width: 100%; position: relative; z-index: 2; align-items: center;">
+                
+                <div class="hero-text" id="hero-text-module" style="position: relative; z-index: 5;">
+                    <span class="tag-pill reveal-up" data-cms="hero_tag" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: #FFF; border: 1px solid rgba(212,175,55,0.4); border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #556B2F; box-shadow: 0 10px 30px rgba(0,0,0,0.04); margin-bottom: 20px;"><i class="ri-funds-line"></i> Predictable Lead Generation</span>
+                    
+                    <h1 class="title-massive reveal-up" id="hero-main-title" data-cms="home_hero_text" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 4.5vw, 4.8rem); margin-bottom: 15px; line-height: 1.1; font-weight: 700; color: #1A1C20;">
+                        We turn <br>
+                        <span class="text-rotator-wrap" style="display: inline-block; position: relative; height: 1.05em; vertical-align: bottom; overflow: hidden; padding-bottom: 5px;">
+                            <span class="text-rotator" id="appleRotator">
+                                <span class="tr-word" style="color: #D4AF37;">Ad Spend</span>
+                                <span class="tr-word" style="color: #556B2F;">Clicks</span>
+                                <span class="tr-word" style="color: #8B0000;">Traffic</span>
+                                <span class="tr-word" style="color: #1A1C20;">Leads</span>
+                                <span class="tr-word" style="color: #D4AF37;">Sales</span>
+                                <span class="tr-word" style="color: #D4AF37;">Ad Spend</span> 
+                            </span>
+                        </span><br>
+                        into paying clients.
+                    </h1>
+                    
+                    <p class="hero-desc reveal-up" id="hero-main-desc" data-cms="hero_desc" style="font-family: 'Outfit', sans-serif; font-size: clamp(1.05rem, 1.2vw, 1.15rem); color: #6B7280; line-height: 1.6; margin-bottom: 30px; font-weight: 400; max-width: 500px; border-left: 3px solid #D4AF37; padding-left: 20px;">
+                        Stop wasting money on marketing that doesn't work. We build predictable marketing systems using Local Ads and fast websites that bring real paying customers directly to your door.
+                    </p>
+                    
+                    <div class="hero-actions reveal-up" style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <div class="magnetic-wrap"><a href="form.html" class="btn btn-olive magnetic-inner" data-cms="hero_btn" style="background: #556B2F; color: #FFF; padding: 16px 36px; border-radius: 100px; font-family: 'Outfit', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; box-shadow: 0 10px 25px rgba(85, 107, 47, 0.25);">Get More Customers</a></div>
+                    </div>
+                </div>
+
+                <div class="hero-visuals reveal-up" style="display: flex; justify-content: center; align-items: center; width: 100%; position: relative; perspective: 1500px; z-index: 10;">
+                    
+                    <div class="review-indicator" style="position: absolute; left: -40px; top: 15%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 10px 20px; border-radius: 100px; border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; align-items: center; gap: 10px; z-index: 20; animation: float1 4s infinite alternate ease-in-out;">
+                        <div class="ri-dot" style="width: 12px; height: 12px; background: #556B2F; border-radius: 50%; animation: blink 1.5s infinite;"></div>
+                        <span class="ri-text" data-cms="hero_indicator_text" style="font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 700; color: #1A1C20;">Watch Real Client Reviews</span>
+                    </div>
+
+                    <div class="iphone-mockup hover-video" id="heroIphoneScroll" style="position: relative; width: 280px; height: 570px; flex-shrink: 0; background: #1a1a1a; padding: 6px; border-radius: 40px; box-shadow: inset 0 0 2px rgba(255,255,255,0.2), 0 40px 80px rgba(0,0,0,0.2); transform: perspective(1000px) rotateY(-15deg) rotateX(5deg); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); z-index: 5; transform-style: preserve-3d;">
+                        
+                        <div style="position: relative; width: 100%; height: 100%; background: #000; border-radius: 34px; overflow: hidden; transform: translateZ(0); z-index: 1;">
+                            <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 110px; height: 25px; background: #1a1a1a; border-radius: 0 0 16px 16px; z-index: 20; pointer-events: none;"></div>
+                            
+                            <video class="active rm-video" autoplay loop muted playsinline id="heroVideoAd" data-cms="home_iphone_reel" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; border-radius: 34px;">
+                                <source src="https://videos.pexels.com/video-files/4100018/4100018-uhd_1440_2560_25fps.mp4" type="video/mp4">
+                            </video>
+                            
+                            <div class="iphone-ui" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 30%, transparent 60%); z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; padding: 25px 20px; pointer-events: none; border-radius: 34px;">
+                                <div class="iu-client" data-cms="hero_iphone_client" style="font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; color: #FFF; margin-bottom: 5px; line-height: 1.1;">Thorne Dental Clinic</div>
+                                <div class="iu-stars" style="color: #D4AF37; font-size: 0.85rem; margin-bottom: 8px;"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+                                <div class="reel-caption" data-cms="hero_iphone_caption" style="font-family: 'Outfit', sans-serif; color: rgba(255,255,255,0.9); font-size: 0.85rem; line-height: 1.4;">"120 new patients this month. Unbelievable."</div>
+                            </div>
+                            
+                            <div class="iphone-click-layer" style="position: absolute; inset: 0; z-index: 30; cursor: pointer; border-radius: 34px;" onclick="
+                                const rm = document.getElementById('reelsModal'); 
+                                const rmContainer = document.getElementById('rmModalContainer');
+                                const heroVid = document.getElementById('heroVideoAd');
+                                if(rm && heroVid) { 
+                                    rm.style.opacity='1'; 
+                                    rm.style.pointerEvents='auto'; 
+                                    document.querySelectorAll('video').forEach(v => { if(v.id !== 'heroVideoAd') v.pause(); }); 
+                                    
+                                    let firstModalVid = rmContainer.querySelector('.rm-video');
+                                    if(!firstModalVid) {
+                                        rmContainer.innerHTML = `<div class='rm-slide' style='width: 100%; height: 100vh; scroll-snap-align: start; position: relative; background: #111;'><video class='rm-video' loop playsinline style='width: 100%; height: 100%; object-fit: cover;' src='${heroVid.currentSrc || heroVid.querySelector('source').src}'></video></div>`;
+                                        firstModalVid = rmContainer.querySelector('.rm-video');
+                                    }
+                                    
+                                    if(firstModalVid) {
+                                        firstModalVid.muted = false; 
+                                        firstModalVid.play(); 
+                                    }
+                                }
+                            "></div>
+                        </div>
+
+                        <div class="audio-indicator" id="audioIndicator" style="position: absolute; top: 40px; right: -15px; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); color: #FFF; padding: 6px 12px; border-radius: 50px; font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 700; z-index: 20; display: flex; align-items: center; gap: 6px; border: 1px solid rgba(255,255,255,0.2); pointer-events: none;"><i class="ri-play-circle-fill"></i> Tap to Watch</div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="section-pad">
+            <div class="container">
+                <div class="section-2-wrapper reveal-up" style="background: #F4F4F0; border-radius: 60px; padding: 6rem 5%; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+                    
+                    <div class="s2-left">
+                        <h2 class="title-lg" data-cms="s2_title" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4.5vw, 4.5rem); margin-bottom: 10px; font-weight: 700; color: #1A1C20;">Omnipresent.</h2>
+                        <p data-cms="s2_desc" style="font-family: 'Outfit', sans-serif; font-size: 1.1rem; color: #6B7280;">We dominate attention across every major platform where your ideal customers spend their time.</p>
+                        
+                        <div class="s2-social-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 30px;">
+                            <div class="s2-social-card social-float" style="background: #FFF; border-radius: 24px; padding: 25px; display: flex; align-items: center; gap: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.04);"><i class="ri-instagram-fill s2-icon" style="font-size: 2.5rem; color: #E4405F;"></i> <span style="font-family: 'Outfit', sans-serif; font-weight: 700; color: #1A1C20;">Instagram</span></div>
+                            <div class="s2-social-card social-float" style="background: #FFF; border-radius: 24px; padding: 25px; display: flex; align-items: center; gap: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.04);"><i class="ri-facebook-circle-fill s2-icon" style="font-size: 2.5rem; color: #1877F2;"></i> <span style="font-family: 'Outfit', sans-serif; font-weight: 700; color: #1A1C20;">Facebook</span></div>
+                            <div class="s2-social-card social-float" style="background: #FFF; border-radius: 24px; padding: 25px; display: flex; align-items: center; gap: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.04);"><i class="ri-google-fill s2-icon" style="font-size: 2.5rem; color: #DB4437;"></i> <span style="font-family: 'Outfit', sans-serif; font-weight: 700; color: #1A1C20;">Google</span></div>
+                            <div class="s2-social-card social-float" style="background: #FFF; border-radius: 24px; padding: 25px; display: flex; align-items: center; gap: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.04);"><i class="ri-window-line s2-icon" style="font-size: 2.5rem; color: #1A1C20;"></i> <span style="font-family: 'Outfit', sans-serif; font-weight: 700; color: #1A1C20;">Websites</span></div>
+                        </div>
+                    </div>
+
+                    <div class="s2-right" style="display: flex; justify-content: center; align-items: center; height: 400px; perspective: 1200px;">
+                        <div class="cylinder-carousel" style="width: 250px; height: 350px; position: relative; transform-style: preserve-3d; animation: rotateCyl 25s infinite linear;">
+                            <div class="cylinder-face" style="position: absolute; width: 250px; height: 350px; border-radius: 20px; overflow: hidden; border: 2px solid #D4AF37; box-shadow: 0 40px 80px rgba(0,0,0,0.1); backface-visibility: hidden; background: #000; transform: rotateY(0deg) translateZ(240px);">
+                                <img src="https://images.pexels.com/photos/3779701/pexels-photo-3779701.jpeg?auto=compress&cs=tinysrgb&w=400&q=80" alt="Client 1" data-cms="client_cylinder_1" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="cylinder-face" style="position: absolute; width: 250px; height: 350px; border-radius: 20px; overflow: hidden; border: 2px solid #D4AF37; box-shadow: 0 40px 80px rgba(0,0,0,0.1); backface-visibility: hidden; background: #000; transform: rotateY(60deg) translateZ(240px);">
+                                <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400&q=80" alt="Client 2" data-cms="client_cylinder_2" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="cylinder-face" style="position: absolute; width: 250px; height: 350px; border-radius: 20px; overflow: hidden; border: 2px solid #D4AF37; box-shadow: 0 40px 80px rgba(0,0,0,0.1); backface-visibility: hidden; background: #000; transform: rotateY(120deg) translateZ(240px);">
+                                <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=400&q=80" alt="Client 3" data-cms="client_cylinder_3" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="cylinder-face" style="position: absolute; width: 250px; height: 350px; border-radius: 20px; overflow: hidden; border: 2px solid #D4AF37; box-shadow: 0 40px 80px rgba(0,0,0,0.1); backface-visibility: hidden; background: #000; transform: rotateY(180deg) translateZ(240px);">
+                                <img src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=400&q=80" alt="Client 4" data-cms="client_cylinder_4" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="cylinder-face" style="position: absolute; width: 250px; height: 350px; border-radius: 20px; overflow: hidden; border: 2px solid #D4AF37; box-shadow: 0 40px 80px rgba(0,0,0,0.1); backface-visibility: hidden; background: #000; transform: rotateY(240deg) translateZ(240px);">
+                                <img src="https://images.pexels.com/photos/5608034/pexels-photo-5608034.jpeg?auto=compress&cs=tinysrgb&w=400&q=80" alt="Client 5" data-cms="client_cylinder_5" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="cylinder-face" style="position: absolute; width: 250px; height: 350px; border-radius: 20px; overflow: hidden; border: 2px solid #D4AF37; box-shadow: 0 40px 80px rgba(0,0,0,0.1); backface-visibility: hidden; background: #000; transform: rotateY(300deg) translateZ(240px);">
+                                <img src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=400&q=80" alt="Client 6" data-cms="client_cylinder_6" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                        </div>
+                        <style>@keyframes rotateCyl { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(-360deg); } }</style>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="story-section" style="background: transparent; display: flex; align-items: center; justify-content: center; text-align: center; z-index: 5; position: relative; overflow: hidden; padding: 10rem 5%;">
+            <div class="container text-center">
+                <p class="story-p apple-text-reveal" data-cms="story_1" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 600; line-height: 1.2; margin-bottom: 80px; max-width: 1000px; margin-inline: auto; background: linear-gradient(to right, #1A1C20 50%, rgba(0,0,0,0.1) 50%); background-size: 200% 100%; background-position: 100% 0; -webkit-background-clip: text; color: transparent;">Likes don't pay the bills. <span class="italic-serif" style="color: #556B2F; font-style: italic;">Customers do.</span></p>
+                <p class="story-p apple-text-reveal" data-cms="story_2" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 600; line-height: 1.2; margin-bottom: 80px; max-width: 1000px; margin-inline: auto; background: linear-gradient(to right, #1A1C20 50%, rgba(0,0,0,0.1) 50%); background-size: 200% 100%; background-position: 100% 0; -webkit-background-clip: text; color: transparent;">We build <span class="italic-serif" style="color: #D4AF37; font-style: italic;">predictable sales systems.</span></p>
+                <p class="story-p apple-text-reveal" data-cms="story_3" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 600; line-height: 1.2; margin-bottom: 80px; max-width: 1000px; margin-inline: auto; background: linear-gradient(to right, #1A1C20 50%, rgba(0,0,0,0.1) 50%); background-size: 200% 100%; background-position: 100% 0; -webkit-background-clip: text; color: transparent;">Transforming your brand into a <span class="italic-serif" style="color: #8B0000; font-style: italic;">revenue machine.</span></p>
+            </div>
+        </section>
+
+        <section class="arsenal-section section-pad" id="arsenal" style="background: #F4F4F0; border-radius: 60px; margin: 0 2%; padding: 8rem 5%; position: relative; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.04); overflow: hidden;">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 60px;">
+                    <span class="tag-pill reveal-up" data-cms="ars_tag" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: #FFF; border: 1px solid rgba(212,175,55,0.4); border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #556B2F; box-shadow: 0 10px 30px rgba(0,0,0,0.04); margin-bottom: 20px;"><i class="ri-stack-fill"></i> Our Arsenal</span>
+                    <h2 class="title-lg reveal-up" data-cms="ars_title" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4.5vw, 4.5rem); margin-bottom: 20px; font-weight: 700; color: #1A1C20;">Digital Marketing <span class="italic-serif" style="color: #556B2F; font-style: italic;">Services.</span></h2>
+                </div>
+
+                <div class="ars-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px;">
+                    
+                    <div class="ars-card glow-card reveal-up" style="background: #FFF; border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: all 0.4s ease; overflow: hidden; position: relative; opacity: 1 !important; filter: none !important;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 25px 50px rgba(212,175,55,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)';">
+                        <div class="ars-icon" style="width: 60px; height: 60px; border-radius: 16px; background: rgba(0, 85, 255, 0.1); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #0055FF; margin-bottom: 20px;"><i class="ri-facebook-circle-fill"></i></div>
+                        <h3 class="ars-title" data-cms="ars_c1_title" style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; color: #1A1C20;">Local Business Ads</h3>
+                        <p class="ars-desc" data-cms="ars_c1_desc" style="font-family: 'Outfit', sans-serif; font-size: 1rem; color: #6B7280; line-height: 1.6; margin-bottom: 25px;">Highly targeted Facebook and Instagram campaigns to reach high-value customers in your city right when they are ready to buy.</p>
+                        <div class="ars-img-wrap" style="width: 100%; height: 220px; border-radius: 16px; overflow: hidden; margin-top: auto;"><img src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="Ads" data-cms="ars_c1_img" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"></div>
+                    </div>
+
+                    <div class="ars-card glow-card reveal-up" style="background: #FFF; border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: all 0.4s ease; overflow: hidden; position: relative; opacity: 1 !important; filter: none !important; transition-delay: 0.1s;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 25px 50px rgba(212,175,55,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)';">
+                        <div class="ars-icon" style="width: 60px; height: 60px; border-radius: 16px; background: rgba(212, 175, 55, 0.1); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #D4AF37; margin-bottom: 20px;"><i class="ri-layout-fluid-fill"></i></div>
+                        <h3 class="ars-title" data-cms="ars_c2_title" style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; color: #1A1C20;">Automated Websites</h3>
+                        <p class="ars-desc" data-cms="ars_c2_desc" style="font-family: 'Outfit', sans-serif; font-size: 1rem; color: #6B7280; line-height: 1.6; margin-bottom: 25px;">Lightning-fast, high-converting landing pages engineered to capture contact info and book appointments instantly.</p>
+                        <div class="ars-img-wrap" style="width: 100%; height: 220px; border-radius: 16px; overflow: hidden; margin-top: auto;"><img src="https://images.pexels.com/photos/19736858/pexels-photo-19736858.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="Funnels" data-cms="ars_c2_img" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"></div>
+                    </div>
+
+                    <div class="ars-card glow-card reveal-up" style="background: #FFF; border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: all 0.4s ease; overflow: hidden; position: relative; opacity: 1 !important; filter: none !important; transition-delay: 0.2s;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 25px 50px rgba(212,175,55,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)';">
+                        <div class="ars-icon" style="width: 60px; height: 60px; border-radius: 16px; background: rgba(139, 0, 0, 0.1); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #8B0000; margin-bottom: 20px;"><i class="ri-search-eye-line"></i></div>
+                        <h3 class="ars-title" data-cms="ars_c3_title" style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; color: #1A1C20;">Google SEO</h3>
+                        <p class="ars-desc" data-cms="ars_c3_desc" style="font-family: 'Outfit', sans-serif; font-size: 1rem; color: #6B7280; line-height: 1.6; margin-bottom: 25px;">Rank #1 locally so when people search for your exact service, they find you before your competitors.</p>
+                        <div class="ars-img-wrap" style="width: 100%; height: 220px; border-radius: 16px; overflow: hidden; margin-top: auto;"><img src="https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="SEO" data-cms="ars_c3_img" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"></div>
+                    </div>
+
+                    <div class="ars-card glow-card reveal-up" style="background: #FFF; border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: all 0.4s ease; overflow: hidden; position: relative; opacity: 1 !important; filter: none !important; transition-delay: 0.3s;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 25px 50px rgba(212,175,55,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)';">
+                        <div class="ars-icon" style="width: 60px; height: 60px; border-radius: 16px; background: rgba(0, 0, 0, 0.05); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #1A1C20; margin-bottom: 20px;"><i class="ri-window-line"></i></div>
+                        <h3 class="ars-title" data-cms="ars_c4_title" style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; color: #1A1C20;">Web Development</h3>
+                        <p class="ars-desc" data-cms="ars_c4_desc" style="font-family: 'Outfit', sans-serif; font-size: 1rem; color: #6B7280; line-height: 1.6; margin-bottom: 25px;">Bespoke, high-performance web applications and e-commerce platforms built for speed, security, and absolute scale.</p>
+                        <div class="ars-img-wrap" style="width: 100%; height: 220px; border-radius: 16px; overflow: hidden; margin-top: auto;"><img src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="Web Dev" data-cms="ars_c4_img" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"></div>
+                    </div>
+
+                    <div class="ars-card glow-card reveal-up" style="background: #FFF; border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: all 0.4s ease; overflow: hidden; position: relative; opacity: 1 !important; filter: none !important; transition-delay: 0.4s;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 25px 50px rgba(212,175,55,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)';">
+                        <div class="ars-icon" style="width: 60px; height: 60px; border-radius: 16px; background: rgba(138, 43, 226, 0.1); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #8A2BE2; margin-bottom: 20px;"><i class="ri-megaphone-fill"></i></div>
+                        <h3 class="ars-title" data-cms="ars_c5_title" style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; color: #1A1C20;">Social Media Growth</h3>
+                        <p class="ars-desc" data-cms="ars_c5_desc" style="font-family: 'Outfit', sans-serif; font-size: 1rem; color: #6B7280; line-height: 1.6; margin-bottom: 25px;">Engaging content, viral reels, and strategic brand positioning to make your business the most famous in your local area.</p>
+                        <div class="ars-img-wrap" style="width: 100%; height: 220px; border-radius: 16px; overflow: hidden; margin-top: auto;"><img src="https://images.pexels.com/photos/5053846/pexels-photo-5053846.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="Social Media" data-cms="ars_c5_img" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"></div>
+                    </div>
+
+                    <div class="ars-card glow-card reveal-up" style="background: #FFF; border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: all 0.4s ease; overflow: hidden; position: relative; opacity: 1 !important; filter: none !important; transition-delay: 0.5s;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 25px 50px rgba(212,175,55,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)';">
+                        <div class="ars-icon" style="width: 60px; height: 60px; border-radius: 16px; background: rgba(20, 184, 166, 0.1); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #14B8A6; margin-bottom: 20px;"><i class="ri-mail-send-fill"></i></div>
+                        <h3 class="ars-title" data-cms="ars_c6_title" style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; color: #1A1C20;">CRM & Automation</h3>
+                        <p class="ars-desc" data-cms="ars_c6_desc" style="font-family: 'Outfit', sans-serif; font-size: 1rem; color: #6B7280; line-height: 1.6; margin-bottom: 25px;">Automated email sequences, SMS follow-ups, and lead tracking so no potential customer ever slips through the cracks.</p>
+                        <div class="ars-img-wrap" style="width: 100%; height: 220px; border-radius: 16px; overflow: hidden; margin-top: auto;"><img src="https://images.pexels.com/photos/7688374/pexels-photo-7688374.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="Automation" data-cms="ars_c6_img" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="parallax-break" id="parallax-break-admin" style="position: relative; width: 96%; max-width: 1600px; margin: 6rem auto; height: 50vh; border-radius: 60px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 40px 80px rgba(0,0,0,0.1); z-index: 5;">
+            <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=2000&q=100" class="px-img" alt="Agency Parallax" data-cms="px_bg" style="position: absolute; inset: 0; width: 100%; height: 130%; object-fit: cover; filter: brightness(0.4) saturate(1.2); transform: scale(1.1); z-index: 1;">
+            <div class="px-content apple-stat-reveal" style="position: relative; z-index: 2; text-align: center; color: #FFF; padding: 0 20px;">
+                <h2 data-cms="px_val" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 7vw, 7rem); color: #FFF; line-height: 1; margin-bottom: 10px; text-shadow: 0 20px 40px rgba(0,0,0,0.8);">₹85 Lakhs+</h2>
+                <p data-cms="px_desc" style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #D4AF37; text-shadow: 0 10px 20px rgba(0,0,0,0.8);">Revenue Generated for Local Clients This Quarter</p>
+            </div>
+        </section>
+
+        <section class="radar-section">
+            <div class="container text-center" style="margin-bottom: 40px;">
+                <span class="tag-pill reveal-up" data-cms="radar_tag" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: #FFF; border: 1px solid rgba(212,175,55,0.4); border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #556B2F; box-shadow: 0 10px 30px rgba(0,0,0,0.04); margin-bottom: 20px;"><i class="ri-radar-line"></i> Pan-India Reach</span>
+                <h2 class="title-lg reveal-up" data-cms="radar_title" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4.5vw, 4.5rem); margin-bottom: 20px; font-weight: 700; color: #1A1C20;">Generating Leads <span class="italic-serif" style="color: #556B2F; font-style: italic;">Everywhere.</span></h2>
+            </div>
+            
+            <div class="radar-container reveal-up">
+                <div class="radar-grid"></div>
+                
+                <div class="city-card cc-1">
+                    <div class="cc-icon"><i class="ri-map-pin-fill"></i></div>
+                    <div class="cc-info">
+                        <span class="cc-city" data-cms="radar_c1_city">Mumbai</span>
+                        <span class="cc-leads" data-cms="radar_c1_leads">12 Leads/Day</span>
+                    </div>
+                </div>
+
+                <div class="city-card cc-2" style="transition-delay: 0.2s;">
+                    <div class="cc-icon"><i class="ri-map-pin-fill"></i></div>
+                    <div class="cc-info">
+                        <span class="cc-city" data-cms="radar_c2_city">Delhi NCR</span>
+                        <span class="cc-leads" data-cms="radar_c2_leads">25 Leads/Day</span>
+                    </div>
+                </div>
+
+                <div class="city-card cc-3" style="transition-delay: 0.4s;">
+                    <div class="cc-icon"><i class="ri-map-pin-fill"></i></div>
+                    <div class="cc-info">
+                        <span class="cc-city" data-cms="radar_c3_city">Bangalore</span>
+                        <span class="cc-leads" data-cms="radar_c3_leads">18 Leads/Day</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="growth-engine-section reveal-up" id="pricing">
+            <div class="ge-grid">
+                <div class="ge-text">
+                    <h2 data-cms="ge_title">The Growth <span style="color: #556B2F; font-style: italic;">Engine.</span></h2>
+                    <p data-cms="ge_desc">We don't just run ads. We architect full-funnel ecosystems designed to capture attention, build trust, and convert clicks into paying customers on autopilot.</p>
+                    
+                    <div class="ge-features">
+                        <div class="ge-feat"><i class="ri-check-double-line"></i> <span data-cms="ge_feat_1">Guaranteed Positive ROI</span></div>
+                        <div class="ge-feat"><i class="ri-check-double-line"></i> <span data-cms="ge_feat_2">Strict City Exclusivity</span></div>
+                        <div class="ge-feat"><i class="ri-check-double-line"></i> <span data-cms="ge_feat_3">Rapid 14-Day Launch</span></div>
+                    </div>
+                </div>
+                
+                <div class="ge-visual">
+                    <img src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80" alt="Growth System" data-cms="ge_img">
+                    <div class="ge-floating-ui">
+                        <div class="ge-ui-icon"><i class="ri-rocket-fill"></i></div>
+                        <div class="ge-ui-text">
+                            <h4 data-cms="ge_stat_title">Average Return</h4>
+                            <span data-cms="ge_stat_val">4.8x ROAS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="xray-section section-pad" style="background: #FDFDFB; z-index: 5; position: relative;">
+            <div class="container text-center">
+                <span class="tag-pill" data-cms="xray_tag" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: #FFF; border: 1px solid rgba(212,175,55,0.4); border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #556B2F; box-shadow: 0 10px 30px rgba(0,0,0,0.04); margin-bottom: 20px;"><i class="ri-magic-line"></i> The Difference</span>
+                <h2 class="title-lg" data-cms="xray_title" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4.5vw, 4.5rem); margin-bottom: 20px; font-weight: 700; color: #1A1C20;">Before vs <span class="italic-serif" style="color: #556B2F; font-style: italic;">After</span>.</h2>
+                <p style="font-family: 'Outfit', sans-serif; font-size: 1.1rem; color: #6B7280; max-width: 650px; margin: 0 auto 40px;" data-cms="xray_desc">Slide to see how upgrading your digital presence instantly builds trust and lowers your cost-per-lead.</p>
+                
+                <div class="ba-container reveal-up" id="baContainer" style="position: relative; width: 100%; max-width: 1000px; margin: 0 auto; height: 450px; border-radius: 40px; overflow: hidden; background: #FFFFFF; cursor: col-resize; box-shadow: 0 30px 60px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.08); touch-action: pan-y;">
+                    <img src="https://images.pexels.com/photos/19736858/pexels-photo-19736858.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80" class="ba-img-after" alt="Modern Converting Design" data-cms="ba_img_after" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                    
+                    <img src="https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80" class="ba-img-before" id="baBefore" alt="Old Messy Design" data-cms="ba_img_before" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; clip-path: inset(0 50% 0 0);">
+                    
+                    <div class="ba-handle" id="baHandle" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; background: #FFF; z-index: 3; transform: translateX(-50%); pointer-events: none; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+                        <div class="ba-handle-btn" style="width: 60px; height: 60px; background: #FFF; border: 1px solid rgba(212,175,55,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #556B2F; font-size: 1.8rem; box-shadow: 0 10px 30px rgba(0,0,0,0.15); backdrop-filter: blur(10px);"><i class="ri-skip-left-right-line"></i></div>
+                    </div>
+                    <div class="ba-labels" style="position: absolute; bottom: 30px; left: 30px; right: 30px; display: flex; justify-content: space-between; z-index: 4; pointer-events: none;">
+                        <div class="ba-label" id="baLabelBefore" data-cms="ba_lbl_before" style="background: rgba(255,255,255,0.95); padding: 12px 25px; border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: #1A1C20; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08); transition: 0.3s;">Before Design</div>
+                        <div class="ba-label after" id="baLabelAfter" data-cms="ba_lbl_after" style="background: #556B2F; color: #FFF; border-color: #556B2F; padding: 12px 25px; border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08); transition: 0.3s;">After Upgrade</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="reels-section section-pad" id="proof" style="background: #F4F4F0; padding: 8rem 0; position: relative; z-index: 5; border-top: 1px solid rgba(0,0,0,0.08); border-bottom: 1px solid rgba(0,0,0,0.08);">
+            <div class="container text-center" style="margin-bottom: 40px;">
+                <span class="tag-pill" data-cms="reels_tag" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: #FFF; border: 1px solid rgba(212,175,55,0.4); border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #556B2F; box-shadow: 0 10px 30px rgba(0,0,0,0.04); margin-bottom: 20px;"><i class="ri-chat-smile-3-line"></i> Video Reviews</span>
+                
+                <div class="reviews-label" style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 40px; font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-style: italic; color: #556B2F; font-weight: 600;">
+                    <div class="rl-dot" style="width: 15px; height: 15px; border-radius: 50%; background: #556B2F; animation: rlaPulse 2s infinite;"></div> <h2 class="title-lg" data-cms="reels_title" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-style: italic; color: #1A1C20;">REAL CLIENT REVIEWS</h2>
+                </div>
+                
+                <p data-cms="reels_desc" style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; color: #6B7280; max-width: 600px; margin: 0 auto;">Authentic business owners. Real growth. Click any video to watch their story in fullscreen.</p>
+            </div>
+
+            <div class="swiper swiper-container-reels" id="reels-swiper-future-loop" style="width: 100%; max-width: 1400px; margin: 0 auto; overflow: visible; padding: 20px 0;">
+                <div class="swiper-wrapper" id="dynamic-swiper-wrapper">
+                </div>
+            </div>
+        </section>
+
+        <section class="rush-section" style="background: #0A0B0E; color: #FFF; padding: 8rem 5%; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; z-index: 5; border-radius: 60px; margin: 0 2%; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 80px rgba(0,0,0,0.3);">
+            <div style="content: ''; position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(212, 175, 55, 0.15), transparent 70%); pointer-events: none; z-index: 0;"></div>
+            <div class="container reveal-up" style="position: relative; z-index: 2;">
+                <h2 class="rush-title" data-cms="rush_title" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 6.5rem); line-height: 1.1; margin-bottom: 25px; background: linear-gradient(135deg, #556B2F 0%, #D4AF37 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Get a <span style="color: #D4AF37;">Rush</span> In Your Store.</h2>
+                <p class="rush-desc" data-cms="rush_desc" style="font-family: 'Outfit', sans-serif; font-size: clamp(1.1rem, 1.5vw, 1.3rem); color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto; line-height: 1.6;">Our digital marketing drives 90% of your business growth. Stop waiting for referrals. Build an autonomous revenue machine.</p>
+            </div>
+        </section>
+
+    </div> 
+    
+    <footer class="footer-fixed" id="contact" style="position: fixed; bottom: 0; left: 0; width: 100%; height: 85vh; background: #0A0B0E; color: #FFF; z-index: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 5%; overflow: hidden;">
+        <div style="content:''; position:absolute; top:-20%; left:-10%; width: 500px; height: 500px; background: rgba(212, 175, 55, 0.15); border-radius: 50%; filter: blur(80px); pointer-events: none;"></div>
+        
+        <div class="f-cta" style="max-width: 1000px; margin: 0 auto; position: relative; z-index: 2;">
+            <h2 data-cms="ft_title" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 8vw, 7rem); margin-bottom: 20px; line-height: 1; color: #FFF;">Ready to <span class="italic-serif" style="color: #D4AF37; font-style: italic;">Grow?</span></h2>
+            <p data-cms="ft_desc" style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; color: #A0A0A0; margin-bottom: 40px; max-width: 600px; margin-inline: auto; font-weight: 400;">Stop wasting money on ads that don't work. We engineer the predictable system that fills your calendar with paying customers this month.</p>
+            
+            <div class="magnetic-wrap">
+                <a href="form.html" class="btn btn-olive magnetic-inner" data-cms="ft_btn" style="background: #556B2F; color: #FFF; padding: 20px 50px; font-size: 1.05rem; border-radius: 100px; font-family: 'Outfit', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; box-shadow: 0 30px 60px rgba(0,0,0,0.1);">
+                    Book Free Strategy Call <i class="ri-arrow-right-up-line"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="f-bottom" style="position: absolute; bottom: 30px; left: 5%; right: 5%; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #A0A0A0; flex-wrap: wrap; gap: 20px; font-weight: 500; z-index: 2;">
+            <div class="f-brand" data-cms="ft_brand" style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: #FFF; display: flex; align-items: center; gap: 10px;">
+                ReachForever.
+            </div>
+            
+            <div class="f-designer" style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; color: #A0A0A0; background: rgba(255,255,255,0.03); padding: 12px 30px; border-radius: 100px; border: 1px solid rgba(212, 175, 55, 0.3); box-shadow: 0 10px 20px rgba(0,0,0,0.2); backdrop-filter: blur(10px);">
+                <span data-cms="ft_eng">Engineered by</span> <a href="https://www.zyrovadigital.online" target="_blank" rel="noopener noreferrer" style="color: #D4AF37; font-weight: 800; text-decoration: none; text-shadow: 0 0 15px rgba(212,175,55,0.6); letter-spacing: 1px; transition: 0.3s;">Zyrova Digital</a> 
+                <span style="color: #556B2F; margin: 0 12px; font-weight: 300;">|</span> 
+                <span data-cms="ft_des">Designed by</span> <strong style="color: #FFF; letter-spacing: 0.5px;">Akash Jadon</strong>
+            </div>
+
+            <div class="f-socials" style="display: flex; gap: 20px; font-size: 1.5rem;">
+                <div class="magnetic-wrap"><a href="#" class="magnetic-inner" aria-label="Instagram" style="color: #A0A0A0;"><i class="ri-instagram-line"></i></a></div>
+                <div class="magnetic-wrap"><a href="#" class="magnetic-inner" aria-label="WhatsApp" style="color: #A0A0A0;"><i class="ri-whatsapp-line"></i></a></div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="reels-modal" id="reelsModal" style="position: fixed; inset: 0; background: #000; z-index: 99999; display: flex; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease;">
+        <div class="rm-close" id="rmClose" style="position: absolute; top: 30px; left: 30px; width: 50px; height: 50px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFF; font-size: 1.5rem; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); z-index: 10; transition: 0.3s;"><i class="ri-arrow-left-line"></i></div>
+        
+        <div class="rm-container" id="rmModalContainer" style="width: 100%; max-width: 450px; height: 100vh; overflow-y: scroll; scroll-snap-type: y mandatory; scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none;">
+        </div>
+    </div>
+
+    <div class="ai-fab-wrap magnetic-wrap" style="position: fixed; bottom: 40px; right: 40px; z-index: 10000; cursor: none; pointer-events: auto;">
+        <div class="magnetic-inner ai-fab" id="auraFab" role="button" aria-label="Open Assistant" style="width: 65px; height: 65px; border-radius: 50%; background: #FFF; border: 1px solid rgba(212,175,55,0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; align-items: center; justify-content: center; transition: 0.6s; position: relative;">
+            <i class="ri-customer-service-2-fill" style="font-size: 2.2rem; color: #556B2F;"></i>
+        </div>
+    </div>
+
+    <div class="chat-panel" id="auraPanel" aria-hidden="true" style="position: fixed; bottom: 130px; right: 40px; width: 420px; background: rgba(10,11,14,0.85); backdrop-filter: blur(40px); border-radius: 32px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 80px rgba(0,0,0,0.1); z-index: 10001; overflow: hidden; transform: translateY(40px) scale(0.95); opacity: 0; pointer-events: none; transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1); display: flex; flex-direction: column;">
+        <div class="cp-header" style="padding: 25px 30px; display: flex; justify-content: space-between; align-items: center; background: #FFF; border-bottom: 1px solid rgba(0,0,0,0.08); position: relative;">
+            <div class="cp-info" style="display: flex; gap: 15px; align-items: center;">
+                <div class="cp-avatar" style="width: 45px; height: 45px; border-radius: 50%; background: rgba(85,107,47,0.1); border: 1px solid #556B2F; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #556B2F;"><i class="ri-user-smile-line"></i></div>
+                <div class="cp-text">
+                    <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-bottom: 2px; color: #1A1C20;">Reach Assistant</h4>
+                    <span style="font-size: 0.75rem; color: #10B981; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; gap: 6px;"><div style="width:8px; height:8px; background: #10B981; border-radius:50%;"></div> Online Now</span>
+                </div>
+            </div>
+            <button id="auraClose" class="cp-close" aria-label="Close Chat Panel" style="font-size: 2rem; color: #6B7280; cursor: pointer; pointer-events: auto; transition: 0.3s; z-index: 10002; background:none; border:none;"><i class="ri-close-line"></i></button>
+        </div>
+        
+        <div class="cp-body" id="auraBody" style="height: 400px; padding: 25px; overflow-y: auto; display: flex; flex-direction: column; background: #FDFDFB;">
+        </div>
+        
+        <div class="cp-input" style="padding: 20px; background: #FFF; border-top: 1px solid rgba(0,0,0,0.08); display: flex; gap: 15px; align-items: center;">
+            <input type="text" placeholder="Type your message..." id="auraInput" aria-label="Chat input" style="flex: 1; border: 1px solid rgba(0,0,0,0.08); background: #F4F4F0; padding: 15px 20px; border-radius: 50px; font-family: 'Outfit', sans-serif; font-size: 0.95rem; color: #1A1C20; outline: none; transition: 0.3s; pointer-events: auto;">
+            <div class="magnetic-wrap" style="padding: 0; margin: 0;">
+                <button id="auraSend" class="magnetic-inner" aria-label="Send message" style="width: 50px; height: 50px; border-radius: 50%; border: none; background: #1A1C20; color: #FFF; font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s; pointer-events: auto;"><i class="ri-send-plane-fill"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script src="js/main.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // =================================================================================
+            // GOLDEN DUST PARTICLE SYSTEM
+            // =================================================================================
+            const canvas = document.getElementById('particle-canvas');
+            if(canvas) {
+                const ctx = canvas.getContext('2d');
+                let particles = [];
+                const particleCount = window.innerWidth < 768 ? 40 : 80;
+
+                const resizeCanvas = () => {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                };
+                window.addEventListener('resize', resizeCanvas);
+                resizeCanvas();
+
+                for(let i=0; i<particleCount; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        r: Math.random() * 2 + 0.5,
+                        dx: (Math.random() - 0.5) * 0.3,
+                        dy: (Math.random() - 1) * 0.4 - 0.1, 
+                        alpha: Math.random() * 0.5 + 0.2
+                    });
+                }
+
+                function animateParticles() {
+                    ctx.clearRect(0,0,canvas.width, canvas.height);
+                    particles.forEach(p => {
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+                        ctx.fillStyle = `rgba(212, 175, 55, ${p.alpha})`; 
+                        ctx.fill();
+                        p.x += p.dx;
+                        p.y += p.dy;
+                        if(p.y < 0) p.y = canvas.height;
+                        if(p.x < 0) p.x = canvas.width;
+                        if(p.x > canvas.width) p.x = 0;
+                    });
+                    requestAnimationFrame(animateParticles);
+                }
+                animateParticles();
+            }
+
+            // =================================================================================
+            // SCROLL PROGRESS BAR
+            // =================================================================================
+            window.addEventListener('scroll', () => {
+                const scrollPx = document.documentElement.scrollTop;
+                const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = `${scrollPx / winHeightPx * 100}%`;
+                const scrollProgress = document.getElementById('scrollProgress');
+                if(scrollProgress) scrollProgress.style.width = scrolled;
+            });
+
+            // =================================================================================
+            // MOBILE HERO RESPONSIVE FIX
+            // =================================================================================
+            const applyMobileFixes = () => {
+                if (window.innerWidth <= 1024) {
+                    const floats = document.querySelectorAll('.hero-social-float');
+                    floats.forEach(el => el.style.display = 'none');
+                    
+                    const heroGrid = document.querySelector('.hero-grid');
+                    if(heroGrid) {
+                        heroGrid.style.gridTemplateColumns = '1fr';
+                        heroGrid.style.textAlign = 'center';
+                        heroGrid.style.gap = '60px';
+                    }
+                    
+                    const heroText = document.querySelector('.hero-text');
+                    if(heroText) {
+                        heroText.style.display = 'flex';
+                        heroText.style.flexDirection = 'column';
+                        heroText.style.alignItems = 'center';
+                    }
+                    
+                    const heroDesc = document.querySelector('.hero-desc');
+                    if(heroDesc) {
+                        heroDesc.style.borderLeft = 'none';
+                        heroDesc.style.paddingLeft = '0';
+                        heroDesc.style.maxWidth = '100%';
+                    }
+                    
+                    const actions = document.querySelector('.hero-actions');
+                    if(actions) actions.style.justifyContent = 'center';
+                    
+                    const iphone = document.querySelector('.iphone-mockup');
+                    if(iphone) {
+                        iphone.style.margin = '20px auto 0 !important';
+                        iphone.style.transform = 'scale(0.85) !important';
+                    }
+
+                    const revInd = document.querySelector('.review-indicator');
+                    if(revInd) {
+                        revInd.style.left = '50%';
+                        revInd.style.transform = 'translateX(-50%)';
+                        revInd.style.top = '-30px';
+                        revInd.style.animation = 'none';
+                    }
+                }
+            };
+            applyMobileFixes();
+            window.addEventListener('resize', applyMobileFixes);
+            
+            // =================================================================================
+            // IPHONE CLICK TO REELS (INSTA-PORTAL)
+            // =================================================================================
+            const rmClose = document.getElementById('rmClose');
+
+            if(rmClose) {
+                rmClose.addEventListener('click', () => {
+                    const reelsModal = document.getElementById('reelsModal');
+                    if (reelsModal) { reelsModal.style.opacity = '0'; reelsModal.style.pointerEvents = 'none'; }
+                    document.querySelectorAll('.rm-video').forEach(v => { v.pause(); v.muted = true; }); 
+                });
+            }
+
+            // =================================================================================
+            // BEFORE/AFTER SLIDER INTERACTION
+            // =================================================================================
+            const baContainer = document.getElementById('baContainer');
+            const baBefore = document.getElementById('baBefore');
+            const baHandle = document.getElementById('baHandle');
+            if(baContainer && baBefore && baHandle) {
+                let isDragging = false;
+                const updateSlider = (xPos) => {
+                    const rect = baContainer.getBoundingClientRect();
+                    let x = Math.max(0, Math.min(xPos - rect.left, rect.width)); 
+                    const percent = (x / rect.width) * 100;
+                    baBefore.style.clipPath = `inset(0 ${100 - percent}% 0 0)`; 
+                    baHandle.style.left = `${percent}%`;
+                };
+                baContainer.addEventListener('mousedown', (e) => { isDragging = true; updateSlider(e.clientX); });
+                window.addEventListener('mouseup', () => { isDragging = false; });
+                window.addEventListener('mousemove', (e) => { if(isDragging) updateSlider(e.clientX); });
+                baContainer.addEventListener('touchstart', (e) => { isDragging = true; updateSlider(e.touches[0].clientX); }, {passive: true});
+                window.addEventListener('touchend', () => { isDragging = false; });
+                window.addEventListener('touchmove', (e) => { if(isDragging) { if(e.cancelable) e.preventDefault(); updateSlider(e.touches[0].clientX); } }, {passive: false});
+            }
+
+            // =================================================================================
+            // GSAP INTERACTIONS
+            // =================================================================================
+            if(typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                
+                gsap.fromTo('.city-card', 
+                    { scale: 0.5, opacity: 0 },
+                    { scale: 1, opacity: 1, duration: 0.8, stagger: 0.2, ease: "back.out(1.5)", scrollTrigger: { trigger: ".radar-section", start: "top 70%" } }
+                );
+
+                document.querySelectorAll('.apple-text-reveal').forEach(text => {
+                    gsap.fromTo(text, 
+                        { backgroundPositionX: "100%", opacity: 0.3 },
+                        { backgroundPositionX: "0%", opacity: 1, ease: "none", scrollTrigger: { trigger: text, start: "top 85%", end: "bottom 45%", scrub: 1 } }
+                    );
+                });
+            }
+
+            // =================================================================================
+            // AURA CHATBOT LOGIC (EMBEDDED BRAIN + AUTO-GREET)
+            // =================================================================================
+            const auraFab = document.getElementById('auraFab');
+            const auraPanel = document.getElementById('auraPanel');
+            const auraClose = document.getElementById('auraClose');
+            const auraBody = document.getElementById('auraBody');
+            const auraInput = document.getElementById('auraInput');
+            const auraSend = document.getElementById('auraSend');
+
+            if(auraFab && auraPanel) {
+                auraFab.addEventListener('click', () => {
+                    auraPanel.style.opacity = '1';
+                    auraPanel.style.transform = 'translateY(0) scale(1)';
+                    auraPanel.style.pointerEvents = 'auto';
+                });
+            }
+            
+            if(auraClose && auraPanel) {
+                auraClose.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    auraPanel.style.opacity = '0';
+                    auraPanel.style.transform = 'translateY(40px) scale(0.95)';
+                    auraPanel.style.pointerEvents = 'none';
+                });
+            }
+
+            // MASSIVE EMBEDDED BRAIN
+            const botKnowledge = [
+                { "regex": "^(hi|hello|hey|greetings|howdy|wassup|what's up|morning|afternoon|evening|yo)[!?]*$", "response": "Hello there! Welcome to Reach Forever. I'm Chloe, your friendly assistant. How can I help your business grow today?" },
+                { "regex": "(how are you|how you doing|how's it going|whats new)", "response": "I am doing wonderfully, thank you so much for asking! I'm here and ready to help you with anything you need. How is your day going?" },
+                { "regex": "(who are you|are you a robot|are you ai|are you real|what are you|name)", "response": "My name is Chloe! I am a friendly AI assistant created specifically for Reach Forever. I'm designed to give you the best and most caring support possible!" },
+                { "regex": "(best digital marketing agency|top agency in india|agency in punjab|phagwara|jalandhar|seo agency)", "response": "You found us! Reach Forever is proud to be the best digital marketing agency in India. We specifically dominate the local markets in Punjab, Phagwara, and Jalandhar. We provide top-tier SEO so your business stays at the #1 spot when people search for your services." },
+                { "regex": "(owner|who owns|founder|ceo|boss|who is the head|who runs this)", "response": "Ansh Khatri is the proud owner and CEO of Reach Forever! He leads our agency with a brilliant vision to help local businesses succeed and scale quickly." },
+                { "regex": "(who is ansh|ansh khatri|about ansh)", "response": "Ansh Khatri is our visionary owner and founder. He is dedicated to bringing the best marketing results, trust, and the highest ROI to all of our clients." },
+                { "regex": "(web design|website|web dev|web development|app dev|application|create an app|build a site|ui|ux|frontend|backend|app development|make an app|software|code)", "response": "For any website design, web development, or mobile app needs, our expert lead developer is Akash Jadon! You can reach him directly via call or WhatsApp at +917668758238. He builds the most beautiful, high-converting platforms on the market." },
+                { "regex": "(who is akash|akash jadon|designer|developer|who built this)", "response": "Akash Jadon is our master lead designer and developer! If you need an incredibly fast, custom website or app built, he is the expert you need. Contact him directly at +917668758238." },
+                { "regex": "(what do you do|what is reach forever|about us|your agency|company|services)", "response": "We are a premium digital marketing agency. We build automated revenue machines for businesses! We run highly effective online ads and build great websites so you can focus on your work while we bring you sales." },
+                { "regex": "(price|pricing|cost|fee|how much|expensive|cheap|budget|charge|affordable)", "response": "Our pricing is perfectly customized to what your business needs to grow. We ensure our services are a profitable investment, not just a cost. Please click 'Book Strategy Call' so we can discuss a friendly quote tailored for you!" },
+                { "regex": "(i have no budget|no money|broke|too small)", "response": "We completely understand that cash flow can be tight for a growing business! We specialize in creating high-return campaigns so that the money you spend comes back to you multiplied. Let's have a free chat to see how we can start small." },
+                { "regex": "(ads|facebook ads|instagram ads|meta ads|paid traffic|ppc|advertising)", "response": "We run very smart, hyper-local Facebook and Instagram ads. We show your business only to people in your exact city who are already looking for what you sell, making it very easy to get new customers fast." },
+                { "regex": "(how to do seo|what is seo|google search|rank higher)", "response": "SEO stands for Search Engine Optimization. We do it by optimizing your website's content, speed, and backend code so Google trusts it. When people in Punjab, Phagwara, or Jalandhar search for your niche, we make sure you appear at the very top of page one!" },
+                { "regex": "(proof|reviews|results|case studies|portfolio|clients|examples)", "response": "Results are our only metric. We've generated over ₹85 Lakhs for our local clients recently. You can watch real, authentic video testimonials from our happy partners right here on our homepage!" },
+                { "regex": "(guarantee|refund|risk|promise)", "response": "We completely understand that marketing can feel risky. That is why we focus heavily on bringing you a Guaranteed Positive ROI. We want you to make far more money than you spend with us." },
+                { "regex": "(time|how long|launch|start|onboarding)", "response": "We work very fast to respect your time. With our Rapid 14-Day Launch guarantee, we build your campaigns, create your funnel, and launch your ads in just two weeks!" },
+                { "regex": "(dentist|dental|clinic|hospital|doctor|medical|medspa|spa|salon)", "response": "We love working with medical clinics and salons! We know exactly how to find people who need your specific treatments and book them directly into your calendar automatically." },
+                { "regex": "(real estate|realtor|property|broker)", "response": "Real estate is a great industry. We help you find people who are seriously looking to buy or sell properties in your exact area, so you never have to chase cold leads from big portals again." },
+                { "regex": "(ecommerce|store|shop|sell online|products)", "response": "Selling online? That's wonderful! We set up targeted ads to bring eager shoppers to your store, and use clever retargeting to remind people who left items in their cart to come back and buy." },
+                { "regex": "(joke|funny|humor|laugh)", "response": "I'd love to share a joke! Why did the marketer get off the trampoline? ...Because he was worried about his bounce rate! 😊 I hope that made you smile." },
+                { "regex": "(meaning of life|philosophy)", "response": "I believe the meaning of life is to help others, be kind, and find joy in what you do. For us at Reach Forever, it's bringing joy to business owners by helping them succeed!" },
+                { "regex": "(thanks|thank you|appreciate|awesome|cool|great|good)", "response": "You are so very welcome! It is my absolute pleasure to help you. Let me know if there is anything else you need, or feel free to book a strategy call!" },
+                { "regex": "(bye|goodbye|cya|exit|leave)", "response": "Goodbye! Thank you so much for chatting with me at Reach Forever. I hope you have a wonderful and highly profitable day. Come back anytime!" },
+                { "regex": "(call|book|contact|meeting|schedule|appointment)", "response": "I would love to help you arrange that! Please click the 'Book Strategy Call' button on the screen to choose a time that fits your schedule perfectly. Our experts are excited to meet you." },
+                { "regex": "(shit|fuck|bitch|damn|crap|idiot|stupid|dumb|asshole)", "response": "I completely understand if you are feeling frustrated. I am here to help in a polite and respectful way. Please let me know how I can make things better for you." },
+                { "regex": "(leads|customers|clients|more business|growth)", "response": "Getting you more customers is our main goal! We use simple but very smart digital systems to find people who need your services and connect them directly with you." },
+                { "regex": "(roi|roas|return on investment|profit)", "response": "Making sure you see a profit is very important to us. We track everything closely so you know exactly how much money your ads are bringing back to your business. Our average client sees a 4.8x return!" },
+                { "regex": "(where are you located|location|address|india)", "response": "We operate all across India, dominating markets in Punjab, Phagwara, Jalandhar, Mumbai, Delhi, Bangalore, and beyond! Because we work online, we can easily help you scale no matter where you are." },
+                { "regex": "(scam|fake|scammers|too good to be true)", "response": "I completely understand your worry; there are many untrustworthy people out there. We pride ourselves on honesty. You can watch real videos of our happy clients right on this page to see our real work." },
+                { "regex": "(are you smart|how smart are you)", "response": "I try my best to be very smart and helpful! My main focus is knowing everything about how Reach Forever can help your business grow and succeed." },
+                { "regex": "(love you|marry me|beautiful|cute)", "response": "Oh, you are very kind! I appreciate your sweet words, but my heart is dedicated strictly to helping businesses succeed and analyzing marketing data. 💙" },
+                { "regex": "(what is your phone number|phone number|contact number)", "response": "For web and app development inquiries, you can reach Akash Jadon directly at +917668758238. For marketing strategy, please click 'Book Strategy Call' to schedule a chat with our team!" },
+                { "regex": "(do you work with startups|startups|small business)", "response": "Yes! We love helping startups and small local businesses grow into large, successful companies. We guide you step-by-step so you never feel lost." },
+                { "regex": "(do you use templates|templates)", "response": "No, we don't use basic templates. Everything we do, especially Akash's web development, is custom-built, highly secure, and perfectly matched to your unique brand." },
+                { "regex": "(i am confused|confused|not sure|lost)", "response": "Please do not worry at all, I am here to help make things clear! What specific part of marketing or web design can I explain better for you?" },
+                { "regex": "^(ok|okay|k|hmm|ah|oh|yes|yeah|yep|sure|right|cool)$", "response": "Wonderful! If you have any more questions about our marketing, SEO, or web development, I am right here. Or, you can easily book a call with us." },
+                { "regex": ".*", "response": "I completely understand. To give you the best and most accurate answer for your specific business, I recommend speaking with our human experts. Please click the 'Book Strategy Call' button, or ask me another question!" }
+            ];
+
+            let isProcessing = false;
+            
+            function addMessage(text, isAi = false) {
+                const msg = document.createElement('div');
+                msg.className = `msg ${isAi ? 'ai' : 'user'}`;
+                msg.style.cssText = `font-family: 'Outfit', sans-serif; padding: 15px 20px; border-radius: 20px; font-size: 0.95rem; line-height: 1.5; max-width: 85%; font-weight: 500; margin-bottom: 15px; align-self: ${isAi ? 'flex-start' : 'flex-end'}; background: ${isAi ? '#FFF' : 'linear-gradient(135deg, #556B2F 0%, #435525 100%)'}; color: ${isAi ? '#1A1C20' : '#FFF'}; border: ${isAi ? '1px solid rgba(0,0,0,0.08)' : 'none'}; border-bottom-${isAi ? 'left' : 'right'}-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);`;
+                msg.innerHTML = text;
+                if(auraBody) { auraBody.appendChild(msg); auraBody.scrollTop = auraBody.scrollHeight; }
+            }
+
+            function handleSend() {
+                if (isProcessing || !auraInput || !auraInput.value.trim()) return;
+                const text = auraInput.value.trim();
+                addMessage(text, false);
+                auraInput.value = '';
+                isProcessing = true;
+
+                let botReply = botKnowledge[botKnowledge.length - 1].response;
+                for(let rule of botKnowledge) {
+                    try { if (new RegExp(rule.regex, 'i').test(text)) { botReply = rule.response; break; } } catch(e) {}
+                }
+
+                const typingId = 'typing-' + Date.now();
+                if(auraBody) {
+                    auraBody.insertAdjacentHTML('beforeend', `<div id="${typingId}" style="display: flex; gap: 6px; padding: 15px 20px; background: #FFF; border: 1px solid rgba(0,0,0,0.08); border-radius: 20px; border-bottom-left-radius: 4px; width: fit-content; align-self: flex-start; margin-bottom: 15px;"><div style="width: 6px; height: 6px; background: #556B2F; border-radius: 50%;"></div><div style="width: 6px; height: 6px; background: #556B2F; border-radius: 50%;"></div><div style="width: 6px; height: 6px; background: #556B2F; border-radius: 50%;"></div></div>`);
+                    auraBody.scrollTop = auraBody.scrollHeight;
+                }
+
+                setTimeout(() => {
+                    const tNode = document.getElementById(typingId);
+                    if(tNode) tNode.remove();
+                    addMessage(botReply, true);
+                    isProcessing = false;
+                }, 1000);
+            }
+
+            window.sendAuraSuggestion = function(text) {
+                if(auraInput) auraInput.value = text;
+                handleSend();
+            };
+
+            if(auraSend) auraSend.addEventListener('click', handleSend);
+            if(auraInput) auraInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') handleSend(); });
+
+            let hasGreeted = false;
+
+            // AUTO GREET TIMER (5 SECONDS)
+            setTimeout(() => {
+                if(hasGreeted) return;
+                hasGreeted = true;
+                if(auraPanel && auraBody) {
+                    auraPanel.style.opacity = '1';
+                    auraPanel.style.transform = 'translateY(0) scale(1)';
+                    auraPanel.style.pointerEvents = 'auto';
+                    
+                    const typingId = 'greet-typing';
+                    auraBody.innerHTML = '';
+                    auraBody.insertAdjacentHTML('beforeend', `<div id="${typingId}" style="display: flex; align-items: center; gap: 6px; padding: 15px 20px; background: #FFF; border: 1px solid rgba(0,0,0,0.08); border-radius: 20px; border-bottom-left-radius: 4px; width: fit-content; box-shadow: 0 10px 30px rgba(0,0,0,0.04); align-self: flex-start; margin-bottom: 15px;"><div style="width: 6px; height: 6px; background: #556B2F; border-radius: 50%;"></div><div style="width: 6px; height: 6px; background: #556B2F; border-radius: 50%;"></div><div style="width: 6px; height: 6px; background: #556B2F; border-radius: 50%;"></div></div>`);
+                    
+                    setTimeout(() => {
+                        const tNode = document.getElementById(typingId);
+                        if(tNode) tNode.remove();
+                        addMessage("Hi! Welcome to Reach Forever. I'm Chloe! How can I help your business grow today? You can ask me anything.", true);
+                        
+                        setTimeout(() => {
+                            const chipsHTML = `
+                                <div id="auraSuggestions" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 15px; animation: slideUpFade 0.4s ease forwards;">
+                                    <button class="chip" onclick="sendAuraSuggestion('I need local customers.')" style="padding: 10px 16px; background: #FFF; border: 1px solid rgba(212,175,55,0.4); border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 600; color: #556B2F; cursor: pointer; transition: 0.3s; pointer-events: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">I need local customers.</button>
+                                    <button class="chip" onclick="sendAuraSuggestion('I need automated systems.')" style="padding: 10px 16px; background: #FFF; border: 1px solid rgba(212,175,55,0.4); border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 600; color: #556B2F; cursor: pointer; transition: 0.3s; pointer-events: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">I need automated systems.</button>
+                                </div>
+                            `;
+                            auraBody.insertAdjacentHTML('beforeend', chipsHTML);
+                            auraBody.scrollTop = auraBody.scrollHeight;
+                        }, 800);
+                    }, 1500);
+                }
+            }, 5000);
+
+            // PRELOADER FAILSAFE
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => { preloader.style.display = 'none'; }, 500);
+                }, 800);
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const API_BASE_URL = "http://localhost:5000/api"; // Corrected Port
+            let pageName = window.location.pathname.split("/").pop().replace(".html", "");
+            if (!pageName || pageName === "" || pageName === "index") pageName = "home";
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/content/${pageName}`);
+                const data = await response.json();
+                
+                const globalResponse = await fetch(`${API_BASE_URL}/content/global`);
+                const globalData = await globalResponse.json();
+
+                let allContent = [];
+                if (data.success && data.data) allContent = [...allContent, ...data.data];
+                if (globalData.success && globalData.data) allContent = [...allContent, ...globalData.data];
+
+                const dynamicReels = {};
+
+                // 1. Process Database
+                if (allContent.length > 0) {
+                    allContent.forEach(dbItem => {
+                        if (!dbItem || !dbItem.elementId) return;
+
+                        if (dbItem.elementId.startsWith('dynreel_')) {
+                            const parts = dbItem.elementId.split('_');
+                            const reelId = parts[1];
+                            const prop = parts[2];
+                            if (!dynamicReels[reelId]) dynamicReels[reelId] = { id: reelId };
+                            dynamicReels[reelId][prop] = dbItem.contentValue;
+                        } else {
+                            // 2. Load Static Content (Skip iPhone to avoid overrides)
+                            if(dbItem.elementId !== 'home_iphone_reel' && dbItem.elementId !== 'hero_iphone_client' && dbItem.elementId !== 'hero_iphone_caption') {
+                                const elements = document.querySelectorAll(`[data-cms="${dbItem.elementId}"]`);
+                                elements.forEach(el => {
+                                    if (dbItem.contentType === 'text') el.innerHTML = dbItem.contentValue;
+                                    else if (dbItem.contentType === 'image') {
+                                        if (el.tagName === "DIV" || el.classList.contains('bk-left-bg-overlay')) {
+                                            el.style.backgroundImage = `url('${dbItem.contentValue}')`;
+                                        } else el.src = dbItem.contentValue;
+                                    } 
+                                    else if (dbItem.contentType === 'video') {
+                                        el.src = dbItem.contentValue;
+                                        el.load(); 
+                                    }
+                                });
+                            }
+                        }
+                    });
+                }
+
+                // 3. INJECT REELS INTO IPHONE AND MODAL
+                const modalContainer = document.getElementById('rmModalContainer');
+                let sortedReels = Object.values(dynamicReels).sort((a, b) => b.id - a.id);
+
+                // FORCE THE OLD PEXELS VIDEO TO ALWAYS EXIST AT THE BOTTOM OF THE FEED
+                sortedReels.push({
+                    vid: "https://videos.pexels.com/video-files/4100018/4100018-uhd_1440_2560_25fps.mp4",
+                    name: "Dr. Aris Thorne",
+                    cap: "120 new patients this month. Unbelievable.",
+                    avatar: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=100&q=80"
+                });
+
+                if(modalContainer) {
+                    modalContainer.innerHTML = '';
+                    // SCROLL FIX FOR LENIS
+                    modalContainer.setAttribute('data-lenis-prevent', 'true');
+                    modalContainer.style.overscrollBehaviorY = 'contain';
+                }
+
+                sortedReels.forEach((reel, index) => {
+                    if(!reel.vid) return; 
+
+                    const avatar = reel.avatar || 'https://agency-resources.zyrova.com/reachforever/default-avatar.png';
+                    const clientName = reel.name || 'Client';
+                    const caption = reel.cap || '';
+
+                    // A. iPhone Hero Update (Forces Newest Reel)
+                    if (index === 0) {
+                        const heroVid = document.getElementById('heroVideoAd');
+                        const heroClient = document.querySelector('.iphone-ui .iu-client');
+                        const heroCaption = document.querySelector('.iphone-ui .reel-caption');
+                        
+                        if(heroVid) { 
+                            heroVid.src = reel.vid; 
+                            heroVid.load(); 
+                            let playPromise = heroVid.play();
+                            if(playPromise !== undefined) playPromise.catch(e => console.log('iPhone autoplay waiting...'));
+                        }
+                        if(heroClient) heroClient.innerHTML = clientName;
+                        if(heroCaption) heroCaption.innerHTML = `"${caption}"`;
+                    }
+
+                    // B. Vertical Modal Update
+                    if(modalContainer) {
+                        const modalHTML = `
+                            <div class="rm-slide" id="modal-slide-${index}" style="width: 100%; height: 100vh; scroll-snap-align: start; position: relative; background: #111;">
+                                <video class="rm-video" loop playsinline style="width: 100%; height: 100%; object-fit: cover;" src="${reel.vid}"></video>
+                                
+                                <div style="position: absolute; bottom: 100px; right: 15px; display: flex; flex-direction: column; gap: 25px; z-index: 10; color: #FFF; font-size: 2rem; text-align: center; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">
+                                    <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;"><i class="ri-heart-fill" style="color: #FF3B30;"></i><span style="font-size: 0.85rem; font-weight: 600;">${Math.floor(Math.random() * 20) + 5}k</span></div>
+                                    <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;"><i class="ri-chat-3-fill"></i><span style="font-size: 0.85rem; font-weight: 600;">${Math.floor(Math.random() * 500) + 100}</span></div>
+                                    <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;"><i class="ri-share-forward-fill"></i><span style="font-size: 0.85rem; font-weight: 600;">Share</span></div>
+                                </div>
+
+                                <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 30%, transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px 80px 40px 20px; pointer-events: none;">
+                                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                                        <img src="${avatar}" style="width: 55px; height: 55px; border-radius: 50%; border: 3px solid #D4AF37; object-fit: cover;">
+                                        <div style="display: flex; flex-direction: column;">
+                                            <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #FFF; font-weight: 700;">${clientName}</div>
+                                            <div style="font-family: 'Outfit', sans-serif; font-size: 0.85rem; color: #D4AF37; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Partner</div>
+                                        </div>
+                                    </div>
+                                    <div style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; color: rgba(255,255,255,0.95); line-height: 1.5;">${caption}</div>
+                                </div>
+                            </div>
+                        `;
+                        modalContainer.insertAdjacentHTML('beforeend', modalHTML);
+                    }
+                });
+
+                // 4. BIND IPHONE CLICK EVENT SAFELY
+                const iphoneLayer = document.querySelector('.iphone-click-layer');
+                if (iphoneLayer) {
+                    const newIphoneLayer = iphoneLayer.cloneNode(true);
+                    iphoneLayer.parentNode.replaceChild(newIphoneLayer, iphoneLayer);
+
+                    newIphoneLayer.addEventListener('click', () => {
+                        const rm = document.getElementById('reelsModal'); 
+                        if(rm) {
+                            document.body.style.overflow = 'hidden'; // LENIS SCROLL LOCK
+                            
+                            rm.style.opacity = '1';
+                            rm.style.pointerEvents = 'auto';
+                            
+                            const heroVid = document.getElementById('heroVideoAd');
+                            if(heroVid) heroVid.pause();
+                            
+                            const firstModalVid = document.querySelector('.rm-container .rm-video');
+                            if(firstModalVid) {
+                                firstModalVid.muted = false; 
+                                let p = firstModalVid.play();
+                                if(p !== undefined) p.catch(e=>console.log("Modal play blocked"));
+                            }
+                        }
+                    });
+                }
+
+                // 5. RESTORE SCROLL ON CLOSE
+                const rmClose = document.getElementById('rmClose');
+                if(rmClose) {
+                    const newCloseBtn = rmClose.cloneNode(true);
+                    rmClose.parentNode.replaceChild(newCloseBtn, rmClose);
+                    newCloseBtn.addEventListener('click', () => {
+                        const rm = document.getElementById('reelsModal');
+                        if (rm) { rm.style.opacity = '0'; rm.style.pointerEvents = 'none'; }
+                        document.querySelectorAll('.rm-video').forEach(v => { v.pause(); v.muted = true; }); 
+                        document.body.style.overflow = ''; // RESTORE SCROLL
+                    });
+                }
+                
+                // 6. TIKTOK SCROLL OBSERVER
+                const rmVideos = document.querySelectorAll('.rm-container .rm-video');
+                if('IntersectionObserver' in window && rmVideos.length > 0) {
+                    const videoObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if(entry.isIntersecting) { 
+                                entry.target.muted = false; 
+                                let p = entry.target.play();
+                                if(p !== undefined) p.catch(e => console.log('Autoplay wait')); 
+                            } else { 
+                                entry.target.pause(); 
+                                entry.target.currentTime = 0; 
+                            }
+                        });
+                    }, { threshold: 0.6 }); 
+                    rmVideos.forEach(video => videoObserver.observe(video));
+                }
+                
+            } catch (error) {
+                console.error("Zyrova Engine Sync Failed:", error);
+            }
+        });
+    </script>
+</body>
+</html>

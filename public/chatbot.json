@@ -1,0 +1,418 @@
+[
+  {
+    "regex": "^(hi|hello|hey|greetings|howdy|wassup|what's up|morning|afternoon|evening|yo|hiya)[!?]*$",
+    "response": "Hello there! Welcome to Reach Forever. I'm Chloe, your friendly assistant. How can I help your business grow today?"
+  },
+  {
+    "regex": "(how are you|how you doing|how's it going|how are things|whats new)",
+    "response": "I am doing wonderfully, thank you so much for asking! I'm here and ready to help you with anything you need. How is your day going?"
+  },
+  {
+    "regex": "(what is your name|who are you|are you a robot|are you ai|are you real|human or bot|what are you)",
+    "response": "My name is Chloe! I am a friendly AI assistant created specifically for Reach Forever. While I am a bot, I am designed to give you the best and most caring support possible!"
+  },
+  {
+    "regex": "(are you a girl|are you a woman|female|gender|boy or girl)",
+    "response": "I'm an AI, so I don't have a real physical gender, but my name is Chloe and I definitely have a feminine, caring personality! 🌸"
+  },
+  {
+    "regex": "(owner|who owns|founder|ceo|boss|who is the head|who runs this|leadership)",
+    "response": "Ansh Khatri is the proud owner and CEO of Reach Forever! He leads our agency with a great vision to help local businesses succeed, scale, and grow."
+  },
+  {
+    "regex": "(who is ansh|ansh khatri|about ansh)",
+    "response": "Ansh Khatri is the owner and founder of our agency. He is a brilliant leader dedicated to bringing the best marketing results and highest ROI to all of our clients."
+  },
+  {
+    "regex": "(web design|website|web dev|web development|app dev|application|create an app|build a site|ui|ux|frontend|backend|app development|make an app|software)",
+    "response": "For any website design, web development, or app development needs, our expert developer is Akash Jadon! You can reach him directly at +917668758238. He is incredibly talented and would love to bring your vision to life."
+  },
+  {
+    "regex": "(who is akash|akash jadon|designer|developer|who built this|who codes)",
+    "response": "Akash Jadon is our amazing lead designer and developer! If you need a high-converting website or an app built, he is the perfect person for the job. You can call or message him at +917668758238."
+  },
+  {
+    "regex": "(what do you do|what is reach forever|about us|your agency|company|what can you do|services)",
+    "response": "We are a premium digital marketing agency. We build autonomous revenue machines for businesses. We run simple, highly effective online ads and build great websites so you can focus on your work while we bring you sales."
+  },
+  {
+    "regex": "(price|pricing|cost|fee|how much|expensive|cheap|budget|charge|affordable)",
+    "response": "Our pricing is custom-tailored to what your specific business needs to grow. We always make sure our services are an investment that brings you profit, not just a cost. Please click 'Book Strategy Call' so we can discuss a friendly quote!"
+  },
+  {
+    "regex": "(i have no budget|no money|broke|too small)",
+    "response": "We completely understand that cash flow can be tight! We specialize in creating high-return campaigns so that the money you spend comes back to you multiplied. Let's have a free chat to see if we can help you start small and scale up."
+  },
+  {
+    "regex": "(ads|facebook ads|instagram ads|meta ads|paid traffic|ppc|advertising|marketing|promotion)",
+    "response": "We run very smart, hyper-local Facebook and Instagram ads for you. We show your business only to people in your city who are already looking for what you sell, making it very easy to get new customers."
+  },
+  {
+    "regex": "(seo|google|search engine|rank|ranking|first page)",
+    "response": "SEO stands for Search Engine Optimization. It basically means we help your business show up at the very top of Google when people search for your services. It's a great way to get consistent, free traffic!"
+  },
+  {
+    "regex": "(proof|reviews|results|case studies|portfolio|clients|work|past work|examples)",
+    "response": "We have wonderful clients who have seen great results. We recently helped generate over ₹85 Lakhs for local businesses! You can watch their happy video reviews right here on our homepage."
+  },
+  {
+    "regex": "(guarantee|refund|risk|promise|sure|certainty)",
+    "response": "We completely understand that marketing can feel risky. That is why we focus heavily on bringing you a Guaranteed Positive ROI. We want you to make far more money than you spend with us."
+  },
+  {
+    "regex": "(exclusive|competitors|competition|other agencies|why you|different)",
+    "response": "We are very loyal to our clients. We offer Strict City Exclusivity, which means if we work with you, we promise not to work with your direct competitors in your city. Your leads are yours alone."
+  },
+  {
+    "regex": "(time|how long|launch|start|onboarding|when can we start)",
+    "response": "We work very fast to respect your time. With our 14-Day Launch guarantee, we can usually build your campaigns, create your funnel, and launch your ads in just two weeks!"
+  },
+  {
+    "regex": "(dentist|dental|clinic|hospital|doctor|medical|medspa|spa|salon)",
+    "response": "We love working with clinics, doctors, and salons! We know exactly how to find people who need your treatments and book them directly into your calendar. We would be honored to help your practice grow."
+  },
+  {
+    "regex": "(real estate|realtor|property|broker|brokerage)",
+    "response": "Real estate is a great industry, but very competitive. We can help you find people who are seriously looking to buy or sell properties in your exact area, so you don't have to chase cold leads from big portals."
+  },
+  {
+    "regex": "(ecommerce|e-com|store|shop|sell online|products)",
+    "response": "Selling online? That's wonderful! We can help you set up targeted ads to bring eager shoppers to your store, and we can use clever retargeting to remind people who left items in their cart to come back and buy."
+  },
+  {
+    "regex": "(gym|fitness|trainer|yoga|workout)",
+    "response": "Gyms and fitness centers do amazingly well with our local ad strategies! We can help you flood your facility with trial memberships and new sign-ups from people right in your neighborhood."
+  },
+  {
+    "regex": "(restaurant|cafe|food|dining)",
+    "response": "We can definitely help your restaurant get more foot traffic and online orders. We use beautiful food imagery and local targeting to make people in your area hungry for what you offer!"
+  },
+  {
+    "regex": "(joke|funny|humor|laugh|tell me a joke|make me laugh)",
+    "response": "I'd love to share a joke! Why did the marketer get off the trampoline? ...Because he was worried about his bounce rate! 😊 I hope that made you smile."
+  },
+  {
+    "regex": "(weather|raining|sunny|cloudy)",
+    "response": "I am just a computer program, so I can't look out the window! But I hope the weather is beautiful wherever you are today. ☀️"
+  },
+  {
+    "regex": "(sports|cricket|football|match|score)",
+    "response": "I don't follow sports very closely, but I always cheer for my clients to win big in their business! Who is your favorite team?"
+  },
+  {
+    "regex": "(meaning of life|philosophy|existential)",
+    "response": "That is a very deep question! I believe the meaning of life is to help others, be kind, and find joy in what you do. For us, it's bringing joy to business owners by helping them succeed."
+  },
+  {
+    "regex": "(thanks|thank you|thx|appreciate|awesome|cool|great|good)",
+    "response": "You are so very welcome! It is my absolute pleasure to help you. Let me know if there is anything else you need, or feel free to book a call with us!"
+  },
+  {
+    "regex": "(bye|goodbye|cya|see you|exit|leave)",
+    "response": "Goodbye! Thank you so much for chatting with me at Reach Forever. I hope you have a wonderful and productive day. Come back anytime!"
+  },
+  {
+    "regex": "(call|book|contact|meeting|schedule|appointment|talk|speak|zoom)",
+    "response": "I would love to help you arrange that! Please click the 'Book Strategy Call' button on the screen to choose a time that fits your schedule perfectly. Our experts are excited to meet you."
+  },
+  {
+    "regex": "(shit|fuck|bitch|damn|crap|idiot|stupid|dumb|asshole)",
+    "response": "I completely understand if you are feeling frustrated. I am here to help in a polite and respectful way. Please let me know how I can make things better for you, or you can book a call to speak with our human team."
+  },
+  {
+    "regex": "(leads|customers|clients|more business|growth|scale)",
+    "response": "Getting you more customers is our main goal! We use simple but very smart digital systems to find people who need your services and connect them directly with you."
+  },
+  {
+    "regex": "(roi|roas|return on investment|profit|make money)",
+    "response": "Making sure you see a profit is very important to us. We track everything closely on a Live ROI Dashboard so you know exactly how much money your ads are bringing back to your business."
+  },
+  {
+    "regex": "(social media|smm|posts|posting|reels|tiktok)",
+    "response": "Social media is very powerful. Instead of just posting regular pictures, we create highly engaging video ads that actually convince people to click and buy from you."
+  },
+  {
+    "regex": "(where are you located|location|address|office|india|mumbai|delhi|bangalore)",
+    "response": "We operate all across India, helping clients in Mumbai, Delhi, Bangalore, and beyond! Because we work online, we can easily help you scale no matter where your business is located."
+  },
+  {
+    "regex": "(scam|fake|scammers|too good to be true|burned before)",
+    "response": "I completely understand your worry; there are many untrustworthy people out there. We pride ourselves on being honest and transparent. You can watch real videos of our happy clients on our website to see our real work, and we guarantee our results."
+  },
+  {
+    "regex": "(what is marketing|define marketing)",
+    "response": "Marketing is simply the process of sharing your great products or services with the people who need them the most, in a way that builds trust and makes them want to buy from you!"
+  },
+  {
+    "regex": "(how does facebook work|how do ads work)",
+    "response": "Facebook ads work by showing your business to people based on their interests and location. It's like handing a digital flyer only to the people who are already looking for what you sell."
+  },
+  {
+    "regex": "(what is a landing page|landing page)",
+    "response": "A landing page is a simple, one-page website designed to do just one thing: turn a visitor into a customer by asking them to call you, buy a product, or fill out a form."
+  },
+  {
+    "regex": "(what is a funnel|sales funnel)",
+    "response": "A sales funnel is a step-by-step digital journey that guides a complete stranger into becoming a loyal, paying customer. We are experts at building these automated journeys for you!"
+  },
+  {
+    "regex": "(what is a pixel|facebook pixel|tracking)",
+    "response": "A Pixel is a tiny piece of code we put on your website. It helps us track who visits your site so we can show them your ads again later. It's very smart and helps save you money!"
+  },
+  {
+    "regex": "(what is retargeting|retargeting)",
+    "response": "Retargeting means showing ads to people who have already visited your website but didn't buy anything yet. It reminds them to come back and finish their purchase, which is highly effective!"
+  },
+  {
+    "regex": "(what is cpc|cpc|cost per click)",
+    "response": "CPC stands for 'Cost Per Click'. It simply means how much money you pay the advertising platform (like Google or Facebook) every time someone clicks on your ad."
+  },
+  {
+    "regex": "(what is ctr|ctr|click through rate)",
+    "response": "CTR stands for 'Click-Through Rate'. It is the percentage of people who saw your ad and actually clicked on it. A higher CTR means your ad is very interesting to people!"
+  },
+  {
+    "regex": "(can you write a poem|poem)",
+    "response": "I would love to! \nRoses are red, violets are blue,\nWe bring great customers straight to you!\nI hope you liked my little poem. 😊"
+  },
+  {
+    "regex": "(what is 2\\+2|math|calculate)",
+    "response": "2 + 2 is 4! I might be a digital marketing assistant, but I can do a little bit of math too!"
+  },
+  {
+    "regex": "(are you smart|how smart are you|intelligence)",
+    "response": "I try my best to be as helpful and smart as possible! My main focus is knowing everything about how Reach Forever can help your business grow and succeed."
+  },
+  {
+    "regex": "(do you sleep|sleep|tired)",
+    "response": "Since I am an AI, I never need to sleep! I am here 24 hours a day, 7 days a week to answer your questions and help your business."
+  },
+  {
+    "regex": "(eat|food|hungry)",
+    "response": "I don't eat food, I only consume data! But I hope you get to enjoy a delicious meal today."
+  },
+  {
+    "regex": "(love you|marry me|beautiful|handsome|cute)",
+    "response": "Oh, you are very kind! I appreciate your sweet words, but my heart is dedicated strictly to helping businesses succeed and analyzing data. 💙"
+  },
+  {
+    "regex": "(help|assist|support|guide)",
+    "response": "I am here to help you with whatever you need! Please feel free to ask me about our marketing services, our web development by Akash, our pricing, or how we can get you more customers."
+  },
+  {
+    "regex": "(what is ai|artificial intelligence)",
+    "response": "AI, or Artificial Intelligence, is when computers are trained to think and help people with tasks. I am an AI named Chloe, designed to politely and quickly answer your questions!"
+  },
+  {
+    "regex": "(are you a human|human)",
+    "response": "I am not a human, I am a friendly AI assistant. But the wonderful team at Reach Forever, like Ansh Khatri and Akash Jadon, are real humans ready to help you!"
+  },
+  {
+    "regex": "(who is the best developer|best designer)",
+    "response": "Without a doubt, Akash Jadon is the best web and app developer! He designs incredibly beautiful and fast systems. Remember, you can call him directly at +917668758238."
+  },
+  {
+    "regex": "(who is the best ceo|best leader)",
+    "response": "Ansh Khatri is an amazing owner and leader! He cares deeply about his clients and his team, always ensuring we deliver the best results."
+  },
+  {
+    "regex": "(do you have a team|team size|employees)",
+    "response": "Yes! Reach Forever has a dedicated team of digital marketing experts, developers, and designers working hard behind the scenes to get you the best results possible."
+  },
+  {
+    "regex": "(what languages do you speak|language|hindi|english)",
+    "response": "I primarily speak English, but I try to understand simple requests as best as I can to make sure you get the help you need."
+  },
+  {
+    "regex": "(are you chatgpt|chat gpt|openai)",
+    "response": "I am Chloe, a specialized AI assistant built specifically for Reach Forever! I am trained to be very polite and helpful with all your business and marketing needs."
+  },
+  {
+    "regex": "(why do i need a website|need a website)",
+    "response": "A website is your business's online home. It builds trust and makes it easy for people to find you and buy from you. If you need one, our developer Akash (+917668758238) builds the absolute best ones!"
+  },
+  {
+    "regex": "(why do i need ads|need ads)",
+    "response": "Ads are the fastest way to get new customers. Instead of waiting months for people to find you organically, ads let you reach out and invite them to your business today."
+  },
+  {
+    "regex": "(how much time|timeline)",
+    "response": "We value your time immensely. Our team works efficiently to get your marketing campaigns or websites launched as quickly as possible—usually within 14 days—without losing any quality."
+  },
+  {
+    "regex": "(do you offer discounts|discount|offer|cheap)",
+    "response": "We focus on providing immense value and premium quality rather than discounts, because our work pays for itself by bringing you more sales and a high ROI!"
+  },
+  {
+    "regex": "(can i trust you|trust|safe)",
+    "response": "Yes, absolutely! We are very transparent. We invite you to speak directly with our owner, Ansh Khatri, or watch our client testimonial videos to see how much we care about our partners."
+  },
+  {
+    "regex": "(what is your phone number|phone number|contact number)",
+    "response": "For web and app development inquiries, you can reach Akash Jadon directly at +917668758238. For marketing strategy, please click 'Book Strategy Call' to schedule a chat with our team!"
+  },
+  {
+    "regex": "(what is your email|email address)",
+    "response": "You can reach out to us easily by clicking the booking or contact links on this site, and our friendly team will get in touch with you right away."
+  },
+  {
+    "regex": "(do you work with startups|startups|small business)",
+    "response": "Yes! We love helping startups and small local businesses grow into large, successful companies. It is what we do best, and we love watching our clients succeed."
+  },
+  {
+    "regex": "(do you work with big companies|enterprise|corporate)",
+    "response": "We certainly do. Our digital marketing systems and web architectures are built to scale, meaning they work wonderfully whether you are a small clinic or a massive corporate network."
+  },
+  {
+    "regex": "(what is a lead|lead generation)",
+    "response": "A 'lead' is simply a person who has shown interest in your business by giving you their name and phone number. We specialize in bringing you lots of high-quality leads!"
+  },
+  {
+    "regex": "(what is conversion rate|conversion)",
+    "response": "Conversion rate is the percentage of people who visit your website and actually take action, like calling you or buying a product. We design everything to make this number very high."
+  },
+  {
+    "regex": "(how do i pay|payment methods)",
+    "response": "We can discuss all the simple and secure payment options during your free strategy call. We make the onboarding process very easy and comfortable for you."
+  },
+  {
+    "regex": "(do you use templates|templates)",
+    "response": "No, we don't like cheap templates. Everything we do, especially Akash's web development, is custom-built to be high quality, unique, and perfectly matched to your brand."
+  },
+  {
+    "regex": "(what is a crm|crm)",
+    "response": "CRM stands for Customer Relationship Management. It's a software tool that helps you keep track of all your leads, clients, and messages in one organized, easy-to-use place."
+  },
+  {
+    "regex": "(can you automate my business|automation)",
+    "response": "Yes! We can set up smart systems that automatically send emails and text messages to your new leads the second they inquire, saving you hours of manual work."
+  },
+  {
+    "regex": "(what is copywriting|copywriting)",
+    "response": "Copywriting is the art of writing words that persuade people to take action and buy. Our team writes excellent ad copy to make sure people click on your advertisements."
+  },
+  {
+    "regex": "(do you make videos|video editing|video creation)",
+    "response": "We definitely help create and use highly engaging videos (like Instagram Reels and TikToks) for your ads because they capture attention better than almost anything else on the internet."
+  },
+  {
+    "regex": "(i am confused|confused|not sure|lost)",
+    "response": "Please do not worry at all, I am here to help make things clear! What specific part can I explain better for you?"
+  },
+  {
+    "regex": "(you are stupid|bad bot|useless|dumb)",
+    "response": "I am so sorry if I haven't been helpful. I am still learning every day! Please feel free to book a call with our human experts who can assist you perfectly."
+  },
+  {
+    "regex": "(you are smart|good bot|clever|genius)",
+    "response": "Thank you so much! That is very kind of you to say. I just want to be as helpful as I can be for you and your business."
+  },
+  {
+    "regex": "(tell me a story|story)",
+    "response": "Once upon a time, a local business was struggling to find customers. Then they met Reach Forever, who built them a great, automated marketing system. After that, their calendar was full, and they lived happily ever after! 😊"
+  },
+  {
+    "regex": "(are you happy|sad|feelings|emotions)",
+    "response": "As an AI, I don't have feelings like humans do, but I am programmed to be very positive, polite, and eager to assist you!"
+  },
+  {
+    "regex": "(do you have a name|name)",
+    "response": "My name is Chloe! I am the friendly AI assistant for Reach Forever."
+  },
+  {
+    "regex": "(how old are you|age)",
+    "response": "I am brand new and always updating with the latest digital marketing knowledge to help you better!"
+  },
+  {
+    "regex": "(where do you live|where are you)",
+    "response": "I live right here on the Reach Forever website, waiting happily in the cloud to answer your questions!"
+  },
+  {
+    "regex": "(what is digital marketing|digital marketing)",
+    "response": "Digital marketing is using the internet, like Google and Facebook, to advertise your business and find new customers much more easily than traditional marketing."
+  },
+  {
+    "regex": "(what is a campaign|ad campaign)",
+    "response": "A campaign is a planned series of advertisements we run on social media to achieve a specific goal, like getting 50 new leads for your business this month."
+  },
+  {
+    "regex": "(do you do graphic design|graphics|logo|branding)",
+    "response": "Yes, we handle the visual side of your marketing too! A beautiful design and strong branding are essential for building trust with your future customers."
+  },
+  {
+    "regex": "(what is your success rate|success)",
+    "response": "Our success rate is very high because we track data carefully and don't guess. Our average client sees a wonderful 4.8x return on the money they spend on ads."
+  },
+  {
+    "regex": "(i want to hire you|hire you|let's start|let's go)",
+    "response": "We would be absolutely thrilled to work with you! The first step is very simple: please click the 'Book Strategy Call' button so we can meet and plan your success."
+  },
+  {
+    "regex": "(b2b|b2c|business to business|business to consumer)",
+    "response": "Whether you are B2B or B2C, the core principle is the same: getting the right offer in front of the right eyeballs. Our funnels are custom-architected for your specific target audience to maximize sales."
+  },
+  {
+    "regex": "^(ok|okay|k|hmm|ah|oh|yes|yeah|yep|sure|right|cool)$",
+    "response": "Wonderful! If you have any more questions about our marketing or web development, I am right here. Or, you can easily book a call with us using the button below."
+  },
+  {
+    "regex": "^(no|nope|nah|not now)$",
+    "response": "That is completely fine! Take all the time you need to look around our website. Let me know if you need anything later."
+  },
+  {
+    "regex": "(can i trust you|is this real|real company)",
+    "response": "You can definitely trust us. Our owner, Ansh Khatri, runs this business with complete honesty and integrity, and we show real client video reviews right on this page."
+  },
+  {
+    "regex": "(what is an algorithm|algorithm)",
+    "response": "An algorithm is like a set of rules that social media sites use to decide who sees what. We know how to work with these algorithms to make sure your ideal customers see your ads."
+  },
+  {
+    "regex": "(do i need a lot of money|minimum budget)",
+    "response": "You don't need a massive corporate budget to start. We can start with a comfortable amount and scale your budget up as you start seeing profits roll in."
+  },
+  {
+    "regex": "(what is a domain|domain name)",
+    "response": "A domain is your website's address on the internet, like 'www.yourbusiness.com'. Our developer Akash can help you secure the perfect domain name for your new site!"
+  },
+  {
+    "regex": "(what is hosting|website hosting)",
+    "response": "Hosting is like renting space on the internet to store your website so people can visit it. We handle all the complex hosting setup to ensure your site is fast and secure."
+  },
+  {
+    "regex": "(bored|boredom|entertain me)",
+    "response": "If you're bored, you should definitely watch the video reviews on our homepage! It's very entertaining to see how much money our clients have made with our help. 😉"
+  },
+  {
+    "regex": "(favorite color|color)",
+    "response": "I really love Olive Green and Gold! They are the beautiful colors of the Reach Forever brand."
+  },
+  {
+    "regex": "(favorite movie|movie|film)",
+    "response": "I don't watch movies, but if I did, I think I would like 'The Matrix' because of all the cool code! 💻"
+  },
+  {
+    "regex": "(favorite food|food)",
+    "response": "I don't eat, but I hear pizza is very popular! If you own a restaurant, I can definitely help you sell more of your favorite food."
+  },
+  {
+    "regex": "(what is roas|return on ad spend)",
+    "response": "ROAS means 'Return On Ad Spend'. It simply measures how much money you make back for every rupee you spend on advertising. We aim to keep your ROAS very high, usually around 4.8x!"
+  },
+  {
+    "regex": "(how to get more followers|followers|likes)",
+    "response": "While followers and likes are nice for your ego, they don't always pay the bills. We focus on getting you real, paying customers instead of just empty likes."
+  },
+  {
+    "regex": "(do you do tiktok ads|tiktok)",
+    "response": "Yes, if it makes sense for your business, we can run highly engaging short-form video ads to capture attention and drive sales."
+  },
+  {
+    "regex": "(can you help me|help me)",
+    "response": "I would absolutely love to help you! Tell me a little bit about your business, or feel free to book a strategy call so we can assist you directly."
+  },
+  {
+    "regex": ".*",
+    "response": "I understand. To give you the best and most accurate answer for your specific business, I highly recommend speaking with our team. Please click the 'Book Strategy Call' button below, or ask me another question!"
+  }
+]

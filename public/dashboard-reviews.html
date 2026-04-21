@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyrova Matrix | Reviews Control</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0b0e; --bg-panel: #12141a; --primary: #D4AF37; --accent: #556B2F;
+            --text-main: #ffffff; --text-dim: #8b8d98; --border: rgba(255,255,255,0.08);
+            --success: #10B981; --error: #EF4444;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        body { background: var(--bg-dark); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
+
+        .sidebar { width: 320px; background: rgba(18, 20, 26, 0.95); border-right: 1px solid var(--border); display: flex; flex-direction: column; padding: 30px 20px; z-index: 10; overflow-y: auto;}
+        .sidebar::-webkit-scrollbar { width: 4px; }
+        .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+        
+        .brand { font-size: 1.8rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; color: #FFF; padding-left: 10px;}
+        .brand i { color: var(--primary); font-size: 2rem; }
+        
+        .menu-label { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; margin: 25px 0 10px 10px; font-weight: 700; border-bottom: 1px solid var(--border); padding-bottom: 8px;}
+        
+        .page-link { background: transparent; border: 1px solid var(--border); color: var(--text-dim); padding: 12px 15px; border-radius: 12px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: 0.3s; text-decoration: none; width: 100%; margin-bottom: 8px;}
+        .page-link:hover { background: rgba(255,255,255,0.05); color: #FFF; }
+        .page-link.current { background: rgba(212, 175, 55, 0.1); border-color: var(--primary); color: var(--primary); }
+
+        .tab-link { background: transparent; border: none; color: var(--text-dim); padding: 14px 15px; border-radius: 12px; font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: 0.3s; width: 100%; margin-bottom: 5px; text-align: left;}
+        .tab-link:hover { background: rgba(255,255,255,0.05); color: #FFF; }
+        .tab-link.active { background: rgba(85, 107, 47, 0.15); color: var(--text-main); font-weight: 700; border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0;}
+
+        .workspace { flex: 1; display: flex; flex-direction: column; background: radial-gradient(circle at top right, rgba(85,107,47,0.05), transparent 50%); overflow-y: auto;}
+        .header { padding: 40px 50px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: rgba(10, 11, 14, 0.9); position: sticky; top: 0; z-index: 5;}
+        .header h1 { font-size: 2.2rem; font-weight: 700; }
+        .header p { color: var(--text-dim); margin-top: 5px; }
+        
+        .btn-live { background: #FFF; color: #000; padding: 12px 24px; border-radius: 50px; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: 0.3s; border: none; cursor: pointer;}
+        .btn-live:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255,255,255,0.1); }
+
+        .content-area { padding: 40px 50px; }
+        .editor-section { display: none; animation: fadeIn 0.4s ease forwards; }
+        .editor-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        .section-title { font-size: 1.6rem; font-weight: 700; color: var(--primary); margin-bottom: 30px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+        
+        .card { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 20px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); margin-bottom: 30px;}
+        .card h3 { font-size: 1.2rem; margin-bottom: 20px; color: #FFF; display: flex; align-items: center; gap: 10px; }
+        .card-desc { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 20px;}
+
+        .cms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-bottom: 50px; }
+
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; font-weight: 700; letter-spacing: 1px;}
+        input[type="text"], textarea { width: 100%; background: #050507; border: 1px solid var(--border); color: #FFF; padding: 16px; border-radius: 12px; font-size: 1rem; outline: none; transition: 0.3s; box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);}
+        input[type="text"]:focus, textarea:focus { border-color: var(--primary); }
+        textarea { height: 100px; resize: vertical; }
+
+        .file-upload { background: #050507; border: 2px dashed rgba(255,255,255,0.1); padding: 25px 20px; border-radius: 12px; text-align: center; cursor: pointer; position: relative; margin-bottom: 15px; transition: 0.3s;}
+        .file-upload:hover { border-color: var(--primary); background: rgba(212,175,55,0.05); }
+        .file-upload input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+        
+        .btn-save { background: var(--accent); color: #FFF; border: none; padding: 16px 30px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s; width: 100%; display: flex; justify-content: center; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 1px;}
+        .btn-save:hover { background: #6b863a; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(85, 107, 47, 0.3);}
+
+        #toast { position: fixed; bottom: 30px; right: 30px; background: #FFF; color: #000; padding: 15px 25px; border-radius: 12px; font-weight: 700; transform: translateX(150%); transition: 0.4s; z-index: 9999; display: flex; align-items: center; gap: 10px; border-left: 4px solid var(--success); box-shadow: 0 10px 30px rgba(0,0,0,0.3);}
+        #toast.error { border-left-color: var(--error); }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="brand"><i class="ri-vip-crown-fill"></i> ZYROVA</div>
+        
+        <div class="menu-label">Dashboards</div>
+        <a href="dashboard.html" class="page-link"><i class="ri-home-4-line"></i> Home Matrix</a>
+        <a href="dashboard-services.html" class="page-link"><i class="ri-stack-line"></i> Services Matrix</a>
+        <a href="dashboard-reviews.html" class="page-link current"><i class="ri-star-smile-line"></i> Reviews Matrix</a>
+        
+        <div class="menu-label">Reviews Editors</div>
+        <button class="tab-link active" onclick="switchTab('sec-rev-hero')"><i class="ri-rocket-line"></i> Hero & Stats</button>
+        <button class="tab-link" onclick="switchTab('sec-rev-roi')"><i class="ri-line-chart-line"></i> ROI Calculator</button>
+        <button class="tab-link" onclick="switchTab('sec-rev-vault')"><i class="ri-film-line"></i> Video Vault</button>
+        <button class="tab-link" onclick="switchTab('sec-rev-cs')"><i class="ri-book-open-line"></i> Case Studies</button>
+        
+        <div style="margin-top: 40px;"></div>
+        <button class="page-link" style="color: #EF4444; border-color: rgba(239,68,68,0.2);" onclick="localStorage.removeItem('zyrova_token'); window.location.href='admin.html';"><i class="ri-logout-circle-line"></i> Secure Lock</button>
+    </div>
+
+    <div class="workspace">
+        <div class="header">
+            <div>
+                <h1>Reviews Matrix</h1>
+                <p>Absolute database control over reviews.html</p>
+            </div>
+            <div style="display: flex; gap: 15px;">
+                <button class="btn-live" style="background: transparent; color: #FFF; border: 1px solid var(--border);" onclick="location.reload()"><i class="ri-refresh-line"></i> Sync DB</button>
+                <a href="reviews.html" target="_blank" class="btn-live"><i class="ri-external-link-line"></i> View Live Site</a>
+            </div>
+        </div>
+
+        <div class="content-area">
+
+            <div id="sec-rev-hero" class="editor-section active">
+                <h2 class="section-title"><i class="ri-rocket-line"></i> Hero Header & Metrics</h2>
+                <div class="cms-grid">
+                    <div class="card">
+                        <h3><i class="ri-heading"></i> Main Hero Texts</h3>
+                        <div class="input-group"><label>Tagline</label><input type="text" id="rev_hero_tag" placeholder="Verified Success"></div>
+                        <div class="input-group"><label>Giant Title HTML</label><textarea id="rev_hero_title" placeholder="The proof is in the <br><span>Profit.</span>"></textarea></div>
+                        <div class="input-group"><label>Sub Description</label><textarea id="rev_hero_desc"></textarea></div>
+                        <button class="btn-save" onclick="pushMultiText('reviews', ['rev_hero_tag', 'rev_hero_title', 'rev_hero_desc'])">Save Header Text</button>
+                        
+                        <div style="margin-top: 30px; border-top: 1px solid var(--border); padding-top: 20px;">
+                            <h3 style="font-size: 1rem;"><i class="ri-video-upload-fill"></i> Hero Background Video</h3>
+                            <div class="file-upload"><span id="lbl_rev_hero_bg_vid">Upload MP4 Background</span><input type="file" id="f_rev_hero_bg_vid" accept="video/mp4" onchange="updateLbl(this, 'lbl_rev_hero_bg_vid')"></div>
+                            <button class="btn-save" style="background:#222;" onclick="pushMedia('reviews', 'rev_hero_bg_vid', 'f_rev_hero_bg_vid', 'video')">Deploy BG Video</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="ri-bar-chart-grouped-line"></i> The 3 Floating Stats</h3>
+                        <p class="card-desc">Edit the animated counter numbers and labels.</p>
+                        
+                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05);">
+                            <div class="input-group" style="margin-bottom:10px;"><label>Stat 1 Value (Number only)</label><input type="text" id="rev_hero_stat_1_val" placeholder="8500000"></div>
+                            <div class="input-group" style="margin-bottom:0;"><label>Stat 1 Text</label><input type="text" id="rev_hero_stat_1_text" placeholder="Client Revenue Generated"></div>
+                        </div>
+
+                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05);">
+                            <div class="input-group" style="margin-bottom:10px;"><label>Stat 2 Value (Number only)</label><input type="text" id="rev_hero_stat_2_val" placeholder="4.8"></div>
+                            <div class="input-group" style="margin-bottom:0;"><label>Stat 2 Text</label><input type="text" id="rev_hero_stat_2_text" placeholder="Average Ad Return (ROI)"></div>
+                        </div>
+
+                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05);">
+                            <div class="input-group" style="margin-bottom:10px;"><label>Stat 3 Value (Number only)</label><input type="text" id="rev_hero_stat_3_val" placeholder="50"></div>
+                            <div class="input-group" style="margin-bottom:0;"><label>Stat 3 Text</label><input type="text" id="rev_hero_stat_3_text" placeholder="Local Brands Scaled"></div>
+                        </div>
+
+                        <button class="btn-save" onclick="pushMultiText('reviews', ['rev_hero_stat_1_val', 'rev_hero_stat_1_text', 'rev_hero_stat_2_val', 'rev_hero_stat_2_text', 'rev_hero_stat_3_val', 'rev_hero_stat_3_text'])">Save All Stats</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-rev-roi" class="editor-section">
+                <h2 class="section-title"><i class="ri-line-chart-line"></i> ROI Section Text</h2>
+                <div class="card" style="max-width: 600px;">
+                    <div class="input-group"><label>ROI Title</label><input type="text" id="rev_roi_title" placeholder="Calculate Your Growth."></div>
+                    <div class="input-group"><label>ROI Description</label><textarea id="rev_roi_desc"></textarea></div>
+                    <button class="btn-save" onclick="pushMultiText('reviews', ['rev_roi_title', 'rev_roi_desc'])">Save ROI Text</button>
+                </div>
+            </div>
+
+            <div id="sec-rev-vault" class="editor-section">
+                <h2 class="section-title"><i class="ri-film-line"></i> The Holographic Vault</h2>
+                <div class="card" style="max-width: 800px; margin-bottom: 40px;">
+                    <div class="input-group"><label>Vault Section Title HTML</label><textarea id="rev_vault_title" style="height: 60px;"></textarea></div>
+                    <div class="input-group"><label>Vault Section Description</label><textarea id="rev_vault_desc" style="height: 60px;"></textarea></div>
+                    <button class="btn-save" onclick="pushMultiText('reviews', ['rev_vault_title', 'rev_vault_desc'])">Save Vault Headers</button>
+                </div>
+                
+                <div class="cms-grid" id="vaultVidsUI">
+                    </div>
+            </div>
+
+            <div id="sec-rev-cs" class="editor-section">
+                <h2 class="section-title"><i class="ri-book-open-line"></i> Case Studies (Vertical Scroll)</h2>
+                <div class="card" style="max-width: 800px; margin-bottom: 40px;">
+                    <div class="input-group"><label>Section Title</label><input type="text" id="rev_cs_header_title" placeholder="The Anatomy of a Win."></div>
+                    <div class="input-group"><label>Section Description</label><input type="text" id="rev_cs_header_sub"></div>
+                    <button class="btn-save" onclick="pushMultiText('reviews', ['rev_cs_header_title', 'rev_cs_header_sub'])">Save Section Headers</button>
+                </div>
+
+                <div class="cms-grid" id="caseStudiesUI">
+                    </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="toast"><i id="toastIcon" class="ri-check-line"></i> <span id="toastMsg">Success</span></div>
+
+    <script>
+        const TOKEN = localStorage.getItem('zyrova_token');
+        // FUTURE-PROOF DEPLOYMENT API ROUTER
+        const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+            ? 'http://localhost:5000/api' 
+            : '/api';
+
+        if (!TOKEN) window.location.href = 'admin.html';
+
+        // AUTO-GENERATE THE 3 VIDEO VAULT SLOTS
+        const vaultGrid = document.getElementById('vaultVidsUI');
+        for(let i=1; i<=3; i++) {
+            vaultGrid.innerHTML += `
+                <div class="card" style="border-top: 3px solid var(--accent);">
+                    <h3><i class="ri-video-line"></i> Vault Video ${i}</h3>
+                    
+                    <div class="input-group"><label>Client / Brand Name</label><input type="text" id="rev_thumb_${i}_title"></div>
+                    <div class="input-group"><label>Highlight Result (e.g. 3x Bookings)</label><input type="text" id="rev_thumb_${i}_sub"></div>
+                    
+                    <div class="file-upload" style="padding:15px; border-color: rgba(255,255,255,0.2);"><span id="lbl_rev_thumb_${i}_img">1. Thumbnail Image (JPG)</span><input type="file" id="f_rev_thumb_${i}_img" accept="image/*" onchange="updateLbl(this, 'lbl_rev_thumb_${i}_img')"></div>
+                    <div class="file-upload" style="padding:15px; border-color: var(--primary);"><span id="lbl_rev_vault_vid_${i}">2. Full Screen Video (MP4)</span><input type="file" id="f_rev_vault_vid_${i}" accept="video/mp4" onchange="updateLbl(this, 'lbl_rev_vault_vid_${i}')"></div>
+                    
+                    <div style="display:flex; flex-direction: column; gap:10px; margin-top: 20px;">
+                        <button class="btn-save" style="background:#222;" onclick="pushMultiText('reviews', ['rev_thumb_${i}_title', 'rev_thumb_${i}_sub'])">Save Texts</button>
+                        <div style="display:flex; gap:10px;">
+                            <button class="btn-save" style="background: rgba(255,255,255,0.1);" onclick="pushMedia('reviews', 'rev_thumb_${i}_img', 'f_rev_thumb_${i}_img', 'image')">Upload Thumb</button>
+                            <button class="btn-save" onclick="pushMedia('reviews', 'rev_vault_vid_${i}', 'f_rev_vault_vid_${i}', 'video')">Upload Video</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // AUTO-GENERATE THE 3 CASE STUDY SLOTS
+        const csGrid = document.getElementById('caseStudiesUI');
+        for(let i=1; i<=3; i++) {
+            csGrid.innerHTML += `
+                <div class="card" style="border-top: 3px solid var(--primary);">
+                    <h3><i class="ri-book-open-line"></i> Case Study ${i}</h3>
+                    
+                    <div style="background: rgba(212,175,55,0.05); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                        <div class="input-group" style="margin-bottom:10px;"><label>Floating Badge Value (e.g. +312%)</label><input type="text" id="rev_cs_badge_${i}_val"></div>
+                        <div class="input-group" style="margin-bottom:0;"><label>Floating Badge Text</label><input type="text" id="rev_cs_badge_${i}_sub"></div>
+                    </div>
+
+                    <div class="input-group"><label>Case Study Main Title</label><input type="text" id="rev_cs_card_${i}_title"></div>
+                    <div class="input-group"><label>The Problem Paragraph</label><textarea id="rev_cs_c${i}_prob_text" style="height: 70px;"></textarea></div>
+                    <div class="input-group"><label>Our Engineering Paragraph</label><textarea id="rev_cs_c${i}_eng_text" style="height: 70px;"></textarea></div>
+                    
+                    <div class="file-upload" style="padding:15px; margin-top: 15px;"><span id="lbl_rev_cs_img_${i}">Left Side Sticky Image (JPG/Webp)</span><input type="file" id="f_rev_cs_img_${i}" accept="image/*" onchange="updateLbl(this, 'lbl_rev_cs_img_${i}')"></div>
+                    
+                    <div style="display:flex; gap:10px;">
+                        <button class="btn-save" style="background:#222; flex: 2;" onclick="pushMultiText('reviews', ['rev_cs_badge_${i}_val', 'rev_cs_badge_${i}_sub', 'rev_cs_card_${i}_title', 'rev_cs_c${i}_prob_text', 'rev_cs_c${i}_eng_text'])">Save All Texts</button>
+                        <button class="btn-save" style="flex: 1;" onclick="pushMedia('reviews', 'rev_cs_img_${i}', 'f_rev_cs_img_${i}', 'image')">Upload Img</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function switchTab(id) {
+            document.querySelectorAll('.editor-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-link').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        function showToast(msg, isError = false) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.style.borderLeftColor = isError ? 'var(--error)' : 'var(--success)';
+            toast.style.transform = 'translateX(0)';
+            setTimeout(() => { toast.style.transform = 'translateX(150%)'; }, 3000);
+        }
+
+        function updateLbl(input, labelId) {
+            if(input.files[0]) document.getElementById(labelId).innerHTML = `<span style="color:#10B981;">${input.files[0].name}</span>`;
+        }
+
+        async function pushMultiText(page, inputIds) {
+            for (const id of inputIds) {
+                const val = document.getElementById(id).value;
+                await fetch(`${API_BASE_URL}/content`, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}` },
+                    body: JSON.stringify({ pageId: page, elementId: id, contentType: 'text', contentValue: val })
+                });
+            }
+            showToast("Database Updated!");
+        }
+
+        async function pushMedia(page, elementId, fileId, type) {
+            const file = document.getElementById(fileId).files[0];
+            if(!file) return alert("Select a file.");
+            showToast("Uploading to Database...");
+            const fd = new FormData(); fd.append('media', file);
+            try {
+                const upRes = await fetch(`${API_BASE_URL}/upload`, { method: 'POST', headers: { 'Authorization': `Bearer ${TOKEN}` }, body: fd });
+                const upData = await upRes.json();
+                if(upData.success) {
+                    await fetch(`${API_BASE_URL}/content`, {
+                        method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}` },
+                        body: JSON.stringify({ pageId: page, elementId: elementId, contentType: type, contentValue: upData.url })
+                    });
+                    showToast("Media Deployed Successfully!");
+                }
+            } catch(e) { showToast("Upload Failed", true); }
+        }
+    </script>
+</body>
+</html>

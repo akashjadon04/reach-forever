@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyrova Matrix | Master Control</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0b0e; --bg-panel: #12141a; --primary: #D4AF37; --accent: #556B2F;
+            --text-main: #ffffff; --text-dim: #8b8d98; --border: rgba(255,255,255,0.08);
+            --success: #10B981; --error: #EF4444;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        body { background: var(--bg-dark); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
+
+        /* SIDEBAR */
+        .sidebar { width: 320px; background: rgba(18, 20, 26, 0.95); border-right: 1px solid var(--border); display: flex; flex-direction: column; padding: 30px 20px; z-index: 10; overflow-y: auto;}
+        .sidebar::-webkit-scrollbar { width: 4px; }
+        .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+        
+        .brand { font-size: 1.8rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; color: #FFF; padding-left: 10px;}
+        .brand i { color: var(--primary); font-size: 2rem; }
+        
+        .menu-label { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; margin: 25px 0 10px 10px; font-weight: 700; border-bottom: 1px solid var(--border); padding-bottom: 8px;}
+        
+        /* Links to other HTML pages */
+        .page-link { background: transparent; border: 1px solid var(--border); color: var(--text-dim); padding: 12px 15px; border-radius: 12px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: 0.3s; text-decoration: none; width: 100%; margin-bottom: 8px;}
+        .page-link:hover { background: rgba(255,255,255,0.05); color: #FFF; }
+        .page-link.current { background: rgba(212, 175, 55, 0.1); border-color: var(--primary); color: var(--primary); }
+
+        /* Tabs for current page */
+        .tab-link { background: transparent; border: none; color: var(--text-dim); padding: 14px 15px; border-radius: 12px; font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: 0.3s; width: 100%; margin-bottom: 5px; text-align: left;}
+        .tab-link:hover { background: rgba(255,255,255,0.05); color: #FFF; }
+        .tab-link.active { background: rgba(85, 107, 47, 0.15); color: var(--text-main); font-weight: 700; border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0;}
+
+        /* WORKSPACE */
+        .workspace { flex: 1; display: flex; flex-direction: column; background: radial-gradient(circle at top right, rgba(85,107,47,0.05), transparent 50%); overflow-y: auto;}
+        .header { padding: 40px 50px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: rgba(10, 11, 14, 0.9); position: sticky; top: 0; z-index: 5;}
+        .header h1 { font-size: 2.2rem; font-weight: 700; }
+        .header p { color: var(--text-dim); margin-top: 5px; }
+        
+        .btn-live { background: #FFF; color: #000; padding: 12px 24px; border-radius: 50px; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: 0.3s; border: none; cursor: pointer;}
+        .btn-live:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255,255,255,0.1); }
+
+        .content-area { padding: 40px 50px; }
+        .editor-section { display: none; animation: fadeIn 0.4s ease forwards; }
+        .editor-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        .section-title { font-size: 1.6rem; font-weight: 700; color: var(--primary); margin-bottom: 30px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+        
+        .card { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 20px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); margin-bottom: 30px;}
+        .card h3 { font-size: 1.2rem; margin-bottom: 5px; color: #FFF; display: flex; align-items: center; gap: 10px; }
+        .card-desc { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 25px; line-height: 1.5;}
+
+        .cms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-bottom: 50px; }
+
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; font-weight: 700; letter-spacing: 1px;}
+        input[type="text"], textarea { width: 100%; background: #050507; border: 1px solid var(--border); color: #FFF; padding: 16px; border-radius: 12px; font-size: 1rem; outline: none; transition: 0.3s; box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);}
+        input[type="text"]:focus, textarea:focus { border-color: var(--primary); }
+        textarea { height: 100px; resize: vertical; }
+
+        .file-upload { background: #050507; border: 2px dashed rgba(255,255,255,0.1); padding: 25px 20px; border-radius: 12px; text-align: center; cursor: pointer; position: relative; margin-bottom: 15px; transition: 0.3s;}
+        .file-upload:hover { border-color: var(--primary); background: rgba(212,175,55,0.05); }
+        .file-upload input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+        
+        .btn-save { background: var(--accent); color: #FFF; border: none; padding: 16px 30px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s; width: 100%; display: flex; justify-content: center; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 1px;}
+        .btn-save:hover { background: #6b863a; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(85, 107, 47, 0.3);}
+        
+        /* REELS MANAGER UI */
+        .reel-item { background: #050507; border: 1px solid var(--border); border-radius: 16px; padding: 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; transition: 0.3s;}
+        .reel-item:hover { border-color: var(--primary); }
+        .reel-info { display: flex; align-items: center; gap: 15px; }
+        .reel-info img { width: 60px; height: 60px; border-radius: 10px; border: 1px solid var(--border); object-fit: cover; }
+        .btn-del { background: rgba(239,68,68,0.1); color: #EF4444; border: 1px solid rgba(239,68,68,0.2); padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: 0.3s;}
+        .btn-del:hover { background: #EF4444; color: #FFF; }
+
+        #toast { position: fixed; bottom: 30px; right: 30px; background: #FFF; color: #000; padding: 15px 25px; border-radius: 12px; font-weight: 700; transform: translateX(150%); transition: 0.4s; z-index: 9999; display: flex; align-items: center; gap: 10px; border-left: 4px solid var(--success); box-shadow: 0 10px 30px rgba(0,0,0,0.3);}
+        #toast.error { border-left-color: var(--error); }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="brand"><i class="ri-vip-crown-fill"></i> ZYROVA</div>
+        
+        <div class="menu-label">Dashboards</div>
+        <a href="dashboard.html" class="page-link current"><i class="ri-home-4-line"></i> Home Matrix</a>
+        <a href="dashboard-services.html" class="page-link"><i class="ri-stack-line"></i> Services Matrix</a>
+        <a href="dashboard-reviews.html" class="page-link"><i class="ri-star-smile-line"></i> Reviews Matrix</a>
+        
+        <div class="menu-label">Home Page Editors</div>
+        <button class="tab-link active" onclick="switchTab('sec-hero')"><i class="ri-smartphone-line"></i> Hero & iPhone</button>
+        <button class="tab-link" onclick="switchTab('sec-reels'); loadExistingReels();"><i class="ri-film-line"></i> Infinite Reels Manager</button>
+        <button class="tab-link" onclick="switchTab('sec-holo')"><i class="ri-3d-rotate-line"></i> 3D Hologram Clients</button>
+        <button class="tab-link" onclick="switchTab('sec-story')"><i class="ri-book-read-line"></i> Story & Parallax</button>
+        <button class="tab-link" onclick="switchTab('sec-radar')"><i class="ri-radar-line"></i> Radar & Growth</button>
+        <button class="tab-link" onclick="switchTab('sec-arsenal')"><i class="ri-stack-fill"></i> Service Arsenal</button>
+        <button class="tab-link" onclick="switchTab('sec-global')"><i class="ri-global-line"></i> Footer & Logo</button>
+        
+        <div style="margin-top: 40px;"></div>
+        <button class="page-link" style="color: #EF4444; border-color: rgba(239,68,68,0.2);" onclick="localStorage.removeItem('zyrova_token'); window.location.href='admin.html';"><i class="ri-logout-circle-line"></i> Secure Lock</button>
+    </div>
+
+    <div class="workspace">
+        <div class="header">
+            <div>
+                <h1>Home Matrix</h1>
+                <p>Full database control over index.html elements.</p>
+            </div>
+            <div style="display: flex; gap: 15px;">
+                <button class="btn-live" style="background: transparent; color: #FFF; border: 1px solid var(--border);" onclick="location.reload()"><i class="ri-refresh-line"></i> Sync DB</button>
+                <a href="index.html" target="_blank" class="btn-live"><i class="ri-external-link-line"></i> View Live Site</a>
+            </div>
+        </div>
+
+        <div class="content-area">
+
+            <div id="sec-hero" class="editor-section active">
+                <h2 class="section-title"><i class="ri-rocket-line"></i> Main Hero Settings</h2>
+                <div class="cms-grid">
+                    <div class="card" style="grid-column: span 2;">
+                        <h3><i class="ri-heading"></i> Main Headline</h3>
+                        <div class="input-group"><label>Top Tag</label><input type="text" id="hero_tag"></div>
+                        <div class="input-group"><label>Giant Headline (HTML allowed)</label><textarea id="home_hero_text"></textarea></div>
+                        <div class="input-group"><label>Sub Description</label><textarea id="hero_desc"></textarea></div>
+                        <div class="input-group"><label>Button Text</label><input type="text" id="hero_btn"></div>
+                        <button class="btn-save" onclick="pushMultiText('home', ['hero_tag', 'home_hero_text', 'hero_desc', 'hero_btn'])">Save Hero Text</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-reels" class="editor-section">
+                <h2 class="section-title"><i class="ri-film-line"></i> Infinite Reels Manager</h2>
+                
+                <div class="card" style="border-color: var(--brand-olive); background: rgba(85, 107, 47, 0.05);">
+                    <h3 style="color: var(--primary);"><i class="ri-video-add-fill"></i> Upload New Reel to iPhone & TikTok Feed</h3>
+                    <p class="card-desc" style="color: #FFF;">The <strong>newest video</strong> you upload will automatically play inside the 3D iPhone. All videos will appear in the scrollable modal.</p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                        <div>
+                            <div class="input-group"><label>Client Name</label><input type="text" id="new_reel_name" placeholder="e.g. Dr. Aris Thorne"></div>
+                            <div class="input-group"><label>Caption / Review</label><textarea id="new_reel_cap" placeholder="e.g. Added ₹2.5 Cr to our pipeline!"></textarea></div>
+                        </div>
+                        <div>
+                            <div class="file-upload">
+                                <span id="lbl_new_reel_avatar"><i class="ri-image-circle-line"></i> Select Avatar Image (Optional)</span>
+                                <input type="file" id="f_new_reel_avatar" accept="image/*" onchange="updateLbl(this, 'lbl_new_reel_avatar')">
+                            </div>
+                            <div class="file-upload" style="border-color: var(--primary);">
+                                <span id="lbl_new_reel_vid" style="color: #FFF;"><i class="ri-video-upload-line"></i> Select HD MP4 Video (Required)</span>
+                                <input type="file" id="f_new_reel_vid" accept="video/mp4" onchange="updateLbl(this, 'lbl_new_reel_vid')">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-save" id="btnUploadReel" onclick="uploadNewReel()"><i class="ri-upload-cloud-2-fill"></i> Upload Reel to Live Site</button>
+                </div>
+
+                <div class="card">
+                    <h3><i class="ri-database-2-line"></i> Live Database Feed (Manage & Delete)</h3>
+                    <div id="existingReelsContainer">
+                        <div style="text-align: center; color: var(--text-dim); padding: 20px;">Fetching reels... Make sure terminal is running 'node server.js'</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-holo" class="editor-section">
+                <h2 class="section-title"><i class="ri-3d-rotate-line"></i> 3D Cylinder & Omnipresent</h2>
+                <div class="card">
+                    <h3><i class="ri-text"></i> Omnipresent Text</h3>
+                    <div class="input-group"><label>Main Title</label><input type="text" id="s2_title"></div>
+                    <div class="input-group"><label>Description</label><textarea id="s2_desc"></textarea></div>
+                    <button class="btn-save" onclick="pushMultiText('home', ['s2_title', 's2_desc'])">Save Text</button>
+                </div>
+                <div class="card">
+                    <h3><i class="ri-image-circle-line"></i> Cylinder Images</h3>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div><div class="file-upload"><span id="lbl_cyl_1">Slot 1 Img</span><input type="file" id="f_cyl_1" accept="image/*" onchange="updateLbl(this, 'lbl_cyl_1')"></div><button class="btn-save" style="width:auto; padding: 10px;" onclick="pushMedia('home', 'client_cylinder_1', 'f_cyl_1', 'image')">Save 1</button></div>
+                        <div><div class="file-upload"><span id="lbl_cyl_2">Slot 2 Img</span><input type="file" id="f_cyl_2" accept="image/*" onchange="updateLbl(this, 'lbl_cyl_2')"></div><button class="btn-save" style="width:auto; padding: 10px;" onclick="pushMedia('home', 'client_cylinder_2', 'f_cyl_2', 'image')">Save 2</button></div>
+                        <div><div class="file-upload"><span id="lbl_cyl_3">Slot 3 Img</span><input type="file" id="f_cyl_3" accept="image/*" onchange="updateLbl(this, 'lbl_cyl_3')"></div><button class="btn-save" style="width:auto; padding: 10px;" onclick="pushMedia('home', 'client_cylinder_3', 'f_cyl_3', 'image')">Save 3</button></div>
+                        <div><div class="file-upload"><span id="lbl_cyl_4">Slot 4 Img</span><input type="file" id="f_cyl_4" accept="image/*" onchange="updateLbl(this, 'lbl_cyl_4')"></div><button class="btn-save" style="width:auto; padding: 10px;" onclick="pushMedia('home', 'client_cylinder_4', 'f_cyl_4', 'image')">Save 4</button></div>
+                        <div><div class="file-upload"><span id="lbl_cyl_5">Slot 5 Img</span><input type="file" id="f_cyl_5" accept="image/*" onchange="updateLbl(this, 'lbl_cyl_5')"></div><button class="btn-save" style="width:auto; padding: 10px;" onclick="pushMedia('home', 'client_cylinder_5', 'f_cyl_5', 'image')">Save 5</button></div>
+                        <div><div class="file-upload"><span id="lbl_cyl_6">Slot 6 Img</span><input type="file" id="f_cyl_6" accept="image/*" onchange="updateLbl(this, 'lbl_cyl_6')"></div><button class="btn-save" style="width:auto; padding: 10px;" onclick="pushMedia('home', 'client_cylinder_6', 'f_cyl_6', 'image')">Save 6</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-story" class="editor-section">
+                <h2 class="section-title"><i class="ri-book-read-line"></i> Story & Parallax Break</h2>
+                <div class="cms-grid">
+                    <div class="card">
+                        <h3><i class="ri-text-spacing"></i> The 3 Story Sentences</h3>
+                        <div class="input-group"><label>Sentence 1</label><textarea id="story_1"></textarea></div>
+                        <div class="input-group"><label>Sentence 2</label><textarea id="story_2"></textarea></div>
+                        <div class="input-group"><label>Sentence 3</label><textarea id="story_3"></textarea></div>
+                        <button class="btn-save" onclick="pushMultiText('home', ['story_1', 'story_2', 'story_3'])">Save Story</button>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="ri-landscape-line"></i> Parallax Break</h3>
+                        <div class="input-group"><label>Big Value Text</label><input type="text" id="px_val"></div>
+                        <div class="input-group"><label>Sub Description</label><input type="text" id="px_desc"></div>
+                        <div class="file-upload"><span id="lbl_px_bg">Select Background Image</span><input type="file" id="f_px_bg" accept="image/*" onchange="updateLbl(this, 'lbl_px_bg')"></div>
+                        <button class="btn-save" onclick="pushMultiText('home', ['px_val', 'px_desc']); pushMedia('home', 'px_bg', 'f_px_bg', 'image')">Save Parallax</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-radar" class="editor-section">
+                <h2 class="section-title"><i class="ri-radar-line"></i> Radar & Growth</h2>
+                <div class="card">
+                    <h3><i class="ri-map-pin-line"></i> Radar City Cards</h3>
+                    <div class="input-group"><label>Radar Tag</label><input type="text" id="radar_tag"></div>
+                    <div class="input-group"><label>Radar Title HTML</label><input type="text" id="radar_title"></div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+                        <div><div class="input-group"><label>City 1</label><input type="text" id="radar_c1_city"></div><div class="input-group"><label>Leads 1</label><input type="text" id="radar_c1_leads"></div></div>
+                        <div><div class="input-group"><label>City 2</label><input type="text" id="radar_c2_city"></div><div class="input-group"><label>Leads 2</label><input type="text" id="radar_c2_leads"></div></div>
+                        <div><div class="input-group"><label>City 3</label><input type="text" id="radar_c3_city"></div><div class="input-group"><label>Leads 3</label><input type="text" id="radar_c3_leads"></div></div>
+                    </div>
+                    <button class="btn-save" onclick="pushMultiText('home', ['radar_tag', 'radar_title', 'radar_c1_city','radar_c1_leads','radar_c2_city','radar_c2_leads','radar_c3_city','radar_c3_leads'])">Save Radar</button>
+                </div>
+
+                <div class="cms-grid">
+                    <div class="card">
+                        <h3><i class="ri-rocket-line"></i> Growth Stats</h3>
+                        <div class="input-group"><label>Title</label><input type="text" id="ge_title"></div>
+                        <div class="input-group"><label>Description</label><textarea id="ge_desc"></textarea></div>
+                        <div class="input-group"><label>Stat Title</label><input type="text" id="ge_stat_title"></div>
+                        <div class="input-group"><label>Stat Value</label><input type="text" id="ge_stat_val"></div>
+                        <button class="btn-save" onclick="pushMultiText('home', ['ge_title', 'ge_desc', 'ge_stat_title', 'ge_stat_val'])">Save Stats</button>
+                    </div>
+                    <div class="card">
+                        <h3><i class="ri-image-add-line"></i> Growth Image</h3>
+                        <div class="file-upload"><span id="lbl_ge_img">Growth Section Img</span><input type="file" id="f_ge_img" accept="image/*" onchange="updateLbl(this, 'lbl_ge_img')"></div>
+                        <button class="btn-save" onclick="pushMedia('home', 'ge_img', 'f_ge_img', 'image')">Upload Image</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="sec-xray" class="editor-section">
+                <h2 class="section-title"><i class="ri-skip-left-right-line"></i> X-Ray Before/After Slider</h2>
+                <div class="card">
+                    <div class="input-group"><label>X-Ray Tag</label><input type="text" id="xray_tag"></div>
+                    <div class="input-group"><label>X-Ray Title HTML</label><input type="text" id="xray_title"></div>
+                    <div class="input-group"><label>X-Ray Desc</label><textarea id="xray_desc"></textarea></div>
+                    <div style="display: flex; gap: 20px; margin-top: 20px;">
+                        <div style="flex:1;">
+                            <div class="file-upload"><span id="lbl_ba_img_before">Before Image</span><input type="file" id="f_ba_img_before" accept="image/*" onchange="updateLbl(this, 'lbl_ba_img_before')"></div>
+                            <div class="input-group"><label>Before Label</label><input type="text" id="ba_lbl_before"></div>
+                            <button class="btn-save" onclick="pushMedia('home', 'ba_img_before', 'f_ba_img_before', 'image'); pushMultiText('home', ['ba_lbl_before']);">Save Before</button>
+                        </div>
+                        <div style="flex:1;">
+                            <div class="file-upload"><span id="lbl_ba_img_after">After Image</span><input type="file" id="f_ba_img_after" accept="image/*" onchange="updateLbl(this, 'lbl_ba_img_after')"></div>
+                            <div class="input-group"><label>After Label</label><input type="text" id="ba_lbl_after"></div>
+                            <button class="btn-save" onclick="pushMedia('home', 'ba_img_after', 'f_ba_img_after', 'image'); pushMultiText('home', ['ba_lbl_after']);">Save After</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-arsenal" class="editor-section">
+                <h2 class="section-title"><i class="ri-stack-fill"></i> Service Arsenal Cards</h2>
+                <div class="card" style="max-width: 600px;">
+                    <div class="input-group"><label>Arsenal Tag</label><input type="text" id="ars_tag"></div>
+                    <div class="input-group"><label>Arsenal Title HTML</label><input type="text" id="ars_title"></div>
+                    <button class="btn-save" onclick="pushMultiText('home', ['ars_tag', 'ars_title'])">Save Headers</button>
+                </div>
+                <div class="cms-grid" id="arsenalGridUI">
+                    </div>
+            </div>
+
+            <div id="sec-global" class="editor-section">
+                <h2 class="section-title"><i class="ri-global-line"></i> Global Elements (Nav & Footer)</h2>
+                <div class="cms-grid">
+                    <div class="card">
+                        <h3><i class="ri-links-line"></i> Navigation Bar</h3>
+                        <div class="file-upload"><span id="lbl_header_logo">Upload Agency Logo (PNG)</span><input type="file" id="f_header_logo" onchange="updateLbl(this, 'lbl_header_logo')"></div>
+                        <button class="btn-save" style="margin-bottom: 20px;" onclick="pushMedia('global', 'header_logo', 'f_header_logo', 'image')">Deploy Logo</button>
+
+                        <div class="input-group"><label>Link 1</label><input type="text" id="nav_link_1"></div>
+                        <div class="input-group"><label>Link 2</label><input type="text" id="nav_link_2"></div>
+                        <div class="input-group"><label>Link 3</label><input type="text" id="nav_link_3"></div>
+                        <div class="input-group"><label>Button Text</label><input type="text" id="nav_btn"></div>
+                        <button class="btn-save" onclick="pushMultiText('global', ['nav_link_1', 'nav_link_2', 'nav_link_3', 'nav_btn'])">Save Nav Links</button>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="ri-layout-bottom-line"></i> Footer Section</h3>
+                        <div class="input-group"><label>Giant Title HTML</label><textarea id="ft_title"></textarea></div>
+                        <div class="input-group"><label>Description</label><textarea id="ft_desc"></textarea></div>
+                        <div class="input-group"><label>Button Text</label><input type="text" id="ft_btn"></div>
+                        <div class="input-group"><label>Brand Name</label><input type="text" id="ft_brand"></div>
+                        <div class="input-group"><label>Engineered By</label><input type="text" id="ft_eng"></div>
+                        <div class="input-group"><label>Designed By</label><input type="text" id="ft_des"></div>
+                        <div class="input-group"><label>Sticky CTA Text</label><input type="text" id="sticky_cta_text"></div>
+                        <button class="btn-save" onclick="pushMultiText('global', ['ft_title', 'ft_desc', 'ft_btn', 'ft_brand', 'ft_eng', 'ft_des', 'sticky_cta_text'])">Save Footer Data</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="toast"><i id="toastIcon" class="ri-check-line"></i> <span id="toastMsg">Success</span></div>
+
+    <script>
+        const TOKEN = localStorage.getItem('zyrova_token');
+        const API_BASE_URL = "http://localhost:5000/api"; // Corrected port
+        if (!TOKEN) window.location.href = 'admin.html';
+
+        // GENERATE ARSENAL CARDS DYNAMICALLY
+        const arsGrid = document.getElementById('arsenalGridUI');
+        for(let i=1; i<=6; i++) {
+            arsGrid.innerHTML += `
+                <div class="card">
+                    <h3><i class="ri-stack-line"></i> Service Card ${i}</h3>
+                    <div class="input-group"><label>Title</label><input type="text" id="ars_c${i}_title"></div>
+                    <div class="input-group"><label>Description</label><textarea id="ars_c${i}_desc" style="height:60px;"></textarea></div>
+                    <div class="file-upload" style="padding:15px;"><span id="lbl_ars_c${i}_img">Cover Image</span><input type="file" id="f_ars_c${i}_img" accept="image/*" onchange="updateLbl(this, 'lbl_ars_c${i}_img')"></div>
+                    <div style="display:flex; gap:10px;">
+                        <button class="btn-save" style="background:#222;" onclick="pushMultiText('home', ['ars_c${i}_title', 'ars_c${i}_desc'])">Save Text</button>
+                        <button class="btn-save" onclick="pushMedia('home', 'ars_c${i}_img', 'f_ars_c${i}_img', 'image')">Upload Img</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function switchTab(id) {
+            document.querySelectorAll('.editor-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-link').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        function showToast(msg, isError = false) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.style.borderLeftColor = isError ? 'var(--error)' : 'var(--success)';
+            toast.style.transform = 'translateX(0)';
+            setTimeout(() => { toast.style.transform = 'translateX(150%)'; }, 3000);
+        }
+
+        function updateLbl(input, labelId) {
+            if(input.files[0]) document.getElementById(labelId).innerHTML = `<span style="color:#10B981;">${input.files[0].name}</span>`;
+        }
+
+        // TEXT SAVER: Now allows saving blank empty strings if you want to wipe a caption!
+        async function pushMultiText(page, inputIds) {
+            for (const id of inputIds) {
+                const val = document.getElementById(id).value;
+                await fetch(`${API_BASE_URL}/content`, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}` },
+                    body: JSON.stringify({ pageId: page, elementId: id, contentType: 'text', contentValue: val })
+                });
+            }
+            showToast("Text Data Saved Successfully!");
+        }
+
+        async function pushMedia(page, elementId, fileId, type) {
+            const file = document.getElementById(fileId).files[0];
+            if(!file) return alert("Select a file.");
+            showToast("Uploading to Cloud...");
+            const fd = new FormData(); fd.append('media', file);
+            try {
+                const upRes = await fetch(`${API_BASE_URL}/upload`, { method: 'POST', headers: { 'Authorization': `Bearer ${TOKEN}` }, body: fd });
+                const upData = await upRes.json();
+                if(upData.success) {
+                    await fetch(`${API_BASE_URL}/content`, {
+                        method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}` },
+                        body: JSON.stringify({ pageId: page, elementId: elementId, contentType: type, contentValue: upData.url })
+                    });
+                    showToast("Media Deployed!");
+                }
+            } catch(e) { showToast("Upload Failed", true); }
+        }
+
+        // ==========================================
+        // INFINITE REEL DATABASE MANAGER
+        // ==========================================
+        let currentDynamicReels = {};
+
+        async function loadExistingReels() {
+            const container = document.getElementById('existingReelsContainer');
+            container.innerHTML = `<div style="text-align: center; color: var(--text-dim); padding: 20px;"><i class="ri-loader-4-line ri-spin"></i> Fetching reels...</div>`;
+            try {
+                const res = await fetch(`${API_BASE_URL}/content/home`);
+                if(!res.ok) throw new Error("Offline");
+                const data = await res.json();
+                
+                currentDynamicReels = {};
+                data.data.forEach(item => {
+                    if (item.elementId.startsWith('dynreel_')) {
+                        const id = item.elementId.split('_')[1];
+                        const prop = item.elementId.split('_')[2];
+                        if (!currentDynamicReels[id]) currentDynamicReels[id] = {};
+                        currentDynamicReels[id][prop] = item.contentValue;
+                    }
+                });
+
+                if (Object.keys(currentDynamicReels).length === 0) {
+                    container.innerHTML = `<div style="text-align:center; padding: 20px; color: #888;">No reels in database yet. Add your first one above!</div>`;
+                    return;
+                }
+
+                container.innerHTML = '';
+                Object.keys(currentDynamicReels).sort((a,b) => b - a).forEach((id, index) => {
+                    const r = currentDynamicReels[id];
+                    const badge = index === 0 ? `<span style="background: var(--brand-olive); color: #FFF; padding: 3px 8px; border-radius: 4px; font-size: 0.7rem; margin-left: 10px;">Currently on iPhone</span>` : '';
+                    
+                    container.innerHTML += `
+                        <div class="reel-item" id="row_${id}">
+                            <div class="reel-info">
+                                <img src="${r.avatar || 'https://agency-resources.zyrova.com/reachforever/default-avatar.png'}">
+                                <div>
+                                    <h4 style="color:#FFF;">${r.name || 'Unnamed Client'} ${badge}</h4>
+                                    <p style="color:#888; font-size:0.85rem;">${r.cap ? r.cap.substring(0,40)+'...' : 'No caption'}</p>
+                                </div>
+                            </div>
+                            <button class="btn-del" onclick="deleteReel('${id}')"><i class="ri-delete-bin-line"></i> Delete</button>
+                        </div>
+                    `;
+                });
+            } catch (e) {
+                container.innerHTML = `<div style="color: #EF4444; padding:20px; text-align:center;"><i class="ri-error-warning-fill"></i> Database Offline. Run 'node server.js'</div>`;
+            }
+        }
+
+        async function uploadNewReel() {
+            const name = document.getElementById('new_reel_name').value;
+            const cap = document.getElementById('new_reel_cap').value;
+            const avatarFile = document.getElementById('f_new_reel_avatar').files[0];
+            const vidFile = document.getElementById('f_new_reel_vid').files[0];
+
+            if(!name || !vidFile) return alert("Client Name and Video are required.");
+
+            const btn = document.getElementById('btnUploadReel');
+            btn.innerHTML = '<i class="ri-loader-4-line ri-spin"></i> Uploading...';
+            btn.style.pointerEvents = 'none';
+
+            const uniqueId = Date.now();
+
+            try {
+                let fdVid = new FormData(); fdVid.append('media', vidFile);
+                let upVid = await fetch(`${API_BASE_URL}/upload`, { method: 'POST', headers: { 'Authorization': `Bearer ${TOKEN}` }, body: fdVid });
+                let vidData = await upVid.json();
+
+                let avatarUrl = "";
+                if(avatarFile) {
+                    let fdAv = new FormData(); fdAv.append('media', avatarFile);
+                    let upAv = await fetch(`${API_BASE_URL}/upload`, { method: 'POST', headers: { 'Authorization': `Bearer ${TOKEN}` }, body: fdAv });
+                    let avData = await upAv.json();
+                    avatarUrl = avData.url;
+                }
+
+                const headers = { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}` };
+                await fetch(`${API_BASE_URL}/content`, { method: 'POST', headers, body: JSON.stringify({ pageId: 'home', elementId: `dynreel_${uniqueId}_vid`, contentType: 'video', contentValue: vidData.url }) });
+                await fetch(`${API_BASE_URL}/content`, { method: 'POST', headers, body: JSON.stringify({ pageId: 'home', elementId: `dynreel_${uniqueId}_name`, contentType: 'text', contentValue: name }) });
+                await fetch(`${API_BASE_URL}/content`, { method: 'POST', headers, body: JSON.stringify({ pageId: 'home', elementId: `dynreel_${uniqueId}_cap`, contentType: 'text', contentValue: cap }) });
+                if(avatarUrl) await fetch(`${API_BASE_URL}/content`, { method: 'POST', headers, body: JSON.stringify({ pageId: 'home', elementId: `dynreel_${uniqueId}_avatar`, contentType: 'image', contentValue: avatarUrl }) });
+
+                showToast("Reel Added!");
+                document.getElementById('new_reel_name').value = '';
+                document.getElementById('new_reel_cap').value = '';
+                loadExistingReels();
+            } catch(e) {
+                showToast("Upload Failed", true);
+            } finally {
+                btn.innerHTML = '<i class="ri-upload-cloud-2-fill"></i> Upload Reel to Live Site';
+                btn.style.pointerEvents = 'auto';
+            }
+        }
+
+        async function deleteReel(id) {
+            if(!confirm("Instantly delete this reel from the site?")) return;
+            const headers = { 'Authorization': `Bearer ${TOKEN}` };
+            await fetch(`${API_BASE_URL}/content/home/dynreel_${id}_vid`, { method: 'DELETE', headers });
+            await fetch(`${API_BASE_URL}/content/home/dynreel_${id}_name`, { method: 'DELETE', headers });
+            await fetch(`${API_BASE_URL}/content/home/dynreel_${id}_cap`, { method: 'DELETE', headers });
+            await fetch(`${API_BASE_URL}/content/home/dynreel_${id}_avatar`, { method: 'DELETE', headers });
+            showToast("Reel Deleted.");
+            loadExistingReels();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => { loadExistingReels(); });
+    </script>
+</body>
+</html>

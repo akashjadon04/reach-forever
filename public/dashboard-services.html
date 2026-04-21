@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyrova Matrix | Services Control</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0b0e; --bg-panel: #12141a; --primary: #D4AF37; --accent: #556B2F;
+            --text-main: #ffffff; --text-dim: #8b8d98; --border: rgba(255,255,255,0.08);
+            --success: #10B981; --error: #EF4444;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        body { background: var(--bg-dark); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
+
+        .sidebar { width: 320px; background: rgba(18, 20, 26, 0.95); border-right: 1px solid var(--border); display: flex; flex-direction: column; padding: 30px 20px; z-index: 10; overflow-y: auto;}
+        .sidebar::-webkit-scrollbar { width: 4px; }
+        .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+        
+        .brand { font-size: 1.8rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; color: #FFF; padding-left: 10px;}
+        .brand i { color: var(--primary); font-size: 2rem; }
+        
+        .menu-label { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; margin: 25px 0 10px 10px; font-weight: 700; border-bottom: 1px solid var(--border); padding-bottom: 8px;}
+        
+        .page-link { background: transparent; border: 1px solid var(--border); color: var(--text-dim); padding: 12px 15px; border-radius: 12px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: 0.3s; text-decoration: none; width: 100%; margin-bottom: 8px;}
+        .page-link:hover { background: rgba(255,255,255,0.05); color: #FFF; }
+        .page-link.current { background: rgba(212, 175, 55, 0.1); border-color: var(--primary); color: var(--primary); }
+
+        .tab-link { background: transparent; border: none; color: var(--text-dim); padding: 14px 15px; border-radius: 12px; font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: 0.3s; width: 100%; margin-bottom: 5px; text-align: left;}
+        .tab-link:hover { background: rgba(255,255,255,0.05); color: #FFF; }
+        .tab-link.active { background: rgba(85, 107, 47, 0.15); color: var(--text-main); font-weight: 700; border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0;}
+
+        .workspace { flex: 1; display: flex; flex-direction: column; background: radial-gradient(circle at top right, rgba(85,107,47,0.05), transparent 50%); overflow-y: auto;}
+        .header { padding: 40px 50px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: rgba(10, 11, 14, 0.9); position: sticky; top: 0; z-index: 5;}
+        .header h1 { font-size: 2.2rem; font-weight: 700; }
+        .header p { color: var(--text-dim); margin-top: 5px; }
+        
+        .btn-live { background: #FFF; color: #000; padding: 12px 24px; border-radius: 50px; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: 0.3s; border: none; cursor: pointer;}
+        .btn-live:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255,255,255,0.1); }
+
+        .content-area { padding: 40px 50px; }
+        .editor-section { display: none; animation: fadeIn 0.4s ease forwards; }
+        .editor-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        .section-title { font-size: 1.6rem; font-weight: 700; color: var(--primary); margin-bottom: 30px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+        
+        .card { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 20px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); margin-bottom: 30px;}
+        .card h3 { font-size: 1.2rem; margin-bottom: 20px; color: #FFF; display: flex; align-items: center; gap: 10px; }
+
+        .cms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-bottom: 50px; }
+
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; font-weight: 700; letter-spacing: 1px;}
+        input[type="text"], textarea { width: 100%; background: #050507; border: 1px solid var(--border); color: #FFF; padding: 16px; border-radius: 12px; font-size: 1rem; outline: none; transition: 0.3s; box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);}
+        input[type="text"]:focus, textarea:focus { border-color: var(--primary); }
+        textarea { height: 100px; resize: vertical; }
+
+        .file-upload { background: #050507; border: 2px dashed rgba(255,255,255,0.1); padding: 25px 20px; border-radius: 12px; text-align: center; cursor: pointer; position: relative; margin-bottom: 15px; transition: 0.3s;}
+        .file-upload:hover { border-color: var(--primary); background: rgba(212,175,55,0.05); }
+        .file-upload input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+        
+        .btn-save { background: var(--accent); color: #FFF; border: none; padding: 16px 30px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s; width: 100%; display: flex; justify-content: center; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 1px;}
+        .btn-save:hover { background: #6b863a; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(85, 107, 47, 0.3);}
+
+        #toast { position: fixed; bottom: 30px; right: 30px; background: #FFF; color: #000; padding: 15px 25px; border-radius: 12px; font-weight: 700; transform: translateX(150%); transition: 0.4s; z-index: 9999; display: flex; align-items: center; gap: 10px; border-left: 4px solid var(--success); box-shadow: 0 10px 30px rgba(0,0,0,0.3);}
+        #toast.error { border-left-color: var(--error); }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="brand"><i class="ri-vip-crown-fill"></i> ZYROVA</div>
+        
+        <div class="menu-label">Dashboards</div>
+        <a href="dashboard.html" class="page-link"><i class="ri-home-4-line"></i> Home Matrix</a>
+        <a href="dashboard-services.html" class="page-link current"><i class="ri-stack-line"></i> Services Matrix</a>
+        <a href="dashboard-reviews.html" class="page-link"><i class="ri-star-smile-line"></i> Reviews Matrix</a>
+        
+        <div class="menu-label">Services Editors</div>
+        <button class="tab-link active" onclick="switchTab('sec-serv-hero')"><i class="ri-rocket-line"></i> Hero Header</button>
+        <button class="tab-link" onclick="switchTab('sec-serv-devices')"><i class="ri-macbook-line"></i> Mac & iPhone Mockups</button>
+        <button class="tab-link" onclick="switchTab('sec-serv-grid')"><i class="ri-layout-grid-line"></i> Master Service Grid</button>
+        <button class="tab-link" onclick="switchTab('sec-serv-cta')"><i class="ri-flashlight-line"></i> Final CTA</button>
+        
+        <div style="margin-top: 40px;"></div>
+        <button class="page-link" style="color: #EF4444; border-color: rgba(239,68,68,0.2);" onclick="localStorage.removeItem('zyrova_token'); window.location.href='admin.html';"><i class="ri-logout-circle-line"></i> Secure Lock</button>
+    </div>
+
+    <div class="workspace">
+        <div class="header">
+            <div>
+                <h1>Services Matrix</h1>
+                <p>Absolute database control over services.html</p>
+            </div>
+            <div style="display: flex; gap: 15px;">
+                <button class="btn-live" style="background: transparent; color: #FFF; border: 1px solid var(--border);" onclick="location.reload()"><i class="ri-refresh-line"></i> Sync DB</button>
+                <a href="services.html" target="_blank" class="btn-live"><i class="ri-external-link-line"></i> View Live Site</a>
+            </div>
+        </div>
+
+        <div class="content-area">
+
+            <div id="sec-serv-hero" class="editor-section active">
+                <h2 class="section-title"><i class="ri-rocket-line"></i> Services Hero Settings</h2>
+                <div class="card" style="max-width: 800px;">
+                    <div class="input-group"><label>Hero Tagline</label><input type="text" id="serv_hero_tag" placeholder="Our Arsenal"></div>
+                    <div class="input-group"><label>Giant Headline (HTML allowed)</label><textarea id="serv_hero_title" placeholder="We Engineer Revenue."></textarea></div>
+                    <div class="input-group"><label>Sub Description</label><textarea id="serv_hero_desc"></textarea></div>
+                    <button class="btn-save" onclick="pushMultiText('services', ['serv_hero_tag', 'serv_hero_title', 'serv_hero_desc'])">Save Hero Data</button>
+                </div>
+            </div>
+
+            <div id="sec-serv-devices" class="editor-section">
+                <h2 class="section-title"><i class="ri-macbook-line"></i> Device Mockups Control</h2>
+                <div class="cms-grid">
+                    <div class="card">
+                        <h3><i class="ri-mac-line"></i> MacBook Pro Video Setup</h3>
+                        <p class="card-desc">Upload the high-res MP4 that plays inside the Mac screen.</p>
+                        <div class="input-group"><label>Mac Overlay Client Name</label><input type="text" id="serv_mac_client"></div>
+                        <div class="file-upload" style="border-color: var(--primary);">
+                            <span id="lbl_serv_mac_vid" style="color: #FFF;"><i class="ri-video-upload-line"></i> Select Mac MP4 Video</span>
+                            <input type="file" id="f_serv_mac_vid" accept="video/mp4" onchange="updateLbl(this, 'lbl_serv_mac_vid')">
+                        </div>
+                        <div style="display:flex; gap:10px;">
+                            <button class="btn-save" style="background:#222;" onclick="pushMultiText('services', ['serv_mac_client'])">Save Text</button>
+                            <button class="btn-save" onclick="pushMedia('services', 'serv_mac_vid', 'f_serv_mac_vid', 'video')">Deploy Mac Video</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="ri-smartphone-line"></i> iPhone Video Setup</h3>
+                        <p class="card-desc">Upload the vertical reel that plays inside the iPhone mockup.</p>
+                        <div class="input-group"><label>iPhone Overlay Name</label><input type="text" id="serv_iphone_client"></div>
+                        <div class="file-upload" style="border-color: var(--primary);">
+                            <span id="lbl_serv_iphone_vid" style="color: #FFF;"><i class="ri-video-upload-line"></i> Select iPhone MP4 Video</span>
+                            <input type="file" id="f_serv_iphone_vid" accept="video/mp4" onchange="updateLbl(this, 'lbl_serv_iphone_vid')">
+                        </div>
+                        <div style="display:flex; gap:10px;">
+                            <button class="btn-save" style="background:#222;" onclick="pushMultiText('services', ['serv_iphone_client'])">Save Text</button>
+                            <button class="btn-save" onclick="pushMedia('services', 'serv_iphone_vid', 'f_serv_iphone_vid', 'video')">Deploy iPhone Video</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-serv-grid" class="editor-section">
+                <h2 class="section-title"><i class="ri-layout-grid-line"></i> Core Services Grid</h2>
+                <div class="cms-grid" id="servListGridUI">
+                    </div>
+            </div>
+
+            <div id="sec-serv-cta" class="editor-section">
+                <h2 class="section-title"><i class="ri-flashlight-line"></i> Bottom Call To Action</h2>
+                <div class="card" style="max-width: 800px;">
+                    <div class="input-group"><label>CTA Title HTML</label><textarea id="serv_cta_title" style="height:60px;"></textarea></div>
+                    <div class="input-group"><label>CTA Subtext</label><input type="text" id="serv_cta_desc"></div>
+                    <div class="input-group"><label>CTA Button Text</label><input type="text" id="serv_cta_btn"></div>
+                    <button class="btn-save" onclick="pushMultiText('services', ['serv_cta_title', 'serv_cta_desc', 'serv_cta_btn'])">Save Bottom CTA</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="toast"><i id="toastIcon" class="ri-check-line"></i> <span id="toastMsg">Success</span></div>
+
+    <script>
+        const TOKEN = localStorage.getItem('zyrova_token');
+        // FUTURE-PROOF DEPLOYMENT API ROUTER
+        const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+            ? 'http://localhost:5000/api' 
+            : '/api';
+
+        if (!TOKEN) window.location.href = 'admin.html';
+
+        // Auto-generate 6 Service Grid Cards
+        const servGrid = document.getElementById('servListGridUI');
+        for(let i=1; i<=6; i++) {
+            servGrid.innerHTML += `
+                <div class="card">
+                    <h3><i class="ri-stack-fill"></i> Service Block ${i}</h3>
+                    <div class="input-group"><label>Service Title</label><input type="text" id="serv_grid${i}_title"></div>
+                    <div class="input-group"><label>Service Description</label><textarea id="serv_grid${i}_desc" style="height:80px;"></textarea></div>
+                    <div class="file-upload" style="padding:15px;"><span id="lbl_serv_grid${i}_img">Cover Image</span><input type="file" id="f_serv_grid${i}_img" accept="image/*" onchange="updateLbl(this, 'lbl_serv_grid${i}_img')"></div>
+                    <div style="display:flex; gap:10px;">
+                        <button class="btn-save" style="background:#222;" onclick="pushMultiText('services', ['serv_grid${i}_title', 'serv_grid${i}_desc'])">Save Text</button>
+                        <button class="btn-save" onclick="pushMedia('services', 'serv_grid${i}_img', 'f_serv_grid${i}_img', 'image')">Upload Image</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function switchTab(id) {
+            document.querySelectorAll('.editor-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-link').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        function showToast(msg, isError = false) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.style.borderLeftColor = isError ? 'var(--error)' : 'var(--success)';
+            toast.style.transform = 'translateX(0)';
+            setTimeout(() => { toast.style.transform = 'translateX(150%)'; }, 3000);
+        }
+
+        function updateLbl(input, labelId) {
+            if(input.files[0]) document.getElementById(labelId).innerHTML = `<span style="color:#10B981;">${input.files[0].name}</span>`;
+        }
+
+        async function pushMultiText(page, inputIds) {
+            for (const id of inputIds) {
+                const val = document.getElementById(id).value;
+                await fetch(`${API_BASE_URL}/content`, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}` },
+                    body: JSON.stringify({ pageId: page, elementId: id, contentType: 'text', contentValue: val })
+                });
+            }
+            showToast("Database Updated!");
+        }
+
+        async function pushMedia(page, elementId, fileId, type) {
+            const file = document.getElementById(fileId).files[0];
+            if(!file) return alert("Select a file.");
+            showToast("Uploading to Database...");
+            const fd = new FormData(); fd.append('media', file);
+            try {
+                const upRes = await fetch(`${API_BASE_URL}/upload`, { method: 'POST', headers: { 'Authorization': `Bearer ${TOKEN}` }, body: fd });
+                const upData = await upRes.json();
+                if(upData.success) {
+                    await fetch(`${API_BASE_URL}/content`, {
+                        method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}` },
+                        body: JSON.stringify({ pageId: page, elementId: elementId, contentType: type, contentValue: upData.url })
+                    });
+                    showToast("Media Deployed Successfully!");
+                }
+            } catch(e) { showToast("Upload Failed", true); }
+        }
+    </script>
+</body>
+</html>
