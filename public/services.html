@@ -1014,14 +1014,18 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
+            const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+                ? 'http://localhost:5000/api' 
+                : 'https://reach-forever.onrender.com/api';
+
             let pageName = window.location.pathname.split("/").pop().replace(".html", "");
             if (!pageName || pageName === "" || pageName === "index") pageName = "home";
 
             try {
-                const response = await fetch(`/api/content/${pageName}`);
+                const response = await fetch(`${API_BASE_URL}/content/${pageName}`);
                 const data = await response.json();
                 
-                const globalResponse = await fetch(`/api/content/global`);
+                const globalResponse = await fetch(`${API_BASE_URL}/content/global`);
                 const globalData = await globalResponse.json();
 
                 let allContent = [];
@@ -1037,6 +1041,8 @@
                         } else if (dbItem.contentType === 'image') {
                             element.src = dbItem.contentValue;
                         } else if (dbItem.contentType === 'video') {
+                            const sourceTag = element.querySelector('source');
+                            if (sourceTag) sourceTag.remove();
                             element.src = dbItem.contentValue;
                             element.load(); 
                         }

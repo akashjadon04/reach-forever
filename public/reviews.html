@@ -1067,9 +1067,9 @@
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
             // FUTURE-PROOF API ROUTER: Works on localhost AND live hosting automatically
-            const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-                ? 'http://localhost:5000/api' 
-                : '/api';
+           const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+    ? 'http://localhost:5000/api' 
+    : 'https://reach-forever.onrender.com/api';
 
             let pageName = window.location.pathname.split("/").pop().replace(".html", "");
             if (!pageName || pageName === "" || pageName === "index") pageName = "home";
