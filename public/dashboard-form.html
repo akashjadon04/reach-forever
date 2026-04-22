@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyrova Matrix | Form Control</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0b0e; --bg-panel: #12141a; --primary: #D4AF37; --accent: #556B2F;
+            --text-main: #ffffff; --text-dim: #8b8d98; --border: rgba(255,255,255,0.08);
+            --success: #10B981; --error: #EF4444;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        body { background: var(--bg-dark); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
+
+        .sidebar { width: 320px; background: rgba(18, 20, 26, 0.95); border-right: 1px solid var(--border); display: flex; flex-direction: column; padding: 30px 20px; z-index: 10; overflow-y: auto;}
+        .sidebar::-webkit-scrollbar { width: 4px; }
+        .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+        
+        .brand { font-size: 1.8rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; color: #FFF; padding-left: 10px;}
+        .brand i { color: var(--primary); font-size: 2rem; }
+        
+        .menu-label { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; margin: 25px 0 10px 10px; font-weight: 700; border-bottom: 1px solid var(--border); padding-bottom: 8px;}
+        
+        .page-link { background: transparent; border: 1px solid var(--border); color: var(--text-dim); padding: 12px 15px; border-radius: 12px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: 0.3s; text-decoration: none; width: 100%; margin-bottom: 8px;}
+        .page-link:hover { background: rgba(255,255,255,0.05); color: #FFF; }
+        .page-link.current { background: rgba(212, 175, 55, 0.1); border-color: var(--primary); color: var(--primary); }
+
+        .workspace { flex: 1; display: flex; flex-direction: column; background: radial-gradient(circle at top right, rgba(85,107,47,0.05), transparent 50%); overflow-y: auto;}
+        .header { padding: 40px 50px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: rgba(10, 11, 14, 0.9); position: sticky; top: 0; z-index: 5; backdrop-filter: blur(20px);}
+        .header h1 { font-size: 2.2rem; font-weight: 700; }
+        .header p { color: var(--text-dim); margin-top: 5px; }
+        
+        .btn-live { background: #FFF; color: #000; padding: 12px 24px; border-radius: 50px; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: 0.3s; border: none; cursor: pointer;}
+        .btn-live:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255,255,255,0.1); }
+
+        .content-area { padding: 40px 50px; }
+        .section-title { font-size: 1.6rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border); padding-bottom: 15px;}
+        
+        .card { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 20px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); margin-bottom: 30px;}
+        .card h3 { font-size: 1.2rem; margin-bottom: 10px; color: #FFF; display: flex; align-items: center; gap: 10px; }
+        
+        .cms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
+
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; font-weight: 700; letter-spacing: 1px;}
+        input[type="text"], textarea, input[type="email"] { width: 100%; background: #050507; border: 1px solid var(--border); color: #FFF; padding: 16px; border-radius: 12px; font-size: 1rem; outline: none; transition: 0.3s; box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);}
+        input[type="text"]:focus, textarea:focus, input[type="email"]:focus { border-color: var(--primary); }
+        textarea { height: 100px; resize: vertical; }
+        
+        .btn-save { background: var(--accent); color: #FFF; border: none; padding: 16px 30px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s; width: 100%; display: flex; justify-content: center; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 1px;}
+        .btn-save:hover { background: #6b863a; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(85, 107, 47, 0.3);}
+
+        #toast { position: fixed; bottom: 30px; right: 30px; background: #FFF; color: #000; padding: 15px 25px; border-radius: 12px; font-weight: 700; transform: translateX(150%); transition: 0.4s; z-index: 9999; display: flex; align-items: center; gap: 10px; border-left: 4px solid var(--success); box-shadow: 0 10px 30px rgba(0,0,0,0.3);}
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="brand"><i class="ri-vip-crown-fill"></i> ZYROVA</div>
+        
+        <div class="menu-label">Dashboards</div>
+        <a href="dashboard.html" class="page-link"><i class="ri-home-4-line"></i> Home Matrix</a>
+        <a href="dashboard-services.html" class="page-link"><i class="ri-stack-line"></i> Services Matrix</a>
+        <a href="dashboard-reviews.html" class="page-link"><i class="ri-star-smile-line"></i> Reviews Matrix</a>
+        <a href="dashboard-form.html" class="page-link current"><i class="ri-mail-send-line"></i> Form Matrix</a>
+        
+        <div style="margin-top: 40px;"></div>
+        <button class="page-link" style="color: #EF4444; border-color: rgba(239,68,68,0.2);" onclick="localStorage.removeItem('zyrova_token'); window.location.href='admin.html';"><i class="ri-logout-circle-line"></i> Secure Lock</button>
+    </div>
+
+    <div class="workspace">
+        <div class="header">
+            <div>
+                <h1>Form Matrix</h1>
+                <p>Lead routing and application page control</p>
+            </div>
+            <div style="display: flex; gap: 15px;">
+                <button class="btn-live" style="background: transparent; color: #FFF; border: 1px solid var(--border);" onclick="location.reload()"><i class="ri-refresh-line"></i> Sync DB</button>
+                <a href="form.html" target="_blank" class="btn-live"><i class="ri-external-link-line"></i> View Live Site</a>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <h2 class="section-title"><i class="ri-mail-settings-line"></i> Application Form Control</h2>
+            
+            <div class="cms-grid">
+                <div class="card" style="border: 1px solid rgba(212,175,55,0.4);">
+                    <h3 style="color: var(--primary);"><i class="ri-mail-send-fill"></i> Lead Routing Address</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">Enter the exact email address where form submissions should be sent. FormSubmit will automatically verify it.</p>
+                    
+                    <div class="input-group">
+                        <label>Receiver Email Address</label>
+                        <input type="email" id="frm_submit_email" placeholder="client@reachforever.com">
+                    </div>
+                    <button class="btn-save" onclick="pushMultiText('form', ['frm_submit_email'])">Update Lead Routing</button>
+                </div>
+
+                <div class="card">
+                    <h3><i class="ri-text-wrap"></i> Application Page Text</h3>
+                    <div class="input-group"><label>Tagline</label><input type="text" id="frm_hero_tag"></div>
+                    <div class="input-group"><label>Giant Title HTML</label><textarea id="frm_hero_title" style="height:60px;"></textarea></div>
+                    <div class="input-group"><label>Description</label><textarea id="frm_hero_desc" style="height:80px;"></textarea></div>
+                    <hr style="border:1px solid var(--border); margin:20px 0;">
+                    
+                    <div class="input-group"><label>Feature 1 Title</label><input type="text" id="frm_feat_1_title"></div>
+                    <div class="input-group"><label>Feature 1 Desc</label><input type="text" id="frm_feat_1_desc"></div>
+                    <div class="input-group"><label>Feature 2 Title</label><input type="text" id="frm_feat_2_title"></div>
+                    <div class="input-group"><label>Feature 2 Desc</label><input type="text" id="frm_feat_2_desc"></div>
+                    
+                    <button class="btn-save" style="background:#222;" onclick="pushMultiText('form', ['frm_hero_tag', 'frm_hero_title', 'frm_hero_desc', 'frm_feat_1_title', 'frm_feat_1_desc', 'frm_feat_2_title', 'frm_feat_2_desc'])">Save Form Text</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast"><i id="toastIcon" class="ri-check-line"></i> <span id="toastMsg">Success</span></div>
+
+    <script>
+        const TOKEN = localStorage.getItem('zyrova_token');
+        const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+            ? 'http://localhost:5000/api' : 'https://reach-forever.onrender.com/api';
+        
+        if (!TOKEN) window.location.href = 'admin.html';
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            try {
+                const res = await fetch(`${API_BASE_URL}/content/form`);
+                const data = await res.json();
+                if (data.success && data.data) {
+                    data.data.forEach(item => {
+                        if (item.contentType === 'text') {
+                            const el = document.getElementById(item.elementId);
+                            if (el) el.value = item.contentValue;
+                        }
+                    });
+                }
+            } catch(e) { console.error("DB Sync error:", e); }
+        });
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.style.transform = 'translateX(0)';
+            setTimeout(() => { toast.style.transform = 'translateX(150%)'; }, 3000);
+        }
+
+        async function pushMultiText(page, inputIds) {
+            showToast("Syncing Database...");
+            for (const id of inputIds) {
+                const val = document.getElementById(id).value;
+                await fetch(`${API_BASE_URL}/content`, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}` },
+                    body: JSON.stringify({ pageId: page, elementId: id, contentType: 'text', contentValue: val })
+                });
+            }
+            showToast("Database Updated!");
+        }
+    </script>
+</body>
+</html>

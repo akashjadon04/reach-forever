@@ -7,7 +7,7 @@
     <meta name="description" content="Premium Digital Marketing, Web Development, and SEO Services by Reach Forever. We build systems that generate real paying customers.">
     <meta name="keywords" content="Digital Marketing Services, Web Development, App Development, SEO, Facebook Ads, Instagram Ads, Reach Forever">
     <meta name="author" content="Zyrova Digital | Designed by Akash Jadon">
-    <meta name="theme-color" content="#FDFDFB">
+    <meta name="theme-color" content="#0A0B0E">
     <title>Premium Services | Reach Forever</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,7 @@
     
     <style>
         /* ==========================================================================
-           1. CORE LUXURY VARIABLES (BEIGE, OLIVE, GOLD)
+           1. CORE LUXURY VARIABLES
            ========================================================================== */
         :root {
             --bg-main: #FDFDFB; 
@@ -31,7 +31,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Outfit', sans-serif; background-color: var(--bg-main); color: var(--text-dark); overflow-x: hidden; cursor: none; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--bg-main); color: var(--text-dark); overflow-x: hidden; cursor: none; width: 100vw; }
         a, button, input, select { cursor: none; }
         
         @media (hover: none) and (pointer: coarse) {
@@ -55,7 +55,7 @@
         @keyframes breathe { 0% { transform: scale(1); opacity: 0.3; } 100% { transform: scale(1.2); opacity: 0.7; } }
 
         /* ==========================================================================
-           3. BULLETPROOF WHATSAPP FLOAT (ROOT LEVEL)
+           3. BULLETPROOF WHATSAPP FLOAT
            ========================================================================== */
         .wa-float { position: fixed; bottom: 40px; left: 40px; width: 65px; height: 65px; background: #25D366; color: #FFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; text-decoration: none; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); z-index: 999999; transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
         .wa-float:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6); }
@@ -64,14 +64,11 @@
         @media (max-width: 768px) { .wa-float { bottom: 25px; left: 25px; width: 55px; height: 55px; font-size: 2rem; } }
 
         /* ==========================================================================
-           4. HEADER NAVBAR (MATCHED TO INDEX - DARK LOGO FOR BEIGE BG)
+           4. HEADER NAVBAR
            ========================================================================== */
         .header-wrap { position: fixed; top: 15px; left: 0; width: 100%; z-index: 10000; display: flex; justify-content: center; pointer-events: none; }
         .navbar { pointer-events: auto; width: 92%; max-width: 1250px; height: 70px; background: rgba(253, 253, 251, 0.85); backdrop-filter: blur(35px); border-radius: 100px; border: 1px solid var(--accent-gold); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), inset 0 0 15px rgba(212, 175, 55, 0.1); display: flex; justify-content: space-between; align-items: center; padding: 0 10px 0 25px; }
-        
-        /* Dark logo to contrast with light beige nav */
         .nav-brand img { filter: brightness(0.1); } 
-
         .nav-links { display: flex; gap: 5px; list-style: none; }
         .nav-pill { padding: 10px 24px; border-radius: 100px; color: var(--text-dark); font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; text-decoration: none; transition: color 0.3s; }
         .nav-pill:hover, .nav-pill.active { color: var(--accent-olive); }
@@ -88,24 +85,21 @@
         @media (max-width: 1024px) { .nav-links, .nav-btn-wrap { display: none; } .mobile-nav { display: flex; } }
 
         /* ==========================================================================
-           5. MAIN LAYOUT WRAPPER (Sits above fixed footer)
+           5. MAIN LAYOUT WRAPPER 
            ========================================================================== */
-        .main-wrapper { position: relative; z-index: 2; background-color: var(--bg-main); box-shadow: 0 40px 100px rgba(0,0,0,0.2); border-bottom-left-radius: 60px; border-bottom-right-radius: 60px; padding-bottom: 2rem;}
+        .main-wrapper { position: relative; z-index: 2; background-color: var(--bg-main); box-shadow: 0 40px 100px rgba(0,0,0,0.2); border-bottom-left-radius: 60px; border-bottom-right-radius: 60px; padding-bottom: 2rem; overflow: hidden;}
 
         /* ==========================================================================
            6. BREATHTAKING SERVICES HERO
            ========================================================================== */
-        .services-hero { position: relative; width: 100%; height: 100vh; min-height: 800px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--bg-main); }
-        
+        .services-hero { position: relative; width: 100%; height: 100vh; min-height: 800px; display: flex; align-items: center; justify-content: center; background: var(--bg-main); }
         .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1500px; width: 100%; align-items: center; padding: 0 5%; z-index: 2; position: relative;}
-        
         .hero-text { padding-top: 80px; }
         .hero-tag { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: #FFF; border: 1px solid var(--glass-border); border-radius: 100px; font-size: 0.95rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-olive); margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 6vw, 6.5rem); line-height: 1.05; margin-bottom: 25px; font-weight: 700; color: var(--text-dark); letter-spacing: -1px; }
         .hero-title span { color: var(--accent-olive); font-style: italic; }
         .hero-desc { font-family: 'Outfit', sans-serif; font-size: clamp(1.1rem, 1.5vw, 1.3rem); color: var(--text-muted); margin-bottom: 40px; line-height: 1.6; font-weight: 400; max-width: 600px; }
         
-        /* High-End Clean Hero Graphics */
         .hero-visuals { position: relative; width: 100%; height: 600px; }
         .hero-img-main { position: absolute; width: 80%; height: 90%; right: 0; top: 0; border-radius: 40px; object-fit: cover; box-shadow: 0 40px 80px rgba(0,0,0,0.15); border: 1px solid rgba(212, 175, 55, 0.3); z-index: 2; }
         .hero-img-sub { position: absolute; width: 60%; height: 50%; left: -10%; bottom: 5%; border-radius: 30px; object-fit: cover; box-shadow: -20px 30px 60px rgba(0,0,0,0.2); border: 8px solid var(--bg-main); z-index: 3; }
@@ -114,29 +108,27 @@
         .hfb-icon { width: 50px; height: 50px; border-radius: 50%; background: var(--accent-olive); color: #FFF; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; }
         .hfb-text h4 { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
         .hfb-text span { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--text-dark); line-height: 1; }
-
         @keyframes floaty { 0% { transform: translateY(0px); } 100% { transform: translateY(-20px); } }
 
         @media (max-width: 1024px) {
             .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; margin-top: 50px;}
             .hero-desc { margin: 0 auto 40px; }
-            .hero-visuals { height: 450px; margin-top: 2rem; }
+            .hero-visuals { height: 400px; margin-top: 2rem; }
             .hero-img-main { width: 90%; right: 5%; left: 5%; margin: 0 auto; top: 0;}
             .hero-img-sub { bottom: -5%; left: 10%; width: 60%; }
             .hero-float-badge { display: none; }
         }
 
         /* ==========================================================================
-           7. DIGITAL MARKETING (APPLE HORIZONTAL SCROLL WITH 8K GRAPHICS)
+           7. DIGITAL MARKETING (HORIZONTAL SCROLL)
            ========================================================================== */
-        .marketing-section { background: var(--bg-surface); position: relative; overflow: hidden; padding-top: 4rem; border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .marketing-section { background: var(--bg-surface); position: relative; padding-top: 4rem; border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); }
         .hs-header { position: absolute; top: 6rem; left: 5%; z-index: 10; }
         .hs-header h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5vw, 5rem); font-weight: 700; color: var(--text-dark); line-height: 1; }
         .hs-header p { font-family: 'Outfit', sans-serif; font-size: 1.1rem; color: var(--accent-olive); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-top: 10px; }
         
         .hs-container { width: 300vw; height: 100vh; display: flex; flex-wrap: nowrap; will-change: transform; }
         .hs-panel { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; padding: 0 8%; position: relative; }
-        
         .hs-content { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; width: 100%; max-width: 1400px; align-items: center; }
         .hs-text h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 5vw, 5.5rem); font-weight: 700; color: var(--text-dark); line-height: 1.1; margin-bottom: 20px; }
         .hs-text p { font-size: 1.2rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 30px; font-weight: 400; max-width: 500px; }
@@ -145,7 +137,6 @@
         .hs-list-item { display: flex; align-items: center; gap: 15px; font-size: 1.1rem; font-weight: 600; color: var(--text-dark); }
         .hs-list-item i { width: 40px; height: 40px; background: rgba(85,107,47,0.1); color: var(--accent-olive); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
         
-        /* Full Opacity 8K Graphics */
         .hs-visual { position: relative; width: 100%; height: 550px; border-radius: 40px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.05); background: #000; }
         .hs-visual img { width: 100%; height: 100%; object-fit: cover; opacity: 1 !important; transition: transform 0.8s ease; }
         .hs-visual:hover img { transform: scale(1.05); }
@@ -155,27 +146,59 @@
         .hs-float-text h4 { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
         .hs-float-text span { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: var(--text-dark); line-height: 1; }
 
+        /* ==========================================================================
+           FOUNDER 1: ANSH KHATRI (THE VIRAL ARCHITECT)
+           ========================================================================== */
+        .founder-card.ansh {
+            background: rgba(10, 11, 14, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(228, 64, 95, 0.4);
+            border-radius: 24px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 35px;
+            box-shadow: 0 20px 50px rgba(228, 64, 95, 0.15);
+            position: relative;
+            overflow: hidden;
+            color: #FFF;
+        }
+        .founder-card.ansh::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at center, rgba(228,64,95,0.2) 0%, rgba(249,206,52,0.1) 40%, transparent 70%);
+            animation: spinSlow 15s linear infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+        @keyframes spinSlow { 100% { transform: rotate(360deg); } }
+        .founder-card.ansh img { width: 75px; height: 75px; border-radius: 50%; object-fit: cover; border: 2px solid #E4405F; padding: 2px; position: relative; z-index: 2; background: #000;}
+
         @media (max-width: 1024px) {
-            .hs-container { width: 100%; height: auto; flex-direction: column; }
-            .hs-panel { width: 100%; height: auto; padding: 120px 5% 60px; }
-            .hs-header { position: relative; top: 0; left: 0; text-align: center; padding: 60px 5% 0; }
-            .hs-content { grid-template-columns: 1fr; text-align: center; gap: 50px; }
+            .marketing-section { padding-top: 2rem; }
+            .hs-container { width: 100vw; height: auto; flex-direction: column; overflow: hidden;}
+            .hs-panel { width: 100%; height: auto; padding: 60px 5%; margin-bottom: 40px;}
+            .hs-header { position: relative; top: 0; left: 0; text-align: center; padding: 40px 5% 20px; }
+            .hs-content { grid-template-columns: 1fr; text-align: center; gap: 40px; }
             .hs-text p { margin: 0 auto 30px; }
             .hs-list { align-items: center; }
-            .hs-visual { height: 400px; overflow: visible; }
-            .hs-float-card { left: 50%; transform: translateX(-50%); bottom: -20px; width: 90%; justify-content: center; }
+            .hs-visual { height: 350px; overflow: visible; }
+            .hs-float-card { left: 50%; transform: translateX(-50%); bottom: -20px; width: 90%; justify-content: center; padding: 15px 20px;}
+            .founder-card.ansh { text-align: left; flex-direction: column; align-items: center; text-align: center; }
         }
 
         /* ==========================================================================
-           8. WEB & APP DEV SHOWCASE (THE UNBREAKABLE APPLE 3D DEVICES)
+           8. WEB & APP DEV SHOWCASE
            ========================================================================== */
-        .dev-section { padding: 8rem 5%; background: var(--bg-main); margin: 0 2%; position: relative; z-index: 5; }
+        .dev-section { padding: 8rem 5%; background: var(--bg-main); position: relative; z-index: 5; }
         .dev-header { text-align: center; margin-bottom: 6rem; }
         .dev-header h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5vw, 5rem); color: var(--text-dark); font-weight: 700; margin-bottom: 10px; }
         
         .dev-container { display: grid; grid-template-columns: 1fr 1.3fr; gap: 60px; max-width: 1400px; margin: 0 auto; align-items: center; }
         
-        /* Interactive Tabs */
         .sc-tabs { display: flex; flex-direction: column; gap: 25px; }
         .sc-tab { background: var(--glass-bg); border: 1px solid rgba(0,0,0,0.05); padding: 35px 40px; border-radius: 25px; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.02); cursor: pointer;}
         .sc-tab::before { content: ''; position: absolute; left: 0; top: 0; width: 6px; height: 100%; background: var(--accent-olive); transform: scaleY(0); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); transform-origin: bottom; }
@@ -187,49 +210,67 @@
         .sc-tab.active h3 { color: var(--accent-olive); }
         .sc-tab:hover:not(.active) { transform: translateX(10px); border-color: rgba(212,175,55,0.5); }
 
-        /* The Ultimate Pure CSS 3D Devices */
+        /* ==========================================================================
+           FOUNDER 2: AKASH JADON (ZYROVA LEAD ENGINEER)
+           ========================================================================== */
+        .founder-card.akash {
+            background: #050507;
+            border: 1px solid rgba(212,175,55,0.4);
+            border-radius: 24px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 15px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            color: #FFF;
+            position: relative;
+            overflow: hidden;
+        }
+        .founder-card.akash::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(90deg, rgba(212,175,55,0.08) 1px, transparent 1px), linear-gradient(0deg, rgba(212,175,55,0.08) 1px, transparent 1px);
+            background-size: 20px 20px; opacity: 0.8; pointer-events: none;
+        }
+        .founder-card.akash img { width: 75px; height: 75px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-gold); position: relative; z-index: 2;}
+
+        /* CSS 3D Devices */
         .sc-visuals { position: relative; height: 600px; perspective: 2500px; display: flex; justify-content: center; align-items: center; }
-        
-        /* CSS 3D MacBook */
         .macbook-3d { position: absolute; width: 85%; max-width: 750px; aspect-ratio: 16/10; transform-style: preserve-3d; transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1); z-index: 2; transform: rotateY(-15deg) rotateX(5deg) translateZ(0); }
-        
         .mac-lid { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: #e0e2e5; border-radius: 20px 20px 0 0; padding: 2.5%; transform-origin: bottom center; transform-style: preserve-3d; transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1); transform: rotateX(0deg); box-shadow: inset 0 0 0 2px #b0b2b5; z-index: 2; }
-        
         .mac-screen { position: relative; width: 100%; height: 100%; background: #000; border-radius: 8px; border: 4px solid #111; overflow: hidden; }
-        .mac-screen::after { content: 'ReachForever'; position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); color: #666; font-size: 10px; font-weight: 700; font-family: sans-serif; letter-spacing: 1px;}
-        
+        .mac-screen::after { content: 'Zyrova Digital'; position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); color: #666; font-size: 10px; font-weight: 700; font-family: sans-serif; letter-spacing: 1px;}
         .mac-base { position: absolute; bottom: -16px; left: -2%; width: 104%; height: 16px; background: linear-gradient(180deg, #d4d6db 0%, #a3a5aa 100%); border-radius: 0 0 16px 16px; z-index: 1; box-shadow: 0 20px 40px rgba(0,0,0,0.3), inset 0 1px 0 #fff; transform: rotateX(90deg); transform-origin: top;}
         .mac-base::after { content:''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 15%; height: 6px; background: #a3a5aa; border-radius: 0 0 6px 6px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);}
         
-        /* CSS 3D iPhone */
         .iphone-3d { position: absolute; width: 28%; max-width: 250px; aspect-ratio: 9/19; right: 5%; bottom: 5%; transform-style: preserve-3d; transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1); transform: rotateY(-30deg) rotateX(15deg) translateZ(100px); z-index: 3; }
         .iphone-body { position: absolute; inset: 0; background: #111; border-radius: 40px; padding: 10px; box-shadow: inset 0 0 0 4px #444, inset 0 0 0 8px #d4d6db, 0 30px 60px rgba(0,0,0,0.4); }
         .iphone-screen { position: relative; width: 100%; height: 100%; background: #000; border-radius: 30px; overflow: hidden; }
         .iphone-island { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 35%; height: 25px; background: #000; border-radius: 20px; z-index: 10; box-shadow: inset 0 0 4px rgba(255,255,255,0.1); }
 
-        /* Media inside devices (Full Opacity, 8K Content) */
         .device-media { width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; position: absolute; inset: 0; }
         .device-media.active { opacity: 1; z-index: 2; }
 
-        /* The Magic: Apple-Style State Switching */
         .sc-visuals[data-active="web"] .macbook-3d { transform: translateZ(100px) translateY(0); z-index: 10; filter: drop-shadow(0 40px 60px rgba(0,0,0,0.2)); }
-        .sc-visuals[data-active="web"] .mac-lid { transform: rotateX(0deg); } /* Lid Open */
+        .sc-visuals[data-active="web"] .mac-lid { transform: rotateX(0deg); }
         .sc-visuals[data-active="web"] .iphone-3d { transform: translateZ(-200px) translateX(250px) rotateY(-15deg); filter: blur(6px) brightness(0.7); z-index: 1; }
 
         .sc-visuals[data-active="app"] .macbook-3d { transform: translateZ(-300px) translateX(-200px) rotateY(15deg); filter: blur(8px) brightness(0.6); z-index: 1; }
-        .sc-visuals[data-active="app"] .mac-lid { transform: rotateX(-85deg); } /* Lid Physically Closes */
+        .sc-visuals[data-active="app"] .mac-lid { transform: rotateX(-85deg); }
         .sc-visuals[data-active="app"] .iphone-3d { transform: translateZ(150px) translateX(0) scale(1.2); z-index: 10; filter: blur(0) brightness(1); }
 
         @media (max-width: 1024px) {
+            .dev-section { padding: 4rem 5%; }
             .dev-container { grid-template-columns: 1fr; gap: 40px; }
-            .sc-visuals { height: 450px; }
-            .macbook-3d { width: 95%; }
-            .iphone-3d { width: 35%; right: 0; bottom: 0; }
-            .sc-visuals[data-active="app"] .iphone-3d { transform: translateZ(50px) scale(1.1); }
+            .sc-visuals { height: 400px; }
+            .macbook-3d { width: 95%; left: 0; right: 0; margin: 0 auto; transform: rotateY(0) translateZ(0) !important;}
+            .iphone-3d { width: 35%; right: 5%; bottom: 0; transform: rotateY(-10deg) translateZ(50px) !important;}
+            .sc-visuals[data-active="app"] .iphone-3d { transform: translateZ(50px) translateX(-50%) left:50% scale(1.1) !important; right:auto;}
+            .founder-card.akash { flex-direction: column; text-align: center; }
         }
 
         /* ==========================================================================
-           9. PREMIUM BENTO BOX GRID (Full Opacity Graphics)
+           9. PREMIUM BENTO BOX GRID 
            ========================================================================== */
         .bento-section { padding: 4rem 5% 8rem; position: relative; z-index: 5; }
         .bento-header { text-align: center; margin-bottom: 5rem; }
@@ -245,12 +286,10 @@
         .bc-title { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: var(--text-dark); line-height: 1.1; margin-bottom: 10px; text-shadow: 0 2px 10px rgba(255,255,255,0.8); }
         .bc-desc { font-size: 1.05rem; color: var(--text-dark); line-height: 1.5; font-weight: 500; background: rgba(255,255,255,0.8); padding: 10px; border-radius: 10px; backdrop-filter: blur(5px);}
 
-        /* Grid Spans */
         .span-2x2 { grid-column: span 2; grid-row: span 2; }
         .span-2x1 { grid-column: span 2; grid-row: span 1; }
         .span-1x2 { grid-column: span 1; grid-row: span 2; }
 
-        /* Rich Full Opacity Background Images for Bento */
         .bc-bg-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.15; z-index: 0; transition: 0.5s ease; }
         .bento-card:hover .bc-bg-img { opacity: 0.3; transform: scale(1.05); }
 
@@ -261,10 +300,12 @@
         @media (max-width: 768px) {
             .bento-grid { grid-template-columns: 1fr; }
             .span-2x2, .span-2x1, .span-1x2 { grid-column: span 1; }
+            .bc-content { padding: 0;}
+            .bento-card { padding: 30px;}
         }
 
         /* ==========================================================================
-           10. THE PROCESS TIMELINE (NEW VALUE ADD)
+           10. THE PROCESS TIMELINE
            ========================================================================== */
         .process-section { padding: 8rem 5%; background: var(--bg-surface); position: relative; z-index: 5; border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05);}
         .process-container { max-width: 1000px; margin: 0 auto; position: relative; }
@@ -289,7 +330,7 @@
         }
 
         /* ==========================================================================
-           11. FAQ SECTION (OBJECTION HANDLING)
+           11. FAQ SECTION 
            ========================================================================== */
         .faq-section { padding: 6rem 5% 8rem; background: var(--bg-main); position: relative; z-index: 5;}
         .faq-container { max-width: 900px; margin: 0 auto; }
@@ -305,22 +346,13 @@
         .faq-item.active .faq-question i { transform: rotate(180deg); }
 
         /* ==========================================================================
-           12. CTA FOOTER (MATCHED EXACTLY TO INDEX)
+           12. CTA FOOTER
            ========================================================================== */
         .footer-fixed { position: fixed; bottom: 0; left: 0; width: 100%; height: 85vh; background: var(--bg-dark); color: #FFF; z-index: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 5%; overflow: hidden; }
         .f-cta { max-width: 1000px; margin: 0 auto; position: relative; z-index: 2; }
         .f-cta h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 8vw, 7rem); margin-bottom: 20px; line-height: 1; color: #FFF; }
         .f-cta p { font-family: 'Outfit', sans-serif; font-size: 1.2rem; color: #A0A0A0; margin-bottom: 40px; max-width: 600px; margin-inline: auto; font-weight: 400; }
         .f-bottom { position: absolute; bottom: 30px; left: 5%; right: 5%; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #A0A0A0; flex-wrap: wrap; gap: 20px; font-weight: 500; z-index: 2; }
-
-        /* CHATBOT UI */
-        @keyframes slideUpFade { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-        .msg { animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .msg.user { background: linear-gradient(135deg, var(--accent-olive) 0%, #435525 100%); box-shadow: 0 5px 15px rgba(85, 107, 47, 0.3); color: #FFF; }
-        .msg.ai { border-radius: 20px; border-bottom-left-radius: 4px; background: #FFFFFF; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 8px 20px rgba(0,0,0,0.05); color: #1A1C20; }
-        #auraBody::-webkit-scrollbar { width: 4px; }
-        #auraBody::-webkit-scrollbar-track { background: transparent; }
-        #auraBody::-webkit-scrollbar-thumb { background: rgba(212, 175, 55, 0.5); border-radius: 10px; }
     </style>
 </head>
 <body class="hover-target">
@@ -340,7 +372,7 @@
     <div class="ambient-glow glow-1"></div>
     <div class="ambient-glow glow-2"></div>
 
-    <a href="https://wa.me/917668758238" target="_blank" rel="noopener noreferrer" class="wa-float magnetic-wrap" aria-label="Chat on WhatsApp" data-cms="wa_float_link">
+    <a href="https://wa.me/917668758238" target="_blank" rel="noopener noreferrer" class="wa-float magnetic-wrap" aria-label="Chat on WhatsApp" id="waFloatBtn">
         <i class="ri-whatsapp-line magnetic-inner"></i>
     </a>
 
@@ -447,7 +479,15 @@
                             <div class="hs-list">
                                 <div class="hs-list-item"><i class="ri-check-line" style="color: #E4405F; background: rgba(228, 64, 95, 0.1);"></i> <span data-cms="mkt_p2_li1">Viral Reel Advertisements</span></div>
                                 <div class="hs-list-item"><i class="ri-check-line" style="color: #E4405F; background: rgba(228, 64, 95, 0.1);"></i> <span data-cms="mkt_p2_li2">Luxury Brand Positioning</span></div>
-                                <div class="hs-list-item"><i class="ri-check-line" style="color: #E4405F; background: rgba(228, 64, 95, 0.1);"></i> <span data-cms="mkt_p2_li3">Direct Message Lead Gen</span></div>
+                            </div>
+
+                            <div class="founder-card ansh reveal-up">
+                                <img src="https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=200&q=80" alt="Ansh Khatri" data-cms="mkt_ansh_img">
+                                <div style="position: relative; z-index: 2;">
+                                    <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #FFF; margin-bottom: 2px; font-weight: 700; display:flex; align-items:center; gap:8px;" data-cms="mkt_ansh_name">Ansh Khatri <i class="ri-verified-badge-fill" style="color:#E4405F; font-size:1rem;"></i></h4>
+                                    <p style="font-size: 0.8rem; color: #E4405F; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;" data-cms="mkt_ansh_role">CEO & Growth Director</p>
+                                    <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.4;" data-cms="mkt_ansh_bio">Specializing in viral Instagram architecture and high-ticket local lead acquisition.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -490,11 +530,20 @@
                 <div class="sc-tabs">
                     <div class="sc-tab active" data-target="web">
                         <h3 data-cms="dev_tab1_title">Beautiful Websites that Sell</h3>
-                        <p data-cms="dev_tab1_desc">If your website looks cheap, people won't buy. Our lead developer, Akash, builds stunning, lightning-fast websites that make you look like the #1 option in your city, automatically turning visitors into booked appointments.</p>
+                        <p data-cms="dev_tab1_desc">If your website looks cheap, people won't buy. We build stunning, lightning-fast websites that make you look like the #1 option in your city, automatically turning visitors into booked appointments.</p>
                     </div>
                     <div class="sc-tab" data-target="app">
                         <h3 data-cms="dev_tab2_title">Custom Mobile Apps</h3>
                         <p data-cms="dev_tab2_desc">Want to be directly in your customer's pocket? We design and code premium mobile apps that are easy to use, beautiful to look at, and keep your clients returning to your business.</p>
+                    </div>
+
+                    <div class="founder-card akash reveal-up">
+                        <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=200&q=80" alt="Akash Jadon" data-cms="dev_akash_img">
+                        <div style="position:relative; z-index:2;">
+                            <h4 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; color: #FFF; margin-bottom: 2px; font-weight: 700; display:flex; align-items:center; gap:8px;" data-cms="dev_akash_name">Akash Jadon <i class="ri-verified-badge-fill" style="color:#D4AF37; font-size:1rem;"></i></h4>
+                            <p style="font-size: 0.75rem; color: #D4AF37; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;" data-cms="dev_akash_role">Lead Engineer | Zyrova Digital</p>
+                            <p style="font-size: 0.85rem; color: #A0A0A0; line-height: 1.4;" data-cms="dev_akash_bio">Engineering the fastest, highest-converting bespoke web applications in the industry exclusively for Reach Forever clients.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -663,37 +712,11 @@
             </div>
 
             <div class="f-socials" style="display: flex; gap: 20px; font-size: 1.5rem; pointer-events: auto;">
-                <div class="magnetic-wrap"><a href="#" class="magnetic-inner" aria-label="Instagram" style="color: #A0A0A0;"><i class="ri-instagram-line"></i></a></div>
-                <div class="magnetic-wrap"><a href="https://wa.me/917668758238" target="_blank" class="magnetic-inner" aria-label="WhatsApp" style="color: #A0A0A0;"><i class="ri-whatsapp-line"></i></a></div>
+                <div class="magnetic-wrap"><a href="https://instagram.com/HIS_USERNAME" id="insta_footer_link" target="_blank" class="magnetic-inner" aria-label="Instagram" style="color: #A0A0A0;" data-cms="ft_insta_link"><i class="ri-instagram-line"></i></a></div>
+                <div class="magnetic-wrap"><a href="https://wa.me/917668758238" id="wa_footer_link" target="_blank" class="magnetic-inner" aria-label="WhatsApp" style="color: #A0A0A0;" data-cms="wa_float_link"><i class="ri-whatsapp-line"></i></a></div>
             </div>
         </div>
     </footer>
-
-    <div class="ai-fab-wrap magnetic-wrap" style="position: fixed; bottom: 120px; right: 40px; z-index: 10000; cursor: none; pointer-events: auto;">
-        <div class="magnetic-inner ai-fab" id="auraFab" role="button" aria-label="Open Assistant" style="width: 65px; height: 65px; border-radius: 50%; background: #FFF; border: 1px solid rgba(212,175,55,0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; align-items: center; justify-content: center; transition: 0.6s; position: relative;">
-            <i class="ri-customer-service-2-fill" style="font-size: 2.2rem; color: #556B2F;"></i>
-        </div>
-    </div>
-
-    <div class="chat-panel" id="auraPanel" aria-hidden="true" style="position: fixed; bottom: 200px; right: 40px; width: 420px; background: rgba(253, 253, 251, 0.95); backdrop-filter: blur(40px); border-radius: 32px; border: 1px solid var(--accent-gold); box-shadow: 0 40px 80px rgba(0,0,0,0.2); z-index: 10001; overflow: hidden; transform: translateY(40px) scale(0.95); opacity: 0; pointer-events: none; transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1); display: flex; flex-direction: column;">
-        <div class="cp-header" style="padding: 25px 30px; display: flex; justify-content: space-between; align-items: center; background: #FFF; border-bottom: 1px solid rgba(0,0,0,0.05); position: relative;">
-            <div class="cp-info" style="display: flex; gap: 15px; align-items: center;">
-                <div class="cp-avatar" style="width: 45px; height: 45px; border-radius: 50%; background: rgba(85,107,47,0.1); border: 1px solid #556B2F; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #556B2F;"><i class="ri-user-smile-line"></i></div>
-                <div class="cp-text">
-                    <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-bottom: 2px; color: #1A1C20;">Reach Assistant</h4>
-                    <span style="font-size: 0.75rem; color: #10B981; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; gap: 6px;"><div style="width:8px; height:8px; background: #10B981; border-radius:50%;"></div> Online Now</span>
-                </div>
-            </div>
-            <button id="auraClose" class="cp-close" aria-label="Close Chat Panel" style="font-size: 2rem; color: #6B7280; cursor: pointer; pointer-events: auto; transition: 0.3s; z-index: 10002; background:none; border:none;"><i class="ri-close-line"></i></button>
-        </div>
-        <div class="cp-body" id="auraBody" style="height: 400px; padding: 25px; overflow-y: auto; display: flex; flex-direction: column; background: #FDFDFB;"></div>
-        <div class="cp-input" style="padding: 20px; background: #FFF; border-top: 1px solid rgba(0,0,0,0.05); display: flex; gap: 15px; align-items: center;">
-            <input type="text" placeholder="Type your message..." id="auraInput" aria-label="Chat input" style="flex: 1; border: 1px solid rgba(0,0,0,0.1); background: #F4F4F0; padding: 15px 20px; border-radius: 50px; font-family: 'Outfit', sans-serif; font-size: 0.95rem; color: #1A1C20; outline: none; transition: 0.3s; pointer-events: auto;">
-            <div class="magnetic-wrap" style="padding: 0; margin: 0;">
-                <button id="auraSend" class="magnetic-inner" aria-label="Send message" style="width: 50px; height: 50px; border-radius: 50%; border: none; background: var(--accent-olive); color: #FFF; font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s; pointer-events: auto;"><i class="ri-send-plane-fill"></i></button>
-            </div>
-        </div>
-    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -701,7 +724,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            // 1. CUSTOM CURSOR & MAGNETIC BUTTONS (Desktop Only)
+            // 1. CUSTOM CURSOR & MAGNETIC BUTTONS
             const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.matchMedia("(pointer: coarse)").matches);
             
             if (!isTouchDevice) {
@@ -829,12 +852,10 @@
             if(typeof gsap !== 'undefined') {
                 gsap.registerPlugin(ScrollTrigger);
                 
-                // Fade Ups
                 document.querySelectorAll('.reveal-up').forEach((el, i) => {
                     gsap.fromTo(el, {opacity: 0, y: 40}, {opacity: 1, y: 0, duration: 0.8, delay: i*0.05, scrollTrigger: {trigger: el, start: "top 85%"}});
                 });
 
-                // Apple Horizontal Scroll Setup
                 if(window.innerWidth > 1024) {
                     let sections = gsap.utils.toArray(".hs-panel");
                     let wrapper = document.getElementById("horizontalWrapper");
@@ -875,132 +896,6 @@
                 }
             });
 
-            // 8. AURA CHATBOT ENGINE
-            const auraFab = document.getElementById('auraFab');
-            const auraPanel = document.getElementById('auraPanel');
-            const auraClose = document.getElementById('auraClose');
-            const auraBody = document.getElementById('auraBody');
-            const auraInput = document.getElementById('auraInput');
-            const auraSend = document.getElementById('auraSend');
-
-            if(auraFab && auraPanel) { auraFab.addEventListener('click', () => { auraPanel.style.opacity = '1'; auraPanel.style.transform = 'translateY(0) scale(1)'; auraPanel.style.pointerEvents = 'auto'; }); }
-            if(auraClose && auraPanel) { auraClose.addEventListener('click', (e) => { e.preventDefault(); auraPanel.style.opacity = '0'; auraPanel.style.transform = 'translateY(40px) scale(0.95)'; auraPanel.style.pointerEvents = 'none'; }); }
-
-            const botKnowledge = [
-                { "regex": "^(hi|hello|hey|greetings|howdy|wassup|what's up|morning|afternoon|evening|yo)[!?]*$", "response": "Hello there! Welcome to Reach Forever. I'm Chloe, your friendly assistant. How can I help your business grow today?" },
-                { "regex": "(how are you|how you doing|how's it going|whats new)", "response": "I am doing wonderfully, thank you so much for asking! I'm here and ready to help you with anything you need. How is your day going?" },
-                { "regex": "(who are you|are you a robot|are you ai|are you real|what are you|name)", "response": "My name is Chloe! I am a friendly AI assistant created specifically for Reach Forever. I'm designed to give you the best and most caring support possible!" },
-                { "regex": "(best digital marketing agency|top agency in india|agency in punjab|phagwara|jalandhar|seo agency)", "response": "You found us! Reach Forever is proud to be the best digital marketing agency in India. We specifically dominate the local markets in Punjab, Phagwara, and Jalandhar. We provide top-tier SEO so your business stays at the #1 spot when people search for your services." },
-                { "regex": "(owner|who owns|founder|ceo|boss|who is the head|who runs this)", "response": "Ansh Khatri is the proud owner and CEO of Reach Forever! He leads our agency with a brilliant vision to help local businesses succeed and scale quickly." },
-                { "regex": "(who is ansh|ansh khatri|about ansh)", "response": "Ansh Khatri is our visionary owner and founder. He is dedicated to bringing the best marketing results, trust, and the highest ROI to all of our clients." },
-                { "regex": "(web design|website|web dev|web development|app dev|application|create an app|build a site|ui|ux|frontend|backend|app development|make an app|software|code)", "response": "For any website design, web development, or mobile app needs, our expert lead developer is Akash Jadon! You can reach him directly via call or WhatsApp at +917668758238. He builds the most beautiful, high-converting platforms on the market." },
-                { "regex": "(who is akash|akash jadon|designer|developer|who built this)", "response": "Akash Jadon is our master lead designer and developer! If you need an incredibly fast, custom website or app built, he is the expert you need. Contact him directly at +917668758238." },
-                { "regex": "(what do you do|what is reach forever|about us|your agency|company|services)", "response": "We are a premium digital marketing agency. We build automated revenue machines for businesses! We run highly effective online ads and build great websites so you can focus on your work while we bring you sales." },
-                { "regex": "(price|pricing|cost|fee|how much|expensive|cheap|budget|charge|affordable)", "response": "Our pricing is perfectly customized to what your business needs to grow. We ensure our services are a profitable investment, not just a cost. Please click 'Book Strategy Call' so we can discuss a friendly quote tailored for you!" },
-                { "regex": "(i have no budget|no money|broke|too small)", "response": "We completely understand that cash flow can be tight for a growing business! We specialize in creating high-return campaigns so that the money you spend comes back to you multiplied. Let's have a free chat to see how we can start small." },
-                { "regex": "(ads|facebook ads|instagram ads|meta ads|paid traffic|ppc|advertising)", "response": "We run very smart, hyper-local Facebook and Instagram ads. We show your business only to people in your exact city who are already looking for what you sell, making it very easy to get new customers fast." },
-                { "regex": "(how to do seo|what is seo|google search|rank higher)", "response": "SEO stands for Search Engine Optimization. We do it by optimizing your website's content, speed, and backend code so Google trusts it. When people in Punjab, Phagwara, or Jalandhar search for your niche, we make sure you appear at the very top of page one!" },
-                { "regex": "(proof|reviews|results|case studies|portfolio|clients|examples)", "response": "Results are our only metric. We've generated over ₹85 Lakhs for our local clients recently. You can watch real, authentic video testimonials from our happy partners right here on our homepage!" },
-                { "regex": "(guarantee|refund|risk|promise)", "response": "We completely understand that marketing can feel risky. That is why we focus heavily on bringing you a Guaranteed Positive ROI. We want you to make far more money than you spend with us." },
-                { "regex": "(time|how long|launch|start|onboarding)", "response": "We work very fast to respect your time. With our Rapid 14-Day Launch guarantee, we build your campaigns, create your funnel, and launch your ads in just two weeks!" },
-                { "regex": "(dentist|dental|clinic|hospital|doctor|medical|medspa|spa|salon)", "response": "We love working with medical clinics and salons! We know exactly how to find people who need your specific treatments and book them directly into your calendar automatically." },
-                { "regex": "(real estate|realtor|property|broker)", "response": "Real estate is a great industry. We help you find people who are seriously looking to buy or sell properties in your exact area, so you never have to chase cold leads from big portals again." },
-                { "regex": "(ecommerce|store|shop|sell online|products)", "response": "Selling online? That's wonderful! We set up targeted ads to bring eager shoppers to your store, and use clever retargeting to remind people who left items in their cart to come back and buy." },
-                { "regex": "(joke|funny|humor|laugh)", "response": "I'd love to share a joke! Why did the marketer get off the trampoline? ...Because he was worried about his bounce rate! 😊 I hope that made you smile." },
-                { "regex": "(meaning of life|philosophy)", "response": "I believe the meaning of life is to help others, be kind, and find joy in what you do. For us at Reach Forever, it's bringing joy to business owners by helping them succeed!" },
-                { "regex": "(thanks|thank you|appreciate|awesome|cool|great|good)", "response": "You are so very welcome! It is my absolute pleasure to help you. Let me know if there is anything else you need, or feel free to book a strategy call!" },
-                { "regex": "(bye|goodbye|cya|exit|leave)", "response": "Goodbye! Thank you so much for chatting with me at Reach Forever. I hope you have a wonderful and highly profitable day. Come back anytime!" },
-                { "regex": "(call|book|contact|meeting|schedule|appointment)", "response": "I would love to help you arrange that! Please click the 'Book Strategy Call' button on the screen to choose a time that fits your schedule perfectly. Our experts are excited to meet you." },
-                { "regex": "(shit|fuck|bitch|damn|crap|idiot|stupid|dumb|asshole)", "response": "I completely understand if you are feeling frustrated. I am here to help in a polite and respectful way. Please let me know how I can make things better for you." },
-                { "regex": "(leads|customers|clients|more business|growth)", "response": "Getting you more customers is our main goal! We use simple but very smart digital systems to find people who need your services and connect them directly with you." },
-                { "regex": "(roi|roas|return on investment|profit)", "response": "Making sure you see a profit is very important to us. We track everything closely so you know exactly how much money your ads are bringing back to your business. Our average client sees a 4.8x return!" },
-                { "regex": "(where are you located|location|address|india)", "response": "We operate all across India, dominating markets in Punjab, Phagwara, Jalandhar, Mumbai, Delhi, Bangalore, and beyond! Because we work online, we can easily help you scale no matter where you are." },
-                { "regex": "(scam|fake|scammers|too good to be true)", "response": "I completely understand your worry; there are many untrustworthy people out there. We pride ourselves on honesty. You can watch real videos of our happy clients right on this page to see our real work." },
-                { "regex": "(are you smart|how smart are you)", "response": "I try my best to be very smart and helpful! My main focus is knowing everything about how Reach Forever can help your business grow and succeed." },
-                { "regex": "(love you|marry me|beautiful|cute)", "response": "Oh, you are very kind! I appreciate your sweet words, but my heart is dedicated strictly to helping businesses succeed and analyzing marketing data. 💙" },
-                { "regex": "(what is your phone number|phone number|contact number)", "response": "For web and app development inquiries, you can reach Akash Jadon directly at +917668758238. For marketing strategy, please click 'Book Strategy Call' to schedule a chat with our team!" },
-                { "regex": "(do you work with startups|startups|small business)", "response": "Yes! We love helping startups and small local businesses grow into large, successful companies. We guide you step-by-step so you never feel lost." },
-                { "regex": "(do you use templates|templates)", "response": "No, we don't use basic templates. Everything we do, especially Akash's web development, is custom-built, highly secure, and perfectly matched to your unique brand." },
-                { "regex": "(i am confused|confused|not sure|lost)", "response": "Please do not worry at all, I am here to help make things clear! What specific part of marketing or web design can I explain better for you?" },
-                { "regex": "^(ok|okay|k|hmm|ah|oh|yes|yeah|yep|sure|right|cool)$", "response": "Wonderful! If you have any more questions about our marketing, SEO, or web development, I am right here. Or, you can easily book a call with us." },
-                { "regex": ".*", "response": "I completely understand. To give you the best and most accurate answer for your specific business, I recommend speaking with our human experts. Please click the 'Book Strategy Call' button, or ask me another question!" }
-            ];
-
-            let isBotProcessing = false;
-            function addBotMessage(text, isAi = false) {
-                const msg = document.createElement('div');
-                msg.className = `msg ${isAi ? 'ai' : 'user'}`;
-                msg.style.cssText = `font-family: 'Outfit', sans-serif; padding: 15px 20px; border-radius: 20px; font-size: 0.95rem; line-height: 1.5; max-width: 85%; font-weight: 500; margin-bottom: 15px; align-self: ${isAi ? 'flex-start' : 'flex-end'}; background: ${isAi ? '#FFF' : 'linear-gradient(135deg, #556B2F 0%, #435525 100%)'}; color: ${isAi ? '#1A1C20' : '#FFF'}; border: ${isAi ? '1px solid rgba(0,0,0,0.08)' : 'none'}; border-bottom-${isAi ? 'left' : 'right'}-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);`;
-                msg.innerHTML = text;
-                if(auraBody) { auraBody.appendChild(msg); auraBody.scrollTop = auraBody.scrollHeight; }
-            }
-
-            function handleBotSend() {
-                if (isBotProcessing || !auraInput || !auraInput.value.trim()) return;
-                const text = auraInput.value.trim();
-                addBotMessage(text, false);
-                auraInput.value = '';
-                isBotProcessing = true;
-
-                let botReply = botKnowledge[botKnowledge.length - 1].response;
-                for(let rule of botKnowledge) {
-                    try { if (new RegExp(rule.regex, 'i').test(text)) { botReply = rule.response; break; } } catch(e) {}
-                }
-
-                const typingId = 'typing-' + Date.now();
-                if(auraBody) {
-                    auraBody.insertAdjacentHTML('beforeend', `<div id="${typingId}" style="display: flex; gap: 6px; padding: 15px 20px; background: #FFF; border: 1px solid rgba(0,0,0,0.08); border-radius: 20px; border-bottom-left-radius: 4px; width: fit-content; align-self: flex-start; margin-bottom: 15px;"><div style="width: 6px; height: 6px; background: #556B2F; border-radius: 50%;"></div><div style="width: 6px; height: 6px; background: #556B2F; border-radius: 50%;"></div><div style="width: 6px; height: 6px; background: #556B2F; border-radius: 50%;"></div></div>`);
-                    auraBody.scrollTop = auraBody.scrollHeight;
-                }
-
-                setTimeout(() => {
-                    const tNode = document.getElementById(typingId);
-                    if(tNode) tNode.remove();
-                    addBotMessage(botReply, true);
-                    isBotProcessing = false;
-                }, 1000);
-            }
-
-            window.sendAuraSuggestion = function(text) {
-                if(auraInput) auraInput.value = text;
-                handleBotSend();
-            };
-
-            if(auraSend) auraSend.addEventListener('click', handleBotSend);
-            if(auraInput) auraInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') handleBotSend(); });
-
-            let hasGreeted = false;
-            setTimeout(() => {
-                if(hasGreeted) return;
-                hasGreeted = true;
-                if(auraPanel && auraBody) {
-                    auraPanel.style.opacity = '1';
-                    auraPanel.style.transform = 'translateY(0) scale(1)';
-                    auraPanel.style.pointerEvents = 'auto';
-                    
-                    const typingId = 'greet-typing';
-                    auraBody.innerHTML = '';
-                    auraBody.insertAdjacentHTML('beforeend', `<div id="${typingId}" style="display: flex; align-items: center; gap: 6px; padding: 15px 20px; background: #FFF; border: 1px solid rgba(0,0,0,0.08); border-radius: 20px; border-bottom-left-radius: 4px; width: fit-content; box-shadow: 0 10px 30px rgba(0,0,0,0.04); align-self: flex-start; margin-bottom: 15px;"><div style="width: 6px; height: 6px; background: #556B2F; border-radius: 50%;"></div><div style="width: 6px; height: 6px; background: #556B2F; border-radius: 50%;"></div><div style="width: 6px; height: 6px; background: #556B2F; border-radius: 50%;"></div></div>`);
-                    
-                    setTimeout(() => {
-                        const tNode = document.getElementById(typingId);
-                        if(tNode) tNode.remove();
-                        addBotMessage("Hi! Welcome to Reach Forever Services. What kind of growth are you looking for today?", true);
-                        
-                        setTimeout(() => {
-                            const chipsHTML = `
-                                <div id="auraSuggestions" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 15px;">
-                                    <button class="chip" onclick="sendAuraSuggestion('I need a new website.')" style="padding: 10px 16px; background: #FFF; border: 1px solid rgba(212,175,55,0.4); border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 600; color: #556B2F; cursor: pointer; transition: 0.3s; pointer-events: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">I need a new website.</button>
-                                    <button class="chip" onclick="sendAuraSuggestion('I need Facebook Ads.')" style="padding: 10px 16px; background: #FFF; border: 1px solid rgba(212,175,55,0.4); border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 600; color: #556B2F; cursor: pointer; transition: 0.3s; pointer-events: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">I need Facebook Ads.</button>
-                                </div>
-                            `;
-                            auraBody.insertAdjacentHTML('beforeend', chipsHTML);
-                            auraBody.scrollTop = auraBody.scrollHeight;
-                        }, 800);
-                    }, 1500);
-                }
-            }, 6000); 
-
             // Preloader Exit
             const preloader = document.getElementById('preloader');
             if (preloader) {
@@ -1013,13 +908,14 @@
     </script>
 
     <script>
+        // CMS ENGINE DB CALL
         document.addEventListener("DOMContentLoaded", async () => {
             const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
                 ? 'http://localhost:5000/api' 
                 : 'https://reach-forever.onrender.com/api';
 
             let pageName = window.location.pathname.split("/").pop().replace(".html", "");
-            if (!pageName || pageName === "" || pageName === "index") pageName = "home";
+            if (!pageName || pageName === "" || pageName === "index") pageName = "services";
 
             try {
                 const response = await fetch(`${API_BASE_URL}/content/${pageName}`);
@@ -1038,6 +934,19 @@
                     if (element) {
                         if (dbItem.contentType === 'text') {
                             element.innerHTML = dbItem.contentValue;
+                            
+                            // Update Hrefs for dynamically linked social icons
+                            if(dbItem.elementId === 'wa_float_link') {
+                                const waBtn = document.getElementById('waFloatBtn');
+                                const waFooter = document.getElementById('wa_footer_link');
+                                if(waBtn) waBtn.href = dbItem.contentValue;
+                                if(waFooter) waFooter.href = dbItem.contentValue;
+                            }
+                            if(dbItem.elementId === 'ft_insta_link') {
+                                const instaBtn = document.getElementById('insta_footer_link');
+                                if(instaBtn) instaBtn.href = dbItem.contentValue;
+                            }
+                            
                         } else if (dbItem.contentType === 'image') {
                             element.src = dbItem.contentValue;
                         } else if (dbItem.contentType === 'video') {

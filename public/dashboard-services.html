@@ -34,7 +34,7 @@
         .tab-link.active { background: rgba(85, 107, 47, 0.15); color: var(--text-main); font-weight: 700; border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0;}
 
         .workspace { flex: 1; display: flex; flex-direction: column; background: radial-gradient(circle at top right, rgba(85,107,47,0.05), transparent 50%); overflow-y: auto;}
-        .header { padding: 40px 50px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: rgba(10, 11, 14, 0.9); position: sticky; top: 0; z-index: 5;}
+        .header { padding: 40px 50px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: rgba(10, 11, 14, 0.9); position: sticky; top: 0; z-index: 5; backdrop-filter: blur(20px);}
         .header h1 { font-size: 2.2rem; font-weight: 700; }
         .header p { color: var(--text-dim); margin-top: 5px; }
         
@@ -46,11 +46,12 @@
         .editor-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        .section-title { font-size: 1.6rem; font-weight: 700; color: var(--primary); margin-bottom: 30px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+        .section-title { font-size: 1.6rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border); padding-bottom: 15px;}
+        .section-desc { color: var(--text-dim); margin-bottom: 30px; font-size: 0.95rem;}
         
-        .card { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 20px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); margin-bottom: 30px;}
-        .card h3 { font-size: 1.2rem; margin-bottom: 20px; color: #FFF; display: flex; align-items: center; gap: 10px; }
-
+        .card { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 20px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); margin-bottom: 30px; position: relative;}
+        .card h3 { font-size: 1.2rem; margin-bottom: 10px; color: #FFF; display: flex; align-items: center; gap: 10px; }
+        
         .cms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-bottom: 50px; }
 
         .input-group { margin-bottom: 20px; }
@@ -59,9 +60,10 @@
         input[type="text"]:focus, textarea:focus { border-color: var(--primary); }
         textarea { height: 100px; resize: vertical; }
 
-        .file-upload { background: #050507; border: 2px dashed rgba(255,255,255,0.1); padding: 25px 20px; border-radius: 12px; text-align: center; cursor: pointer; position: relative; margin-bottom: 15px; transition: 0.3s;}
+        .file-upload { background: #050507; border: 2px dashed rgba(255,255,255,0.1); padding: 25px 20px; border-radius: 12px; text-align: center; cursor: pointer; position: relative; margin-bottom: 15px; transition: 0.3s; display: flex; align-items: center; justify-content: center; flex-direction: column;}
         .file-upload:hover { border-color: var(--primary); background: rgba(212,175,55,0.05); }
         .file-upload input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+        .active-asset { border-color: var(--success) !important; background: rgba(16, 185, 129, 0.05) !important; }
         
         .btn-save { background: var(--accent); color: #FFF; border: none; padding: 16px 30px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s; width: 100%; display: flex; justify-content: center; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 1px;}
         .btn-save:hover { background: #6b863a; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(85, 107, 47, 0.3);}
@@ -80,11 +82,13 @@
         <a href="dashboard-services.html" class="page-link current"><i class="ri-stack-line"></i> Services Matrix</a>
         <a href="dashboard-reviews.html" class="page-link"><i class="ri-star-smile-line"></i> Reviews Matrix</a>
         
-        <div class="menu-label">Services Editors</div>
-        <button class="tab-link active" onclick="switchTab('sec-serv-hero')"><i class="ri-rocket-line"></i> Hero Header</button>
-        <button class="tab-link" onclick="switchTab('sec-serv-devices')"><i class="ri-macbook-line"></i> Mac & iPhone Mockups</button>
-        <button class="tab-link" onclick="switchTab('sec-serv-grid')"><i class="ri-layout-grid-line"></i> Master Service Grid</button>
-        <button class="tab-link" onclick="switchTab('sec-serv-cta')"><i class="ri-flashlight-line"></i> Final CTA</button>
+        <div class="menu-label">Services Page Editors</div>
+        <button class="tab-link active" onclick="switchTab('sec-shero')"><i class="ri-rocket-line"></i> Services Hero</button>
+        <button class="tab-link" onclick="switchTab('sec-mkt')"><i class="ri-line-chart-fill"></i> Marketing & Ansh</button>
+        <button class="tab-link" onclick="switchTab('sec-dev')"><i class="ri-code-s-slash-fill"></i> Web Dev & Akash</button>
+        <button class="tab-link" onclick="switchTab('sec-bento')"><i class="ri-grid-fill"></i> Tech Stack (Bento)</button>
+        <button class="tab-link" onclick="switchTab('sec-proc')"><i class="ri-node-tree"></i> Process Timeline</button>
+        <button class="tab-link" onclick="switchTab('sec-faq')"><i class="ri-question-answer-line"></i> FAQ Builder</button>
         
         <div style="margin-top: 40px;"></div>
         <button class="page-link" style="color: #EF4444; border-color: rgba(239,68,68,0.2);" onclick="localStorage.removeItem('zyrova_token'); window.location.href='admin.html';"><i class="ri-logout-circle-line"></i> Secure Lock</button>
@@ -94,7 +98,7 @@
         <div class="header">
             <div>
                 <h1>Services Matrix</h1>
-                <p>Absolute database control over services.html</p>
+                <p>Total control over your services.html layout</p>
             </div>
             <div style="display: flex; gap: 15px;">
                 <button class="btn-live" style="background: transparent; color: #FFF; border: 1px solid var(--border);" onclick="location.reload()"><i class="ri-refresh-line"></i> Sync DB</button>
@@ -104,63 +108,214 @@
 
         <div class="content-area">
 
-            <div id="sec-serv-hero" class="editor-section active">
-                <h2 class="section-title"><i class="ri-rocket-line"></i> Services Hero Settings</h2>
-                <div class="card" style="max-width: 800px;">
-                    <div class="input-group"><label>Hero Tagline</label><input type="text" id="serv_hero_tag" placeholder="Our Arsenal"></div>
-                    <div class="input-group"><label>Giant Headline (HTML allowed)</label><textarea id="serv_hero_title" placeholder="We Engineer Revenue."></textarea></div>
-                    <div class="input-group"><label>Sub Description</label><textarea id="serv_hero_desc"></textarea></div>
-                    <button class="btn-save" onclick="pushMultiText('services', ['serv_hero_tag', 'serv_hero_title', 'serv_hero_desc'])">Save Hero Data</button>
-                </div>
-            </div>
-
-            <div id="sec-serv-devices" class="editor-section">
-                <h2 class="section-title"><i class="ri-macbook-line"></i> Device Mockups Control</h2>
+            <div id="sec-shero" class="editor-section active">
+                <h2 class="section-title"><i class="ri-rocket-line"></i> Services Hero Section</h2>
                 <div class="cms-grid">
                     <div class="card">
-                        <h3><i class="ri-mac-line"></i> MacBook Pro Video Setup</h3>
-                        <p class="card-desc">Upload the high-res MP4 that plays inside the Mac screen.</p>
-                        <div class="input-group"><label>Mac Overlay Client Name</label><input type="text" id="serv_mac_client"></div>
-                        <div class="file-upload" style="border-color: var(--primary);">
-                            <span id="lbl_serv_mac_vid" style="color: #FFF;"><i class="ri-video-upload-line"></i> Select Mac MP4 Video</span>
-                            <input type="file" id="f_serv_mac_vid" accept="video/mp4" onchange="updateLbl(this, 'lbl_serv_mac_vid')">
-                        </div>
+                        <h3>Hero Headlines</h3>
+                        <div class="input-group"><label>Tagline</label><input type="text" id="srv_hero_tag"></div>
+                        <div class="input-group"><label>Giant Title (HTML allowed)</label><textarea id="srv_hero_title" style="height:80px;"></textarea></div>
+                        <div class="input-group"><label>Paragraph Description</label><textarea id="srv_hero_desc" style="height:80px;"></textarea></div>
+                        <button class="btn-save" onclick="pushMultiText('services', ['srv_hero_tag', 'srv_hero_title', 'srv_hero_desc'])">Save Hero Text</button>
+                    </div>
+                    <div class="card">
+                        <h3>Hero Graphics & Floating Badge</h3>
+                        <div class="file-upload" id="up_srv_hero_img_main"><span id="lbl_srv_hero_img_main">Upload Main Image (Right)</span><input type="file" id="f_srv_hero_img_main" accept="image/*" onchange="updateLbl(this, 'lbl_srv_hero_img_main')"></div>
+                        <div class="file-upload" id="up_srv_hero_img_sub" style="border-color:var(--primary);"><span id="lbl_srv_hero_img_sub">Upload Sub Image (Left Bottom)</span><input type="file" id="f_srv_hero_img_sub" accept="image/*" onchange="updateLbl(this, 'lbl_srv_hero_img_sub')"></div>
+                        <hr style="border:1px solid var(--border); margin:20px 0;">
+                        <div class="input-group"><label>Badge Title</label><input type="text" id="srv_hero_badge_title"></div>
+                        <div class="input-group"><label>Badge Value</label><input type="text" id="srv_hero_badge_val"></div>
                         <div style="display:flex; gap:10px;">
-                            <button class="btn-save" style="background:#222;" onclick="pushMultiText('services', ['serv_mac_client'])">Save Text</button>
-                            <button class="btn-save" onclick="pushMedia('services', 'serv_mac_vid', 'f_serv_mac_vid', 'video')">Deploy Mac Video</button>
+                            <button class="btn-save" style="background:#222;" onclick="pushMultiText('services', ['srv_hero_badge_title', 'srv_hero_badge_val'])">Save Badge Text</button>
+                            <button class="btn-save" onclick="pushMedia('services', 'srv_hero_img_main', 'f_srv_hero_img_main', 'image'); pushMedia('services', 'srv_hero_img_sub', 'f_srv_hero_img_sub', 'image');">Deploy Images</button>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-mkt" class="editor-section">
+                <h2 class="section-title"><i class="ri-line-chart-fill"></i> Digital Marketing & Ansh's Profile</h2>
+                
+                <div class="card" style="max-width: 800px; margin-bottom: 30px;">
+                    <h3>Section Header</h3>
+                    <div class="input-group"><label>Title</label><input type="text" id="mkt_header_title"></div>
+                    <div class="input-group"><label>Subtitle</label><input type="text" id="mkt_header_sub"></div>
+                    <button class="btn-save" onclick="pushMultiText('services', ['mkt_header_title', 'mkt_header_sub'])">Save Header</button>
+                </div>
+
+                <div class="cms-grid">
+                    <div class="card">
+                        <h3>Panel 1: Facebook Ads</h3>
+                        <div class="input-group"><label>Main Title</label><input type="text" id="mkt_p1_title"></div>
+                        <div class="input-group"><label>Description</label><textarea id="mkt_p1_desc" style="height:60px;"></textarea></div>
+                        <div class="input-group"><label>List Items</label>
+                            <input type="text" id="mkt_p1_li1" style="margin-bottom:5px;">
+                            <input type="text" id="mkt_p1_li2" style="margin-bottom:5px;">
+                            <input type="text" id="mkt_p1_li3" style="margin-bottom:5px;">
+                        </div>
+                        <hr style="border:1px solid var(--border); margin:15px 0;">
+                        <div class="input-group"><label>Floating Badge</label>
+                            <input type="text" id="mkt_p1_fl_title" style="margin-bottom:5px;">
+                            <input type="text" id="mkt_p1_fl_val">
+                        </div>
+                        <div class="file-upload" id="up_mkt_p1_img"><span id="lbl_mkt_p1_img">Upload Image</span><input type="file" id="f_mkt_p1_img" accept="image/*" onchange="updateLbl(this, 'lbl_mkt_p1_img')"></div>
+                        <button class="btn-save" style="margin-bottom: 10px;" onclick="pushMultiText('services', ['mkt_p1_title', 'mkt_p1_desc', 'mkt_p1_li1', 'mkt_p1_li2', 'mkt_p1_li3', 'mkt_p1_fl_title', 'mkt_p1_fl_val'])">Save Text</button>
+                        <button class="btn-save" style="background:#1877F2;" onclick="pushMedia('services', 'mkt_p1_img', 'f_mkt_p1_img', 'image')">Push Image</button>
+                    </div>
+
+                    <div class="card" style="border: 1px solid rgba(228, 64, 95, 0.4);">
+                        <h3 style="color:#E4405F;">Panel 2: Instagram + Founder Card</h3>
+                        <div class="input-group"><label>Main Title</label><input type="text" id="mkt_p2_title"></div>
+                        <div class="input-group"><label>Description</label><textarea id="mkt_p2_desc" style="height:60px;"></textarea></div>
+                        <div class="input-group"><label>List Items</label>
+                            <input type="text" id="mkt_p2_li1" style="margin-bottom:5px;">
+                            <input type="text" id="mkt_p2_li2" style="margin-bottom:5px;">
+                        </div>
+                        <div class="input-group"><label>Floating Badge</label>
+                            <input type="text" id="mkt_p2_fl_title" style="margin-bottom:5px;">
+                            <input type="text" id="mkt_p2_fl_val">
+                        </div>
+                        <div class="file-upload" id="up_mkt_p2_img"><span id="lbl_mkt_p2_img">Upload Image</span><input type="file" id="f_mkt_p2_img" accept="image/*" onchange="updateLbl(this, 'lbl_mkt_p2_img')"></div>
+                        
+                        <div style="background: rgba(228,64,95,0.1); padding: 15px; border-radius: 10px; margin-top: 20px;">
+                            <h4 style="color:#E4405F; margin-bottom: 10px; font-size: 0.9rem;">Ansh Khatri Profile Card</h4>
+                            <div class="input-group"><label>Name</label><input type="text" id="mkt_ansh_name"></div>
+                            <div class="input-group"><label>Role / Title</label><input type="text" id="mkt_ansh_role"></div>
+                            <div class="input-group"><label>Bio</label><textarea id="mkt_ansh_bio" style="height:50px;"></textarea></div>
+                            <div class="file-upload" id="up_mkt_ansh_img"><span id="lbl_mkt_ansh_img">Upload Ansh Photo</span><input type="file" id="f_mkt_ansh_img" accept="image/*" onchange="updateLbl(this, 'lbl_mkt_ansh_img')"></div>
+                        </div>
+
+                        <button class="btn-save" style="margin-bottom: 10px; margin-top: 15px;" onclick="pushMultiText('services', ['mkt_p2_title', 'mkt_p2_desc', 'mkt_p2_li1', 'mkt_p2_li2', 'mkt_p2_fl_title', 'mkt_p2_fl_val', 'mkt_ansh_name', 'mkt_ansh_role', 'mkt_ansh_bio'])">Save Text</button>
+                        <button class="btn-save" style="background:#E4405F;" onclick="pushMedia('services', 'mkt_p2_img', 'f_mkt_p2_img', 'image'); pushMedia('services', 'mkt_ansh_img', 'f_mkt_ansh_img', 'image');">Push Images & Profile</button>
                     </div>
 
                     <div class="card">
-                        <h3><i class="ri-smartphone-line"></i> iPhone Video Setup</h3>
-                        <p class="card-desc">Upload the vertical reel that plays inside the iPhone mockup.</p>
-                        <div class="input-group"><label>iPhone Overlay Name</label><input type="text" id="serv_iphone_client"></div>
-                        <div class="file-upload" style="border-color: var(--primary);">
-                            <span id="lbl_serv_iphone_vid" style="color: #FFF;"><i class="ri-video-upload-line"></i> Select iPhone MP4 Video</span>
-                            <input type="file" id="f_serv_iphone_vid" accept="video/mp4" onchange="updateLbl(this, 'lbl_serv_iphone_vid')">
+                        <h3>Panel 3: Google SEO</h3>
+                        <div class="input-group"><label>Main Title</label><input type="text" id="mkt_p3_title"></div>
+                        <div class="input-group"><label>Description</label><textarea id="mkt_p3_desc" style="height:60px;"></textarea></div>
+                        <div class="input-group"><label>List Items</label>
+                            <input type="text" id="mkt_p3_li1" style="margin-bottom:5px;">
+                            <input type="text" id="mkt_p3_li2" style="margin-bottom:5px;">
+                            <input type="text" id="mkt_p3_li3" style="margin-bottom:5px;">
                         </div>
-                        <div style="display:flex; gap:10px;">
-                            <button class="btn-save" style="background:#222;" onclick="pushMultiText('services', ['serv_iphone_client'])">Save Text</button>
-                            <button class="btn-save" onclick="pushMedia('services', 'serv_iphone_vid', 'f_serv_iphone_vid', 'video')">Deploy iPhone Video</button>
+                        <hr style="border:1px solid var(--border); margin:15px 0;">
+                        <div class="input-group"><label>Floating Badge</label>
+                            <input type="text" id="mkt_p3_fl_title" style="margin-bottom:5px;">
+                            <input type="text" id="mkt_p3_fl_val">
                         </div>
+                        <div class="file-upload" id="up_mkt_p3_img"><span id="lbl_mkt_p3_img">Upload Image</span><input type="file" id="f_mkt_p3_img" accept="image/*" onchange="updateLbl(this, 'lbl_mkt_p3_img')"></div>
+                        <button class="btn-save" style="margin-bottom: 10px;" onclick="pushMultiText('services', ['mkt_p3_title', 'mkt_p3_desc', 'mkt_p3_li1', 'mkt_p3_li2', 'mkt_p3_li3', 'mkt_p3_fl_title', 'mkt_p3_fl_val'])">Save Text</button>
+                        <button class="btn-save" style="background:#DB4437;" onclick="pushMedia('services', 'mkt_p3_img', 'f_mkt_p3_img', 'image')">Push Image</button>
                     </div>
                 </div>
             </div>
 
-            <div id="sec-serv-grid" class="editor-section">
-                <h2 class="section-title"><i class="ri-layout-grid-line"></i> Core Services Grid</h2>
-                <div class="cms-grid" id="servListGridUI">
+            <div id="sec-dev" class="editor-section">
+                <h2 class="section-title"><i class="ri-code-s-slash-fill"></i> Web Dev, 3D Devices & Akash Profile</h2>
+                
+                <div class="card" style="max-width: 800px; margin-bottom: 30px;">
+                    <h3>Section Header</h3>
+                    <div class="input-group"><label>Title</label><input type="text" id="dev_header_title"></div>
+                    <div class="input-group"><label>Subtitle</label><input type="text" id="dev_header_sub"></div>
+                    <button class="btn-save" onclick="pushMultiText('services', ['dev_header_title', 'dev_header_sub'])">Save Header</button>
+                </div>
+
+                <div class="cms-grid">
+                    <div class="card">
+                        <h3>Text & Akash Collab Card</h3>
+                        <div class="input-group"><label>Tab 1 (Web) Title</label><input type="text" id="dev_tab1_title"></div>
+                        <div class="input-group"><label>Tab 1 (Web) Desc</label><textarea id="dev_tab1_desc" style="height:60px;"></textarea></div>
+                        <hr style="border:1px solid var(--border); margin:15px 0;">
+                        <div class="input-group"><label>Tab 2 (App) Title</label><input type="text" id="dev_tab2_title"></div>
+                        <div class="input-group"><label>Tab 2 (App) Desc</label><textarea id="dev_tab2_desc" style="height:60px;"></textarea></div>
+                        
+                        <div style="background: rgba(212,175,55,0.05); padding: 15px; border-radius: 10px; margin-top: 20px; border: 1px solid rgba(212,175,55,0.2);">
+                            <h4 style="color:var(--primary); margin-bottom: 10px; font-size: 0.9rem;">Akash Jadon / Zyrova Card</h4>
+                            <div class="input-group"><label>Name</label><input type="text" id="dev_akash_name"></div>
+                            <div class="input-group"><label>Role / Title</label><input type="text" id="dev_akash_role"></div>
+                            <div class="input-group"><label>Bio</label><textarea id="dev_akash_bio" style="height:50px;"></textarea></div>
+                            <div class="file-upload" id="up_dev_akash_img"><span id="lbl_dev_akash_img">Upload Akash Photo</span><input type="file" id="f_dev_akash_img" accept="image/*" onchange="updateLbl(this, 'lbl_dev_akash_img')"></div>
+                        </div>
+
+                        <button class="btn-save" style="margin-top: 15px;" onclick="pushMultiText('services', ['dev_tab1_title', 'dev_tab1_desc', 'dev_tab2_title', 'dev_tab2_desc', 'dev_akash_name', 'dev_akash_role', 'dev_akash_bio'])">Save Texts</button>
+                        <button class="btn-save" style="margin-top: 10px; background:#222;" onclick="pushMedia('services', 'dev_akash_img', 'f_dev_akash_img', 'image')">Push Akash Profile Photo</button>
                     </div>
+
+                    <div class="card">
+                        <h3>3D Apple Devices (Video Uploads)</h3>
+                        <p class="card-desc">Upload MP4s to play inside the MacBook and iPhone mockups.</p>
+                        
+                        <div class="file-upload" id="up_dev_vid_web" style="padding: 40px; border-color:var(--primary);">
+                            <span id="lbl_dev_vid_web"><i class="ri-macbook-line" style="font-size:2rem; display:block; margin-bottom:10px;"></i> Upload MacBook Video (MP4)</span>
+                            <input type="file" id="f_dev_vid_web" accept="video/mp4" onchange="updateLbl(this, 'lbl_dev_vid_web')">
+                        </div>
+                        <button class="btn-save" style="margin-bottom: 30px;" onclick="pushMedia('services', 'dev_vid_web', 'f_dev_vid_web', 'video')">Deploy to MacBook</button>
+
+                        <div class="file-upload" id="up_dev_vid_app" style="padding: 40px; border-color:var(--accent);">
+                            <span id="lbl_dev_vid_app"><i class="ri-smartphone-line" style="font-size:2rem; display:block; margin-bottom:10px;"></i> Upload iPhone Video (MP4)</span>
+                            <input type="file" id="f_dev_vid_app" accept="video/mp4" onchange="updateLbl(this, 'lbl_dev_vid_app')">
+                        </div>
+                        <button class="btn-save" onclick="pushMedia('services', 'dev_vid_app', 'f_dev_vid_app', 'video')">Deploy to iPhone</button>
+                    </div>
+                </div>
             </div>
 
-            <div id="sec-serv-cta" class="editor-section">
-                <h2 class="section-title"><i class="ri-flashlight-line"></i> Bottom Call To Action</h2>
-                <div class="card" style="max-width: 800px;">
-                    <div class="input-group"><label>CTA Title HTML</label><textarea id="serv_cta_title" style="height:60px;"></textarea></div>
-                    <div class="input-group"><label>CTA Subtext</label><input type="text" id="serv_cta_desc"></div>
-                    <div class="input-group"><label>CTA Button Text</label><input type="text" id="serv_cta_btn"></div>
-                    <button class="btn-save" onclick="pushMultiText('services', ['serv_cta_title', 'serv_cta_desc', 'serv_cta_btn'])">Save Bottom CTA</button>
+            <div id="sec-bento" class="editor-section">
+                <h2 class="section-title"><i class="ri-grid-fill"></i> Tech Stack (Bento Box Grid)</h2>
+                
+                <div class="card" style="max-width:800px;">
+                    <h3>Bento Headers</h3>
+                    <div class="input-group"><label>Title</label><input type="text" id="bento_header_title"></div>
+                    <div class="input-group"><label>Description</label><textarea id="bento_header_sub" style="height:60px;"></textarea></div>
+                    <button class="btn-save" onclick="pushMultiText('services', ['bento_header_title', 'bento_header_sub'])">Save Headers</button>
                 </div>
+
+                <div class="cms-grid" id="bentoGridUI"></div>
+            </div>
+
+            <div id="sec-proc" class="editor-section">
+                <h2 class="section-title"><i class="ri-node-tree"></i> Process Timeline</h2>
+                
+                <div class="card" style="max-width:800px;">
+                    <h3>Process Headers</h3>
+                    <div class="input-group"><label>Title</label><input type="text" id="proc_header_title"></div>
+                    <div class="input-group"><label>Description</label><textarea id="proc_header_sub" style="height:60px;"></textarea></div>
+                    <button class="btn-save" style="margin-bottom:20px;" onclick="pushMultiText('services', ['proc_header_title', 'proc_header_sub'])">Save Headers</button>
+                </div>
+
+                <div class="cms-grid">
+                    <div class="card">
+                        <h3>Step 1: The Strategy</h3>
+                        <div class="input-group"><label>Title</label><input type="text" id="proc_s1_title"></div>
+                        <div class="input-group"><label>Desc</label><textarea id="proc_s1_desc" style="height:80px;"></textarea></div>
+                        <button class="btn-save" onclick="pushMultiText('services', ['proc_s1_title', 'proc_s1_desc'])">Save Step 1</button>
+                    </div>
+                    <div class="card">
+                        <h3>Step 2: The Build</h3>
+                        <div class="input-group"><label>Title</label><input type="text" id="proc_s2_title"></div>
+                        <div class="input-group"><label>Desc</label><textarea id="proc_s2_desc" style="height:80px;"></textarea></div>
+                        <button class="btn-save" onclick="pushMultiText('services', ['proc_s2_title', 'proc_s2_desc'])">Save Step 2</button>
+                    </div>
+                    <div class="card">
+                        <h3>Step 3: Launch</h3>
+                        <div class="input-group"><label>Title</label><input type="text" id="proc_s3_title"></div>
+                        <div class="input-group"><label>Desc</label><textarea id="proc_s3_desc" style="height:80px;"></textarea></div>
+                        <button class="btn-save" onclick="pushMultiText('services', ['proc_s3_title', 'proc_s3_desc'])">Save Step 3</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-faq" class="editor-section">
+                <h2 class="section-title"><i class="ri-question-answer-line"></i> FAQ Builder</h2>
+                
+                <div class="card" style="max-width:800px; margin-bottom: 30px;">
+                    <h3>FAQ Headers</h3>
+                    <div class="input-group"><label>Title</label><input type="text" id="faq_header_title"></div>
+                    <div class="input-group"><label>Description</label><textarea id="faq_header_sub" style="height:60px;"></textarea></div>
+                    <button class="btn-save" onclick="pushMultiText('services', ['faq_header_title', 'faq_header_sub'])">Save Headers</button>
+                </div>
+
+                <div class="cms-grid" id="faqGridUI"></div>
             </div>
 
         </div>
@@ -170,30 +325,71 @@
 
     <script>
         const TOKEN = localStorage.getItem('zyrova_token');
-        // FUTURE-PROOF DEPLOYMENT API ROUTER
         const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-    ? 'http://localhost:5000/api' 
-    : 'https://reach-forever.onrender.com/api';
-
+            ? 'http://localhost:5000/api' : 'https://reach-forever.onrender.com/api';
+        
         if (!TOKEN) window.location.href = 'admin.html';
 
-        // Auto-generate 6 Service Grid Cards
-        const servGrid = document.getElementById('servListGridUI');
-        for(let i=1; i<=6; i++) {
-            servGrid.innerHTML += `
-                <div class="card">
-                    <h3><i class="ri-stack-fill"></i> Service Block ${i}</h3>
-                    <div class="input-group"><label>Service Title</label><input type="text" id="serv_grid${i}_title"></div>
-                    <div class="input-group"><label>Service Description</label><textarea id="serv_grid${i}_desc" style="height:80px;"></textarea></div>
-                    <div class="file-upload" style="padding:15px;"><span id="lbl_serv_grid${i}_img">Cover Image</span><input type="file" id="f_serv_grid${i}_img" accept="image/*" onchange="updateLbl(this, 'lbl_serv_grid${i}_img')"></div>
+        // INITIALIZE DB SYNC
+        document.addEventListener("DOMContentLoaded", async () => {
+            try {
+                // Fetch specific services page data
+                const res = await fetch(`${API_BASE_URL}/content/services`);
+                const data = await res.json();
+                
+                if (data.success && data.data) {
+                    data.data.forEach(item => {
+                        // Populate basic inputs
+                        if (item.contentType === 'text') {
+                            const el = document.getElementById(item.elementId);
+                            if (el) el.value = item.contentValue;
+                        }
+                        
+                        // Mark media uploaders as green/active if they exist
+                        if (item.contentType === 'image' || item.contentType === 'video') {
+                            const upDiv = document.getElementById(`up_${item.elementId}`);
+                            const lbl = document.getElementById(`lbl_${item.elementId}`);
+                            if(upDiv && lbl) {
+                                upDiv.classList.add('active-asset');
+                                lbl.innerHTML = `<span style="color:#10B981; font-weight:700;"><i class="ri-check-double-line"></i> Asset Active</span>`;
+                            }
+                        }
+                    });
+                }
+            } catch(e) { console.error("DB Sync error:", e); }
+        });
+
+        // 1. GENERATE BENTO CARDS (4)
+        const bentoGrid = document.getElementById('bentoGridUI');
+        for(let i=1; i<=4; i++) {
+            bentoGrid.innerHTML += `
+                <div class="card" style="border-top:3px solid var(--primary);">
+                    <h3>Bento Card ${i}</h3>
+                    <div class="input-group"><label>Title</label><input type="text" id="bento_c${i}_title"></div>
+                    <div class="input-group"><label>Description</label><textarea id="bento_c${i}_desc" style="height:60px;"></textarea></div>
+                    <div class="file-upload" id="up_bento_c${i}_img"><span id="lbl_bento_c${i}_img">Upload Background Image</span><input type="file" id="f_bento_c${i}_img" accept="image/*" onchange="updateLbl(this, 'lbl_bento_c${i}_img')"></div>
                     <div style="display:flex; gap:10px;">
-                        <button class="btn-save" style="background:#222;" onclick="pushMultiText('services', ['serv_grid${i}_title', 'serv_grid${i}_desc'])">Save Text</button>
-                        <button class="btn-save" onclick="pushMedia('services', 'serv_grid${i}_img', 'f_serv_grid${i}_img', 'image')">Upload Image</button>
+                        <button class="btn-save" style="background:#222;" onclick="pushMultiText('services', ['bento_c${i}_title', 'bento_c${i}_desc'])">Save Text</button>
+                        <button class="btn-save" onclick="pushMedia('services', 'bento_c${i}_img', 'f_bento_c${i}_img', 'image')">Push Background</button>
                     </div>
                 </div>
             `;
         }
 
+        // 2. GENERATE FAQ CARDS (4)
+        const faqGrid = document.getElementById('faqGridUI');
+        for(let i=1; i<=4; i++) {
+            faqGrid.innerHTML += `
+                <div class="card" style="border-top:3px solid var(--accent);">
+                    <h3>Question ${i}</h3>
+                    <div class="input-group"><label>Question</label><input type="text" id="faq_q${i}"></div>
+                    <div class="input-group"><label>Answer</label><textarea id="faq_a${i}" style="height:100px;"></textarea></div>
+                    <button class="btn-save" onclick="pushMultiText('services', ['faq_q${i}', 'faq_a${i}'])">Save Q${i}</button>
+                </div>
+            `;
+        }
+
+        // UTILITIES
         function switchTab(id) {
             document.querySelectorAll('.editor-section').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.tab-link').forEach(btn => btn.classList.remove('active'));
@@ -210,10 +406,15 @@
         }
 
         function updateLbl(input, labelId) {
-            if(input.files[0]) document.getElementById(labelId).innerHTML = `<span style="color:#10B981;">${input.files[0].name}</span>`;
+            if(input.files[0]) {
+                const name = input.files[0].name;
+                const shortName = name.length > 15 ? name.substring(0,12) + '...' : name;
+                document.getElementById(labelId).innerHTML = `<span style="color:#10B981; font-weight:700;"><i class="ri-check-line"></i> ${shortName}</span>`;
+            }
         }
 
         async function pushMultiText(page, inputIds) {
+            showToast("Syncing Database...");
             for (const id of inputIds) {
                 const val = document.getElementById(id).value;
                 await fetch(`${API_BASE_URL}/content`, {
@@ -226,8 +427,8 @@
 
         async function pushMedia(page, elementId, fileId, type) {
             const file = document.getElementById(fileId).files[0];
-            if(!file) return alert("Select a file.");
-            showToast("Uploading to Database...");
+            if(!file) return alert("Select a file first.");
+            showToast("Uploading to Cloudinary...");
             const fd = new FormData(); fd.append('media', file);
             try {
                 const upRes = await fetch(`${API_BASE_URL}/upload`, { method: 'POST', headers: { 'Authorization': `Bearer ${TOKEN}` }, body: fd });
@@ -237,6 +438,13 @@
                         method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}` },
                         body: JSON.stringify({ pageId: page, elementId: elementId, contentType: type, contentValue: upData.url })
                     });
+                    
+                    const lbl = document.getElementById(`lbl_${elementId}`);
+                    const upDiv = document.getElementById(`up_${elementId}`);
+                    if(lbl && upDiv) {
+                        lbl.innerHTML = `<span style="color:#10B981; font-weight:700;"><i class="ri-check-double-line"></i> Asset Active</span>`;
+                        upDiv.classList.add('active-asset');
+                    }
                     showToast("Media Deployed Successfully!");
                 }
             } catch(e) { showToast("Upload Failed", true); }

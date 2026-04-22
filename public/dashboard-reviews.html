@@ -34,7 +34,7 @@
         .tab-link.active { background: rgba(85, 107, 47, 0.15); color: var(--text-main); font-weight: 700; border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0;}
 
         .workspace { flex: 1; display: flex; flex-direction: column; background: radial-gradient(circle at top right, rgba(85,107,47,0.05), transparent 50%); overflow-y: auto;}
-        .header { padding: 40px 50px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: rgba(10, 11, 14, 0.9); position: sticky; top: 0; z-index: 5;}
+        .header { padding: 40px 50px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: rgba(10, 11, 14, 0.9); position: sticky; top: 0; z-index: 5; backdrop-filter: blur(20px);}
         .header h1 { font-size: 2.2rem; font-weight: 700; }
         .header p { color: var(--text-dim); margin-top: 5px; }
         
@@ -46,12 +46,12 @@
         .editor-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        .section-title { font-size: 1.6rem; font-weight: 700; color: var(--primary); margin-bottom: 30px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+        .section-title { font-size: 1.6rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border); padding-bottom: 15px;}
+        .section-desc { color: var(--text-dim); margin-bottom: 30px; font-size: 0.95rem;}
         
-        .card { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 20px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); margin-bottom: 30px;}
-        .card h3 { font-size: 1.2rem; margin-bottom: 20px; color: #FFF; display: flex; align-items: center; gap: 10px; }
-        .card-desc { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 20px;}
-
+        .card { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 20px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); margin-bottom: 30px; position: relative;}
+        .card h3 { font-size: 1.2rem; margin-bottom: 10px; color: #FFF; display: flex; align-items: center; gap: 10px; }
+        
         .cms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-bottom: 50px; }
 
         .input-group { margin-bottom: 20px; }
@@ -60,9 +60,10 @@
         input[type="text"]:focus, textarea:focus { border-color: var(--primary); }
         textarea { height: 100px; resize: vertical; }
 
-        .file-upload { background: #050507; border: 2px dashed rgba(255,255,255,0.1); padding: 25px 20px; border-radius: 12px; text-align: center; cursor: pointer; position: relative; margin-bottom: 15px; transition: 0.3s;}
+        .file-upload { background: #050507; border: 2px dashed rgba(255,255,255,0.1); padding: 25px 20px; border-radius: 12px; text-align: center; cursor: pointer; position: relative; margin-bottom: 15px; transition: 0.3s; display: flex; align-items: center; justify-content: center; flex-direction: column;}
         .file-upload:hover { border-color: var(--primary); background: rgba(212,175,55,0.05); }
         .file-upload input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+        .active-asset { border-color: var(--success) !important; background: rgba(16, 185, 129, 0.05) !important; }
         
         .btn-save { background: var(--accent); color: #FFF; border: none; padding: 16px 30px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s; width: 100%; display: flex; justify-content: center; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 1px;}
         .btn-save:hover { background: #6b863a; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(85, 107, 47, 0.3);}
@@ -81,11 +82,14 @@
         <a href="dashboard-services.html" class="page-link"><i class="ri-stack-line"></i> Services Matrix</a>
         <a href="dashboard-reviews.html" class="page-link current"><i class="ri-star-smile-line"></i> Reviews Matrix</a>
         
-        <div class="menu-label">Reviews Editors</div>
-        <button class="tab-link active" onclick="switchTab('sec-rev-hero')"><i class="ri-rocket-line"></i> Hero & Stats</button>
-        <button class="tab-link" onclick="switchTab('sec-rev-roi')"><i class="ri-line-chart-line"></i> ROI Calculator</button>
-        <button class="tab-link" onclick="switchTab('sec-rev-vault')"><i class="ri-film-line"></i> Video Vault</button>
-        <button class="tab-link" onclick="switchTab('sec-rev-cs')"><i class="ri-book-open-line"></i> Case Studies</button>
+        <div class="menu-label">Reviews Page Editors</div>
+        <button class="tab-link active" onclick="switchTab('sec-global')"><i class="ri-global-line"></i> Global Elements</button>
+        <button class="tab-link" onclick="switchTab('sec-hero')"><i class="ri-vidicon-fill"></i> Hero Video & Stats</button>
+        <button class="tab-link" onclick="switchTab('sec-roi')"><i class="ri-calculator-line"></i> ROI Calculator Text</button>
+        <button class="tab-link" onclick="switchTab('sec-vault')"><i class="ri-play-list-2-fill"></i> Holographic Video Vault</button>
+        <button class="tab-link" onclick="switchTab('sec-cs')"><i class="ri-microscope-line"></i> Anatomy Case Studies</button>
+        <button class="tab-link" onclick="switchTab('sec-wol')"><i class="ri-message-3-fill"></i> Wall of Love Cards</button>
+        <button class="tab-link" onclick="switchTab('sec-footer')"><i class="ri-layout-bottom-line"></i> Footer Section</button>
         
         <div style="margin-top: 40px;"></div>
         <button class="page-link" style="color: #EF4444; border-color: rgba(239,68,68,0.2);" onclick="localStorage.removeItem('zyrova_token'); window.location.href='admin.html';"><i class="ri-logout-circle-line"></i> Secure Lock</button>
@@ -95,7 +99,7 @@
         <div class="header">
             <div>
                 <h1>Reviews Matrix</h1>
-                <p>Absolute database control over reviews.html</p>
+                <p>Absolute database control over your live reviews.html</p>
             </div>
             <div style="display: flex; gap: 15px;">
                 <button class="btn-live" style="background: transparent; color: #FFF; border: 1px solid var(--border);" onclick="location.reload()"><i class="ri-refresh-line"></i> Sync DB</button>
@@ -105,78 +109,141 @@
 
         <div class="content-area">
 
-            <div id="sec-rev-hero" class="editor-section active">
-                <h2 class="section-title"><i class="ri-rocket-line"></i> Hero Header & Metrics</h2>
+            <div id="sec-global" class="editor-section active">
+                <h2 class="section-title"><i class="ri-global-line"></i> Global Elements</h2>
+                <p class="section-desc">Edits the top navigation bar logo and links.</p>
                 <div class="cms-grid">
                     <div class="card">
-                        <h3><i class="ri-heading"></i> Main Hero Texts</h3>
-                        <div class="input-group"><label>Tagline</label><input type="text" id="rev_hero_tag" placeholder="Verified Success"></div>
-                        <div class="input-group"><label>Giant Title HTML</label><textarea id="rev_hero_title" placeholder="The proof is in the <br><span>Profit.</span>"></textarea></div>
-                        <div class="input-group"><label>Sub Description</label><textarea id="rev_hero_desc"></textarea></div>
-                        <button class="btn-save" onclick="pushMultiText('reviews', ['rev_hero_tag', 'rev_hero_title', 'rev_hero_desc'])">Save Header Text</button>
+                        <h3>Main Top Navbar</h3>
+                        <div class="file-upload" id="up_header_logo"><span id="lbl_header_logo">Upload Brand Logo (PNG)</span><input type="file" id="f_header_logo" accept="image/*" onchange="updateLbl(this, 'lbl_header_logo')"></div>
+                        <button class="btn-save" style="margin-bottom:15px;" onclick="pushMedia('global', 'header_logo', 'f_header_logo', 'image')">Deploy Logo</button>
                         
-                        <div style="margin-top: 30px; border-top: 1px solid var(--border); padding-top: 20px;">
-                            <h3 style="font-size: 1rem;"><i class="ri-video-upload-fill"></i> Hero Background Video</h3>
-                            <div class="file-upload"><span id="lbl_rev_hero_bg_vid">Upload MP4 Background</span><input type="file" id="f_rev_hero_bg_vid" accept="video/mp4" onchange="updateLbl(this, 'lbl_rev_hero_bg_vid')"></div>
-                            <button class="btn-save" style="background:#222;" onclick="pushMedia('reviews', 'rev_hero_bg_vid', 'f_rev_hero_bg_vid', 'video')">Deploy BG Video</button>
-                        </div>
+                        <div class="input-group"><label>Link 1</label><input type="text" id="nav_link_1"></div>
+                        <div class="input-group"><label>Link 2</label><input type="text" id="nav_link_2"></div>
+                        <div class="input-group"><label>Link 3</label><input type="text" id="nav_link_3"></div>
+                        <div class="input-group"><label>Button</label><input type="text" id="nav_btn"></div>
+                        <button class="btn-save" style="background:#222;" onclick="pushMultiText('global', ['nav_link_1', 'nav_link_2', 'nav_link_3', 'nav_btn'])">Save Links</button>
                     </div>
+                </div>
+            </div>
 
+            <div id="sec-hero" class="editor-section">
+                <h2 class="section-title"><i class="ri-vidicon-fill"></i> Hero Background & Stats</h2>
+                <div class="cms-grid">
                     <div class="card">
-                        <h3><i class="ri-bar-chart-grouped-line"></i> The 3 Floating Stats</h3>
-                        <p class="card-desc">Edit the animated counter numbers and labels.</p>
+                        <h3>Hero Headlines</h3>
+                        <div class="input-group"><label>Top Tag</label><input type="text" id="rev_hero_tag"></div>
+                        <div class="input-group"><label>Giant Title HTML</label><textarea id="rev_hero_title" style="height:60px;"></textarea></div>
+                        <div class="input-group"><label>Description</label><textarea id="rev_hero_desc" style="height:60px;"></textarea></div>
+                        <button class="btn-save" onclick="pushMultiText('reviews', ['rev_hero_tag', 'rev_hero_title', 'rev_hero_desc'])">Save Texts</button>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Background & Metrics</h3>
+                        <div class="file-upload" id="up_rev_hero_bg_vid" style="border-color:var(--primary);">
+                            <span id="lbl_rev_hero_bg_vid"><i class="ri-video-line"></i> Upload Background Video (MP4)</span>
+                            <input type="file" id="f_rev_hero_bg_vid" accept="video/mp4" onchange="updateLbl(this, 'lbl_rev_hero_bg_vid')">
+                        </div>
+                        <button class="btn-save" style="margin-bottom:20px;" onclick="pushMedia('reviews', 'rev_hero_bg_vid', 'f_rev_hero_bg_vid', 'video')">Deploy Background</button>
                         
-                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05);">
-                            <div class="input-group" style="margin-bottom:10px;"><label>Stat 1 Value (Number only)</label><input type="text" id="rev_hero_stat_1_val" placeholder="8500000"></div>
-                            <div class="input-group" style="margin-bottom:0;"><label>Stat 1 Text</label><input type="text" id="rev_hero_stat_1_text" placeholder="Client Revenue Generated"></div>
+                        <div class="input-group" style="background:rgba(255,255,255,0.05); padding:10px; border-radius:10px;">
+                            <label>Stat 1 (Revenue)</label>
+                            <input type="text" id="rev_hero_stat_1_val" placeholder="8500000" style="margin-bottom:5px;">
+                            <input type="text" id="rev_hero_stat_1_text" placeholder="Client Revenue Generated">
                         </div>
-
-                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05);">
-                            <div class="input-group" style="margin-bottom:10px;"><label>Stat 2 Value (Number only)</label><input type="text" id="rev_hero_stat_2_val" placeholder="4.8"></div>
-                            <div class="input-group" style="margin-bottom:0;"><label>Stat 2 Text</label><input type="text" id="rev_hero_stat_2_text" placeholder="Average Ad Return (ROI)"></div>
+                        <div class="input-group" style="background:rgba(212,175,55,0.05); border:1px solid rgba(212,175,55,0.2); padding:10px; border-radius:10px;">
+                            <label style="color:var(--primary);">Stat 2 (Gold Center)</label>
+                            <input type="text" id="rev_hero_stat_2_val" placeholder="4.8" style="margin-bottom:5px;">
+                            <input type="text" id="rev_hero_stat_2_text" placeholder="Average Ad Return (ROI)">
                         </div>
-
-                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05);">
-                            <div class="input-group" style="margin-bottom:10px;"><label>Stat 3 Value (Number only)</label><input type="text" id="rev_hero_stat_3_val" placeholder="50"></div>
-                            <div class="input-group" style="margin-bottom:0;"><label>Stat 3 Text</label><input type="text" id="rev_hero_stat_3_text" placeholder="Local Brands Scaled"></div>
+                        <div class="input-group" style="background:rgba(255,255,255,0.05); padding:10px; border-radius:10px;">
+                            <label>Stat 3 (Brands)</label>
+                            <input type="text" id="rev_hero_stat_3_val" placeholder="50" style="margin-bottom:5px;">
+                            <input type="text" id="rev_hero_stat_3_text" placeholder="Local Brands Scaled">
                         </div>
-
-                        <button class="btn-save" onclick="pushMultiText('reviews', ['rev_hero_stat_1_val', 'rev_hero_stat_1_text', 'rev_hero_stat_2_val', 'rev_hero_stat_2_text', 'rev_hero_stat_3_val', 'rev_hero_stat_3_text'])">Save All Stats</button>
+                        <button class="btn-save" style="background:#222;" onclick="pushMultiText('reviews', ['rev_hero_stat_1_val', 'rev_hero_stat_1_text', 'rev_hero_stat_2_val', 'rev_hero_stat_2_text', 'rev_hero_stat_3_val', 'rev_hero_stat_3_text'])">Save Stats</button>
                     </div>
                 </div>
             </div>
 
-            <div id="sec-rev-roi" class="editor-section">
-                <h2 class="section-title"><i class="ri-line-chart-line"></i> ROI Section Text</h2>
-                <div class="card" style="max-width: 600px;">
-                    <div class="input-group"><label>ROI Title</label><input type="text" id="rev_roi_title" placeholder="Calculate Your Growth."></div>
-                    <div class="input-group"><label>ROI Description</label><textarea id="rev_roi_desc"></textarea></div>
-                    <button class="btn-save" onclick="pushMultiText('reviews', ['rev_roi_title', 'rev_roi_desc'])">Save ROI Text</button>
+            <div id="sec-roi" class="editor-section">
+                <h2 class="section-title"><i class="ri-calculator-line"></i> ROI Calculator Text</h2>
+                <p class="section-desc">The math is hardcoded for safety, but you can edit the section headers here.</p>
+                <div class="card" style="max-width:600px;">
+                    <div class="input-group"><label>Calculator Title</label><input type="text" id="rev_roi_title"></div>
+                    <div class="input-group"><label>Calculator Description</label><textarea id="rev_roi_desc" style="height:60px;"></textarea></div>
+                    <button class="btn-save" onclick="pushMultiText('reviews', ['rev_roi_title', 'rev_roi_desc'])">Save Calculator Info</button>
                 </div>
             </div>
 
-            <div id="sec-rev-vault" class="editor-section">
-                <h2 class="section-title"><i class="ri-film-line"></i> The Holographic Vault</h2>
-                <div class="card" style="max-width: 800px; margin-bottom: 40px;">
-                    <div class="input-group"><label>Vault Section Title HTML</label><textarea id="rev_vault_title" style="height: 60px;"></textarea></div>
-                    <div class="input-group"><label>Vault Section Description</label><textarea id="rev_vault_desc" style="height: 60px;"></textarea></div>
+            <div id="sec-vault" class="editor-section">
+                <h2 class="section-title"><i class="ri-play-list-2-fill"></i> Holographic Video Vault</h2>
+                
+                <div class="card" style="max-width:800px; margin-bottom:30px;">
+                    <h3>Vault Headers</h3>
+                    <div class="input-group"><label>Giant Title HTML</label><textarea id="rev_vault_title" style="height:60px;"></textarea></div>
+                    <div class="input-group"><label>Description</label><textarea id="rev_vault_desc" style="height:60px;"></textarea></div>
                     <button class="btn-save" onclick="pushMultiText('reviews', ['rev_vault_title', 'rev_vault_desc'])">Save Vault Headers</button>
                 </div>
-                
-                <div class="cms-grid" id="vaultVidsUI">
+
+                <div class="cms-grid" id="vaultGridUI">
                     </div>
             </div>
 
-            <div id="sec-rev-cs" class="editor-section">
-                <h2 class="section-title"><i class="ri-book-open-line"></i> Case Studies (Vertical Scroll)</h2>
-                <div class="card" style="max-width: 800px; margin-bottom: 40px;">
-                    <div class="input-group"><label>Section Title</label><input type="text" id="rev_cs_header_title" placeholder="The Anatomy of a Win."></div>
-                    <div class="input-group"><label>Section Description</label><input type="text" id="rev_cs_header_sub"></div>
-                    <button class="btn-save" onclick="pushMultiText('reviews', ['rev_cs_header_title', 'rev_cs_header_sub'])">Save Section Headers</button>
+            <div id="sec-cs" class="editor-section">
+                <h2 class="section-title"><i class="ri-microscope-line"></i> Anatomy of a Win (Case Studies)</h2>
+                
+                <div class="card" style="max-width:800px; margin-bottom:30px;">
+                    <h3>Case Study Section Headers</h3>
+                    <div class="input-group"><label>Giant Title</label><input type="text" id="rev_cs_header_title"></div>
+                    <div class="input-group"><label>Description</label><input type="text" id="rev_cs_header_sub"></div>
+                    <button class="btn-save" onclick="pushMultiText('reviews', ['rev_cs_header_title', 'rev_cs_header_sub'])">Save Headers</button>
                 </div>
 
-                <div class="cms-grid" id="caseStudiesUI">
+                <div class="cms-grid" id="caseStudyGridUI">
                     </div>
+            </div>
+
+            <div id="sec-wol" class="editor-section">
+                <h2 class="section-title"><i class="ri-message-3-fill"></i> Wall of Love (Scrolling Cards)</h2>
+                
+                <div class="card" style="max-width:800px; margin-bottom:30px;">
+                    <div class="input-group"><label>Section Title</label><input type="text" id="rev_wol_header"></div>
+                    <button class="btn-save" onclick="pushMultiText('reviews', ['rev_wol_header'])">Save Header</button>
+                </div>
+
+                <div class="cms-grid" id="wolGridUI">
+                    </div>
+            </div>
+
+            <div id="sec-footer" class="editor-section">
+                <h2 class="section-title"><i class="ri-layout-bottom-line"></i> Bottom Footer</h2>
+                <div class="cms-grid">
+                    <div class="card">
+                        <h3><i class="ri-layout-bottom-line"></i> Universal Footer & Contact</h3>
+                        
+                        <div class="input-group" style="background: rgba(37, 211, 102, 0.1); padding: 15px; border-radius: 10px; border: 1px solid rgba(37, 211, 102, 0.3);">
+                            <label style="color:#25D366;"><i class="ri-whatsapp-line"></i> WhatsApp Link</label>
+                            <input type="text" id="wa_float_link">
+                        </div>
+                        <div class="input-group" style="background: rgba(228, 64, 95, 0.1); padding: 15px; border-radius: 10px; border: 1px solid rgba(228, 64, 95, 0.3); margin-top:10px;">
+                            <label style="color:#E4405F;"><i class="ri-instagram-line"></i> Ansh Instagram Link</label>
+                            <input type="text" id="ft_insta_link">
+                        </div>
+
+                        <hr style="border:1px solid var(--border); margin:20px 0;">
+                        <div class="input-group"><label>Giant Footer Title</label><textarea id="ft_title" style="height:60px;"></textarea></div>
+                        <div class="input-group"><label>Description</label><textarea id="ft_desc" style="height:60px;"></textarea></div>
+                        <div class="input-group"><label>Button Text</label><input type="text" id="ft_btn"></div>
+                        <hr style="border:1px solid var(--border); margin:20px 0;">
+                        <div class="input-group"><label>Brand Name</label><input type="text" id="ft_brand"></div>
+                        <div style="display:flex; gap:10px;">
+                            <div class="input-group" style="flex:1;"><label>Engineered By</label><input type="text" id="ft_eng"></div>
+                            <div class="input-group" style="flex:1;"><label>Designed By</label><input type="text" id="ft_des"></div>
+                        </div>
+                        <button class="btn-save" onclick="pushMultiText('global', ['ft_title', 'ft_desc', 'ft_btn', 'ft_brand', 'ft_eng', 'ft_des', 'wa_float_link', 'ft_insta_link'])">Save Footer Data</button>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -186,63 +253,108 @@
 
     <script>
         const TOKEN = localStorage.getItem('zyrova_token');
-        // FUTURE-PROOF DEPLOYMENT API ROUTER
         const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-    ? 'http://localhost:5000/api' 
-    : 'https://reach-forever.onrender.com/api';
-
+            ? 'http://localhost:5000/api' : 'https://reach-forever.onrender.com/api';
+        
         if (!TOKEN) window.location.href = 'admin.html';
 
-        // AUTO-GENERATE THE 3 VIDEO VAULT SLOTS
-        const vaultGrid = document.getElementById('vaultVidsUI');
+        // INITIALIZE DB SYNC
+        document.addEventListener("DOMContentLoaded", async () => {
+            try {
+                // Fetch reviews data
+                const res = await fetch(`${API_BASE_URL}/content/reviews`);
+                const data = await res.json();
+                
+                // Fetch global data
+                const globalRes = await fetch(`${API_BASE_URL}/content/global`);
+                const globalData = await globalRes.json();
+                
+                let allData = [];
+                if(data.success && data.data) allData = [...allData, ...data.data];
+                if(globalData.success && globalData.data) allData = [...allData, ...globalData.data];
+
+                allData.forEach(item => {
+                    if (item.contentType === 'text') {
+                        const el = document.getElementById(item.elementId);
+                        if (el) el.value = item.contentValue;
+                    }
+                    if (item.contentType === 'image' || item.contentType === 'video') {
+                        const upDiv = document.getElementById(`up_${item.elementId}`);
+                        const lbl = document.getElementById(`lbl_${item.elementId}`);
+                        if(upDiv && lbl) {
+                            upDiv.classList.add('active-asset');
+                            lbl.innerHTML = `<span style="color:#10B981; font-weight:700;"><i class="ri-check-double-line"></i> Asset Active</span>`;
+                        }
+                    }
+                });
+            } catch(e) { console.error("DB Sync error:", e); }
+        });
+
+        // 1. GENERATE VIDEO VAULT GRID (3)
+        const vaultGrid = document.getElementById('vaultGridUI');
         for(let i=1; i<=3; i++) {
             vaultGrid.innerHTML += `
-                <div class="card" style="border-top: 3px solid var(--accent);">
-                    <h3><i class="ri-video-line"></i> Vault Video ${i}</h3>
+                <div class="card" style="border-top:3px solid var(--accent);">
+                    <h3>Vault Video ${i}</h3>
                     
-                    <div class="input-group"><label>Client / Brand Name</label><input type="text" id="rev_thumb_${i}_title"></div>
-                    <div class="input-group"><label>Highlight Result (e.g. 3x Bookings)</label><input type="text" id="rev_thumb_${i}_sub"></div>
-                    
-                    <div class="file-upload" style="padding:15px; border-color: rgba(255,255,255,0.2);"><span id="lbl_rev_thumb_${i}_img">1. Thumbnail Image (JPG)</span><input type="file" id="f_rev_thumb_${i}_img" accept="image/*" onchange="updateLbl(this, 'lbl_rev_thumb_${i}_img')"></div>
-                    <div class="file-upload" style="padding:15px; border-color: var(--primary);"><span id="lbl_rev_vault_vid_${i}">2. Full Screen Video (MP4)</span><input type="file" id="f_rev_vault_vid_${i}" accept="video/mp4" onchange="updateLbl(this, 'lbl_rev_vault_vid_${i}')"></div>
-                    
-                    <div style="display:flex; flex-direction: column; gap:10px; margin-top: 20px;">
-                        <button class="btn-save" style="background:#222;" onclick="pushMultiText('reviews', ['rev_thumb_${i}_title', 'rev_thumb_${i}_sub'])">Save Texts</button>
-                        <div style="display:flex; gap:10px;">
-                            <button class="btn-save" style="background: rgba(255,255,255,0.1);" onclick="pushMedia('reviews', 'rev_thumb_${i}_img', 'f_rev_thumb_${i}_img', 'image')">Upload Thumb</button>
-                            <button class="btn-save" onclick="pushMedia('reviews', 'rev_vault_vid_${i}', 'f_rev_vault_vid_${i}', 'video')">Upload Video</button>
-                        </div>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:15px;">
+                        <div class="file-upload" id="up_rev_thumb_${i}_img" style="margin:0; padding:15px 5px;"><span id="lbl_rev_thumb_${i}_img" style="font-size:0.8rem;">1. Thumbnail Image</span><input type="file" id="f_rev_thumb_${i}_img" accept="image/*" onchange="updateLbl(this, 'lbl_rev_thumb_${i}_img')"></div>
+                        <div class="file-upload" id="up_rev_vault_vid_${i}" style="margin:0; padding:15px 5px; border-color:var(--primary);"><span id="lbl_rev_vault_vid_${i}" style="font-size:0.8rem;">2. Source Video (MP4)</span><input type="file" id="f_rev_vault_vid_${i}" accept="video/mp4" onchange="updateLbl(this, 'lbl_rev_vault_vid_${i}')"></div>
                     </div>
+                    <div style="display:flex; gap:10px; margin-bottom:20px;">
+                        <button class="btn-save" style="font-size:0.8rem; padding:10px;" onclick="pushMedia('reviews', 'rev_thumb_${i}_img', 'f_rev_thumb_${i}_img', 'image')">Push Thumb</button>
+                        <button class="btn-save" style="font-size:0.8rem; padding:10px;" onclick="pushMedia('reviews', 'rev_vault_vid_${i}', 'f_rev_vault_vid_${i}', 'video')">Deploy Video</button>
+                    </div>
+
+                    <div class="input-group"><label>Client Name (Thumb)</label><input type="text" id="rev_thumb_${i}_title"></div>
+                    <div class="input-group"><label>Result Highlight (Thumb)</label><input type="text" id="rev_thumb_${i}_sub"></div>
+                    <button class="btn-save" style="background:#222;" onclick="pushMultiText('reviews', ['rev_thumb_${i}_title', 'rev_thumb_${i}_sub'])">Save Text</button>
                 </div>
             `;
         }
 
-        // AUTO-GENERATE THE 3 CASE STUDY SLOTS
-        const csGrid = document.getElementById('caseStudiesUI');
+        // 2. GENERATE CASE STUDIES GRID (3)
+        const csGrid = document.getElementById('caseStudyGridUI');
         for(let i=1; i<=3; i++) {
             csGrid.innerHTML += `
-                <div class="card" style="border-top: 3px solid var(--primary);">
-                    <h3><i class="ri-book-open-line"></i> Case Study ${i}</h3>
+                <div class="card" style="border-top:3px solid var(--primary);">
+                    <h3>Case Study ${i}</h3>
                     
-                    <div style="background: rgba(212,175,55,0.05); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
-                        <div class="input-group" style="margin-bottom:10px;"><label>Floating Badge Value (e.g. +312%)</label><input type="text" id="rev_cs_badge_${i}_val"></div>
-                        <div class="input-group" style="margin-bottom:0;"><label>Floating Badge Text</label><input type="text" id="rev_cs_badge_${i}_sub"></div>
-                    </div>
+                    <div class="file-upload" id="up_rev_cs_img_${i}"><span id="lbl_rev_cs_img_${i}">Upload Main Background Image</span><input type="file" id="f_rev_cs_img_${i}" accept="image/*" onchange="updateLbl(this, 'lbl_rev_cs_img_${i}')"></div>
+                    <button class="btn-save" style="margin-bottom:20px;" onclick="pushMedia('reviews', 'rev_cs_img_${i}', 'f_rev_cs_img_${i}', 'image')">Push Image</button>
 
-                    <div class="input-group"><label>Case Study Main Title</label><input type="text" id="rev_cs_card_${i}_title"></div>
-                    <div class="input-group"><label>The Problem Paragraph</label><textarea id="rev_cs_c${i}_prob_text" style="height: 70px;"></textarea></div>
-                    <div class="input-group"><label>Our Engineering Paragraph</label><textarea id="rev_cs_c${i}_eng_text" style="height: 70px;"></textarea></div>
-                    
-                    <div class="file-upload" style="padding:15px; margin-top: 15px;"><span id="lbl_rev_cs_img_${i}">Left Side Sticky Image (JPG/Webp)</span><input type="file" id="f_rev_cs_img_${i}" accept="image/*" onchange="updateLbl(this, 'lbl_rev_cs_img_${i}')"></div>
-                    
                     <div style="display:flex; gap:10px;">
-                        <button class="btn-save" style="background:#222; flex: 2;" onclick="pushMultiText('reviews', ['rev_cs_badge_${i}_val', 'rev_cs_badge_${i}_sub', 'rev_cs_card_${i}_title', 'rev_cs_c${i}_prob_text', 'rev_cs_c${i}_eng_text'])">Save All Texts</button>
-                        <button class="btn-save" style="flex: 1;" onclick="pushMedia('reviews', 'rev_cs_img_${i}', 'f_rev_cs_img_${i}', 'image')">Upload Img</button>
+                        <div class="input-group" style="flex:1;"><label>Badge Metric</label><input type="text" id="rev_cs_badge_${i}_val" placeholder="+312%"></div>
+                        <div class="input-group" style="flex:2;"><label>Badge Subtext</label><input type="text" id="rev_cs_badge_${i}_sub" placeholder="Increase in Patient Calls"></div>
                     </div>
+                    <hr style="border:1px solid var(--border); margin:10px 0 20px;">
+                    <div class="input-group"><label>Card Title</label><input type="text" id="rev_cs_card_${i}_title"></div>
+                    <div class="input-group"><label>The Problem Text</label><textarea id="rev_cs_c${i}_prob_text" style="height:70px;"></textarea></div>
+                    <div class="input-group"><label>Our Engineering Text</label><textarea id="rev_cs_c${i}_eng_text" style="height:70px;"></textarea></div>
+                    
+                    <button class="btn-save" style="background:#222;" onclick="pushMultiText('reviews', ['rev_cs_badge_${i}_val', 'rev_cs_badge_${i}_sub', 'rev_cs_card_${i}_title', 'rev_cs_c${i}_prob_text', 'rev_cs_c${i}_eng_text'])">Save All Text</button>
                 </div>
             `;
         }
 
+        // 3. GENERATE WALL OF LOVE CARDS (10)
+        const wolGrid = document.getElementById('wolGridUI');
+        for(let i=1; i<=10; i++) {
+            wolGrid.innerHTML += `
+                <div class="card">
+                    <h3>Testimonial Card ${i}</h3>
+                    <div class="input-group"><label>Quote</label><textarea id="rev_wol_c${i}_quote" style="height:70px;"></textarea></div>
+                    <div style="display:flex; gap:10px;">
+                        <div class="input-group" style="width:70px;"><label>Avatar</label><input type="text" id="rev_wol_c${i}_av" maxlength="1" style="text-align:center; font-weight:bold; color:var(--primary);"></div>
+                        <div class="input-group" style="flex:1;"><label>Client Name</label><input type="text" id="rev_wol_c${i}_name"></div>
+                    </div>
+                    <div class="input-group"><label>Company / Role</label><input type="text" id="rev_wol_c${i}_comp"></div>
+                    <button class="btn-save" onclick="pushMultiText('reviews', ['rev_wol_c${i}_quote', 'rev_wol_c${i}_av', 'rev_wol_c${i}_name', 'rev_wol_c${i}_comp'])">Save Card ${i}</button>
+                </div>
+            `;
+        }
+
+        // UTILITIES
         function switchTab(id) {
             document.querySelectorAll('.editor-section').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.tab-link').forEach(btn => btn.classList.remove('active'));
@@ -259,10 +371,15 @@
         }
 
         function updateLbl(input, labelId) {
-            if(input.files[0]) document.getElementById(labelId).innerHTML = `<span style="color:#10B981;">${input.files[0].name}</span>`;
+            if(input.files[0]) {
+                const name = input.files[0].name;
+                const shortName = name.length > 15 ? name.substring(0,12) + '...' : name;
+                document.getElementById(labelId).innerHTML = `<span style="color:#10B981; font-weight:700;"><i class="ri-check-line"></i> ${shortName}</span>`;
+            }
         }
 
         async function pushMultiText(page, inputIds) {
+            showToast("Syncing Database...");
             for (const id of inputIds) {
                 const val = document.getElementById(id).value;
                 await fetch(`${API_BASE_URL}/content`, {
@@ -275,8 +392,8 @@
 
         async function pushMedia(page, elementId, fileId, type) {
             const file = document.getElementById(fileId).files[0];
-            if(!file) return alert("Select a file.");
-            showToast("Uploading to Database...");
+            if(!file) return alert("Select a file first.");
+            showToast("Uploading to Cloudinary...");
             const fd = new FormData(); fd.append('media', file);
             try {
                 const upRes = await fetch(`${API_BASE_URL}/upload`, { method: 'POST', headers: { 'Authorization': `Bearer ${TOKEN}` }, body: fd });
@@ -286,6 +403,13 @@
                         method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}` },
                         body: JSON.stringify({ pageId: page, elementId: elementId, contentType: type, contentValue: upData.url })
                     });
+                    
+                    const lbl = document.getElementById(`lbl_${elementId}`);
+                    const upDiv = document.getElementById(`up_${elementId}`);
+                    if(lbl && upDiv) {
+                        lbl.innerHTML = `<span style="color:#10B981; font-weight:700;"><i class="ri-check-double-line"></i> Asset Active</span>`;
+                        upDiv.classList.add('active-asset');
+                    }
                     showToast("Media Deployed Successfully!");
                 }
             } catch(e) { showToast("Upload Failed", true); }
