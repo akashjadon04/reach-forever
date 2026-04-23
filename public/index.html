@@ -81,9 +81,6 @@
         #auraBody::-webkit-scrollbar-track { background: transparent; }
         #auraBody::-webkit-scrollbar-thumb { background: rgba(212, 175, 55, 0.5); border-radius: 10px; }
 
-        /* ==========================================================================
-           MOBILE & RESPONSIVE FIXES (SCALED DOWN ICONS, TEXTS, CYLINDER)
-           ========================================================================== */
         @media (max-width: 1024px) {
             .hero-social-float { display: none !important; }
             .hero-grid { grid-template-columns: 1fr !important; text-align: center; gap: 50px !important; }
@@ -102,45 +99,72 @@
             .s2-social-grid { justify-items: center; }
         }
 
+        /* ==========================================================================
+           ULTIMATE MOBILE COMPACT MATRIX (APP-STYLE)
+           ========================================================================== */
         @media (max-width: 768px) {
-            .title-lg { font-size: 2.2rem !important; }
-            .s2-social-card { padding: 15px !important; gap: 10px !important; justify-content: center; width: 100%;}
-            .s2-social-card i { font-size: 1.8rem !important; }
-            .s2-social-card span { font-size: 0.95rem !important; }
+            /* Extreme Padding & Border Radius Reduction */
+            .section-pad, .growth-engine-section, .story-section, .radar-section, .xray-section, .reels-section, .rush-section { 
+                padding: 3rem 4% !important; 
+            }
+            .main-wrapper { border-bottom-left-radius: 30px !important; border-bottom-right-radius: 30px !important; }
+            .section-2-wrapper, .ars-card, .ge-visual, .ba-container, .city-card { 
+                border-radius: 20px !important; 
+                padding: 15px !important; 
+            }
+
+            /* Typography Scaling */
+            .title-massive, .hero-title, .rush-title, .px-content h2, .ge-text h2, .s2-left h2 { font-size: 2.2rem !important; line-height: 1.1 !important; margin-bottom: 10px !important; }
+            .title-lg, .ars-title { font-size: 1.4rem !important; margin-bottom: 10px !important; }
+            p, .hero-desc, .ars-desc, .ge-text p, .s2-left p { font-size: 0.85rem !important; line-height: 1.4 !important; margin-bottom: 15px !important; }
+            .tag-pill, .hero-tag { font-size: 0.65rem !important; padding: 6px 12px !important; margin-bottom: 15px !important; }
+
+            /* Force 2-Column Grids (The "App" Look) */
+            .ars-container { 
+                grid-template-columns: repeat(2, 1fr) !important; 
+                gap: 10px !important; 
+            }
             
-            /* Tighter Mobile Paddings */
-            .section-pad { padding: 4rem 5% !important; }
+            /* Miniaturize Icons & Images */
+            .ars-icon, .cc-icon, .ge-ui-icon { 
+                width: 32px !important; height: 32px !important; font-size: 1.2rem !important; border-radius: 8px !important; margin-bottom: 8px !important; 
+            }
+            .ars-img-wrap { height: 80px !important; border-radius: 10px !important; margin-top: 10px !important; }
+            .ars-card { padding: 15px !important; }
+
+            /* Omnipresent & Social Grid Fix */
+            .s2-social-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 5px !important; }
+            .s2-social-card { padding: 8px !important; flex-direction: column !important; justify-content: center !important; gap: 5px !important;}
+            .s2-social-card span { display: none !important; } 
+            .s2-icon { font-size: 1.5rem !important; margin: 0 !important; }
             
-            .radar-container { height: 400px; } 
-            .cc-1 { top: 10%; left: 5%; } 
-            .cc-2 { top: 45%; right: 5%; } 
-            .cc-3 { bottom: 10%; left: 20%; } 
-            .city-card { padding: 10px 15px; gap: 10px; } 
-            .cc-icon { width: 30px; height: 30px; font-size: 1rem; }
-            .cc-city { font-size: 1.1rem;}
-            .cc-leads { font-size: 0.75rem; }
-
-            /* SCALED DOWN MOBILE CYLINDER */
-            .s2-right { height: 300px !important; perspective: 800px !important; }
-            .cylinder-carousel { width: 140px !important; height: 200px !important; }
-            .cylinder-face { width: 140px !important; height: 200px !important; border-width: 1px !important;}
-            /* Reduce translateZ so it doesn't overflow small screens */
-            .cylinder-face:nth-child(1) { transform: rotateY(0deg) translateZ(120px) !important; }
-            .cylinder-face:nth-child(2) { transform: rotateY(60deg) translateZ(120px) !important; }
-            .cylinder-face:nth-child(3) { transform: rotateY(120deg) translateZ(120px) !important; }
-            .cylinder-face:nth-child(4) { transform: rotateY(180deg) translateZ(120px) !important; }
-            .cylinder-face:nth-child(5) { transform: rotateY(240deg) translateZ(120px) !important; }
-            .cylinder-face:nth-child(6) { transform: rotateY(300deg) translateZ(120px) !important; }
-
-            /* SCALED DOWN BEFORE/AFTER SLIDER */
-            .ba-container { height: 300px !important; }
-            .ba-label { font-size: 0.75rem !important; padding: 8px 15px !important; }
-            .ba-labels { bottom: 15px !important; left: 15px !important; right: 15px !important; }
-            .ba-handle-btn { width: 45px !important; height: 45px !important; font-size: 1.2rem !important; }
-
-            /* Chat panel bounds */
-            .chat-panel { width: 90% !important; right: 5% !important; bottom: 100px !important; height: 70vh !important; max-height: 500px !important;}
-            .cp-body { height: calc(100% - 140px) !important; }
+            /* Micro 3D Cylinder */
+            .s2-right { height: 250px !important; perspective: 800px !important; }
+            .cylinder-carousel { width: 100px !important; height: 160px !important; }
+            .cylinder-face { width: 100px !important; height: 160px !important; border-width: 1px !important;}
+            .cylinder-face:nth-child(1) { transform: rotateY(0deg) translateZ(90px) !important; }
+            .cylinder-face:nth-child(2) { transform: rotateY(60deg) translateZ(90px) !important; }
+            .cylinder-face:nth-child(3) { transform: rotateY(120deg) translateZ(90px) !important; }
+            .cylinder-face:nth-child(4) { transform: rotateY(180deg) translateZ(90px) !important; }
+            .cylinder-face:nth-child(5) { transform: rotateY(240deg) translateZ(90px) !important; }
+            .cylinder-face:nth-child(6) { transform: rotateY(300deg) translateZ(90px) !important; }
+            
+            /* General Fixes */
+            .hero-actions .btn-olive, .f-cta .btn-olive { padding: 12px 24px !important; font-size: 0.85rem !important; width: 100%; text-align: center;}
+            .chat-panel { width: 92% !important; right: 4% !important; bottom: 85px !important; height: 60vh !important; border-radius: 15px !important;}
+            .ai-fab { width: 55px !important; height: 55px !important; }
+            .ai-fab i { font-size: 1.8rem !important; }
+            .wa-float { width: 55px !important; height: 55px !important; font-size: 2rem !important; bottom: 20px !important; left: 20px !important;}
+            
+            /* Radar Map Fixes */
+            .radar-container { height: 300px !important; }
+            .city-card { padding: 8px 12px !important; gap: 8px !important; }
+            .cc-city { font-size: 1rem !important; }
+            .cc-leads { font-size: 0.65rem !important; }
+            
+            /* X-Ray Fixes */
+            .ba-container { height: 250px !important; }
+            .ba-label { font-size: 0.7rem !important; padding: 6px 12px !important; }
         }
     </style>
 </head>
@@ -532,7 +556,7 @@
             </div>
 
             <div class="f-socials" style="display: flex; gap: 20px; font-size: 1.5rem;">
-                <div class="magnetic-wrap"><a href="https://www.instagram.com/ansh_khatri001?igsh=YTBvZ3l3MzR5N2dv" target="_blank" class="magnetic-inner" aria-label="Instagram" style="color: #A0A0A0;"><i class="ri-instagram-line"></i></a></div>
+                <div class="magnetic-wrap"><a href="#" class="magnetic-inner" aria-label="Instagram" style="color: #A0A0A0;"><i class="ri-instagram-line"></i></a></div>
                 <div class="magnetic-wrap"><a href="#" class="magnetic-inner" aria-label="WhatsApp" style="color: #A0A0A0;"><i class="ri-whatsapp-line"></i></a></div>
             </div>
         </div>
@@ -747,7 +771,7 @@
             }
 
             // =================================================================================
-            // AURA CHATBOT LOGIC (AUTO-POPUP DISABLED)
+            // AGGRESSIVE SALES BOT (NO AUTO-POPUP, LIVE NOTIFICATION)
             // =================================================================================
             const auraFab = document.getElementById('auraFab');
             const auraPanel = document.getElementById('auraPanel');
@@ -756,14 +780,20 @@
             const auraInput = document.getElementById('auraInput');
             const auraSend = document.getElementById('auraSend');
 
+            // Add Notification Dot to FAB
+            if(auraFab) {
+                auraFab.innerHTML += `<div id="botNotif" style="position:absolute; top:5px; right:5px; width:12px; height:12px; background:#EF4444; border-radius:50%; border:2px solid #FFF; animation: blink 1.5s infinite;"></div>`;
+            }
+
             if(auraFab && auraPanel) {
                 auraFab.addEventListener('click', () => {
                     auraPanel.style.opacity = '1';
                     auraPanel.style.transform = 'translateY(0) scale(1)';
                     auraPanel.style.pointerEvents = 'auto';
+                    const notif = document.getElementById('botNotif');
+                    if(notif) notif.style.display = 'none'; // Hide dot on open
                 });
             }
-            
             if(auraClose && auraPanel) {
                 auraClose.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -774,47 +804,18 @@
             }
 
             const botKnowledge = [
-                { "regex": "^(hi|hello|hey|greetings|howdy|wassup|what's up|morning|afternoon|evening|yo)[!?]*$", "response": "Hello there! Welcome to Reach Forever. I'm Chloe, your friendly assistant. How can I help your business grow today?" },
-                { "regex": "(how are you|how you doing|how's it going|whats new)", "response": "I am doing wonderfully, thank you so much for asking! I'm here and ready to help you with anything you need. How is your day going?" },
-                { "regex": "(who are you|are you a robot|are you ai|are you real|what are you|name)", "response": "My name is Chloe! I am a friendly AI assistant created specifically for Reach Forever. I'm designed to give you the best and most caring support possible!" },
-                { "regex": "(best digital marketing agency|top agency in india|agency in punjab|phagwara|jalandhar|seo agency)", "response": "You found us! Reach Forever is proud to be the best digital marketing agency in India. We specifically dominate the local markets in Punjab, Phagwara, and Jalandhar. We provide top-tier SEO so your business stays at the #1 spot when people search for your services." },
-                { "regex": "(owner|who owns|founder|ceo|boss|who is the head|who runs this)", "response": "Ansh Khatri is the proud owner and CEO of Reach Forever! He leads our agency with a brilliant vision to help local businesses succeed and scale quickly." },
-                { "regex": "(who is ansh|ansh khatri|about ansh)", "response": "Ansh Khatri is our visionary owner and founder. He is dedicated to bringing the best marketing results, trust, and the highest ROI to all of our clients." },
-                { "regex": "(web design|website|web dev|web development|app dev|application|create an app|build a site|ui|ux|frontend|backend|app development|make an app|software|code)", "response": "For any website design, web development, or mobile app needs, our expert lead developer is Akash Jadon! You can reach him directly via call or WhatsApp at +917668758238. He builds the most beautiful, high-converting platforms on the market." },
-                { "regex": "(who is akash|akash jadon|designer|developer|who built this)", "response": "Akash Jadon is our master lead designer and developer! If you need an incredibly fast, custom website or app built, he is the expert you need. Contact him directly at +917668758238." },
-                { "regex": "(what do you do|what is reach forever|about us|your agency|company|services)", "response": "We are a premium digital marketing agency. We build automated revenue machines for businesses! We run highly effective online ads and build great websites so you can focus on your work while we bring you sales." },
-                { "regex": "(price|pricing|cost|fee|how much|expensive|cheap|budget|charge|affordable)", "response": "Our pricing is perfectly customized to what your business needs to grow. We ensure our services are a profitable investment, not just a cost. Please click 'Book Strategy Call' so we can discuss a friendly quote tailored for you!" },
-                { "regex": "(i have no budget|no money|broke|too small)", "response": "We completely understand that cash flow can be tight for a growing business! We specialize in creating high-return campaigns so that the money you spend comes back to you multiplied. Let's have a free chat to see how we can start small." },
-                { "regex": "(ads|facebook ads|instagram ads|meta ads|paid traffic|ppc|advertising)", "response": "We run very smart, hyper-local Facebook and Instagram ads. We show your business only to people in your exact city who are already looking for what you sell, making it very easy to get new customers fast." },
-                { "regex": "(how to do seo|what is seo|google search|rank higher)", "response": "SEO stands for Search Engine Optimization. We do it by optimizing your website's content, speed, and backend code so Google trusts it. When people in Punjab, Phagwara, or Jalandhar search for your niche, we make sure you appear at the very top of page one!" },
-                { "regex": "(proof|reviews|results|case studies|portfolio|clients|examples)", "response": "Results are our only metric. We've generated over ₹85 Lakhs for our local clients recently. You can watch real, authentic video testimonials from our happy partners right here on our homepage!" },
-                { "regex": "(guarantee|refund|risk|promise)", "response": "We completely understand that marketing can feel risky. That is why we focus heavily on bringing you a Guaranteed Positive ROI. We want you to make far more money than you spend with us." },
-                { "regex": "(time|how long|launch|start|onboarding)", "response": "We work very fast to respect your time. With our Rapid 14-Day Launch guarantee, we build your campaigns, create your funnel, and launch your ads in just two weeks!" },
-                { "regex": "(dentist|dental|clinic|hospital|doctor|medical|medspa|spa|salon)", "response": "We love working with medical clinics and salons! We know exactly how to find people who need your specific treatments and book them directly into your calendar automatically." },
-                { "regex": "(real estate|realtor|property|broker)", "response": "Real estate is a great industry. We help you find people who are seriously looking to buy or sell properties in your exact area, so you never have to chase cold leads from big portals again." },
-                { "regex": "(ecommerce|store|shop|sell online|products)", "response": "Selling online? That's wonderful! We set up targeted ads to bring eager shoppers to your store, and use clever retargeting to remind people who left items in their cart to come back and buy." },
-                { "regex": "(joke|funny|humor|laugh)", "response": "I'd love to share a joke! Why did the marketer get off the trampoline? ...Because he was worried about his bounce rate! 😊 I hope that made you smile." },
-                { "regex": "(meaning of life|philosophy)", "response": "I believe the meaning of life is to help others, be kind, and find joy in what you do. For us at Reach Forever, it's bringing joy to business owners by helping them succeed!" },
-                { "regex": "(thanks|thank you|appreciate|awesome|cool|great|good)", "response": "You are so very welcome! It is my absolute pleasure to help you. Let me know if there is anything else you need, or feel free to book a strategy call!" },
-                { "regex": "(bye|goodbye|cya|exit|leave)", "response": "Goodbye! Thank you so much for chatting with me at Reach Forever. I hope you have a wonderful and highly profitable day. Come back anytime!" },
-                { "regex": "(call|book|contact|meeting|schedule|appointment)", "response": "I would love to help you arrange that! Please click the 'Book Strategy Call' button on the screen to choose a time that fits your schedule perfectly. Our experts are excited to meet you." },
-                { "regex": "(shit|fuck|bitch|damn|crap|idiot|stupid|dumb|asshole)", "response": "I completely understand if you are feeling frustrated. I am here to help in a polite and respectful way. Please let me know how I can make things better for you." },
-                { "regex": "(leads|customers|clients|more business|growth)", "response": "Getting you more customers is our main goal! We use simple but very smart digital systems to find people who need your services and connect them directly with you." },
-                { "regex": "(roi|roas|return on investment|profit)", "response": "Making sure you see a profit is very important to us. We track everything closely so you know exactly how much money your ads are bringing back to your business. Our average client sees a 4.8x return!" },
-                { "regex": "(where are you located|location|address|india)", "response": "We operate all across India, dominating markets in Punjab, Phagwara, Jalandhar, Mumbai, Delhi, Bangalore, and beyond! Because we work online, we can easily help you scale no matter where you are." },
-                { "regex": "(scam|fake|scammers|too good to be true)", "response": "I completely understand your worry; there are many untrustworthy people out there. We pride ourselves on honesty. You can watch real videos of our happy clients right on this page to see our real work." },
-                { "regex": "(are you smart|how smart are you)", "response": "I try my best to be very smart and helpful! My main focus is knowing everything about how Reach Forever can help your business grow and succeed." },
-                { "regex": "(love you|marry me|beautiful|cute)", "response": "Oh, you are very kind! I appreciate your sweet words, but my heart is dedicated strictly to helping businesses succeed and analyzing marketing data. 💙" },
-                { "regex": "(what is your phone number|phone number|contact number)", "response": "For web and app development inquiries, you can reach Akash Jadon directly at +917668758238. For marketing strategy, please click 'Book Strategy Call' to schedule a chat with our team!" },
-                { "regex": "(do you work with startups|startups|small business)", "response": "Yes! We love helping startups and small local businesses grow into large, successful companies. We guide you step-by-step so you never feel lost." },
-                { "regex": "(do you use templates|templates)", "response": "No, we don't use basic templates. Everything we do, especially Akash's web development, is custom-built, highly secure, and perfectly matched to your unique brand." },
-                { "regex": "(i am confused|confused|not sure|lost)", "response": "Please do not worry at all, I am here to help make things clear! What specific part of marketing or web design can I explain better for you?" },
-                { "regex": "^(ok|okay|k|hmm|ah|oh|yes|yeah|yep|sure|right|cool)$", "response": "Wonderful! If you have any more questions about our marketing, SEO, or web development, I am right here. Or, you can easily book a call with us." },
-                { "regex": ".*", "response": "I completely understand. To give you the best and most accurate answer for your specific business, I recommend speaking with our human experts. Please click the 'Book Strategy Call' button, or ask me another question!" }
+                { "regex": "^(hi|hello|hey)[!?]*$", "response": "Hey there! I'm the Reach Forever AI. We help local businesses scale aggressively. What's your monthly revenue goal?" },
+                { "regex": "(price|pricing|cost|fee|how much|expensive)", "response": "We don't do 'cheap' templates. We build high-ROI revenue machines. Our pricing is custom to your exact needs. Hit 'Book Strategy Call' and let's talk numbers." },
+                { "regex": "(time|how long|launch|start)", "response": "14 Days. That's our rapid-launch guarantee. We build your funnel and launch your ads in exactly two weeks." },
+                { "regex": "(proof|reviews|results|case studies|scam)", "response": "Numbers don't lie. We've generated over ₹85 Lakhs for our local clients. Check our Reviews page for the video proof." },
+                { "regex": "(who is akash|web design|website|developer)", "response": "Akash Jadon is our Lead Engineer. He writes custom code (React/Node) so your website is lightning fast and dominates your competitors. No cheap templates." },
+                { "regex": "(who is ansh|marketing|ads|seo)", "response": "Ansh Khatri is our CEO and Growth Director. He architects the viral marketing campaigns that flood your business with paying customers." },
+                { "regex": "(guarantee|risk|refund)", "response": "We guarantee a positive ROI. If you don't make more money than you spend with us, we aren't doing our job." },
+                { "regex": "(shit|fuck|bitch|damn|crap|idiot)", "response": "Let's keep it strictly professional. We are here to scale businesses. If you want results, book a call. If not, have a great day." },
+                { "regex": ".*", "response": "Listen, if you are serious about getting more customers, stop guessing. Click the 'Book Strategy Call' button and let our team build your blueprint." }
             ];
 
             let isProcessing = false;
-            
             function addMessage(text, isAi = false) {
                 const msg = document.createElement('div');
                 msg.className = `msg ${isAi ? 'ai' : 'user'}`;
@@ -846,7 +847,7 @@
                     if(tNode) tNode.remove();
                     addMessage(botReply, true);
                     isProcessing = false;
-                }, 1000);
+                }, 800);
             }
 
             window.sendAuraSuggestion = function(text) {
@@ -857,35 +858,19 @@
             if(auraSend) auraSend.addEventListener('click', handleSend);
             if(auraInput) auraInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') handleSend(); });
 
-            let hasGreeted = false;
-
-            // SILENT BACKGROUND LOAD (NO AUTO POPUP)
+            // Silent Background Load
             setTimeout(() => {
-                if(hasGreeted) return;
-                hasGreeted = true;
-                if(auraBody) {
-                    const typingId = 'greet-typing';
-                    auraBody.innerHTML = '';
-                    auraBody.insertAdjacentHTML('beforeend', `<div id="${typingId}" style="display: flex; align-items: center; gap: 6px; padding: 15px 20px; background: #FFF; border: 1px solid rgba(0,0,0,0.08); border-radius: 20px; border-bottom-left-radius: 4px; width: fit-content; box-shadow: 0 10px 30px rgba(0,0,0,0.04); align-self: flex-start; margin-bottom: 15px;"><div style="width: 6px; height: 6px; background: #556B2F; border-radius: 50%;"></div><div style="width: 6px; height: 6px; background: #556B2F; border-radius: 50%;"></div><div style="width: 6px; height: 6px; background: #556B2F; border-radius: 50%;"></div></div>`);
-                    
-                    setTimeout(() => {
-                        const tNode = document.getElementById(typingId);
-                        if(tNode) tNode.remove();
-                        addMessage("Hi! Welcome to Reach Forever. I'm Chloe! How can I help your business grow today? You can ask me anything.", true);
-                        
-                        setTimeout(() => {
-                            const chipsHTML = `
-                                <div id="auraSuggestions" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 15px; animation: slideUpFade 0.4s ease forwards;">
-                                    <button class="chip" onclick="sendAuraSuggestion('I need local customers.')" style="padding: 10px 16px; background: #FFF; border: 1px solid rgba(212,175,55,0.4); border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 600; color: #556B2F; cursor: pointer; transition: 0.3s; pointer-events: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">I need local customers.</button>
-                                    <button class="chip" onclick="sendAuraSuggestion('I need automated systems.')" style="padding: 10px 16px; background: #FFF; border: 1px solid rgba(212,175,55,0.4); border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 600; color: #556B2F; cursor: pointer; transition: 0.3s; pointer-events: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">I need automated systems.</button>
-                                </div>
-                            `;
-                            auraBody.insertAdjacentHTML('beforeend', chipsHTML);
-                            auraBody.scrollTop = auraBody.scrollHeight;
-                        }, 800);
-                    }, 1500);
+                if(auraBody && auraBody.children.length === 0) {
+                    addMessage("Are you tired of wasting money on ads that don't work? Let me know how I can help.", true);
+                    const chipsHTML = `
+                        <div id="auraSuggestions" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 15px; animation: slideUpFade 0.4s ease forwards;">
+                            <button class="chip" onclick="sendAuraSuggestion('What is the price?')" style="padding: 10px 16px; background: #FFF; border: 1px solid rgba(212,175,55,0.4); border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600; color: #556B2F; cursor: pointer;">What is the price?</button>
+                            <button class="chip" onclick="sendAuraSuggestion('Show me your results.')" style="padding: 10px 16px; background: #FFF; border: 1px solid rgba(212,175,55,0.4); border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600; color: #556B2F; cursor: pointer;">Show me results.</button>
+                        </div>
+                    `;
+                    auraBody.insertAdjacentHTML('beforeend', chipsHTML);
                 }
-            }, 3000);
+            }, 2000);
 
             // PRELOADER FAILSAFE
             const preloader = document.getElementById('preloader');
