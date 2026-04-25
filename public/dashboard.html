@@ -91,12 +91,12 @@
         
         <div class="menu-label">Home Page Editors</div>
         <button class="tab-link active" onclick="switchTab('sec-global')"><i class="ri-global-line"></i> Global (Navbar & CTA)</button>
-        <button class="tab-link" onclick="switchTab('sec-hero')"><i class="ri-rocket-line"></i> Main Hero & iPhone</button>
+        <button class="tab-link" onclick="switchTab('sec-hero')"><i class="ri-rocket-line"></i> Main Hero (Static Backup)</button>
+        <button class="tab-link" onclick="switchTab('sec-reels')"><i class="ri-smartphone-line"></i> iPhone Reels (History Vault)</button>
         <button class="tab-link" onclick="switchTab('sec-omni')"><i class="ri-shape-3d-line"></i> Hologram Images (24)</button>
         <button class="tab-link" onclick="switchTab('sec-ars')"><i class="ri-stack-fill"></i> Services Grid (Arsenal)</button>
         <button class="tab-link" onclick="switchTab('sec-radar')"><i class="ri-radar-line"></i> Radar & Parallax</button>
         <button class="tab-link" onclick="switchTab('sec-growth')"><i class="ri-bar-chart-box-line"></i> Growth & Before/After</button>
-        <button class="tab-link" onclick="switchTab('sec-reels')"><i class="ri-vidicon-line"></i> Unlimited Reels Vault</button>
         <button class="tab-link" onclick="switchTab('sec-footer')"><i class="ri-layout-bottom-line"></i> Footer & WhatsApp</button>
         
         <div style="margin-top: 40px;"></div>
@@ -152,7 +152,7 @@
                         <button class="btn-save" onclick="pushMultiText('home', ['hero_tag', 'home_hero_text', 'hero_desc', 'hero_btn'])">Save Hero</button>
                     </div>
                     <div class="card">
-                        <h3>iPhone Mockup Settings</h3>
+                        <h3>Static iPhone Settings (Fallback)</h3>
                         <div class="input-group"><label>Small Floating Bubble</label><input type="text" id="hero_indicator_text"></div>
                         <hr style="border:1px solid var(--border); margin:20px 0;">
                         <div class="input-group"><label>Client Name on iPhone</label><input type="text" id="hero_iphone_client"></div>
@@ -284,11 +284,11 @@
 
             <div id="sec-reels" class="editor-section">
                 <div class="section-title">
-                    <div><i class="ri-vidicon-line"></i> Unlimited Reels Vault</div>
-                    <button class="btn-live" style="font-size:0.9rem;" onclick="addNewReelSlot()"><i class="ri-add-line"></i> Add New Reel</button>
+                    <div><i class="ri-smartphone-line"></i> iPhone Unlimited Reels (History Vault)</div>
+                    <button class="btn-live" style="font-size:0.9rem;" onclick="addNewReelSlot()"><i class="ri-add-line"></i> Add New iPhone Reel</button>
                 </div>
                 <div class="card" style="max-width:800px; margin-bottom:30px;">
-                    <h3>Reels Section Headers</h3>
+                    <h3>iPhone Swipe Reels Headers</h3>
                     <div class="input-group"><label>Header Tag</label><input type="text" id="reels_tag"></div>
                     <div class="input-group"><label>Title</label><input type="text" id="reels_title"></div>
                     <div class="input-group"><label>Description</label><textarea id="reels_desc" style="height:50px;"></textarea></div>
@@ -415,7 +415,7 @@
 
         // 3. UNLIMITED REELS ENGINE
         function renderReels() {
-            // FIXED 1: Save unsaved text from the DOM before clearing it so it doesn't get replaced/lost
+            // Save unsaved text from the DOM before clearing it
             document.querySelectorAll('[id^="dynreel_"]').forEach(el => {
                 const parts = el.id.split('_');
                 if (parts.length >= 3 && reelsData[parts[1]] && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA')) {
@@ -431,7 +431,7 @@
             if(sortedIds.length === 0) { addNewReelSlot('1'); return; } // Give default slot
             
             sortedIds.forEach(id => {
-                // FIXED 2: Skip rendering ONLY if it's completely empty AND it's not a freshly added reel (isNew flag)
+                // Skip rendering ONLY if it's completely empty AND it's not a freshly added reel (isNew flag)
                 if(!reelsData[id].vid && !reelsData[id].name && !reelsData[id].cap && !reelsData[id].avatar && !reelsData[id].isNew) return;
                 
                 const r = reelsData[id];
@@ -442,9 +442,9 @@
 
                 grid.innerHTML += `
                     <div class="card" id="reelcard_${id}" style="border-top:3px solid var(--primary);">
-                        <button class="btn-delete" onclick="deleteReel('${id}')" style="position:absolute; top:20px; right:20px;"><i class="ri-delete-bin-line"></i> Delete Reel</button>
-                        <h3>Database Reel ID: ${id}</h3>
-                        <p class="card-desc">Vertical Video for Fullscreen scroll.</p>
+                        <button class="btn-delete" onclick="deleteReel('${id}')" style="position:absolute; top:20px; right:20px;"><i class="ri-delete-bin-line"></i> Delete iPhone Reel</button>
+                        <h3>iPhone Database ID: ${id} <span style="font-size: 0.7rem; background: rgba(255,255,255,0.1); padding: 3px 8px; border-radius: 10px; margin-left: 10px;">Saved in History</span></h3>
+                        <p class="card-desc">Vertical Video for iPhone Fullscreen scroll. This acts as your history log.</p>
                         <div class="input-group"><label>Client Name</label><input type="text" id="dynreel_${id}_name" value="${r.name || ''}"></div>
                         <div class="input-group"><label>Caption / Quote</label><textarea id="dynreel_${id}_cap" style="height:50px;">${r.cap || ''}</textarea></div>
                         <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-bottom:15px;">
@@ -463,7 +463,7 @@
             });
         }
 
-        // FIXED 3: Added the `isNew` flag so the system knows to display this blank slot immediately
+        // Added the `isNew` flag so the system knows to display this blank slot immediately
         function addNewReelSlot(forceId = null) {
             const id = forceId || Date.now();
             reelsData[id] = { name: '', cap: '', avatar: '', vid: '', isNew: true };
