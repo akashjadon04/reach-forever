@@ -415,6 +415,14 @@
 
         // 3. UNLIMITED REELS ENGINE
         function renderReels() {
+            // FIXED 1: Save unsaved text from the DOM before clearing it so it doesn't get replaced/lost
+            document.querySelectorAll('[id^="dynreel_"]').forEach(el => {
+                const parts = el.id.split('_');
+                if (parts.length >= 3 && reelsData[parts[1]] && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA')) {
+                    reelsData[parts[1]][parts[2]] = el.value;
+                }
+            });
+
             const grid = document.getElementById('reelsGridUI');
             grid.innerHTML = '';
             
@@ -423,8 +431,8 @@
             if(sortedIds.length === 0) { addNewReelSlot('1'); return; } // Give default slot
             
             sortedIds.forEach(id => {
-                // If it was completely deleted (empty fields), skip rendering
-                if(!reelsData[id].vid && !reelsData[id].name && !reelsData[id].cap && !reelsData[id].avatar) return;
+                // FIXED 2: Skip rendering ONLY if it's completely empty AND it's not a freshly added reel (isNew flag)
+                if(!reelsData[id].vid && !reelsData[id].name && !reelsData[id].cap && !reelsData[id].avatar && !reelsData[id].isNew) return;
                 
                 const r = reelsData[id];
                 const avatarStatus = r.avatar ? `<span style="color:#10B981; font-weight:700;"><i class="ri-check-line"></i> Active</span>` : '1. Avatar (PNG)';
@@ -455,9 +463,10 @@
             });
         }
 
+        // FIXED 3: Added the `isNew` flag so the system knows to display this blank slot immediately
         function addNewReelSlot(forceId = null) {
             const id = forceId || Date.now();
-            reelsData[id] = { name: '', cap: '', avatar: '', vid: '' };
+            reelsData[id] = { name: '', cap: '', avatar: '', vid: '', isNew: true };
             renderReels();
             showToast("New Blank Slot Added!");
         }
