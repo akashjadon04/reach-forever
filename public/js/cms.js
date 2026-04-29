@@ -1,7 +1,9 @@
 // public/js/cms.js
 // ZYROVA CMS - INFINITE SCALING ENGINE (IPHONE MASTER FEED)
 
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+    ? "http://localhost:5000/api" 
+    : "https://reach-forever.onrender.com/api";
 
 async function syncZyrovaCMS() {
     let pageName = window.location.pathname.split("/").pop().replace(".html", "");
@@ -20,6 +22,8 @@ async function syncZyrovaCMS() {
 
         if (allContent.length === 0) {
             console.log("[CMS] Database empty. Using hardcoded fallback.");
+            document.querySelectorAll('[data-cms]').forEach(el => el.classList.add('cms-loaded'));
+            if(window.zyrovaPreloader) window.zyrovaPreloader.isDataLoaded = true;
             return;
         }
 
@@ -135,7 +139,6 @@ async function syncZyrovaCMS() {
 
                 // UNLOCK BACKGROUND WHEN MODAL CLOSES
                 if(rmCloseBtn) {
-                    // Prevent duplicate bindings
                     const newCloseBtn = rmCloseBtn.cloneNode(true);
                     rmCloseBtn.parentNode.replaceChild(newCloseBtn, rmCloseBtn);
                     
@@ -145,8 +148,6 @@ async function syncZyrovaCMS() {
                             rm.style.opacity = '0';
                             rm.style.pointerEvents = 'none';
                             document.querySelectorAll('.rm-video').forEach(v => { v.pause(); v.muted = true; }); 
-                            
-                            // RESTORE HOMEPAGE SCROLLING
                             document.body.style.overflow = '';
                         }
                     });
@@ -163,9 +164,7 @@ async function syncZyrovaCMS() {
                     newIphoneLayer.addEventListener('click', () => {
                         const rm = document.getElementById('reelsModal'); 
                         if(rm) {
-                            // KILL HOMEPAGE SCROLLING SO MODAL CAN SCROLL
                             document.body.style.overflow = 'hidden';
-                            
                             rm.style.opacity = '1';
                             rm.style.pointerEvents = 'auto';
                             
@@ -215,8 +214,18 @@ async function syncZyrovaCMS() {
                 }
             }
         }
+
+        // ==========================================
+        // SIGNAL PRELOADER TO FINISH AND REVEAL UI
+        // ==========================================
+        document.querySelectorAll('[data-cms]').forEach(el => el.classList.add('cms-loaded'));
+        if(window.zyrovaPreloader) window.zyrovaPreloader.isDataLoaded = true;
+
     } catch (error) {
         console.error("[CMS] ❌ Connection Failed.", error);
+        // FAILSAFE: Unhide content and kill preloader so site doesn't break if Render goes offline
+        document.querySelectorAll('[data-cms]').forEach(el => el.classList.add('cms-loaded'));
+        if(window.zyrovaPreloader) window.zyrovaPreloader.isDataLoaded = true;
     }
 }
 

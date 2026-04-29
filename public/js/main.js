@@ -2,7 +2,7 @@
  * ============================================================================
  * ZYROVA DIGITAL : ENTERPRISE INTERACTIVE ENGINE (APPLE-TIER BUILD)
  * Project: Reach Forever - Premium Digital Marketing
- * Version: 11.0.0 (Unbreakable Deal-Closer)
+ * Version: 11.1.0 (Synchronized Loader Edition)
  * Architecture: ES6 Classes, WebGL, Canvas API, Spring Physics, GSAP ScrollTrigger
  * ============================================================================
  */
@@ -19,24 +19,30 @@ class ZyrovaPreloader {
         this.plScreen = document.getElementById('preloader');
         this.plBar = document.getElementById('pl-bar');
         this.plPercent = document.getElementById('pl-percent');
+        this.isDataLoaded = false; // ADDED: Flag for CMS to trigger
         this.init();
     }
 
     init() {
         if (!this.plScreen) return;
         
-        // Force an extremely fast load time so the user never waits.
         let progress = 0;
-        const interval = setInterval(() => {
+        this.interval = setInterval(() => { // ADDED: Saved to this.interval
             progress += Math.floor(Math.random() * 20) + 10;
-            if (progress >= 100) {
-                progress = 100;
-                clearInterval(interval);
-                this.complete();
-            }
+            
+            // ADDED: Hold at 90% until backend wakes up and sends data
+            if (progress >= 90 && !this.isDataLoaded) progress = 90;
+            if (progress > 100) progress = 100;
+
             if (this.plPercent) this.plPercent.innerText = `${progress}%`;
             if (this.plBar) this.plBar.style.width = `${progress}%`;
-        }, 50); // Completes in roughly 500-800ms maximum
+
+            // ADDED: Only complete if data is fully loaded
+            if (progress === 100 && this.isDataLoaded) {
+                clearInterval(this.interval);
+                this.complete();
+            }
+        }, 50); 
     }
 
     complete() {
@@ -496,56 +502,15 @@ class AuraNeuralAgent {
 // MASTER INITIALIZATION HOOK
 // ============================================================================
 document.addEventListener('DOMContentLoaded', () => {
-    new ZyrovaPreloader();
+    // Expose preloader to global scope so cms.js can control it
+    window.zyrovaPreloader = new ZyrovaPreloader();
+    
     new LuxuryCursor();
     new ScrollVelocityEngine();
     window.fluidWebGLInstance = new LuxuryFluidWebGL(); 
     new AppleScrollArchitect();
     new AuraNeuralAgent();
-});
-// ============================================================================
-// ZYROVA CMS SYNC ENGINE (ADDED AT THE BOTTOM)
-// ============================================================================
-const API_BASE_URL = "http://localhost:5000/api"; // Change to Render URL later
 
-async function syncCMSData() {
-    let pageName = window.location.pathname.split("/").pop().replace(".html", "");
-    if (!pageName || pageName === "" || pageName === "index") pageName = "home";
-
-    try {
-        const response = await fetch(`${API_BASE_URL}/content/${pageName}`);
-        const data = await response.json();
-        
-        const globalResponse = await fetch(`${API_BASE_URL}/content/global`);
-        const globalData = await globalResponse.json();
-
-        let allContent = [];
-        if (data.success && data.data) allContent = [...allContent, ...data.data];
-        if (globalData.success && globalData.data) allContent = [...allContent, ...globalData.data];
-
-        allContent.forEach(dbItem => {
-            const elements = document.querySelectorAll(`[data-cms="${dbItem.elementId}"]`);
-            elements.forEach(element => {
-                if (dbItem.contentType === 'text') {
-                    element.innerHTML = dbItem.contentValue;
-                } else if (dbItem.contentType === 'image') {
-                    if (element.tagName === "DIV") element.style.backgroundImage = `url('${dbItem.contentValue}')`;
-                    else element.src = dbItem.contentValue;
-                } else if (dbItem.contentType === 'video') {
-                    element.src = dbItem.contentValue;
-                    element.load(); 
-                }
-            });
-        });
-    } catch (error) {
-        console.error("CMS Sync Failed. Is backend running on Port 5000?", error);
-    }
-}
-
-// Run the sync when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    syncCMSData();
-    
     // Protect Dashboards
     if (window.location.pathname.includes('dashboard')) {
         if (!localStorage.getItem('zyrova_token')) window.location.href = 'admin.html';
