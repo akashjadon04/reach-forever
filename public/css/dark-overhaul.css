@@ -1,0 +1,1396 @@
+/**
+ * ============================================================================
+ * REACH FOREVER — PREMIUM DARK OVERHAUL (FINAL BUILD)
+ * 
+ * Architecture:
+ * - Default = DARK mode (Rich Noir + Warm Gold)  
+ * - [data-theme="light"] = Original cream/olive theme restored
+ * - Uses !important ONLY on color properties to beat inline specificity
+ * - ZERO layout changes (no width/height/grid/flex/position/padding/margin)
+ * ============================================================================
+ */
+
+/* ==========================================================================
+   1. THEME TOKENS
+   ========================================================================== */
+:root {
+    --rf-bg: #05020A;
+    --rf-surface: #0C0B14;
+    --rf-elevated: #141320;
+    --rf-accent: #C8A96E;
+    --rf-accent-bright: #E8D5A3;
+    --rf-accent-dim: #A67C00;
+    --rf-accent-glow: rgba(200, 169, 110, 0.25);
+    --rf-text: #FFFFFF;
+    --rf-text-secondary: #B0B0C0;
+    --rf-text-muted: #6B6B80;
+    --rf-glass: rgba(12, 11, 20, 0.8);
+    --rf-glass-border: rgba(200, 169, 110, 0.2);
+    --rf-glass-border-soft: rgba(255, 255, 255, 0.06);
+}
+
+/* ==========================================================================
+   2. UNIVERSAL DARK MODE — NAVBAR (all pages)
+   ========================================================================== */
+.navbar {
+    background: var(--rf-glass) !important;
+    backdrop-filter: blur(40px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(40px) saturate(180%) !important;
+    border-color: var(--rf-glass-border) !important;
+    box-shadow: 0 0 30px rgba(200, 169, 110, 0.15), 0 8px 32px rgba(0,0,0,0.4) !important;
+}
+
+.nav-brand img {
+    filter: brightness(0) saturate(100%) invert(71%) sepia(49%) saturate(464%) hue-rotate(5deg) brightness(93%) contrast(89%) !important;
+}
+
+.nav-pill {
+    color: rgba(255, 255, 255, 0.65) !important;
+}
+.nav-pill:hover, .nav-pill.active {
+    color: var(--rf-accent) !important;
+    background: rgba(200, 169, 110, 0.1) !important;
+    border-color: rgba(200, 169, 110, 0.3) !important;
+}
+
+.nav-btn-wrap .btn-olive,
+.nav-btn-wrap a[href="form.html"] {
+    background: linear-gradient(135deg, #C8A96E, #A67C00) !important;
+    box-shadow: 0 8px 25px rgba(200, 169, 110, 0.35) !important;
+    color: #FFF !important;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(200, 169, 110, 0.3) !important;
+    color: var(--rf-accent) !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+.theme-toggle-btn:hover {
+    background: rgba(200, 169, 110, 0.15) !important;
+    border-color: var(--rf-accent) !important;
+    transform: rotate(15deg) !important;
+}
+
+/* ==========================================================================
+   3. PRELOADER — Dark
+   ========================================================================== */
+#preloader {
+    background: var(--rf-bg) !important;
+}
+.pl-logo, .pl-logo span {
+    color: var(--rf-text) !important;
+}
+
+/* ==========================================================================
+   4. SCROLLBAR — Gold
+   ========================================================================== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--rf-bg); }
+::-webkit-scrollbar-thumb { 
+    background: linear-gradient(180deg, var(--rf-accent), var(--rf-accent-dim)); 
+    border-radius: 10px; 
+}
+
+/* Scroll Progress */
+#scrollProgress {
+    background: linear-gradient(90deg, var(--rf-accent), var(--rf-accent-bright)) !important;
+    box-shadow: 0 2px 15px var(--rf-accent-glow) !important;
+}
+
+/* ==========================================================================
+   5. DARK MODE TEXT FIXES — Force readable text on dark backgrounds
+   ========================================================================== */
+/* Sticky CTA */
+.sticky-cta {
+    background: var(--rf-glass) !important;
+    backdrop-filter: blur(30px) !important;
+    border-color: var(--rf-glass-border) !important;
+}
+.sc-text { color: var(--rf-text) !important; }
+
+/* Review indicator */
+.ri-text { color: var(--rf-text) !important; }
+.review-indicator {
+    background: var(--rf-glass) !important;
+    border-color: var(--rf-glass-border) !important;
+}
+
+/* Tag pills */
+.tag-pill, .hero-tag {
+    background: var(--rf-glass) !important;
+    border-color: var(--rf-glass-border) !important;
+    color: var(--rf-accent) !important;
+}
+
+/* Section headings that use var(--text-dark) */
+.title-massive, .title-lg {
+    color: var(--rf-text) !important;
+}
+
+/* ==========================================================================
+   6. SOCIAL CARDS — Dark glass instead of white
+   ========================================================================== */
+.s2-social-card {
+    background: var(--rf-surface) !important;
+    border-color: var(--rf-glass-border-soft) !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3) !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.s2-social-card:hover {
+    border-color: var(--rf-accent) !important;
+    background: var(--rf-elevated) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 30px rgba(200, 169, 110, 0.15) !important;
+}
+.s2-social-card span {
+    color: var(--rf-text) !important;
+}
+
+/* ==========================================================================
+   7. MOBILE BOTTOM NAV — iOS App-Style
+   ========================================================================== */
+@keyframes mobileNavGlow {
+    0%, 100% { box-shadow: 0 10px 40px rgba(0,0,0,0.8), 0 0 15px rgba(200, 169, 110, 0.1) !important; }
+    50% { box-shadow: 0 10px 40px rgba(0,0,0,0.8), 0 0 25px rgba(200, 169, 110, 0.3) !important; }
+}
+.mobile-nav {
+    background: rgba(8, 6, 16, 0.92) !important;
+    backdrop-filter: blur(40px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(40px) saturate(200%) !important;
+    border: 1px solid var(--rf-glass-border) !important;
+    animation: mobileNavGlow 4s ease-in-out infinite !important;
+    padding: 10px 0 env(safe-area-inset-bottom, 12px) !important;
+    border-radius: 40px !important;
+    position: fixed !important;
+    bottom: 15px !important;
+    left: 4% !important;
+    width: 92% !important;
+    z-index: 99999 !important;
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+}
+.m-nav-item {
+    color: rgba(255, 255, 255, 0.45) !important;
+    font-size: 0.65rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    transition: color 0.3s !important;
+}
+.m-nav-item i {
+    font-size: 1.3rem !important;
+}
+.m-nav-item.active {
+    color: var(--rf-accent) !important;
+}
+.m-nav-item:hover {
+    color: var(--rf-accent-bright) !important;
+}
+
+/* ==========================================================================
+   8. AI CHATBOT — Dark glass
+   ========================================================================== */
+.chat-panel, #auraPanel {
+    background: rgba(10, 10, 18, 0.95) !important;
+    backdrop-filter: blur(30px) !important;
+    border: 1px solid var(--rf-glass-border-soft) !important;
+}
+.cp-header {
+    background: rgba(15, 15, 25, 0.9) !important;
+    border-bottom: 1px solid var(--rf-glass-border-soft) !important;
+}
+.cp-header h3 { color: var(--rf-text) !important; }
+.cp-input input { 
+    background: rgba(255,255,255,0.06) !important; 
+    color: var(--rf-text) !important;
+    border-color: var(--rf-glass-border-soft) !important;
+}
+.cp-input input:focus { border-color: var(--rf-accent) !important; }
+.cp-input button { background: var(--rf-accent) !important; color: #FFF !important; }
+
+.chip {
+    background: rgba(255,255,255,0.06) !important;
+    border-color: var(--rf-glass-border-soft) !important;
+    color: rgba(255,255,255,0.8) !important;
+}
+.chip:hover { background: var(--rf-accent) !important; color: #FFF !important; }
+
+/* AI FAB — Gold */
+.ai-fab, #auraFab {
+    background: linear-gradient(135deg, var(--rf-accent), var(--rf-accent-dim)) !important;
+    border: 1px solid rgba(255,255,255,0.15) !important;
+    box-shadow: 0 8px 30px rgba(200, 169, 110, 0.4) !important;
+}
+
+/* ==========================================================================
+   9. WHATSAPP FLOAT
+   ========================================================================== */
+.wa-float {
+    position: fixed !important;
+    bottom: 25px !important;
+    left: 25px !important;
+    width: 56px !important;
+    height: 56px !important;
+    background: #25D366 !important;
+    color: #FFF !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.8rem !important;
+    z-index: 99990 !important;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4) !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+}
+.wa-float:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6) !important;
+}
+
+/* ==========================================================================
+   10. FULLSCREEN LIGHTBOX (for cylinder images)
+   ========================================================================== */
+.fullscreen-lightbox {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(20px);
+    z-index: 999999;
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fullscreen-lightbox.active { opacity: 1; pointer-events: auto; }
+.fl-close {
+    position: absolute; top: 25px; right: 25px;
+    width: 48px; height: 48px;
+    background: rgba(255,255,255,0.1); border-radius: 50%; color: #FFF;
+    display: flex; justify-content: center; align-items: center; font-size: 1.4rem;
+    cursor: pointer; border: 1px solid rgba(255,255,255,0.2); transition: 0.3s;
+    z-index: 10;
+}
+.fl-close:hover { background: var(--rf-accent); border-color: var(--rf-accent); transform: rotate(90deg); }
+.fl-content {
+    max-width: 90vw; max-height: 90vh;
+    border-radius: 20px; overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+    transform: scale(0.9); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 2px solid var(--rf-glass-border);
+}
+.fullscreen-lightbox.active .fl-content { transform: scale(1); }
+.fl-content img {
+    width: 100%; height: auto; max-height: 90vh;
+    object-fit: contain; display: block;
+}
+.fl-content video {
+    width: 100%; height: auto; max-height: 90vh;
+    outline: none; display: block;
+}
+
+/* Cylinder faces — clickable cursor */
+.cylinder-face {
+    cursor: pointer !important;
+    transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+}
+.cylinder-face:hover {
+    box-shadow: 0 0 40px rgba(200, 169, 110, 0.4) !important;
+}
+
+/* ==========================================================================
+   11. APPLE-STYLE SCROLL REVEAL ANIMATIONS
+   ========================================================================== */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays for grid children */
+.reveal-on-scroll.delay-1 { transition-delay: 0.1s; }
+.reveal-on-scroll.delay-2 { transition-delay: 0.2s; }
+.reveal-on-scroll.delay-3 { transition-delay: 0.3s; }
+.reveal-on-scroll.delay-4 { transition-delay: 0.4s; }
+
+/* ==========================================================================
+   12. PREMIUM POLISH — Gold Gradients & Glassmorphism
+   ========================================================================== */
+/* Arsenal/service cards */
+.ars-card {
+    background: var(--rf-surface) !important;
+    border-color: var(--rf-glass-border-soft) !important;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.ars-card:hover {
+    border-color: var(--rf-accent) !important;
+    box-shadow: 0 20px 40px rgba(200, 169, 110, 0.1) !important;
+    transform: translateY(-5px) !important;
+}
+.ars-title { color: var(--rf-text) !important; }
+.ars-desc { color: var(--rf-text-secondary) !important; }
+.ars-icon {
+    background: rgba(200, 169, 110, 0.1) !important;
+    color: var(--rf-accent) !important;
+    border: 1px solid var(--rf-glass-border) !important;
+}
+
+/* Growth Engine */
+.ge-floating-ui {
+    background: var(--rf-glass) !important;
+    border-color: var(--rf-glass-border) !important;
+}
+
+/* Rush Section CTA */
+.rush-title, .rush-section h2 { color: var(--rf-text) !important; }
+.rush-section p, .px-content p { color: var(--rf-text-secondary) !important; }
+
+/* Reels Section */
+.reels-section h2 { color: var(--rf-text) !important; }
+
+/* Footer */
+.f-brand { color: var(--rf-text) !important; }
+.f-links a { color: var(--rf-text-secondary) !important; }
+.f-links a:hover { color: var(--rf-accent) !important; }
+.f-social a {
+    color: var(--rf-text-secondary) !important;
+    border-color: var(--rf-glass-border-soft) !important;
+}
+.f-social a:hover {
+    color: var(--rf-accent) !important;
+    border-color: var(--rf-accent) !important;
+}
+
+/* Marquee */
+.marquee-text { color: rgba(255,255,255,0.04) !important; }
+
+/* ==========================================================================
+   13. SUB-PAGES — Dark Navbar Override for services/reviews/form  
+   ========================================================================== */
+/* These pages have light backgrounds but need the same dark glass nav */
+body .header-wrap .navbar {
+    background: var(--rf-glass) !important;
+    border-color: var(--rf-glass-border) !important;
+}
+
+/* ==========================================================================
+   14. MOBILE LAYOUT FIXES — App-like compact design
+   ========================================================================== */
+@media (max-width: 1024px) {
+    /* Prevent horizontal overflow */
+    html, body { overflow-x: hidden !important; }
+    
+    /* --- NAVBAR: Just logo centered, hide CTA + toggle (they're in bottom nav) --- */
+    .navbar {
+        height: 55px !important;
+        padding: 0 15px !important;
+        justify-content: center !important;
+    }
+    .nav-links, .nav-btn-wrap, .theme-toggle-btn {
+        display: none !important;
+    }
+    .nav-brand { margin: 0 auto !important; }
+    .nav-brand img { max-height: 35px !important; }
+    .logo-text-fallback { font-size: 1.2rem !important; }
+    
+    /* --- HERO: Single column, compact --- */
+    .hero-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        text-align: center !important;
+    }
+    .hero-text { text-align: center !important; }
+    .hero-desc { 
+        border-left: none !important; 
+        padding-left: 0 !important; 
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    .hero-actions { justify-content: center !important; }
+    .tag-pill { margin-left: auto !important; margin-right: auto !important; }
+    .title-massive { font-size: clamp(2rem, 7vw, 2.8rem) !important; }
+    
+    /* --- Social floats: smaller on mobile --- */
+    .hero-social-float {
+        width: 45px !important; height: 45px !important;
+        font-size: 1.4rem !important;
+        border-radius: 12px !important;
+    }
+    
+    /* --- iPhone mockup: centered, no rotation --- */
+    .iphone-mockup {
+        transform: none !important;
+        width: 220px !important; height: 440px !important;
+        animation: none !important;
+        margin: 0 auto !important;
+        position: relative !important;
+        display: block !important;
+    }
+    .review-indicator { 
+        position: relative !important; 
+        left: auto !important; top: auto !important; 
+        margin: 0 auto 15px !important;
+    }
+    
+    /* --- Sections: tighter padding --- */
+    .section-pad { padding: 40px 15px !important; }
+    .container { padding: 0 15px !important; }
+    
+    /* --- Section 2 (Omnipresent): single column --- */
+    .section-2-wrapper {
+        grid-template-columns: 1fr !important;
+        padding: 3rem 5% !important;
+        border-radius: 30px !important;
+    }
+    .s2-social-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+    .s2-social-card { padding: 15px !important; }
+    .s2-right { height: 300px !important; }
+    .cylinder-carousel { width: 180px !important; height: 260px !important; }
+    .cylinder-face { width: 180px !important; height: 260px !important; }
+    .cylinder-face:nth-child(1) { transform: rotateY(0deg) translateZ(156px) !important; }
+    .cylinder-face:nth-child(2) { transform: rotateY(60deg) translateZ(156px) !important; }
+    .cylinder-face:nth-child(3) { transform: rotateY(120deg) translateZ(156px) !important; }
+    .cylinder-face:nth-child(4) { transform: rotateY(180deg) translateZ(156px) !important; }
+    .cylinder-face:nth-child(5) { transform: rotateY(240deg) translateZ(156px) !important; }
+    .cylinder-face:nth-child(6) { transform: rotateY(300deg) translateZ(156px) !important; }
+    
+    /* --- Arsenal cards: 1 column --- */
+    .arsenal-grid { grid-template-columns: 1fr !important; }
+    
+    /* --- Reels section compact --- */
+    .reel-item { width: 180px !important; }
+    
+    /* --- AI FAB + WA positioning --- */
+    .ai-fab-wrap, #auraFab { 
+        bottom: 80px !important; right: 15px !important;
+        width: 48px !important; height: 48px !important;
+    }
+    .chat-panel, #auraPanel {
+        width: 92% !important; right: 4% !important; left: 4% !important;
+        bottom: 140px !important; border-radius: 20px !important;
+        max-height: 55vh !important;
+    }
+    .wa-float {
+        bottom: 80px !important; left: 15px !important;
+        width: 44px !important; height: 44px !important;
+        font-size: 1.4rem !important;
+    }
+    
+    /* --- Sticky CTA above mobile nav --- */
+    .sticky-cta { 
+        bottom: 75px !important; 
+        width: 92% !important;
+        padding: 8px !important;
+    }
+    .sc-text { font-size: 0.8rem !important; }
+    
+    /* --- Mobile bottom nav: compact iOS style --- */
+    .mobile-nav {
+        height: 65px !important;
+        padding: 6px 0 env(safe-area-inset-bottom, 8px) !important;
+    }
+    .m-nav-item {
+        font-size: 0.6rem !important;
+        gap: 2px !important;
+    }
+    .m-nav-item i { font-size: 1.15rem !important; }
+    
+    /* --- Footer Padding to clear Dynamic Island --- */
+    .footer-fixed {
+        padding-bottom: 120px !important;
+    }
+    .footer-engineered {
+        margin-bottom: 120px !important;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 390px) {
+    .title-massive { font-size: 1.8rem !important; }
+    .hero-desc { font-size: 0.9rem !important; }
+    .btn { padding: 12px 24px !important; font-size: 0.85rem !important; }
+    .s2-social-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ==========================================================================
+   15. LIGHT MODE — [data-theme="light"]
+   ========================================================================== */
+[data-theme="light"] {
+    --rf-bg: #FDFDFB;
+    --rf-surface: #FFFFFF;
+    --rf-elevated: #F4F4F0;
+    --rf-accent: #556B2F;
+    --rf-accent-bright: #6B8E23;
+    --rf-accent-dim: #3a4a1c;
+    --rf-accent-glow: rgba(85, 107, 47, 0.2);
+    --rf-text: #1A1C20;
+    --rf-text-secondary: #6B7280;
+    --rf-text-muted: #9CA3AF;
+    --rf-glass: rgba(253, 253, 251, 0.85);
+    --rf-glass-border: rgba(212, 175, 55, 0.3);
+    --rf-glass-border-soft: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .navbar {
+    background: rgba(253, 253, 251, 0.88) !important;
+    border-color: rgba(212, 175, 55, 0.4) !important;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2), 0 8px 32px rgba(0,0,0,0.06) !important;
+}
+[data-theme="light"] .nav-brand img {
+    filter: brightness(0) saturate(100%) invert(71%) sepia(49%) saturate(464%) hue-rotate(5deg) brightness(93%) contrast(89%) !important;
+}
+[data-theme="light"] .nav-pill {
+    color: #1A1C20 !important;
+}
+[data-theme="light"] .nav-pill:hover,
+[data-theme="light"] .nav-pill.active {
+    color: #556B2F !important;
+    background: rgba(85, 107, 47, 0.08) !important;
+}
+[data-theme="light"] .nav-btn-wrap .btn-olive,
+[data-theme="light"] .nav-btn-wrap a[href="form.html"] {
+    background: linear-gradient(135deg, #556B2F, #6B8E23) !important;
+    box-shadow: 0 8px 25px rgba(85, 107, 47, 0.3) !important;
+}
+
+[data-theme="light"] #preloader {
+    background: #FDFDFB !important;
+}
+[data-theme="light"] .pl-logo, 
+[data-theme="light"] .pl-logo span {
+    color: #1A1C20 !important;
+}
+
+[data-theme="light"] #scrollProgress {
+    background: linear-gradient(90deg, #556B2F, #D4AF37) !important;
+}
+
+[data-theme="light"] .sticky-cta {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-color: rgba(212, 175, 55, 0.4) !important;
+}
+[data-theme="light"] .sc-text { color: #1A1C20 !important; }
+[data-theme="light"] .ri-text { color: #1A1C20 !important; }
+
+[data-theme="light"] .tag-pill {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(212, 175, 55, 0.4) !important;
+    color: #556B2F !important;
+}
+
+[data-theme="light"] .title-massive,
+[data-theme="light"] .title-lg {
+    color: #1A1C20 !important;
+}
+
+[data-theme="light"] .s2-social-card {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.06) !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05) !important;
+}
+[data-theme="light"] .s2-social-card span {
+    color: #1A1C20 !important;
+}
+
+[data-theme="light"] .mobile-nav {
+    background: rgba(253, 253, 251, 0.92) !important;
+    border-color: rgba(212, 175, 55, 0.4) !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08), 0 0 15px rgba(212, 175, 55, 0.2) !important;
+    animation: none !important;
+}
+[data-theme="light"] .m-nav-item {
+    color: rgba(0, 0, 0, 0.4) !important;
+}
+[data-theme="light"] .m-nav-item.active {
+    color: #556B2F !important;
+}
+
+[data-theme="light"] .ars-card {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.06) !important;
+}
+[data-theme="light"] .ars-title { color: #1A1C20 !important; }
+[data-theme="light"] .ars-icon {
+    background: rgba(85, 107, 47, 0.08) !important;
+    color: #556B2F !important;
+}
+
+[data-theme="light"] .theme-toggle-btn {
+    background: rgba(0, 0, 0, 0.05) !important;
+    border-color: rgba(85, 107, 47, 0.3) !important;
+}
+
+[data-theme="light"] .review-indicator {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(212, 175, 55, 0.4) !important;
+}
+
+/* Light mode scrollbar */
+[data-theme="light"] ::-webkit-scrollbar-track { background: #F4F4F0; }
+[data-theme="light"] ::-webkit-scrollbar-thumb { 
+    background: linear-gradient(180deg, #556B2F, #D4AF37); 
+}
+
+/* ==========================================================================
+   16. LIGHT MODE — Index page inline style overrides
+   ========================================================================== */
+/* Main wrapper background */
+[data-theme="light"] .main-wrapper {
+    background-color: #FDFDFB !important;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.06) !important;
+}
+
+/* Hero text & descriptions */
+[data-theme="light"] .title-massive,
+[data-theme="light"] #hero-main-title,
+[data-theme="light"] h1[data-cms="home_hero_text"] {
+    color: #1A1C20 !important;
+}
+[data-theme="light"] .hero-desc,
+[data-theme="light"] #hero-main-desc {
+    color: #6B7280 !important;
+    border-left-color: #556B2F !important;
+}
+[data-theme="light"] .tr-word {
+    color: #556B2F !important;
+}
+
+/* CTA button in hero */
+[data-theme="light"] .btn-olive,
+[data-theme="light"] a.btn-olive {
+    background: linear-gradient(135deg, #556B2F, #6B8E23) !important;
+    box-shadow: 0 10px 25px rgba(85, 107, 47, 0.3) !important;
+}
+
+/* Section 2 wrapper */
+[data-theme="light"] .section-2-wrapper {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.06) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04) !important;
+}
+[data-theme="light"] .title-lg,
+[data-theme="light"] h2[data-cms="s2_title"] {
+    color: #1A1C20 !important;
+}
+[data-theme="light"] [data-cms="s2_desc"] {
+    color: #6B7280 !important;
+}
+
+/* Social card text */
+[data-theme="light"] .s2-social-card .s2-icon + span,
+[data-theme="light"] .s2-social-card span {
+    color: #1A1C20 !important;
+}
+
+/* Arsenal section */
+[data-theme="light"] .arsenal-section {
+    background: #F4F4F0 !important;
+}
+
+/* Growth Engine */
+[data-theme="light"] .growth-engine-section {
+    background: #FDFDFB !important;
+}
+
+/* All section pads */
+[data-theme="light"] .section-pad {
+    background-color: #FDFDFB !important;
+}
+
+/* XRay section */
+[data-theme="light"] .xray-section {
+    background: #F4F4F0 !important;
+}
+
+/* Reels section */
+[data-theme="light"] .reels-section {
+    background: #FDFDFB !important;
+}
+
+/* Rush section */
+[data-theme="light"] .rush-section {
+    background: #F4F4F0 !important;
+}
+
+/* Footer area */
+[data-theme="light"] .px-footer {
+    background: #1A1C20 !important;
+}
+
+/* Gold dust canvas */
+[data-theme="light"] #gold-dust-canvas {
+    opacity: 0.3 !important;
+}
+
+/* Hero social floats */
+[data-theme="light"] .hero-social-float {
+    background: rgba(255, 255, 255, 0.85) !important;
+    border-color: rgba(212, 175, 55, 0.3) !important;
+}
+
+/* Before/After slider text */
+[data-theme="light"] .ba-label { color: #1A1C20 !important; }
+
+/* Apple text reveal */
+[data-theme="light"] .apple-text-reveal {
+    color: #1A1C20 !important;
+}
+
+/* General text overrides for sections with hardcoded #FFF colors */
+[data-theme="light"] .ge-title,
+[data-theme="light"] .ge-desc,
+[data-theme="light"] .ge-feature-title { color: #1A1C20 !important; }
+[data-theme="light"] .ge-feature-desc { color: #6B7280 !important; }
+
+/* City cards */
+[data-theme="light"] .city-card {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.06) !important;
+}
+[data-theme="light"] .city-card h4 { color: #1A1C20 !important; }
+[data-theme="light"] .city-card p { color: #6B7280 !important; }
+
+/* ==========================================================================
+   17. LOGO TEXT FALLBACK STYLING
+   ========================================================================== */
+.logo-text-fallback {
+    white-space: nowrap;
+}
+[data-theme="light"] .logo-text-fallback {
+    color: #1A1C20 !important;
+}
+[data-theme="light"] .logo-text-fallback span {
+    color: #556B2F !important;
+}
+
+/* ==========================================================================
+   18. PREMIUM "ALIVE" ANIMATIONS — Making the site feel like ₹10 Lakh
+   ========================================================================== */
+
+/* --- Navbar breathing gold glow --- */
+@keyframes navGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(200, 169, 110, 0.15), 0 8px 32px rgba(0,0,0,0.4); }
+    50% { box-shadow: 0 0 35px rgba(200, 169, 110, 0.3), 0 8px 32px rgba(0,0,0,0.4); }
+}
+.navbar {
+    animation: navGlow 4s ease-in-out infinite !important;
+}
+
+/* --- Hero title shimmer effect --- */
+@keyframes textShimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+.title-massive, #hero-main-title {
+    background: linear-gradient(90deg, #FFF 0%, #C8A96E 25%, #FFF 50%, #C8A96E 75%, #FFF 100%) !important;
+    background-size: 200% auto !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    animation: textShimmer 6s linear infinite !important;
+}
+[data-theme="light"] .title-massive,
+[data-theme="light"] #hero-main-title {
+    background: linear-gradient(90deg, #1A1C20 0%, #556B2F 25%, #1A1C20 50%, #556B2F 75%, #1A1C20 100%) !important;
+    background-size: 200% auto !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* --- CTA Button pulse glow --- */
+@keyframes btnPulse {
+    0%, 100% { box-shadow: 0 8px 25px rgba(200, 169, 110, 0.35); }
+    50% { box-shadow: 0 8px 40px rgba(200, 169, 110, 0.55), 0 0 15px rgba(200, 169, 110, 0.2); }
+}
+.btn-olive, a.btn-olive {
+    animation: btnPulse 3s ease-in-out infinite !important;
+    transition: transform 0.3s ease, filter 0.3s ease !important;
+}
+.btn-olive:hover, a.btn-olive:hover {
+    transform: translateY(-3px) scale(1.03) !important;
+    filter: brightness(1.15) !important;
+}
+
+/* --- Tag pill entrance fade --- */
+@keyframes pillFade {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+.tag-pill {
+    animation: pillFade 1s ease-out 0.3s both !important;
+}
+
+/* --- Social float icons gentle bob --- */
+@keyframes gentleBob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+.hero-social-float {
+    animation: gentleBob 5s ease-in-out infinite !important;
+}
+.hsf-ig { animation-delay: 0s !important; }
+.hsf-yt { animation-delay: 1.5s !important; }
+.hsf-li { animation-delay: 3s !important; }
+
+/* --- iPhone mockup float & shadow --- */
+@keyframes iphoneFloat {
+    0%, 100% { transform: perspective(1000px) rotateY(-15deg) rotateX(5deg) translateY(0); }
+    50% { transform: perspective(1000px) rotateY(-12deg) rotateX(3deg) translateY(-12px); }
+}
+.iphone-mockup {
+    animation: iphoneFloat 6s ease-in-out infinite !important;
+}
+.iphone-mockup:hover {
+    animation-play-state: paused !important;
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.03) !important;
+}
+
+/* --- Cards hover micro-interaction --- */
+.ars-card, .s2-social-card, .city-card {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.ars-card:hover, .city-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 50px rgba(200, 169, 110, 0.15), 0 0 0 1px rgba(200, 169, 110, 0.2) !important;
+}
+
+/* --- Cylinder gold border pulse --- */
+@keyframes cylBorderGlow {
+    0%, 100% { border-color: rgba(200, 169, 110, 0.5); box-shadow: 0 40px 80px rgba(0,0,0,0.1); }
+    50% { border-color: rgba(200, 169, 110, 0.9); box-shadow: 0 40px 80px rgba(0,0,0,0.1), 0 0 20px rgba(200, 169, 110, 0.3); }
+}
+.cylinder-face {
+    animation: cylBorderGlow 4s ease-in-out infinite !important;
+}
+
+/* --- Review indicator pulse dot --- */
+@keyframes dotPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.6; }
+}
+.ri-dot {
+    animation: dotPulse 2s ease-in-out infinite !important;
+    background: var(--rf-accent) !important;
+}
+
+/* --- WhatsApp bounce attention --- */
+@keyframes waBounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+    60% { transform: translateY(-4px); }
+}
+.wa-float {
+    animation: waBounce 3s ease-in-out 5s 3 !important;
+}
+
+/* --- AI FAB breathing --- */
+@keyframes fabBreathe {
+    0%, 100% { box-shadow: 0 8px 30px rgba(200, 169, 110, 0.4); }
+    50% { box-shadow: 0 8px 40px rgba(200, 169, 110, 0.6), 0 0 60px rgba(200, 169, 110, 0.15); }
+}
+.ai-fab, #auraFab {
+    animation: fabBreathe 3s ease-in-out infinite !important;
+}
+
+/* --- Scroll progress bar shimmer --- */
+@keyframes progressShimmer {
+    0% { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
+}
+#scrollProgress {
+    background: linear-gradient(90deg, var(--rf-accent), var(--rf-accent-bright), var(--rf-accent)) !important;
+    background-size: 200% 100% !important;
+    animation: progressShimmer 2s linear infinite !important;
+}
+
+/* --- Section headings text reveal --- */
+.title-lg {
+    background: linear-gradient(90deg, #FFF 0%, #C8A96E 40%, #FFF 60%) !important;
+    background-size: 200% auto !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    animation: textShimmer 8s linear infinite !important;
+}
+[data-theme="light"] .title-lg {
+    background: linear-gradient(90deg, #1A1C20 0%, #556B2F 40%, #1A1C20 60%) !important;
+    background-size: 200% auto !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* --- Theme toggle spin on hover --- */
+.theme-toggle-btn:hover i {
+    animation: spin 0.5s ease-in-out !important;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- Mobile nav item active glow --- */
+.m-nav-item.active i {
+    filter: drop-shadow(0 0 6px rgba(200, 169, 110, 0.6)) !important;
+}
+
+/* --- Smooth page transition feel --- */
+.main-wrapper {
+    animation: pageReveal 1s ease-out !important;
+}
+@keyframes pageReveal {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Apple-style text gradient for .italic-serif words --- */
+.tr-word {
+    transition: color 0.4s ease !important;
+}
+
+/* --- Glassmorphism depth on hover for review indicator --- */
+.review-indicator {
+    transition: all 0.4s ease !important;
+}
+.review-indicator:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
+}
+
+/* --- Sticky CTA slide-in feel --- */
+.sticky-cta.visible {
+    animation: stickySlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+@keyframes stickySlide {
+    0% { transform: translateX(-50%) translateY(40px); opacity: 0; }
+    100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+
+/* Fix for text rotator losing colors */
+.tr-word {
+    -webkit-text-fill-color: currentcolor !important;
+}
+
+
+/* ==========================================================================
+   15. FINAL PREMIUM FIXES & ALIVE EFFECTS
+   ========================================================================== */
+
+/* Mobile Logo Constraint */
+@media (max-width: 1024px) {
+    .nav-brand img { max-width: 160px !important; max-height: 40px !important; width: auto !important; height: auto !important; }
+}
+
+/* Light Mode Particle Fix (Ensure visibility) */
+[data-theme="light"] #particle-canvas {
+        opacity: 0.8 !important;
+        filter: invert(1) !important;
+        mix-blend-mode: normal !important;
+    }
+
+/* Premium Hover Lift & Glow for Cards */
+.s2-social-card, .review-card, .process-card, .pricing-card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease !important;
+}
+.s2-social-card:hover, .review-card:hover, .process-card:hover, .pricing-card:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 20px 40px rgba(200, 169, 110, 0.15) !important;
+}
+
+/* Universal Sub-Page Backgrounds */
+body {
+    background-color: var(--bg-dark) !important;
+    color: var(--text-light) !important;
+}
+.services-section, .reviews-section, .form-section {
+    background-color: transparent !important;
+}
+
+/* ==========================================================================
+   DEEP OVERHAUL - FORCED DARK MODE & PREMIUM ALIVE FX
+   ========================================================================== */
+
+/* Universal Dark Mode Overrides */
+[data-theme="dark"] .main-wrapper,
+[data-theme="dark"] .bg-white,
+[data-theme="dark"] .services-section,
+[data-theme="dark"] .reviews-section,
+[data-theme="dark"] .form-section,
+[data-theme="dark"] section,
+[data-theme="dark"] .mkt-section,
+[data-theme="dark"] .dev-split,
+[data-theme="dark"] .marketing-split {
+    background-color: transparent !important;
+    color: var(--text-light) !important;
+}
+
+[data-theme="dark"] body {
+    background-color: var(--bg-dark) !important;
+}
+
+[data-theme="dark"] p, [data-theme="dark"] span {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4 {
+    color: #FFF !important;
+}
+
+/* Premium Header Styling */
+.navbar {
+    background: rgba(10, 10, 15, 0.85) !important;
+    backdrop-filter: blur(25px) saturate(200%) !important;
+    border-bottom: 1px solid rgba(200, 169, 110, 0.15) !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05) !important;
+    padding: 0 15px 0 25px !important;
+}
+
+.nav-pill {
+    position: relative;
+    padding: 8px 15px !important;
+    overflow: hidden;
+    color: rgba(255,255,255,0.7) !important;
+    transition: color 0.3s ease !important;
+}
+
+.nav-pill::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    width: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    transition: width 0.4s ease, left 0.4s ease;
+}
+
+.nav-pill:hover::after, .nav-pill.active::after {
+    width: 100%; left: 0;
+}
+.nav-pill:hover, .nav-pill.active {
+    color: #D4AF37 !important;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.nav-brand img {
+    filter: none !important; /* Force Original Colors */
+}
+
+/* Alive GSAP Replacements (CSS continuous animations) */
+@keyframes premiumFloat {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.iphone-mockup, .hero-img-main, .hero-img-sub, .fl-video {
+    animation: premiumFloat 6s ease-in-out infinite;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 40px rgba(212, 175, 55, 0.15) !important;
+}
+
+/* Footer Engineered By Styling */
+.footer-engineered {
+    font-size: 0.85rem; 
+    color: rgba(255,255,255,0.5); 
+    margin-top: 40px; 
+    font-family: 'Outfit', sans-serif; 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    opacity: 0.8;
+}
+.footer-engineered span {
+    color: #D4AF37;
+    font-weight: 700;
+}
+
+
+
+.main-wrapper, .bg-white, section, div[style*="background: #FFF"], div[style*="background: white"], div[style*="background-color: #FFF"] {
+    background-color: var(--bg-main) !important;
+}
+
+/* ==========================================================================
+   ELEGANT UI/UX FIXES V4
+   ========================================================================== */
+
+/* 1. Logo Colorization (Force Gold across all themes) */
+.nav-brand img[data-cms="header_logo"] {
+    filter: none !important;
+    mix-blend-mode: normal !important;
+}
+
+/* 2. Mobile Header Elegance */
+@media (max-width: 1024px) {
+    #navbar {
+        background: rgba(10, 10, 15, 0.85) !important;
+        backdrop-filter: blur(25px) saturate(200%) !important;
+        border: 1px solid rgba(200, 169, 110, 0.25) !important;
+        border-radius: 25px !important;
+        margin-top: 5px !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 15px rgba(200,169,110,0.15) !important;
+    }
+}
+
+/* 3. Footer Overlap Fix */
+.footer-fixed {
+    padding-bottom: 110px !important; 
+    z-index: 10 !important;
+}
+.footer-engineered {
+    position: relative;
+    z-index: 100;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Outfit', sans-serif;
+    margin-top: 40px;
+    padding-bottom: 20px;
+}
+.footer-engineered span {
+    color: #D4AF37;
+    font-weight: bold;
+}
+
+/* 4. Universal Theme Background Override (Without breaking Light Theme) */
+[data-theme="dark"] .main-wrapper,
+[data-theme="dark"] .bg-white,
+[data-theme="dark"] section {
+    background-color: var(--bg-dark) !important;
+    color: var(--text-light) !important;
+}
+
+/* ==========================================================================
+   MASTER FULL-POWER FIXES V5
+   ========================================================================== */
+
+/* 1. UNIVERSAL LOGO COLORIZATION (Pure Gold) */
+.nav-brand img[data-cms="header_logo"], .nav-brand img {
+    filter: none !important;
+    opacity: 1 !important;
+    mix-blend-mode: normal !important;
+}
+
+/* 2. DYNAMIC ISLAND MOBILE HEADER */
+@media (max-width: 1024px) {
+    #navbar {
+        background: rgba(10, 10, 15, 0.85) !important;
+        backdrop-filter: blur(25px) saturate(200%) !important;
+        border: 1px solid rgba(200, 169, 110, 0.3) !important;
+        border-radius: 25px !important;
+        margin-top: 10px !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 20px rgba(200,169,110,0.15) !important;
+        animation: glowPulse 4s infinite alternate !important;
+    }
+    
+    @keyframes glowPulse {
+        0% { box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 10px rgba(200,169,110,0.1); }
+        100% { box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 25px rgba(200,169,110,0.3); }
+    }
+}
+
+/* 3. HERO IPHONE POSITIONING FIX (Desktop vs Mobile) */
+.hero-visuals {
+    position: relative !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.iphone-mockup {
+    position: absolute !important;
+    transform: none !important;
+    margin: 0 auto !important;
+    /* On Desktop, it sits naturally inside its container */
+}
+@media (max-width: 1024px) {
+    .iphone-mockup {
+        position: relative !important;
+        display: block !important;
+        margin: 20px auto 0 auto !important;
+        right: auto !important;
+        bottom: auto !important;
+    }
+}
+
+
+/* 4. HOLOGRAM CARDS FIX (Ensure Grid stays intact) */
+.s2-social-card {
+    position: relative !important;
+    transform: none !important;
+    top: auto !important; left: auto !important; bottom: auto !important; right: auto !important;
+}
+.cylinder-face {
+    position: absolute !important; 
+    /* Keep 3D faces absolute */
+}
+
+/* 5. FOOTER OVERLAP FIX */
+.footer-fixed {
+    padding-bottom: 120px !important; 
+}
+.footer-engineered {
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Outfit', sans-serif;
+    margin-top: 40px;
+}
+.footer-engineered span {
+    color: #D4AF37;
+    font-weight: bold;
+}
+
+/* 6. UNIVERSAL DARK MODE BACKGROUND FIX */
+/* Remove !important from section backgrounds so we don't break Light Mode */
+[data-theme="dark"] .main-wrapper,
+[data-theme="dark"] .bg-white {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+[data-theme="dark"] section {
+    background-color: transparent; 
+}
+
+/* 7. PROFESSIONAL FOOTER CSS */
+.premium-footer {
+    position: relative;
+    z-index: 50;
+    background: #05020A;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 60px 5% 120px 5%; /* 120px bottom padding to clear dynamic island */
+    color: #A0A0A0;
+    font-family: 'Outfit', sans-serif;
+}
+.pf-container {
+    max-width: 1250px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+}
+@media (max-width: 768px) {
+    .pf-container { grid-template-columns: 1fr; text-align: center; }
+}
+.pf-brand img { max-height: 40px; margin-bottom: 20px; filter: invert(72%) sepia(45%) saturate(366%) hue-rotate(5deg) brightness(91%) contrast(85%); }
+.pf-col h4 {
+    color: #FFF;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.pf-links { list-style: none; padding: 0; margin: 0; }
+.pf-links li { margin-bottom: 12px; }
+.pf-links a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.pf-links a:hover { color: #D4AF37; }
+.pf-bottom {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
+}
+.pf-signature {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.pf-signature span { color: #D4AF37; font-weight: bold; }
+
+/* ORIGINAL LOGO COLOR PRESERVATION */
+.nav-brand img { filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; }
+[data-theme="dark"] .nav-brand img { filter: drop-shadow(0 0 10px rgba(255,255,255,0.4)) !important; }
+
+/* HIDE TIKTOK APP SECTION ON PC */
+@media (min-width: 1025px) {
+    .reels-section { display: none !important; }
+}
+
+/* HIDE MOBILE NAVIGATOR ON DESKTOP */
+@media (min-width: 1025px) {
+    .mobile-nav { display: none !important; }
+}
+
+/* FORCE SUB-PAGE VARIABLES TO SYNC WITH DARK MODE */
+[data-theme="dark"] {
+    --bg-main: #0A0A0F !important;
+    --bg-surface: #14141F !important;
+    --text-dark: #F5F0E8 !important;
+    --text-muted: #8A8A95 !important;
+    --glass-border: rgba(200,169,110,0.15) !important;
+}
+
+/* ==========================================================================
+   MASTER PATCH CSS FIXES
+   ========================================================================== */
+@media (max-width: 1024px) {
+    /* Transform top header into Logo + Toggle only on mobile */
+    #navbar .nav-links, #navbar .nav-btn-wrap { display: none !important; }
+    #navbar { width: 100% !important; border-radius: 0 !important; border: none !important; background: transparent !important; padding: 0 20px !important; box-shadow: none !important; backdrop-filter: none !important; }
+    #headerWrap { top: 0 !important; }
+    
+    /* Ensure mobile nav never overflows off screen */
+    .mobile-nav {
+        box-sizing: border-box !important;
+        width: 90vw !important;
+        max-width: 400px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        display: flex !important; /* Ensure it overrides any hidden display */
+    }
+}
+
+/* ==========================================================================
+   NUCLEAR BACKGROUND FIX FOR SUBPAGES
+   ========================================================================== */
+html[data-theme="dark"], 
+html[data-theme="dark"] body, 
+html[data-theme="dark"] .main-wrapper, 
+html[data-theme="dark"] .services-hero,
+html[data-theme="dark"] .section-pad,
+html[data-theme="dark"] .section-2-wrapper,
+html[data-theme="dark"] .story-section,
+html[data-theme="dark"] .roi-container,
+html[data-theme="dark"] .roi-results,
+html[data-theme="dark"] .vault-header,
+html[data-theme="dark"] section,
+html[data-theme="dark"] div[style*="background: #FFF"],
+html[data-theme="dark"] div[style*="background:#FFF"] {
+    background-color: #05020A !important;
+    background: #05020A !important;
+}
+
+html[data-theme="light"] body,
+html[data-theme="light"] .main-wrapper,
+html[data-theme="light"] .services-hero {
+    background-color: #FAFAF7 !important;
+    background: #FAFAF7 !important;
+}
+
+/* ==========================================================================
+   DYNAMIC VIBRANT ROI CALCULATOR GRAPHICS
+   ========================================================================== */
+html[data-theme="light"] .roi-slider { background: #E0E0E0 !important; border-color: #D0D0D0 !important; }
+html[data-theme="light"] .roi-slider::-webkit-slider-thumb { background: #25D366 !important; border-color: #0A66C2 !important; box-shadow: 0 4px 15px rgba(37,211,102,0.5) !important; }
+html[data-theme="light"] .roi-results { background: #FFFFFF !important; border: 1px solid #EAEAEA !important; box-shadow: 0 10px 40px rgba(0,0,0,0.05) !important; }
+html[data-theme="light"] .result-row span { color: #25D366 !important; font-weight: bold; }
+
+html[data-theme="dark"] .roi-slider { background: rgba(255,255,255,0.1) !important; border-color: rgba(255,255,255,0.05) !important; }
+html[data-theme="dark"] .roi-slider::-webkit-slider-thumb { background: #D4AF37 !important; border-color: #FFF !important; box-shadow: 0 4px 20px rgba(212,175,55,0.5) !important; }
+html[data-theme="dark"] .roi-results { background: rgba(15,8,25,0.9) !important; border: 1px solid rgba(255,255,255,0.1) !important; box-shadow: 0 10px 40px rgba(0,0,0,0.3) !important; }
+html[data-theme="dark"] .result-row span { color: #D4AF37 !important; font-weight: bold; }

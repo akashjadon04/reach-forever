@@ -1,0 +1,32 @@
+/* REACH FOREVER — PREMIUM WARM GOLD + RICH NOIR VARIABLES */
+:root {
+    --rf-bg: #0A0A0F;
+    --rf-surface: #14141F;
+    --rf-glass: rgba(20,20,31,0.7);
+    --rf-gold: #C8A96E;
+    --rf-champagne: #E8DCC8;
+    --rf-text: #F5F0E8;
+    --rf-muted: #8A8A95;
+    --rf-border: rgba(200,169,110,0.15);
+    --rf-glow: rgba(200,169,110,0.3);
+    --rf-accent2: #D4AF37;
+}
+[data-theme="light"] {
+    --rf-bg: #FAFAF7;
+    --rf-surface: #FFFFFF;
+    --rf-glass: rgba(255,255,255,0.8);
+    --rf-gold: #B8943F;
+    --rf-champagne: #6B7280;
+    --rf-text: #1A1A2E;
+    --rf-muted: #6B7280;
+    --rf-border: rgba(0,0,0,0.08);
+    --rf-glow: rgba(184,148,63,0.2);
+}
+
+[data-theme="dark"] {
+    --bg-main: #05020A !important;
+    --bg-white: #05020A !important;
+    --text-dark: #FFFFFF !important;
+    --border-light: rgba(255,255,255,0.1) !important;
+    --rf-glass: rgba(10, 10, 15, 0.85) !important;
+}

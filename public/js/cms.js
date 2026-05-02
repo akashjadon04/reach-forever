@@ -187,8 +187,11 @@ async function syncZyrovaCMS() {
                 const rmVideos = document.querySelectorAll('.rm-container .rm-video');
                 if('IntersectionObserver' in window && rmVideos.length > 0) {
                     const videoObserver = new IntersectionObserver((entries) => {
+                        const rm = document.getElementById('reelsModal');
+                        const isModalOpen = rm && rm.style.opacity === '1';
+
                         entries.forEach(entry => {
-                            if(entry.isIntersecting) { 
+                            if(entry.isIntersecting && isModalOpen) { 
                                 entry.target.muted = false; 
                                 let playPromise = entry.target.play();
                                 if (playPromise !== undefined) {
@@ -200,6 +203,7 @@ async function syncZyrovaCMS() {
                                 entry.target.currentTime = 0; 
                             }
                         });
+                    });
                     }, { threshold: 0.6 }); 
                     rmVideos.forEach(video => videoObserver.observe(video));
                 }
