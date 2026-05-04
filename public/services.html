@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+
+    <!-- CRITICAL THEME SYNC SCRIPT (Must run before CSS loads) -->
+    <script>
+        (function() {
+            let savedTheme = 'dark';
+            try { savedTheme = localStorage.getItem('rf-theme') || 'dark'; } catch(e) {}
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
@@ -86,7 +96,7 @@
            4. HEADER NAVBAR
            ========================================================================== */
         .header-wrap { position: fixed; top: 15px; left: 0; width: 100%; z-index: 10000; display: flex; justify-content: center; pointer-events: none; }
-        .navbar { pointer-events: auto; width: 92%; max-width: 1250px; height: 70px;  backdrop-filter: blur(35px); border-radius: 100px; border: 1px solid var(--accent-gold); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), inset 0 0 15px rgba(212, 175, 55, 0.1); display: flex; justify-content: space-between; align-items: center; padding: 0 10px 0 25px; }
+        .navbar { pointer-events: auto; width: 92%; max-width: 1250px; height: 70px;   border-radius: 100px; border: 1px solid var(--accent-gold); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), inset 0 0 15px rgba(212, 175, 55, 0.1); display: flex; justify-content: space-between; align-items: center; padding: 0 10px 0 25px; }
          
         .nav-links { display: flex; gap: 5px; list-style: none; }
         .nav-pill { padding: 10px 24px; border-radius: 100px; color: #FFF; font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; text-decoration: none; transition: color 0.3s; }
@@ -97,7 +107,7 @@
         .magnetic-wrap { display: inline-block; position: relative; }
         .magnetic-inner { display: inline-block; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
 
-        .mobile-nav { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; background: var(--rf-glass); backdrop-filter: blur(20px); border: 1px solid var(--accent-gold); border-radius: 100px; z-index: 10000; padding: 10px 20px; justify-content: space-between; align-items: center; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .mobile-nav { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; background: var(--rf-glass);  border: 1px solid var(--accent-gold); border-radius: 100px; z-index: 10000; padding: 10px 20px; justify-content: space-between; align-items: center; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .m-nav-item { display: flex; flex-direction: column; align-items: center; color: var(--rf-muted); text-decoration: none; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; gap: 4px; transition: 0.3s; }
         .m-nav-item i { font-size: 1.5rem; }
         .m-nav-item.active, .m-nav-item:hover { color: var(--accent-olive); transform: translateY(-3px); }
@@ -111,7 +121,7 @@
         /* ==========================================================================
            6. BREATHTAKING SERVICES HERO
            ========================================================================== */
-        .services-hero { padding-top: 180px !important;  position: relative; width: 100%; height: 100vh; min-height: 800px; display: flex; align-items: center; justify-content: center; background: var(--rf-bg); }
+        .services-hero { padding-top: max(120px, 15vh) !important; padding-bottom: 50px; position: relative; width: 100%; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--rf-bg); z-index: 1; }
         .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1500px; width: 100%; align-items: center; padding: 0 5%; z-index: 2; position: relative;}
         .hero-text { padding-top: 80px; }
         .hero-tag { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: var(--rf-surface); border: 1px solid var(--glass-border); border-radius: 100px; font-size: 0.95rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-olive); margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
@@ -123,7 +133,7 @@
         .hero-img-main { position: absolute; width: 80%; height: 90%; right: 0; top: 0; border-radius: 40px; object-fit: cover; box-shadow: 0 40px 80px rgba(0,0,0,0.15); border: 1px solid rgba(212, 175, 55, 0.3); z-index: 2; }
         .hero-img-sub { position: absolute; width: 60%; height: 50%; left: -10%; bottom: 5%; border-radius: 30px; object-fit: cover; box-shadow: -20px 30px 60px rgba(0,0,0,0.2); border: 8px solid var(--rf-bg); z-index: 3; }
         
-        .hero-float-badge { position: absolute; top: 15%; left: -5%; background: var(--rf-glass); backdrop-filter: blur(20px); border: 1px solid var(--accent-gold); padding: 20px 30px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 15px; z-index: 4; animation: floaty 5s ease-in-out infinite alternate; }
+        .hero-float-badge { position: absolute; top: 15%; left: -5%; background: var(--rf-glass);  border: 1px solid var(--accent-gold); padding: 20px 30px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 15px; z-index: 4; animation: floaty 5s ease-in-out infinite alternate; }
         .hfb-icon { width: 50px; height: 50px; border-radius: 50%; background: var(--accent-olive); color: var(--rf-text); display: flex; justify-content: center; align-items: center; font-size: 1.5rem; }
         .hfb-text h4 { font-size: 0.9rem; color: var(--rf-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
         .hfb-text span { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--rf-text); line-height: 1; }
@@ -160,7 +170,7 @@
         .hs-visual img { width: 100%; height: 100%; object-fit: cover; opacity: 1 !important; transition: transform 0.8s ease; }
         .hs-visual:hover img { transform: scale(1.05); }
 
-        .hs-float-card { position: absolute; bottom: 40px; left: -30px; background: var(--rf-glass); backdrop-filter: blur(10px); border: 1px solid var(--accent-gold); padding: 25px 35px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 20px; }
+        .hs-float-card { position: absolute; bottom: 40px; left: -30px; background: var(--rf-glass);  border: 1px solid var(--accent-gold); padding: 25px 35px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 20px; }
         .hs-float-icon { width: 50px; height: 50px; border-radius: 50%; background: var(--accent-gold); color: var(--rf-text); display: flex; justify-content: center; align-items: center; font-size: 1.5rem; }
         .hs-float-text h4 { font-size: 0.9rem; color: var(--rf-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
         .hs-float-text span { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: var(--rf-text); line-height: 1; }
@@ -170,7 +180,7 @@
            ========================================================================== */
         .founder-card.ansh {
             background: rgba(10, 11, 14, 0.95);
-            backdrop-filter: blur(20px);
+            
             border: 1px solid rgba(228, 64, 95, 0.4);
             border-radius: 24px;
             padding: 25px;
@@ -255,14 +265,14 @@
 
         /* CSS 3D Devices */
         .sc-visuals { position: relative; height: 600px; perspective: 2500px; display: flex; justify-content: center; align-items: center; }
-        .macbook-3d { position: absolute; width: 85%; max-width: 750px; aspect-ratio: 16/10; transform-style: preserve-3d; transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1); z-index: 2; transform: rotateY(-15deg) rotateX(5deg) translateZ(0); }
+        .macbook-3d { position: absolute; width: 85%; max-width: 750px; aspect-ratio: 16/10; transform-style: preserve-3d; transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.8s ease, filter 0.8s ease; z-index: 2; transform: rotateY(-15deg) rotateX(5deg) translateZ(0); }
         .mac-lid { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: #e0e2e5; border-radius: 20px 20px 0 0; padding: 2.5%; transform-origin: bottom center; transform-style: preserve-3d; transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1); transform: rotateX(0deg); box-shadow: inset 0 0 0 2px #b0b2b5; z-index: 2; }
         .mac-screen { position: relative; width: 100%; height: 100%; background: #000; border-radius: 8px; border: 4px solid #111; overflow: hidden; }
         .mac-screen::after { content: 'Zyrova Digital'; position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); color: #666; font-size: 10px; font-weight: 700; font-family: sans-serif; letter-spacing: 1px;}
         .mac-base { position: absolute; bottom: -16px; left: -2%; width: 104%; height: 16px; background: linear-gradient(180deg, #d4d6db 0%, #a3a5aa 100%); border-radius: 0 0 16px 16px; z-index: 1; box-shadow: 0 20px 40px rgba(0,0,0,0.3), inset 0 1px 0 #fff; transform: rotateX(90deg); transform-origin: top;}
         .mac-base::after { content:''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 15%; height: 6px; background: #a3a5aa; border-radius: 0 0 6px 6px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);}
         
-        .iphone-3d { position: absolute; width: 28%; max-width: 250px; aspect-ratio: 9/19; right: 5%; bottom: 5%; transform-style: preserve-3d; transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1); transform: rotateY(-30deg) rotateX(15deg) translateZ(100px); z-index: 3; }
+        .iphone-3d { position: absolute; width: 28%; max-width: 250px; aspect-ratio: 9/19; right: 5%; bottom: 5%; transform-style: preserve-3d; transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.8s ease, filter 0.8s ease; transform: rotateY(-30deg) rotateX(15deg) translateZ(100px); z-index: 3; }
         .iphone-body { position: absolute; inset: 0; background: #111; border-radius: 40px; padding: 10px; box-shadow: inset 0 0 0 4px #444, inset 0 0 0 8px #d4d6db, 0 30px 60px rgba(0,0,0,0.4); }
         .iphone-screen { position: relative; width: 100%; height: 100%; background: #000; border-radius: 30px; overflow: hidden; }
         .iphone-island { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 35%; height: 25px; background: #000; border-radius: 20px; z-index: 10; box-shadow: inset 0 0 4px rgba(255,255,255,0.1); }
@@ -301,11 +311,11 @@
         .bento-card:hover { transform: translateY(-5px); box-shadow: 0 25px 50px rgba(212,175,55,0.15); border-color: rgba(212,175,55,0.4); }
         
         .bc-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; }
-        .bc-icon { width: 60px; height: 60px; border-radius: 16px; background: rgba(85, 107, 47, 0.1); color: var(--accent-olive); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: auto; border: 1px solid rgba(85, 107, 47, 0.2); backdrop-filter: blur(5px);}
+        .bc-icon { width: 60px; height: 60px; border-radius: 16px; background: rgba(85, 107, 47, 0.1); color: var(--accent-olive); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: auto; border: 1px solid rgba(85, 107, 47, 0.2); }
         .bc-title { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: var(--rf-text); line-height: 1.1; margin-bottom: 10px; text-shadow: 0 2px 10px rgba(255,255,255,0.8); }
-        .bc-desc { font-size: 1.05rem; color: var(--rf-text); line-height: 1.5; font-weight: 500; background: rgba(255,255,255,0.8); padding: 10px; border-radius: 10px; backdrop-filter: blur(5px);}
+        .bc-desc { font-size: 1.05rem; color: var(--rf-text); line-height: 1.5; font-weight: 500; }
 
-        .span-2x2 { grid-column: span 2; grid-row: span 2; }
+        . { grid-column: span 2; grid-row: span 2; }
         .span-2x1 { grid-column: span 2; grid-row: span 1; }
         .span-1x2 { grid-column: span 1; grid-row: span 2; }
 
@@ -314,11 +324,11 @@
 
         @media (max-width: 1024px) {
             .bento-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; min-height: 300px; }
-            .span-2x2, .span-2x1, .span-1x2 { grid-column: span 2; grid-row: auto; min-height: 250px;}
+            ., .span-2x1, .span-1x2 { grid-column: span 2; grid-row: auto; min-height: 250px;}
         }
         @media (max-width: 768px) {
             .bento-grid { grid-template-columns: 1fr; }
-            .span-2x2, .span-2x1, .span-1x2 { grid-column: span 1; }
+            ., .span-2x1, .span-1x2 { grid-column: span 1; }
             .bc-content { padding: 0;}
             .bento-card { padding: 30px;}
         }
@@ -407,7 +417,7 @@
                 grid-template-columns: repeat(2, 1fr) !important; 
                 gap: 10px !important; 
             }
-            .span-2x2, .span-2x1, .span-1x2 { grid-column: span 1 !important; grid-row: auto !important; min-height: 150px !important; }
+            ., .span-2x1, .span-1x2 { grid-column: span 1 !important; grid-row: auto !important; min-height: 150px !important; }
             
             /* Miniaturize Icons & Images */
             .ars-icon, .cc-icon, .ge-ui-icon, .bc-icon, .ps-icon, .hs-float-icon, .hsc-icon { 
@@ -491,15 +501,191 @@
             
             /* Additional fixes for services.html */
             .specialist-card.ansh, .specialist-card.akash { flex-direction: column !important; text-align: center !important; }
-            .macbook-3d { width: 95% !important; left: 0 !important; right: 0 !important; margin: 0 auto !important; transform: rotateY(0) translateZ(0) !important;}
+            .macbook-3d { width: 95% !important; left: 0 !important; transform: rotateY(0) translateZ(0) !important;}
             .iphone-3d { width: 35% !important; right: 5% !important; bottom: 0 !important; transform: rotateY(-10deg) translateZ(50px) !important;}
-            .sc-visuals[data-active="app"] .iphone-3d { transform: translateZ(50px) translateX(-50%) left:50% scale(1.1) !important; right:auto !important;}
+            .sc-visuals[data-active="app"] .iphone-3d { transform: translateZ(50px) translateX(-45%) scale(1.1) !important; }
         }
+    
+        /* MOBILE PERFORMANCE AND LAYOUT FIXES */
+        @media (max-width: 1024px) {
+            .founder-section .container { grid-template-columns: 1fr !important; padding: 30px !important; }
+            .founder-img { height: 400px !important; }
+            .marketing-section .container { display: flex !important; flex-direction: column !important; }
+        }
+
+    
+        .sc-visuals[data-active="insta"] .iphone-3d { transform: translateZ(100px) translateX(-45%) scale(1.3) rotateY(0deg) !important; z-index: 10; filter: drop-shadow(0 40px 100px rgba(228,64,95,0.4)); }
+        .sc-visuals[data-active="insta"] .macbook-3d { filter: blur(10px) brightness(0.4); transform: translateZ(-100px) scale(0.9); }
+        
+        .sc-visuals[data-active="fb"] .macbook-3d { transform: translateZ(100px) scale(1.1) rotateY(0deg) !important; z-index: 10; box-shadow: 0 40px 100px rgba(0,85,255,0.4); }
+        .sc-visuals[data-active="fb"] .iphone-3d { filter: blur(5px) brightness(0.5); transform: translateZ(-50px) translateX(30%); }
+
+        /* 3D Tilt Class for interactive cards */
+        .tilt-card { transform-style: preserve-3d; transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        
+        /* 90FPS GPU Acceleration classes */
+        .gpu-accel { transform: translateZ(0); will-change: transform, opacity; }
+
+    
+        /* BENTO GRID MOBILE OPTIMIZATION */
+        @media (max-width: 768px) {
+            .bento-card { grid-column: span 1 !important; flex-direction: column; align-items: flex-start; text-align: left; padding: 20px !important; min-height: 300px !important; }
+            .bento-card., .bento-card.span-2x1 { grid-column: span 1 !important; }
+            .bento-card .bc-content { flex-direction: column !important; align-items: flex-start !important; gap: 15px !important; }
+        }
+        /* Hover Effects */
+        .bento-card:hover .bc-bg-img { transform: scale(1.08); }
+
+    
+        /* PREMIUM DEV SECTION BLUR GRAPHICS */
+        .sc-visuals { position: relative; }
+        .sc-visuals::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(212,175,55,0.1), transparent 70%); z-index: 0; pointer-events: none; transition: 0.5s ease; }
+        .sc-visuals[data-active="insta"]::after { background: radial-gradient(circle at center, rgba(228,64,95,0.15), transparent 70%); }
+        .sc-visuals[data-active="fb"]::after { background: radial-gradient(circle at center, rgba(0,85,255,0.15), transparent 70%); }
+
+    
+        /* Removed global translateZ to fix header and cursor fixed positioning */
+        .ambient-glow { animation: none !important; opacity: 0.3; } /* Kill heavy paint loop */
+
+    
+        /* PROCESS CARDS LIGHT/DARK ADAPTIVE 3D */
+        .process-3d-card {
+            background: var(--rf-surface);
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .process-3d-card::before {
+            content: '';
+            position: absolute;
+            top: -50px; right: -50px;
+            width: 150px; height: 150px;
+            background: radial-gradient(circle, rgba(212,175,55,0.1), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            transition: 0.4s ease;
+        }
+        .process-3d-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(212,175,55,0.2);
+            border-color: rgba(212,175,55,0.6);
+        }
+        .process-3d-card:hover::before {
+            transform: scale(1.5);
+            background: radial-gradient(circle, rgba(212,175,55,0.2), transparent 70%);
+        }
+        [data-theme="light"] .process-3d-card h3 { color: #000 !important; }
+        [data-theme="light"] .process-3d-card p { color: #444 !important; }
+
+    
+        /* PREMIUM BENTO CARDS ADAPTIVE 3D */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .bento-card {
+            background: var(--rf-surface) !important;
+            border-radius: 30px !important;
+            min-height: 300px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            padding: 40px !important;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05) !important;
+            border: 1px solid rgba(212,175,55,0.2) !important;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+        .bento-card. { grid-column: span 2; }
+        .bento-card. { grid-column: span 2; justify-content: center !important; }
+        
+        .bento-card:hover {
+            box-shadow: 0 30px 60px rgba(212,175,55,0.15) !important;
+            border-color: rgba(212,175,55,0.5) !important;
+        }
+        
+        .card-glow {
+            position: absolute;
+            top: -50px; right: -50px;
+            width: 150px; height: 150px;
+            border-radius: 50%;
+            pointer-events: none;
+            transition: 0.5s ease;
+        }
+        .bento-card:hover .card-glow { transform: scale(1.5); }
+        
+        .bento-card .bc-icon {
+            width: 60px; height: 60px;
+            border-radius: 15px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; margin-bottom: 20px;
+            border: 1px solid rgba(212,175,55,0.2);
+            color: var(--accent-gold); background: rgba(212, 175, 55, 0.1);
+        }
+        
+        .bento-card .bc-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--rf-text) !important;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .bento-card .bc-desc {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: var(--rf-muted) !important;
+        }
+        
+        /* Ensure no white boxes in light mode */
+        [data-theme="light"] .bento-card {
+            background: #FFFFFF !important;
+            border-color: rgba(0,0,0,0.1) !important;
+        }
+        [data-theme="light"] .bento-card:hover {
+            border-color: rgba(212,175,55,0.8) !important;
+        }
+        [data-theme="light"] .bento-card .bc-title { color: #000 !important; }
+        [data-theme="light"] .bento-card .bc-desc { color: #444 !important; }
+
+    
+        /* Hide CMS Images for solid luxury aesthetic */
+        .bento-card .bc-bg-img { display: none !important; }
+        .bento-card { display: flex; flex-direction: column; justify-content: flex-start !important; }
+
     </style>
 
     <!-- MASTER OVERHAUL STYLES -->
     <link rel="stylesheet" href="css/overhaul-vars.css">
     <link rel="stylesheet" href="css/dark-overhaul.css">
+
+
+    <!-- GLOBAL 1S THEME CROSSFADE -->
+    <style>
+        html, body, .main-wrapper, section, header, footer, nav, article, aside, div:not(.cursor-dot):not(.cursor-ring), h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea, label, i, svg, path, .bento-card, .process-3d-card, .founder-card {
+            transition-property: background-color, background, color, border-color, box-shadow, fill, stroke !important;
+            transition-duration: 1s !important;
+            transition-timing-function: ease !important;
+        }
+        /* Ensure 3D cards and their children preserve their transform speed for physics */
+        .tilt-card, .tilt-card * {
+            transition-property: background-color, background, color, border-color, box-shadow, transform !important;
+            transition-duration: 1s, 1s, 1s, 1s, 1s, 0.4s !important;
+        }
+        /* Exclude cursor and canvas from heavy transitions */
+        canvas, .cursor-dot, .cursor-ring {
+            transition-duration: 0.1s !important;
+        }
+    </style>
 
 </head>
 <body class="hover-target">
@@ -526,7 +712,7 @@
     <div class="main-wrapper">
         
         <div class="header-wrap" id="headerWrap" style="position: fixed; top: 15px; left: 0; width: 100%; z-index: 1000; display: flex; justify-content: center; transition: top 0.4s ease; pointer-events: none;">
-            <nav class="navbar" id="navbar" style="pointer-events: auto; width: 92%; max-width: 1250px; height: 70px; background: rgba(15, 8, 25, 0.6); backdrop-filter: blur(20px); border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 0 20px rgba(200, 169, 110, 0.3); display: flex; justify-content: space-between; align-items: center; padding: 0 10px 0 25px;">
+            <nav class="navbar" id="navbar" style="pointer-events: auto; width: 92%; max-width: 1250px; height: 70px; background: rgba(15, 8, 25, 0.6);  border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 0 20px rgba(200, 169, 110, 0.3); display: flex; justify-content: space-between; align-items: center; padding: 0 10px 0 25px;">
                 <a href="index.html" class="nav-brand magnetic-wrap" style="display: flex; align-items: center; height: 100%; text-decoration: none;">
                     <span class="magnetic-inner" style="display: inline-block;">
                         <img src="https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png" alt="Reach Forever Logo" data-cms="header_logo"  style=" max-height: 45px; width: auto; object-fit: contain;">
@@ -534,8 +720,8 @@
                     </span>
                 </a>
                 <ul class="nav-links">
-                    <li class="magnetic-wrap"><a href="index.html" class="nav-pill active magnetic-inner" data-cms="nav_link_1">Home</a></li>
-                    <li class="magnetic-wrap"><a href="services.html" class="nav-pill magnetic-inner" data-cms="nav_link_2">Services</a></li>
+                    <li class="magnetic-wrap"><a href="index.html" class="nav-pill magnetic-inner" data-cms="nav_link_1">Home</a></li>
+                    <li class="magnetic-wrap"><a href="services.html" class="nav-pill active magnetic-inner" data-cms="nav_link_2">Services</a></li>
                     <li class="magnetic-wrap"><a href="reviews.html" class="nav-pill magnetic-inner" data-cms="nav_link_3">Reviews</a></li>
                 </ul>
                 <div class="magnetic-wrap nav-btn-wrap" style="display: flex; align-items: center;">
@@ -557,12 +743,12 @@
 
         </div>
 
-        <section class="hero-massive">
+        <section class="services-hero">
             <div class="hero-grid">
                 
                 <div class="hero-content reveal-up">
                     <div class="hero-tag" data-cms="srv_hero_tag"><i class="ri-line-chart-fill"></i> Engineering Growth</div>
-                    <h1 class="hero-title" data-cms="srv_hero_title">The Arsenal of <br><span>Digital Dominance.</span></h1>
+                    <h1 class="hero-title" data-cms="srv_hero_title">The Arsenal of <br><span id="hero-flip-text" style="color: var(--accent-olive); font-style: italic; display: inline-block;">Digital Dominance.</span></h1>
                     <p class="hero-desc" data-cms="srv_hero_desc">We don't just build websites or run basic ads. We construct predictable revenue machines using high-end development and aggressive local marketing to scale your business.</p>
                     <div class="magnetic-wrap"><a href="#marketing" class="btn-olive magnetic-inner" style="padding: 18px 40px; font-size: 1.1rem; border-radius: 100px; text-decoration: none;"><i class="ri-arrow-down-line"></i> Explore Marketing</a></div>
                 </div>
@@ -583,95 +769,37 @@
             </div>
         </section>
 
-        <section class="marketing-section" id="marketing">
-            <div class="hs-header reveal-up">
-                <h2 data-cms="mkt_header_title">Digital Marketing.</h2>
-                <p data-cms="mkt_header_sub">How we flood your business with buyers.</p>
+        
+        <section class="marketing-section" id="marketing" style="padding: 100px 5%; background: var(--rf-bg); position: relative; z-index: 5;">
+            <div class="container text-center" style="margin-bottom: 60px;">
+                <span class="tag-pill reveal-up" data-cms="mkt_tag" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: rgba(15, 8, 25, 0.6);  border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.04); margin-bottom: 20px;"><i class="ri-flashlight-fill"></i> Client Acquisition System</span>
+                <h2 class="title-lg reveal-up" data-cms="mkt_header_title" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5vw, 5rem); margin-bottom: 15px; font-weight: 700; color: var(--rf-text);">How we flood your business with <span style="color: var(--accent-olive); font-style: italic;">buyers.</span></h2>
+                <p data-cms="mkt_header_sub" style="font-size: 1.2rem; color: var(--rf-muted); max-width: 600px; margin: 0 auto;">A seamless, high-performance vertical system designed to capture, convert, and retain high-ticket local customers.</p>
             </div>
 
-            <div class="hs-container" id="horizontalWrapper">
+            <div class="container" style="max-width: 1200px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; position: relative;">
                 
-                <div class="hs-panel hs-panel-1">
-                    <div class="hs-content">
-                        <div class="hs-visual">
-                            <img src="https://images.pexels.com/photos/6476254/pexels-photo-6476254.jpeg?auto=compress&cs=tinysrgb&w=1200&q=100" alt="Facebook Marketing Dashboard" data-cms="mkt_p1_img">
-                            <div class="hs-float-card">
-                                <div class="hs-float-icon"><i class="ri-facebook-circle-fill"></i></div>
-                                <div class="hs-float-text">
-                                    <h4 data-cms="mkt_p1_fl_title">Lead Generation</h4>
-                                    <span data-cms="mkt_p1_fl_val">Predictable</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hs-text">
-                            <h3 data-cms="mkt_p1_title">Facebook Ads</h3>
-                            <p data-cms="mkt_p1_desc">We use Facebook's powerful data to find people in your exact city who are already interested in services like yours. We show them an offer they can't refuse, and track every single rupee you make back.</p>
-                            <div class="hs-list">
-                                <div class="hs-list-item"><i class="ri-check-line"></i> <span data-cms="mkt_p1_li1">Hyper-Local City Targeting</span></div>
-                                <div class="hs-list-item"><i class="ri-check-line"></i> <span data-cms="mkt_p1_li2">Smart Retargeting (Follow-ups)</span></div>
-                                <div class="hs-list-item"><i class="ri-check-line"></i> <span data-cms="mkt_p1_li3">High-Converting Ad Copy</span></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="process-3d-card reveal-up"  onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 30px 60px rgba(212,175,55,0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.2)';">
+                    <div style="font-size: 3rem; color: #0055FF; margin-bottom: 20px;"><i class="ri-facebook-circle-fill"></i></div>
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--rf-text); margin-bottom: 15px;">Targeted Local Traffic</h3>
+                    <p style="color: var(--rf-muted); line-height: 1.6; font-size: 1.1rem;">We deploy aggressive Meta and Google Ads in your specific city radius. We hyper-target users who match the exact demographic of your best paying customers.</p>
                 </div>
 
-                <div class="hs-panel hs-panel-2">
-                    <div class="hs-content">
-                        <div class="hs-visual">
-                            <img src="https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=1200&q=100" alt="Instagram Creative Marketing" data-cms="mkt_p2_img">
-                            <div class="hs-float-card" style="border-color: #E4405F;">
-                                <div class="hs-float-icon" style="background: #E4405F;"><i class="ri-instagram-line"></i></div>
-                                <div class="hs-float-text">
-                                    <h4 data-cms="mkt_p2_fl_title">Brand Authority</h4>
-                                    <span data-cms="mkt_p2_fl_val">High Trust</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hs-text">
-                            <h3 data-cms="mkt_p2_title">Instagram Marketing</h3>
-                            <p data-cms="mkt_p2_desc">Instagram is where your customers verify if your business is premium. We create stunning visual ads and reels that make your brand look like the most high-end option available in the market.</p>
-                            <div class="hs-list">
-                                <div class="hs-list-item"><i class="ri-check-line" style="color: #E4405F; background: rgba(228, 64, 95, 0.1);"></i> <span data-cms="mkt_p2_li1">Viral Reel Advertisements</span></div>
-                                <div class="hs-list-item"><i class="ri-check-line" style="color: #E4405F; background: rgba(228, 64, 95, 0.1);"></i> <span data-cms="mkt_p2_li2">Luxury Brand Positioning</span></div>
-                            </div>
-
-                            <div class="founder-card ansh reveal-up">
-                                <img src="https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=200&q=80" alt="Ansh Khatri" data-cms="mkt_ansh_img">
-                                <div style="position: relative; z-index: 2;">
-                                    <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--rf-text); margin-bottom: 2px; font-weight: 700; display:flex; align-items:center; gap:8px;" data-cms="mkt_ansh_name">Ansh Khatri <i class="ri-verified-badge-fill" style="color:#E4405F; font-size:1rem;"></i></h4>
-                                    <p style="font-size: 0.8rem; color: #E4405F; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;" data-cms="mkt_ansh_role">CEO & Growth Director</p>
-                                    <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.4;" data-cms="mkt_ansh_bio">Specializing in viral Instagram architecture and high-ticket local lead acquisition.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="process-3d-card reveal-up"  onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 30px 60px rgba(212,175,55,0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.2)';">
+                    <div style="font-size: 3rem; color: var(--accent-gold); margin-bottom: 20px;"><i class="ri-vip-diamond-fill"></i></div>
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--rf-text); margin-bottom: 15px;">High-Ticket Conversion</h3>
+                    <p style="color: var(--rf-muted); line-height: 1.6; font-size: 1.1rem;">Traffic is useless if it doesn't convert. We funnel traffic into high-converting landing pages built with luxury UX design to build immediate trust.</p>
                 </div>
 
-                <div class="hs-panel hs-panel-3">
-                    <div class="hs-content">
-                        <div class="hs-visual">
-                            <img src="https://images.pexels.com/photos/270694/pexels-photo-270694.jpeg?auto=compress&cs=tinysrgb&w=1200&q=100" alt="Google SEO Search" data-cms="mkt_p3_img">
-                            <div class="hs-float-card" style="border-color: #DB4437;">
-                                <div class="hs-float-icon" style="background: #DB4437;"><i class="ri-google-fill"></i></div>
-                                <div class="hs-float-text">
-                                    <h4 data-cms="mkt_p3_fl_title">Local Search</h4>
-                                    <span data-cms="mkt_p3_fl_val">Rank #1</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hs-text">
-                            <h3 data-cms="mkt_p3_title">Google SEO</h3>
-                            <p data-cms="mkt_p3_desc">When someone in your city searches Google for the service you provide, they need to see your name first. We optimize your website so Google trusts you more than your competitors.</p>
-                            <div class="hs-list">
-                                <div class="hs-list-item"><i class="ri-check-line" style="color: #DB4437; background: rgba(219, 68, 55, 0.1);"></i> <span data-cms="mkt_p3_li1">Google My Business Dominance</span></div>
-                                <div class="hs-list-item"><i class="ri-check-line" style="color: #DB4437; background: rgba(219, 68, 55, 0.1);"></i> <span data-cms="mkt_p3_li2">Local Keyword Optimization</span></div>
-                                <div class="hs-list-item"><i class="ri-check-line" style="color: #DB4437; background: rgba(219, 68, 55, 0.1);"></i> <span data-cms="mkt_p3_li3">Free Organic Traffic Growth</span></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="process-3d-card reveal-up"  onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 30px 60px rgba(212,175,55,0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.2)';">
+                    <div style="font-size: 3rem; color: #14B8A6; margin-bottom: 20px;"><i class="ri-robot-2-fill"></i></div>
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--rf-text); margin-bottom: 15px;">Automated Follow-Up</h3>
+                    <p style="color: var(--rf-muted); line-height: 1.6; font-size: 1.1rem;">The moment a lead opts in, our system instantly follows up via SMS and Email, warming them up and booking them directly onto your calendar.</p>
                 </div>
+
             </div>
         </section>
+
 
         <section class="dev-section">
             <div class="dev-header reveal-up">
@@ -681,25 +809,31 @@
 
             <div class="dev-container reveal-up">
                 
+                
                 <div class="sc-tabs">
-                    <div class="sc-tab active" data-target="web">
-                        <h3 data-cms="dev_tab1_title">Beautiful Websites that Sell</h3>
-                        <p data-cms="dev_tab1_desc">If your website looks cheap, people won't buy. We build stunning, lightning-fast websites that make you look like the #1 option in your city, automatically turning visitors into booked appointments.</p>
+                    <div class="sc-tab active tilt-card" data-target="web">
+                        <h3 data-cms="dev_tab1_title">High-Converting Web Dev</h3>
+                        <p data-cms="dev_tab1_desc">We build lightning-fast, premium websites that automatically turn visitors into booked appointments. No cheap templates.</p>
                     </div>
-                    <div class="sc-tab" data-target="app">
-                        <h3 data-cms="dev_tab2_title">Custom Mobile Apps</h3>
-                        <p data-cms="dev_tab2_desc">Want to be directly in your customer's pocket? We design and code premium mobile apps that are easy to use, beautiful to look at, and keep your clients returning to your business.</p>
+                    <div class="sc-tab tilt-card" data-target="insta">
+                        <h3 data-cms="dev_tab2_title">Instagram Viral Marketing</h3>
+                        <p data-cms="dev_tab2_desc">We engineer high-end viral reels and visual ads that make your brand look like the most luxurious option in your city.</p>
+                    </div>
+                    <div class="sc-tab tilt-card" data-target="fb">
+                        <h3 data-cms="dev_tab3_title">Facebook Ads Ecosystem</h3>
+                        <p data-cms="dev_tab3_desc">Aggressive local targeting to capture high-value buyers precisely when they are most likely to convert.</p>
                     </div>
 
-                    <div class="founder-card akash reveal-up">
+                    <div class="founder-card akash reveal-up tilt-card">
                         <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=200&q=80" alt="Akash Jadon" data-cms="dev_akash_img">
                         <div style="position:relative; z-index:2;">
                             <h4 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; color: var(--rf-text); margin-bottom: 2px; font-weight: 700; display:flex; align-items:center; gap:8px;" data-cms="dev_akash_name">Akash Jadon <i class="ri-verified-badge-fill" style="color:#D4AF37; font-size:1rem;"></i></h4>
-                            <p style="font-size: 0.75rem; color: #D4AF37; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;" data-cms="dev_akash_role">Lead Engineer | Zyrova Digital</p>
-                            <p style="font-size: 0.85rem; color: #A0A0A0; line-height: 1.4;" data-cms="dev_akash_bio">Engineering the fastest, highest-converting bespoke web applications in the industry exclusively for Reach Forever clients.</p>
+                            <p style="font-size: 0.75rem; color: #D4AF37; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;" data-cms="dev_akash_role">Lead Engineer</p>
+                            <p style="font-size: 0.85rem; color: #A0A0A0; line-height: 1.4;" data-cms="dev_akash_bio">Engineering the fastest bespoke applications exclusively for Reach Forever.</p>
                         </div>
                     </div>
                 </div>
+
 
                 <div class="sc-visuals" id="deviceVisuals" data-active="web">
                     
@@ -727,54 +861,90 @@
             </div>
         </section>
 
-        <section class="bento-section">
-            <div class="bento-header reveal-up">
-                <h2 data-cms="bento_header_title">Our Technical Stack.</h2>
-                <p style="color: var(--rf-muted); font-size: 1.1rem; max-width: 600px; margin: 10px auto 0;" data-cms="bento_header_sub">We use the best technology in the world to make sure your business runs perfectly.</p>
+        
+        <section class="founder-section reveal-up" style="padding: 100px 5%; background: var(--rf-bg); position: relative; z-index: 6;">
+            <div class="container" style="max-width: 1300px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; background: rgba(15,8,25,0.3); padding: 50px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 30px 60px rgba(0,0,0,0.2);">
+                <div class="founder-img" style="position: relative; width: 100%; height: 600px; border-radius: 30px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.3); border: 1px solid rgba(212,175,55,0.2);">
+                    <img src="https://images.pexels.com/photos/8372620/pexels-photo-8372620.jpeg?auto=compress&cs=tinysrgb&w=1200&q=100" alt="Ansh Khatri CEO" data-cms="mkt_ansh_img" style="width: 100%; height: 100%; object-fit: cover; filter: contrast(1.1) brightness(0.9);">
+                    <div style="position: absolute; bottom: 30px; left: 30px; background: rgba(0,0,0,0.7);  padding: 15px 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);">
+                        <h4 style="color: #FFF; font-size: 1.5rem; font-family: 'Cormorant Garamond', serif; margin-bottom: 5px;">Ansh Khatri</h4>
+                        <p style="color: var(--accent-gold); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Founder & CEO</p>
+                    </div>
+                </div>
+                <div class="founder-content">
+                    <span class="tag-pill" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: rgba(212,175,55,0.1); border-radius: 100px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-gold); margin-bottom: 20px;"><i class="ri-vip-crown-fill"></i> The Mastermind</span>
+                    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5vw, 4.5rem); color: var(--rf-text); line-height: 1.1; margin-bottom: 30px;">Architecting Viral <span style="color: var(--accent-olive); font-style: italic;">Growth.</span></h2>
+                    <p style="font-size: 1.2rem; color: var(--rf-muted); line-height: 1.7; margin-bottom: 20px;">Ansh Khatri doesn't just run agencies; he builds local empires. With a deep mastery of consumer psychology and aggressive performance marketing, Ansh has scaled Reach Forever into the premier growth partner for high-end local businesses in Punjab.</p>
+                    <p style="font-size: 1.2rem; color: var(--rf-muted); line-height: 1.7; margin-bottom: 40px;">His philosophy is simple: If your marketing isn't generating a massive, measurable ROI, it's a waste of time. He engineers every campaign to dominate competitors and flood your calendar with buyers.</p>
+                    <div style="display: flex; gap: 30px; align-items: center;">
+                        <div style="display: flex; flex-direction: column;">
+                            <span style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--rf-text); font-weight: 700; line-height: 1;">&#8377;85L+</span>
+                            <span style="font-size: 0.9rem; color: var(--rf-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 5px;">Client Revenue Generated</span>
+                        </div>
+                        <div style="width: 1px; height: 60px; background: rgba(255,255,255,0.1);"></div>
+                        <div style="display: flex; flex-direction: column;">
+                            <span style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--rf-text); font-weight: 700; line-height: 1;">100%</span>
+                            <span style="font-size: 0.9rem; color: var(--rf-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 5px;">Growth Guarantee</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        
+        
+        <section class="bento-section" style="padding: 100px 5%; background: var(--rf-bg); position: relative; z-index: 5;">
+            <div class="bento-header reveal-up" style="text-align: center; margin-bottom: 60px;">
+                <h2 data-cms="bento_header_title" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5vw, 5rem); color: var(--rf-text); font-weight: 700; margin-bottom: 15px;">Our Marketing Stack.</h2>
+                <p style="color: var(--rf-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto;" data-cms="bento_header_sub">We use world-class marketing tools to grow your business effortlessly.</p>
             </div>
 
             <div class="bento-grid">
                 
-                <div class="bento-card span-2x2 reveal-up">
-                    <img src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1200&q=100" alt="Code Background" class="bc-bg-img" data-cms="bento_c1_img">
+                <div class="bento-card tilt-card gpu-accel reveal-up " data-tilt data-tilt-max="5" data-tilt-speed="1000" data-tilt-glare="true" data-tilt-max-glare="0.1">
+                    <div class="card-glow" style="background: radial-gradient(circle, rgba(0,85,255,0.15), transparent 70%);"></div>
+                    <div class="bc-icon" style="color: #4A90E2; background: rgba(0, 85, 255, 0.1); border-color: rgba(0,85,255,0.2);"><i class="ri-facebook-circle-fill"></i></div>
                     <div class="bc-content">
-                        <div class="bc-icon"><i class="ri-window-line"></i></div>
-                        <h3 class="bc-title" data-cms="bento_c1_title">Custom Coding by Akash</h3>
-                        <p class="bc-desc" data-cms="bento_c1_desc">We refuse to use cheap, slow templates. Our lead developer, Akash Jadon, writes clean, custom code using modern tools like React and Node.js. This means your website will be faster, safer, and completely unique to your brand.</p>
+                        <h3 class="bc-title" data-cms="bento_c1_title">Facebook & Instagram Ads</h3>
+                        <p class="bc-desc" data-cms="bento_c1_desc">We run high-converting ads on Facebook and Instagram to bring you ready-to-buy customers every single day.</p>
                     </div>
                 </div>
 
-                <div class="bento-card span-1x2 reveal-up">
-                    <img src="https://images.pexels.com/photos/7688374/pexels-photo-7688374.jpeg?auto=compress&cs=tinysrgb&w=800&q=100" alt="Automation" class="bc-bg-img" data-cms="bento_c2_img">
+                <div class="bento-card tilt-card gpu-accel reveal-up" data-tilt data-tilt-max="5" data-tilt-speed="1000" data-tilt-glare="true" data-tilt-max-glare="0.1">
+                    <div class="card-glow" style="background: radial-gradient(circle, rgba(234,67,53,0.15), transparent 70%);"></div>
+                    <div class="bc-icon" style="color: #EA4335; background: rgba(234, 67, 53, 0.1); border-color: rgba(234,67,53,0.2);"><i class="ri-google-fill"></i></div>
                     <div class="bc-content">
-                        <div class="bc-icon" style="background: rgba(20, 184, 166, 0.1); color: #14B8A6; border-color: rgba(20,184,166,0.3);"><i class="ri-robot-2-fill"></i></div>
-                        <h3 class="bc-title" style="font-size: 1.8rem;" data-cms="bento_c2_title">Lead Automation</h3>
-                        <p class="bc-desc" data-cms="bento_c2_desc">When a customer fills out a form, our system instantly sends them an automatic email or text. You never miss a lead, even if you are sleeping.</p>
+                        <h3 class="bc-title" data-cms="bento_c2_title">Google Search Ads</h3>
+                        <p class="bc-desc" data-cms="bento_c2_desc">We put your business at the #1 spot on Google when people actively search for your services.</p>
                     </div>
                 </div>
 
-                <div class="bento-card span-1x2 reveal-up">
-                    <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=800&q=100" alt="Speed" class="bc-bg-img" data-cms="bento_c3_img">
+                <div class="bento-card tilt-card gpu-accel reveal-up" data-tilt data-tilt-max="5" data-tilt-speed="1000" data-tilt-glare="true" data-tilt-max-glare="0.1">
+                    <div class="card-glow" style="background: radial-gradient(circle, rgba(255,79,0,0.15), transparent 70%);"></div>
+                    <div class="bc-icon" style="color: #FF4F00; background: rgba(255, 79, 0, 0.1); border-color: rgba(255,79,0,0.2);"><i class="ri-thunderstorms-fill"></i></div>
                     <div class="bc-content">
-                        <div class="bc-icon" style="background: rgba(212, 175, 55, 0.1); color: var(--accent-gold); border-color: rgba(212,175,55,0.3);"><i class="ri-rocket-2-fill"></i></div>
-                        <h3 class="bc-title" style="font-size: 1.8rem;" data-cms="bento_c3_title">Lightning Fast Hosting</h3>
-                        <p class="bc-desc" data-cms="bento_c3_desc">If a website takes more than 3 seconds to load, 50% of people will leave. We put your site on premium servers so it loads instantly.</p>
+                        <h3 class="bc-title" data-cms="bento_c3_title">Instant Lead Alerts</h3>
+                        <p class="bc-desc" data-cms="bento_c3_desc">We connect all your tools so every new lead gets an instant automatic text message and email.</p>
                     </div>
                 </div>
 
-                <div class="bento-card span-2x1 reveal-up">
-                    <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200&q=100" alt="Design" class="bc-bg-img" data-cms="bento_c4_img">
-                    <div class="bc-content" style="flex-direction: row; align-items: center; gap: 20px;">
-                        <div class="bc-icon" style="background: rgba(138, 43, 226, 0.1); color: #8A2BE2; border-color: rgba(138,43,226,0.3); margin: 0;"><i class="ri-quill-pen-fill"></i></div>
+                <div class="bento-card tilt-card gpu-accel reveal-up " data-tilt data-tilt-max="5" data-tilt-speed="1000" data-tilt-glare="true" data-tilt-max-glare="0.1">
+                    <div class="card-glow" style="background: radial-gradient(circle, rgba(212,175,55,0.15), transparent 70%); width: 300px; height: 300px; right: -100px; bottom: -100px; top: auto;"></div>
+                    <div class="bc-content" style="flex-direction: row; align-items: center; gap: 30px; padding: 0;">
+                        <div class="bc-icon" style="width: 80px; height: 80px; font-size: 2.5rem; margin: 0; flex-shrink: 0;"><i class="ri-line-chart-fill"></i></div>
                         <div>
-                            <h3 class="bc-title" style="font-size: 1.6rem; margin-bottom: 5px;" data-cms="bento_c4_title">Luxury UI/UX Design</h3>
-                            <p class="bc-desc" data-cms="bento_c4_desc">People trust things that look expensive. We design your digital presence to make you look like the absolute premium option in your market.</p>
+                            <h3 class="bc-title" data-cms="bento_c4_title">Simple Sales Tracking</h3>
+                            <p class="bc-desc" data-cms="bento_c4_desc" style="max-width: 600px;">We build a simple tracking dashboard so you can see exactly how much money your ads are making in real time.</p>
                         </div>
                     </div>
                 </div>
 
             </div>
         </section>
+
+
+
 
         <section class="process-section">
             <div class="container process-container">
@@ -848,7 +1018,7 @@
         </div>
     </div>
 
-    <div class="chat-panel" id="auraPanel" aria-hidden="true" style="position: fixed; bottom: 200px; right: 40px; width: 420px; background: var(--rf-glass); backdrop-filter: blur(40px); border-radius: 32px; border: 1px solid var(--accent-gold); box-shadow: 0 40px 80px rgba(0,0,0,0.2); z-index: 100001; overflow: hidden; transform: translateY(40px) scale(0.95); opacity: 0; pointer-events: none; transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1); display: flex; flex-direction: column;">
+    <div class="chat-panel" id="auraPanel" aria-hidden="true" style="position: fixed; bottom: 200px; right: 40px; width: 420px; background: var(--rf-glass);  border-radius: 32px; border: 1px solid var(--accent-gold); box-shadow: 0 40px 80px rgba(0,0,0,0.2); z-index: 100001; overflow: hidden; transform: translateY(40px) scale(0.95); opacity: 0; pointer-events: none; transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1); display: flex; flex-direction: column;">
         <div class="cp-header" style="padding: 25px 30px; display: flex; justify-content: space-between; align-items: center;   border-bottom: 1px solid rgba(0,0,0,0.05); position: relative;">
             <div class="cp-info" style="display: flex; gap: 15px; align-items: center;">
                 <div class="cp-avatar" style="width: 45px; height: 45px; border-radius: 50%; background: rgba(85,107,47,0.1); border: 1px solid #556B2F; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #556B2F;"><i class="ri-user-smile-line"></i></div>
@@ -925,9 +1095,10 @@
             const tabs = document.querySelectorAll('.sc-tab');
             const visualsContainer = document.getElementById('deviceVisuals');
             const vids = {
-                web: document.getElementById('vid-web'),
-                app: document.getElementById('vid-app')
-            };
+        web: document.getElementById('vid-web'),
+        insta: document.getElementById('vid-app'), // using app video slot for insta
+        fb: document.getElementById('vid-web') // using web video slot for fb
+    };
 
             tabs.forEach(tab => {
                 tab.addEventListener('mouseenter', () => {
@@ -960,34 +1131,7 @@
                 });
             });
 
-            // 4. GOLDEN DUST PARTICLE SYSTEM (Optimized)
-            const canvas = document.getElementById('particle-canvas');
-            if(canvas) {
-                const ctx = canvas.getContext('2d');
-                let particles = [];
-                const particleCount = window.innerWidth < 768 ? 20 : 40;
-                const resizeCanvas = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
-                window.addEventListener('resize', resizeCanvas);
-                resizeCanvas();
-                for(let i=0; i<particleCount; i++) {
-                    particles.push({
-                        x: Math.random() * canvas.width, y: Math.random() * canvas.height,
-                        r: Math.random() * 2 + 0.5, dx: (Math.random() - 0.5) * 0.2,
-                        dy: (Math.random() - 1) * 0.3 - 0.1, alpha: Math.random() * 0.4 + 0.1
-                    });
-                }
-                function animateParticles() {
-                    ctx.clearRect(0,0,canvas.width, canvas.height);
-                    particles.forEach(p => {
-                        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-                        ctx.fillStyle = document.documentElement.getAttribute('data-theme') === 'light' ? `rgba(0,0,0,${p.alpha})` : `rgba(212, 175, 55, ${p.alpha})`; ctx.fill();
-                        p.x += p.dx; p.y += p.dy;
-                        if(p.y < 0) p.y = canvas.height; if(p.x < 0) p.x = canvas.width; if(p.x > canvas.width) p.x = 0;
-                    });
-                    requestAnimationFrame(animateParticles);
-                }
-                animateParticles();
-            }
+            
 
             // 5. SCROLL PROGRESS BAR
             window.addEventListener('scroll', () => {
@@ -1275,7 +1419,37 @@
 
     
 
-    <!-- PARTICLES INIT -->
+    
+    
+
+    <!-- 3D Interactive Library for 90FPS Card Tilts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
+                max: 10,
+                speed: 400,
+                glare: true,
+                "max-glare": 0.2,
+                perspective: 1000
+            });
+        });
+    </script>
+
+
+    
+
+
+    
+
+
+    
+
+    
+
+    
+
+    <!-- OPTIMIZED PARTICLE ENGINE -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const canvas = document.getElementById('particle-canvas');
@@ -1293,10 +1467,14 @@
                         dy: (Math.random() - 0.5) * 0.5
                     });
                 }
-                function animate() {
-                    requestAnimationFrame(animate);
+                function animateParticles() {
+                    if(document.documentElement.getAttribute('data-theme') === 'light') { 
+                        ctx.clearRect(0, 0, canvas.width, canvas.height); 
+                        requestAnimationFrame(animateParticles); 
+                        return; 
+                    }
                     ctx.clearRect(0, 0, innerWidth, innerHeight);
-                    ctx.fillStyle = document.documentElement.getAttribute('data-theme') === 'light' ? 'rgba(0,0,0,0.5)' : 'rgba(212, 175, 55, 0.5)';
+                    ctx.fillStyle = `rgba(212, 175, 55, 0.4)`;
                     particles.forEach(p => {
                         ctx.beginPath();
                         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2, false);
@@ -1305,25 +1483,25 @@
                         if(p.x < 0 || p.x > innerWidth) p.dx = -p.dx;
                         if(p.y < 0 || p.y > innerHeight) p.dy = -p.dy;
                     });
+                    requestAnimationFrame(animateParticles);
                 }
-                animate();
+                animateParticles();
             }
         });
     </script>
-    
 
-    <!-- TRUE THEME LOGIC INJECTION -->
+    <!-- UNIVERSAL THEME TOGGLE SCRIPT -->
     <script>
         function initThemeToggle() {
             const toggleDesktop = document.getElementById('themeToggleDesktop');
-            const iconDesktop = document.getElementById('themeIconDesktop');
             const toggleMobile = document.getElementById('themeToggleMobile');
-            const iconMobile = document.getElementById('themeIconMobile');
 
             function updateIcons(isLight) {
+                const iconDesktop = document.getElementById('themeIconDesktop');
+                const iconMobile = document.getElementById('themeIconMobile');
                 if (iconDesktop) iconDesktop.className = isLight ? 'ri-moon-fill' : 'ri-sun-fill';
                 if (iconMobile) {
-                    const iTag = iconMobile.querySelector('i');
+                    const iTag = iconMobile.tagName && iconMobile.tagName.toLowerCase() === 'i' ? iconMobile : iconMobile.querySelector('i');
                     if(iTag) iTag.className = isLight ? 'ri-moon-fill' : 'ri-sun-fill';
                 }
             }
@@ -1331,33 +1509,34 @@
             function toggleTheme() {
                 const html = document.documentElement;
                 const isCurrentlyLight = html.getAttribute('data-theme') === 'light';
+                const nextTheme = isCurrentlyLight ? 'dark' : 'light';
                 
-                if (isCurrentlyLight) {
-                    html.setAttribute('data-theme', 'dark');
-                    localStorage.setItem('rf-theme', 'dark');
-                    updateIcons(false);
-                } else {
-                    html.setAttribute('data-theme', 'light');
-                    localStorage.setItem('rf-theme', 'light');
-                    updateIcons(true);
-                }
-                
-                // Trigger an event so particle engine can catch it if needed
-                window.dispatchEvent(new Event('themeChanged'));
+                html.setAttribute('data-theme', nextTheme);
+                try { localStorage.setItem('rf-theme', nextTheme); } catch(e) {}
+                updateIcons(!isCurrentlyLight);
             }
 
-            if (toggleDesktop) toggleDesktop.addEventListener('click', toggleTheme);
-            if (toggleMobile) toggleMobile.addEventListener('click', toggleTheme);
-
-            const savedTheme = localStorage.getItem('rf-theme');
-            if (savedTheme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'light');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-            }
+            // Sync initial state safely
+            let savedTheme = 'dark';
+            try { savedTheme = localStorage.getItem('rf-theme') || 'dark'; } catch(e) {}
+            document.documentElement.setAttribute('data-theme', savedTheme);
             updateIcons(savedTheme === 'light');
+
+            if(toggleDesktop) {
+                toggleDesktop.replaceWith(toggleDesktop.cloneNode(true));
+                document.getElementById('themeToggleDesktop').addEventListener('click', toggleTheme);
+            }
+            if(toggleMobile) {
+                toggleMobile.replaceWith(toggleMobile.cloneNode(true));
+                document.getElementById('themeToggleMobile').addEventListener('click', toggleTheme);
+            }
         }
-        document.addEventListener("DOMContentLoaded", initThemeToggle);
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initThemeToggle);
+        } else {
+            initThemeToggle();
+        }
     </script>
 
 </body>

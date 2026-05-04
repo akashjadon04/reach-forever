@@ -1,6 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
+
+    <!-- CRITICAL THEME SYNC SCRIPT (Must run before CSS loads) -->
+    <script>
+        (function() {
+            let savedTheme = 'dark';
+            try { savedTheme = localStorage.getItem('rf-theme') || 'dark'; } catch(e) {}
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zyrova Matrix | Form Control</title>
@@ -56,6 +66,25 @@
 
         #toast { position: fixed; bottom: 30px; right: 30px; background: #FFF; color: #000; padding: 15px 25px; border-radius: 12px; font-weight: 700; transform: translateX(150%); transition: 0.4s; z-index: 9999; display: flex; align-items: center; gap: 10px; border-left: 4px solid var(--success); box-shadow: 0 10px 30px rgba(0,0,0,0.3);}
     </style>
+
+    <!-- GLOBAL 1S THEME CROSSFADE -->
+    <style>
+        html, body, .main-wrapper, section, header, footer, nav, article, aside, div:not(.cursor-dot):not(.cursor-ring), h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea, label, i, svg, path, .bento-card, .process-3d-card, .founder-card {
+            transition-property: background-color, background, color, border-color, box-shadow, fill, stroke !important;
+            transition-duration: 1s !important;
+            transition-timing-function: ease !important;
+        }
+        /* Ensure 3D cards and their children preserve their transform speed for physics */
+        .tilt-card, .tilt-card * {
+            transition-property: background-color, background, color, border-color, box-shadow, transform !important;
+            transition-duration: 1s, 1s, 1s, 1s, 1s, 0.4s !important;
+        }
+        /* Exclude cursor and canvas from heavy transitions */
+        canvas, .cursor-dot, .cursor-ring {
+            transition-duration: 0.1s !important;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -160,5 +189,55 @@
             showToast("Database Updated!");
         }
     </script>
+
+    <!-- UNIVERSAL THEME TOGGLE SCRIPT -->
+    <script>
+        function initThemeToggle() {
+            const toggleDesktop = document.getElementById('themeToggleDesktop');
+            const toggleMobile = document.getElementById('themeToggleMobile');
+
+            function updateIcons(isLight) {
+                const iconDesktop = document.getElementById('themeIconDesktop');
+                const iconMobile = document.getElementById('themeIconMobile');
+                if (iconDesktop) iconDesktop.className = isLight ? 'ri-moon-fill' : 'ri-sun-fill';
+                if (iconMobile) {
+                    const iTag = iconMobile.tagName && iconMobile.tagName.toLowerCase() === 'i' ? iconMobile : iconMobile.querySelector('i');
+                    if(iTag) iTag.className = isLight ? 'ri-moon-fill' : 'ri-sun-fill';
+                }
+            }
+
+            function toggleTheme() {
+                const html = document.documentElement;
+                const isCurrentlyLight = html.getAttribute('data-theme') === 'light';
+                const nextTheme = isCurrentlyLight ? 'dark' : 'light';
+                
+                html.setAttribute('data-theme', nextTheme);
+                try { localStorage.setItem('rf-theme', nextTheme); } catch(e) {}
+                updateIcons(!isCurrentlyLight);
+            }
+
+            // Sync initial state safely
+            let savedTheme = 'dark';
+            try { savedTheme = localStorage.getItem('rf-theme') || 'dark'; } catch(e) {}
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateIcons(savedTheme === 'light');
+
+            if(toggleDesktop) {
+                toggleDesktop.replaceWith(toggleDesktop.cloneNode(true));
+                document.getElementById('themeToggleDesktop').addEventListener('click', toggleTheme);
+            }
+            if(toggleMobile) {
+                toggleMobile.replaceWith(toggleMobile.cloneNode(true));
+                document.getElementById('themeToggleMobile').addEventListener('click', toggleTheme);
+            }
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initThemeToggle);
+        } else {
+            initThemeToggle();
+        }
+    </script>
+
 </body>
 </html>

@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+
+    <!-- CRITICAL THEME SYNC SCRIPT (Must run before CSS loads) -->
+    <script>
+        (function() {
+            let savedTheme = 'dark';
+            try { savedTheme = localStorage.getItem('rf-theme') || 'dark'; } catch(e) {}
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
     <title>Client Success & Reviews | Reach Forever Agency Punjab</title>
     <!-- MAXIMUM GRADE SEO & META TAGS -->
     <meta name="description" content="See real results from local businesses in Punjab who scaled using Reach Forever. Watch case studies from Jalandhar, Amritsar, and Phagwara.">
@@ -60,15 +70,7 @@
     <meta property="og:url" content="https://reach-forever.onrender.com/reviews.html">
     <meta property="og:image" content="https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png">
 
-    <!-- Theme Initialization Script -->
-    <script>
-        (function() {
-            const savedTheme = localStorage.getItem('rf-theme');
-            if (savedTheme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        })();
-    </script>
+    
     
     
 
@@ -452,6 +454,49 @@
         }
     </style>
     <link rel="stylesheet" href="css/dark-overhaul.css">
+
+    <!-- GLOBAL 1S THEME CROSSFADE -->
+    <style>
+        html, body, .main-wrapper, section, header, footer, nav, article, aside, div:not(.cursor-dot):not(.cursor-ring), h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea, label, i, svg, path, .bento-card, .process-3d-card, .founder-card {
+            transition-property: background-color, background, color, border-color, box-shadow, fill, stroke !important;
+            transition-duration: 1s !important;
+            transition-timing-function: ease !important;
+        }
+        /* Ensure 3D cards and their children preserve their transform speed for physics */
+        .tilt-card, .tilt-card * {
+            transition-property: background-color, background, color, border-color, box-shadow, transform !important;
+            transition-duration: 1s, 1s, 1s, 1s, 1s, 0.4s !important;
+        }
+        /* Exclude cursor and canvas from heavy transitions */
+        canvas, .cursor-dot, .cursor-ring {
+            transition-duration: 0.1s !important;
+        }
+            /* ROI Section Theme Fixes */
+            .roi-graph-box { 
+                background: rgba(255, 255, 255, 0.03) !important; 
+                backdrop-filter: blur(10px);
+                border: 1px solid var(--glass-border);
+            }
+            .bar-current { 
+                background: linear-gradient(to top, rgba(200, 169, 110, 0.2), rgba(200, 169, 110, 0.5)) !important;
+                border: 1px solid var(--accent-gold) !important;
+                box-shadow: 0 0 20px rgba(200, 169, 110, 0.1);
+            }
+            .rg-line { background: rgba(255, 255, 255, 0.1) !important; }
+            .bar-label { color: var(--rf-text) !important; opacity: 0.8; border-top: 1px solid rgba(255,255,255,0.1) !important; }
+
+            [data-theme="light"] .roi-graph-box { 
+                background: rgba(0, 0, 0, 0.03) !important; 
+                border-color: rgba(85, 107, 47, 0.2) !important;
+            }
+            [data-theme="light"] .bar-current { 
+                background: linear-gradient(to top, rgba(85, 107, 47, 0.2), rgba(85, 107, 47, 0.4)) !important;
+                border: 1px solid var(--accent-olive) !important;
+            }
+            [data-theme="light"] .rg-line { background: rgba(0, 0, 0, 0.05) !important; }
+            [data-theme="light"] .bar-label { color: #1A1C20 !important; border-top-color: rgba(0,0,0,0.1) !important; }
+        </style>
+
 </head>
 <body class="hover-target">
 
@@ -485,9 +530,9 @@
                     </span>
                 </a>
                 <ul class="nav-links">
-                    <li class="magnetic-wrap"><a href="index.html" class="nav-pill active magnetic-inner" data-cms="nav_link_1">Home</a></li>
+                    <li class="magnetic-wrap"><a href="index.html" class="nav-pill magnetic-inner" data-cms="nav_link_1">Home</a></li>
                     <li class="magnetic-wrap"><a href="services.html" class="nav-pill magnetic-inner" data-cms="nav_link_2">Services</a></li>
-                    <li class="magnetic-wrap"><a href="reviews.html" class="nav-pill magnetic-inner" data-cms="nav_link_3">Reviews</a></li>
+                    <li class="magnetic-wrap"><a href="reviews.html" class="nav-pill active magnetic-inner" data-cms="nav_link_3">Reviews</a></li>
                 </ul>
                 <div class="magnetic-wrap nav-btn-wrap" style="display: flex; align-items: center;">
                     <a href="form.html" class="btn-olive magnetic-inner" data-cms="nav_btn" style="background: linear-gradient(135deg, #C8A96E, #A67C00); color: #FFF; padding: 12px 28px; border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; box-shadow: 0 10px 25px rgba(200, 169, 110, 0.35);">Initiate Project</a>
@@ -1226,147 +1271,8 @@
         });
     </script>
 
-    <script>
-        // THEME TOGGLE LOGIC
-        function initThemeToggle() {
-            const toggleDesktop = document.getElementById('themeToggleDesktop');
-            const iconDesktop = document.getElementById('themeIconDesktop');
-            const toggleMobile = document.getElementById('themeToggleMobile');
-            const iconMobile = document.getElementById('themeIconMobile');
-
-            function updateIcons(isLight) {
-                if (iconDesktop) {
-                    iconDesktop.className = isLight ? 'ri-moon-fill' : 'ri-sun-fill';
-                }
-                if (iconMobile) {
-                    iconMobile.className = isLight ? 'ri-moon-fill' : 'ri-sun-fill';
-                }
-            }
-
-            function toggleTheme() {
-                const html = document.documentElement;
-                const isCurrentlyLight = html.getAttribute('data-theme') === 'light';
-                
-                if (isCurrentlyLight) {
-                    html.setAttribute('data-theme', 'dark');
-                    localStorage.setItem('rf-theme', 'dark');
-                    updateIcons(false);
-                } else {
-                    html.setAttribute('data-theme', 'light');
-                    localStorage.setItem('rf-theme', 'light');
-                    updateIcons(true);
-                }
-            }
-
-            if (toggleDesktop) toggleDesktop.addEventListener('click', toggleTheme);
-            if (toggleMobile) toggleMobile.addEventListener('click', toggleTheme);
-
-            // Initial state — restore saved theme
-            const savedTheme = localStorage.getItem('rf-theme');
-            if (savedTheme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'light');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-            }
-            updateIcons(savedTheme === 'light');
-        }
-
-        document.addEventListener("DOMContentLoaded", initThemeToggle);
-        
-        // FULLSCREEN LIGHTBOX LOGIC
-        function initLightbox() {
-            const lightboxHTML = `
-                <div class="fullscreen-lightbox" id="fsLightbox">
-                    <div class="fl-close" id="fsClose"><i class="ri-close-line"></i></div>
-                    <div class="fl-content">
-                        <video class="fl-video" id="fsVideo" controls playsinline></video>
-                    </div>
-                </div>
-            `;
-            document.body.insertAdjacentHTML('beforeend', lightboxHTML);
-            
-            const lb = document.getElementById('fsLightbox');
-            const video = document.getElementById('fsVideo');
-            const closeBtn = document.getElementById('fsClose');
-            
-            if(closeBtn) {
-                closeBtn.addEventListener('click', () => {
-                    lb.classList.remove('active');
-                    video.pause();
-                    video.src = '';
-                });
-            }
-            
-            window.openLightboxVideo = function(src) {
-                video.src = src;
-                lb.classList.add('active');
-                video.play();
-            };
-        }
-        
-        document.addEventListener("DOMContentLoaded", initLightbox);
-    </script>
-
     
-    
-    
-    
-    
-    <!-- PREMIUM PROFESSIONAL FOOTER -->
-    <footer class="premium-footer">
-        <div class="pf-container">
-            <div class="pf-col pf-brand">
-                <img src="https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png" alt="Reach Forever" data-cms="header_logo">
-                <p>We engineer predictable revenue systems that flood your business with high-ticket local customers.</p>
-            </div>
-            <div class="pf-col">
-                <h4>Sitemap</h4>
-                <ul class="pf-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="reviews.html">Reviews</a></li>
-                    <li><a href="form.html">Initiate Project</a></li>
-                </ul>
-            </div>
-            <div class="pf-col">
-                <h4>Legal & Contact</h4>
-                <ul class="pf-links">
-                    <li><a href="https://wa.me/917888429760" target="_blank">WhatsApp Support</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="pf-bottom">
-            <div class="pf-signature">made by <span>zyrova digital</span></div>
-        </div>
-    </footer>
-
-
-    <!-- HERO VIDEO MUTE LOCK (Fixes Sound Bug WITHOUT breaking Modal) -->
-    <script>
-        (function() {
-            function lockHeroMute() {
-                const heroVid = document.getElementById('heroVideoAd');
-                if (heroVid && !heroVid.hasAttribute('data-mute-locked')) {
-                    heroVid.muted = true;
-                    heroVid.setAttribute('muted', '');
-                    heroVid.setAttribute('data-mute-locked', 'true');
-                    Object.defineProperty(heroVid, 'muted', {
-                        get: function() { return true; },
-                        set: function(val) { /* Blocked */ }
-                    });
-                }
-            }
-            // Attempt lock immediately and on load
-            lockHeroMute();
-            window.addEventListener('DOMContentLoaded', lockHeroMute);
-            window.addEventListener('pageshow', lockHeroMute);
-        })();
-    </script>
-
-
-    <!-- PARTICLES INIT -->
+    <!-- OPTIMIZED PARTICLE ENGINE -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const canvas = document.getElementById('particle-canvas');
@@ -1384,10 +1290,14 @@
                         dy: (Math.random() - 0.5) * 0.5
                     });
                 }
-                function animate() {
-                    requestAnimationFrame(animate);
+                function animateParticles() {
+                    if(document.documentElement.getAttribute('data-theme') === 'light') { 
+                        ctx.clearRect(0, 0, canvas.width, canvas.height); 
+                        requestAnimationFrame(animateParticles); 
+                        return; 
+                    }
                     ctx.clearRect(0, 0, innerWidth, innerHeight);
-                    ctx.fillStyle = document.documentElement.getAttribute('data-theme') === 'light' ? 'rgba(0,0,0,0.5)' : 'rgba(212, 175, 55, 0.5)';
+                    ctx.fillStyle = `rgba(212, 175, 55, 0.4)`;
                     particles.forEach(p => {
                         ctx.beginPath();
                         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2, false);
@@ -1396,16 +1306,61 @@
                         if(p.x < 0 || p.x > innerWidth) p.dx = -p.dx;
                         if(p.y < 0 || p.y > innerHeight) p.dy = -p.dy;
                     });
+                    requestAnimationFrame(animateParticles);
                 }
-                animate();
+                animateParticles();
             }
         });
     </script>
-    
 
-    <!-- TRUE THEME LOGIC INJECTION -->
+    <!-- UNIVERSAL THEME TOGGLE SCRIPT -->
     <script>
-        </script>
+        function initThemeToggle() {
+            const toggleDesktop = document.getElementById('themeToggleDesktop');
+            const toggleMobile = document.getElementById('themeToggleMobile');
+
+            function updateIcons(isLight) {
+                const iconDesktop = document.getElementById('themeIconDesktop');
+                const iconMobile = document.getElementById('themeIconMobile');
+                if (iconDesktop) iconDesktop.className = isLight ? 'ri-moon-fill' : 'ri-sun-fill';
+                if (iconMobile) {
+                    const iTag = iconMobile.tagName && iconMobile.tagName.toLowerCase() === 'i' ? iconMobile : iconMobile.querySelector('i');
+                    if(iTag) iTag.className = isLight ? 'ri-moon-fill' : 'ri-sun-fill';
+                }
+            }
+
+            function toggleTheme() {
+                const html = document.documentElement;
+                const isCurrentlyLight = html.getAttribute('data-theme') === 'light';
+                const nextTheme = isCurrentlyLight ? 'dark' : 'light';
+                
+                html.setAttribute('data-theme', nextTheme);
+                try { localStorage.setItem('rf-theme', nextTheme); } catch(e) {}
+                updateIcons(!isCurrentlyLight);
+            }
+
+            // Sync initial state safely
+            let savedTheme = 'dark';
+            try { savedTheme = localStorage.getItem('rf-theme') || 'dark'; } catch(e) {}
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateIcons(savedTheme === 'light');
+
+            if(toggleDesktop) {
+                toggleDesktop.replaceWith(toggleDesktop.cloneNode(true));
+                document.getElementById('themeToggleDesktop').addEventListener('click', toggleTheme);
+            }
+            if(toggleMobile) {
+                toggleMobile.replaceWith(toggleMobile.cloneNode(true));
+                document.getElementById('themeToggleMobile').addEventListener('click', toggleTheme);
+            }
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initThemeToggle);
+        } else {
+            initThemeToggle();
+        }
+    </script>
 
 </body>
 </html>

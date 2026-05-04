@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://reachforever.com/sitemap.xml

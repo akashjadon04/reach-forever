@@ -14,8 +14,8 @@
    1. THEME TOKENS
    ========================================================================== */
 :root {
-    --rf-bg: #05020A;
-    --rf-surface: #0C0B14;
+    --rf-bg: #000000;
+    --rf-surface: #0A0A0A;
     --rf-elevated: #141320;
     --rf-accent: #C8A96E;
     --rf-accent-bright: #E8D5A3;
@@ -1328,8 +1328,8 @@ body {
 
 /* FORCE SUB-PAGE VARIABLES TO SYNC WITH DARK MODE */
 [data-theme="dark"] {
-    --bg-main: #0A0A0F !important;
-    --bg-surface: #14141F !important;
+    --bg-main: #000000 !important;
+    --bg-surface: #0A0A0A !important;
     --text-dark: #F5F0E8 !important;
     --text-muted: #8A8A95 !important;
     --glass-border: rgba(200,169,110,0.15) !important;
@@ -1371,8 +1371,8 @@ html[data-theme="dark"] .vault-header,
 html[data-theme="dark"] section,
 html[data-theme="dark"] div[style*="background: #FFF"],
 html[data-theme="dark"] div[style*="background:#FFF"] {
-    background-color: #05020A !important;
-    background: #05020A !important;
+    background-color: #000000 !important;
+    background: #000000 !important;
 }
 
 html[data-theme="light"] body,
@@ -1394,3 +1394,133 @@ html[data-theme="dark"] .roi-slider { background: rgba(255,255,255,0.1) !importa
 html[data-theme="dark"] .roi-slider::-webkit-slider-thumb { background: #D4AF37 !important; border-color: #FFF !important; box-shadow: 0 4px 20px rgba(212,175,55,0.5) !important; }
 html[data-theme="dark"] .roi-results { background: rgba(15,8,25,0.9) !important; border: 1px solid rgba(255,255,255,0.1) !important; box-shadow: 0 10px 40px rgba(0,0,0,0.3) !important; }
 html[data-theme="dark"] .result-row span { color: #D4AF37 !important; font-weight: bold; }
+
+
+/* GPU ACCELERATION & PERFORMANCE */
+.gpu-accel { will-change: transform; transform: translateZ(0); }
+/* Growth Engine Light Fix */
+[data-theme="light"] .growth-engine-section h2,
+[data-theme="light"] .growth-engine-section p,
+[data-theme="light"] .growth-engine-section span,
+[data-theme="light"] .growth-engine-section .ge-feat,
+[data-theme="light"] .ge-ui-text h4,
+[data-theme="light"] .ge-ui-text span {
+    color: #1A1C20 !important;
+}
+[data-theme="light"] .ge-floating-ui {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-color: rgba(0,0,0,0.1) !important;
+}
+[data-theme="light"] #particle-canvas {
+    display: none !important;
+}
+
+/* Custom Mobile Adjustments */
+@media (max-width: 768px) {
+    .growth-engine-section {
+        margin: 20px 0 !important;
+        border-radius: 20px !important;
+        padding: 3rem 5% !important;
+    }
+    .parallax-break {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 20px 0 !important;
+        border-radius: 20px !important;
+    }
+    .container {
+        padding: 0 15px !important;
+    }
+}
+
+/* =========================================
+   FINAL POLISH OVERRIDES (SERVICES + INDEX)
+   ========================================= */
+
+/* 1. Kill Particle Stain completely in Light Mode */
+[data-theme="light"] #particle-canvas {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    display: none !important;
+}
+
+/* 2. Audio Indicator Visibility */
+[data-theme="light"] .audio-indicator {
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: #1A1C20 !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 3. Services 3D Device Smoothness (Hardware Acceleration) */
+.macbook-3d, .iphone-3d, .mac-lid {
+    will-change: transform, filter, opacity;
+}
+
+/* 4. Services Deep Theme Integration (Light Mode) */
+[data-theme="light"] .process-3d-card,
+[data-theme="light"] .founder-card,
+[data-theme="light"] .bento-card {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.1) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03) !important;
+}
+[data-theme="light"] .process-3d-card h3,
+[data-theme="light"] .founder-card h3,
+[data-theme="light"] .bento-card h3,
+[data-theme="light"] .sc-tab h3 {
+    color: #1A1C20 !important;
+}
+[data-theme="light"] .process-3d-card p,
+[data-theme="light"] .founder-card p,
+[data-theme="light"] .bento-card p,
+[data-theme="light"] .sc-tab p {
+    color: #6B7280 !important;
+}
+[data-theme="light"] .founder-card .fc-role,
+[data-theme="light"] .process-number {
+    color: #C8A96E !important;
+}
+[data-theme="light"] .sc-tab {
+    background: #FDFDFB !important;
+    border-color: rgba(0,0,0,0.05) !important;
+}
+[data-theme="light"] .sc-tab.active {
+    background: #FFFFFF !important;
+    border-color: #D4AF37 !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+}
+[data-theme="light"] .dev-section,
+[data-theme="light"] .process-section,
+[data-theme="light"] .founder-section {
+    background-color: #FDFDFB !important;
+    background: #FDFDFB !important;
+}
+[data-theme="light"] .dev-header p,
+[data-theme="light"] .process-header p {
+    color: #6B7280 !important;
+}
+
+/* Tap to Watch Light Mode Fix */
+[data-theme="light"] #audioIndicator {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #1A1C20 !important;
+    border-color: rgba(0,0,0,0.1) !important;
+}
+
+/* Reviews section light mode text fixes */
+[data-theme="light"] .reviews-section h2,
+[data-theme="light"] .reviews-section p,
+[data-theme="light"] .reviews-section span,
+[data-theme="light"] .rc-content {
+    color: #1A1C20 !important;
+}
+[data-theme="light"] .review-card {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.1) !important;
+}
+[data-theme="light"] .rc-name {
+    color: #1A1C20 !important;
+}
+[data-theme="light"] .rc-role {
+    color: #6B7280 !important;
+}
