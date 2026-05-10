@@ -218,8 +218,9 @@ class LuxuryFluidWebGL {
         const colors = new Float32Array(this.count * 3);
         this.basePositions = new Float32Array(this.count * 3);
 
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
         const color1 = new THREE.Color('#D4AF37'); 
-        const color2 = new THREE.Color('#9047FF'); // Updated to Neon Purple for Hologram aesthetic
+        const color2 = new THREE.Color(isLight ? '#E5C158' : '#9047FF'); // Solid gold in light mode
 
         for (let i = 0; i < this.count; i++) {
             const x = (Math.random() - 0.5) * 35; const y = (Math.random() - 0.5) * 35; const z = (Math.random() - 0.5) * 15;
@@ -232,15 +233,42 @@ class LuxuryFluidWebGL {
         this.geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
         this.geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
         
-        // Use NormalBlending instead of Additive so it shows on white backgrounds without looking like stains
-        this.material = new THREE.PointsMaterial({ size: ZyrovaGuard.isMobile ? 0.08 : 0.05, vertexColors: true, transparent: true, opacity: 0.8, blending: THREE.NormalBlending });
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        this.material = new THREE.PointsMaterial({ 
+            size: ZyrovaGuard.isMobile ? 0.08 : 0.05, 
+            vertexColors: true, 
+            transparent: true, 
+            opacity: isLight ? 0.8 : 0.6, 
+            blending: isLight ? THREE.NormalBlending : THREE.AdditiveBlending 
+        });
         this.particlesMesh = new THREE.Points(this.geometry, this.material);
         this.scene.add(this.particlesMesh);
         this.camera.position.z = 10;
 
         this.bindEvents(); 
         this.setupCulling();
+        this.setupThemeListener();
         this.animate();
+    }
+
+    setupThemeListener() {
+        window.addEventListener('themeChanged', () => {
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            this.material.blending = isLight ? THREE.NormalBlending : THREE.AdditiveBlending;
+            this.material.opacity = isLight ? 0.8 : 0.6;
+            this.material.needsUpdate = true;
+            
+            // Re-color particles
+            const colors = this.geometry.attributes.color.array;
+            const color1 = new THREE.Color(isLight ? '#D4AF37' : '#D4AF37');
+            const color2 = new THREE.Color(isLight ? '#E5C158' : '#9047FF'); // Solid gold in light mode, purple/gold glow in dark
+            
+            for (let i = 0; i < this.count; i++) {
+                const mixedColor = color1.clone().lerp(color2, Math.random());
+                colors[i * 3] = mixedColor.r; colors[i * 3 + 1] = mixedColor.g; colors[i * 3 + 2] = mixedColor.b;
+            }
+            this.geometry.attributes.color.needsUpdate = true;
+        });
     }
 
     setupCulling() {

@@ -192,7 +192,8 @@
             .hero-grid { text-align: center !important; gap: 20px !important; grid-template-columns: 1fr !important; }
             .hero-text { align-items: center !important; margin: 0 auto !important; }
             .hero-actions { justify-content: center !important; align-items: center !important; }
-            .iphone-mockup { width: 100% !important; max-width: 400px !important; height: 650px !important; margin: 0 auto !important; padding: 5px !important; border-radius: 45px !important; transform: none !important;}
+            .hero-visuals { display: flex !important; justify-content: center !important; align-items: center !important; width: 100% !important; margin-top: 10px !important;}
+            .iphone-mockup { width: 100% !important; max-width: 400px !important; height: 650px !important; margin: 0 auto !important; padding: 5px !important; border-radius: 45px !important; transform: none !important; right: auto !important; left: auto !important;}
             .iphone-mockup > div { border-radius: 40px !important; }
 
             /* Digital Marketing Services (Cute, 3-column tight grid, Icons only) */
@@ -205,18 +206,19 @@
             .ars-icon { width: 45px !important; height: 45px !important; font-size: 1.6rem !important; margin-bottom: 5px !important; }
             .ars-title { font-size: 0.65rem !important; margin-bottom: 0 !important; line-height: 1.1 !important;}
             .ars-desc { display: none !important; } /* Hide descriptions */
+            .ars-img-wrap { display: none !important; } /* MUST hide images on mobile to keep them tiny */
             
             /* Universal Presence (Hologram & 4 Icons in single line) */
             .section-2-wrapper { padding: 1rem 2% !important; display: flex !important; flex-direction: column !important; align-items: center !important; }
             .s2-right { height: 320px !important; perspective: 1000px !important; margin-bottom: 5px !important; width: 100% !important; order: -1; display: flex; justify-content: center; align-items: center;}
             .cylinder-carousel { width: 140px !important; height: 260px !important; }
-            .cylinder-face { width: 140px !important; height: 260px !important; transform-origin: center center -120px !important; }
-            .cylinder-face:nth-child(1) { transform: rotateY(0deg) translateZ(130px) !important; }
-            .cylinder-face:nth-child(2) { transform: rotateY(60deg) translateZ(130px) !important; }
-            .cylinder-face:nth-child(3) { transform: rotateY(120deg) translateZ(130px) !important; }
-            .cylinder-face:nth-child(4) { transform: rotateY(180deg) translateZ(130px) !important; }
-            .cylinder-face:nth-child(5) { transform: rotateY(240deg) translateZ(130px) !important; }
-            .cylinder-face:nth-child(6) { transform: rotateY(300deg) translateZ(130px) !important; }
+            .cylinder-face { width: 140px !important; height: 260px !important; transform-origin: center center -121px !important; }
+            .cylinder-face:nth-child(1) { transform: rotateY(0deg) translateZ(121px) !important; }
+            .cylinder-face:nth-child(2) { transform: rotateY(60deg) translateZ(121px) !important; }
+            .cylinder-face:nth-child(3) { transform: rotateY(120deg) translateZ(121px) !important; }
+            .cylinder-face:nth-child(4) { transform: rotateY(180deg) translateZ(121px) !important; }
+            .cylinder-face:nth-child(5) { transform: rotateY(240deg) translateZ(121px) !important; }
+            .cylinder-face:nth-child(6) { transform: rotateY(300deg) translateZ(121px) !important; }
             .s2-left { width: 100% !important; text-align: center !important; }
             .s2-social-grid { display: flex !important; flex-direction: row !important; justify-content: center !important; gap: 10px !important; margin-top: 10px !important; width: 100%;}
             .s2-social-card { width: 50px !important; height: 50px !important; padding: 0 !important; gap: 0 !important; border-radius: 12px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex: none !important;}
@@ -229,7 +231,7 @@
             .px-content p { font-size: 0.65rem !important; letter-spacing: 1px !important; }
 
             /* Radar Map Fixes (Beautiful fit) */
-            .radar-container { height: 400px !important; background-size: contain !important; background-position: center !important;}
+            .radar-container { height: 400px !important; background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/India_map_en.svg/1200px-India_map_en.svg.png') !important; background-size: contain !important; background-position: center !important; background-repeat: no-repeat !important; background-blend-mode: luminosity;}
             .radar-grid { display: none !important; } 
             .city-card { padding: 4px 8px !important; gap: 4px !important; transform: scale(0.7) !important; border-radius: 10px !important; }
             .cc-city { font-size: 0.8rem !important; }
@@ -1395,6 +1397,37 @@
             document.querySelectorAll('.reveal-on-scroll').forEach(function(el) {
                 observer.observe(el);
             });
+        });
+
+        // =====================================================================
+        // BEFORE/AFTER SLIDER LOGIC
+        // =====================================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('baContainer');
+            const beforeImg = document.getElementById('baBefore');
+            const handle = document.getElementById('baHandle');
+            
+            if(container && beforeImg && handle) {
+                let isDragging = false;
+                
+                function updateSlider(x) {
+                    const rect = container.getBoundingClientRect();
+                    let pos = Math.max(0, Math.min(x - rect.left, rect.width));
+                    let percent = (pos / rect.width) * 100;
+                    
+                    handle.style.left = percent + '%';
+                    beforeImg.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+                }
+
+                container.addEventListener('mousedown', (e) => { isDragging = true; updateSlider(e.clientX); });
+                container.addEventListener('touchstart', (e) => { isDragging = true; updateSlider(e.touches[0].clientX); });
+                
+                window.addEventListener('mouseup', () => { isDragging = false; });
+                window.addEventListener('touchend', () => { isDragging = false; });
+                
+                window.addEventListener('mousemove', (e) => { if(isDragging) updateSlider(e.clientX); });
+                window.addEventListener('touchmove', (e) => { if(isDragging) updateSlider(e.touches[0].clientX); }, {passive: true});
+            }
         });
 
         // =====================================================================
