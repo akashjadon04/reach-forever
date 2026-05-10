@@ -255,13 +255,13 @@ class LuxuryFluidWebGL {
         window.addEventListener('themeChanged', () => {
             const isLight = document.documentElement.getAttribute('data-theme') === 'light';
             this.material.blending = isLight ? THREE.NormalBlending : THREE.AdditiveBlending;
-            this.material.opacity = isLight ? 0.8 : 0.6;
+            this.material.opacity = isLight ? 1.0 : 0.6;
             this.material.needsUpdate = true;
             
             // Re-color particles
             const colors = this.geometry.attributes.color.array;
-            const color1 = new THREE.Color(isLight ? '#D4AF37' : '#D4AF37');
-            const color2 = new THREE.Color(isLight ? '#E5C158' : '#9047FF'); // Solid gold in light mode, purple/gold glow in dark
+            const color1 = new THREE.Color(isLight ? '#FFD700' : '#D4AF37'); // Bright pure gold for light mode
+            const color2 = new THREE.Color(isLight ? '#FFA500' : '#9047FF'); // Bright orange/gold for light mode
             
             for (let i = 0; i < this.count; i++) {
                 const mixedColor = color1.clone().lerp(color2, Math.random());
