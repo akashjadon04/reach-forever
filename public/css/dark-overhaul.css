@@ -1442,7 +1442,6 @@ html[data-theme="dark"] .result-row span { color: #D4AF37 !important; font-weigh
     opacity: 0.8 !important;
     visibility: visible !important;
     display: block !important;
-    filter: invert(1) hue-rotate(180deg) brightness(1.5) sepia(1) saturate(5) hue-rotate(30deg) !important;
 }
 
 /* 2. Audio Indicator Visibility */
