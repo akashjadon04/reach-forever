@@ -231,7 +231,9 @@ class LuxuryFluidWebGL {
 
         this.geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
         this.geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-        this.material = new THREE.PointsMaterial({ size: ZyrovaGuard.isMobile ? 0.08 : 0.05, vertexColors: true, transparent: true, opacity: 0.6, blending: THREE.AdditiveBlending });
+        
+        // Use NormalBlending instead of Additive so it shows on white backgrounds without looking like stains
+        this.material = new THREE.PointsMaterial({ size: ZyrovaGuard.isMobile ? 0.08 : 0.05, vertexColors: true, transparent: true, opacity: 0.8, blending: THREE.NormalBlending });
         this.particlesMesh = new THREE.Points(this.geometry, this.material);
         this.scene.add(this.particlesMesh);
         this.camera.position.z = 10;

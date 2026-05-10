@@ -1412,7 +1412,7 @@ html[data-theme="dark"] .result-row span { color: #D4AF37 !important; font-weigh
     border-color: rgba(0,0,0,0.1) !important;
 }
 [data-theme="light"] #particle-canvas {
-    display: none !important;
+    display: block !important;
 }
 
 /* Custom Mobile Adjustments */
@@ -1437,11 +1437,12 @@ html[data-theme="dark"] .result-row span { color: #D4AF37 !important; font-weigh
    FINAL POLISH OVERRIDES (SERVICES + INDEX)
    ========================================= */
 
-/* 1. Kill Particle Stain completely in Light Mode */
+/* 1. Light Mode Particles (No longer hidden, handled via CSS filters or JS) */
 [data-theme="light"] #particle-canvas {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    display: none !important;
+    opacity: 0.8 !important;
+    visibility: visible !important;
+    display: block !important;
+    filter: invert(1) hue-rotate(180deg) brightness(1.5) sepia(1) saturate(5) hue-rotate(30deg) !important;
 }
 
 /* 2. Audio Indicator Visibility */

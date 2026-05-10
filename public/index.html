@@ -183,58 +183,65 @@
             }
 
             /* Typography Scaling for readability but fitting screen */
-            .title-massive, .hero-title, .rush-title, .ge-text h2, .s2-left h2 { font-size: 2.2rem !important; line-height: 1.1 !important; margin-bottom: 8px !important; }
-            .title-lg, .ars-title { font-size: 1.5rem !important; margin-bottom: 10px !important; }
-            p, .hero-desc, .ars-desc, .ge-text p, .s2-left p { font-size: 0.95rem !important; line-height: 1.4 !important; margin-bottom: 12px !important; }
-            .tag-pill, .hero-tag { font-size: 0.7rem !important; padding: 6px 14px !important; margin-bottom: 15px !important; }
+            .title-massive, .hero-title, .rush-title, .ge-text h2, .s2-left h2 { font-size: 2.2rem !important; line-height: 1.1 !important; margin-bottom: 8px !important; text-align: center !important;}
+            .title-lg, .ars-title { font-size: 1.5rem !important; margin-bottom: 10px !important; text-align: center !important; }
+            p, .hero-desc, .ars-desc, .ge-text p, .s2-left p { font-size: 0.95rem !important; line-height: 1.4 !important; margin-bottom: 12px !important; text-align: center !important;}
+            .tag-pill, .hero-tag { font-size: 0.7rem !important; padding: 6px 14px !important; margin-bottom: 15px !important; margin-left: auto; margin-right: auto;}
 
-            /* Hero Layout & iPhone Mockup */
-            .hero-grid { text-align: left !important; gap: 20px !important; }
-            .hero-text { align-items: flex-start !important; }
-            .iphone-mockup { width: 95% !important; max-width: none !important; height: 600px !important; margin: 0 auto !important; padding: 8px !important; border-radius: 45px !important; transform: none !important;}
-            .iphone-mockup > div { border-radius: 38px !important; }
+            /* Hero Layout & iPhone Mockup - CENTERED & FULL COVER */
+            .hero-grid { text-align: center !important; gap: 20px !important; grid-template-columns: 1fr !important; }
+            .hero-text { align-items: center !important; margin: 0 auto !important; }
+            .hero-actions { justify-content: center !important; align-items: center !important; }
+            .iphone-mockup { width: 100% !important; max-width: 400px !important; height: 650px !important; margin: 0 auto !important; padding: 5px !important; border-radius: 45px !important; transform: none !important;}
+            .iphone-mockup > div { border-radius: 40px !important; }
 
-            /* Digital Marketing Services (Short Tiles, 2-column or 3-column tight grid) */
+            /* Digital Marketing Services (Cute, 3-column tight grid, Icons only) */
             .ars-container { 
-                grid-template-columns: repeat(2, 1fr) !important; 
-                gap: 10px !important; 
+                grid-template-columns: repeat(3, 1fr) !important; 
+                gap: 8px !important; 
             }
-            .ars-card { padding: 12px !important; text-align: center; align-items: center; justify-content: center; min-height: 140px;}
-            .ars-icon { width: 36px !important; height: 36px !important; font-size: 1.3rem !important; margin-bottom: 8px !important; }
-            .ars-title { font-size: 1.1rem !important; margin-bottom: 5px !important; }
-            .ars-desc { display: none !important; /* Hide long desc on mobile to keep tiles short */ }
+            .ars-card { padding: 15px 5px !important; text-align: center; align-items: center; justify-content: center; min-height: 90px;}
+            .ars-card .ri-expand-diagonal-line { display: none !important; } /* Hide expand icon on tiny tiles */
+            .ars-icon { width: 45px !important; height: 45px !important; font-size: 1.6rem !important; margin-bottom: 5px !important; }
+            .ars-title { font-size: 0.65rem !important; margin-bottom: 0 !important; line-height: 1.1 !important;}
+            .ars-desc { display: none !important; } /* Hide descriptions */
             
             /* Universal Presence (Hologram & 4 Icons in single line) */
-            .section-2-wrapper { padding: 2rem 2% !important; display: flex !important; flex-direction: column !important; }
-            .s2-right { height: 450px !important; perspective: 1000px !important; margin-bottom: 20px !important; width: 100% !important; order: -1; }
-            .cylinder-carousel { width: 180px !important; height: 320px !important; }
-            .cylinder-face { width: 180px !important; height: 320px !important; transform-origin: center center -150px !important; }
-            .cylinder-face:nth-child(1) { transform: rotateY(0deg) translateZ(160px) !important; }
-            .cylinder-face:nth-child(2) { transform: rotateY(60deg) translateZ(160px) !important; }
-            .cylinder-face:nth-child(3) { transform: rotateY(120deg) translateZ(160px) !important; }
-            .cylinder-face:nth-child(4) { transform: rotateY(180deg) translateZ(160px) !important; }
-            .cylinder-face:nth-child(5) { transform: rotateY(240deg) translateZ(160px) !important; }
-            .cylinder-face:nth-child(6) { transform: rotateY(300deg) translateZ(160px) !important; }
+            .section-2-wrapper { padding: 1rem 2% !important; display: flex !important; flex-direction: column !important; align-items: center !important; }
+            .s2-right { height: 320px !important; perspective: 1000px !important; margin-bottom: 5px !important; width: 100% !important; order: -1; display: flex; justify-content: center; align-items: center;}
+            .cylinder-carousel { width: 140px !important; height: 260px !important; }
+            .cylinder-face { width: 140px !important; height: 260px !important; transform-origin: center center -120px !important; }
+            .cylinder-face:nth-child(1) { transform: rotateY(0deg) translateZ(130px) !important; }
+            .cylinder-face:nth-child(2) { transform: rotateY(60deg) translateZ(130px) !important; }
+            .cylinder-face:nth-child(3) { transform: rotateY(120deg) translateZ(130px) !important; }
+            .cylinder-face:nth-child(4) { transform: rotateY(180deg) translateZ(130px) !important; }
+            .cylinder-face:nth-child(5) { transform: rotateY(240deg) translateZ(130px) !important; }
+            .cylinder-face:nth-child(6) { transform: rotateY(300deg) translateZ(130px) !important; }
             .s2-left { width: 100% !important; text-align: center !important; }
-            .s2-social-grid { display: flex !important; flex-direction: row !important; justify-content: space-between !important; gap: 5px !important; margin-top: 15px !important; }
-            .s2-social-card { flex: 1; padding: 10px 5px !important; gap: 0 !important; }
+            .s2-social-grid { display: flex !important; flex-direction: row !important; justify-content: center !important; gap: 10px !important; margin-top: 10px !important; width: 100%;}
+            .s2-social-card { width: 50px !important; height: 50px !important; padding: 0 !important; gap: 0 !important; border-radius: 12px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex: none !important;}
             .s2-social-card span { display: none !important; } 
-            .s2-icon { font-size: 1.8rem !important; margin: 0 !important; }
+            .s2-icon { font-size: 1.6rem !important; margin: 0 !important; }
             
             /* Parallax Revenue Banner Fix */
-            .parallax-break { height: 250px !important; margin: 2rem auto !important; width: 96% !important; border-radius: 20px !important; }
-            .px-content h2 { font-size: clamp(2rem, 8vw, 3rem) !important; }
-            .px-content p { font-size: 0.7rem !important; letter-spacing: 1px !important; }
+            .parallax-break { height: 200px !important; margin: 1rem auto !important; width: 96% !important; border-radius: 20px !important; }
+            .px-content h2 { font-size: clamp(2rem, 8vw, 3rem) !important; margin-bottom: 5px !important;}
+            .px-content p { font-size: 0.65rem !important; letter-spacing: 1px !important; }
 
-            /* Radar Map Fixes */
-            .radar-container { height: 350px !important; background-size: cover !important; background-position: center !important;}
-            .radar-grid { display: none !important; } /* Clean up to show map */
-            .city-card { padding: 6px 10px !important; gap: 6px !important; transform: scale(0.8) !important; }
-            .cc-city { font-size: 0.9rem !important; }
-            .cc-leads { font-size: 0.6rem !important; }
+            /* Radar Map Fixes (Beautiful fit) */
+            .radar-container { height: 400px !important; background-size: contain !important; background-position: center !important;}
+            .radar-grid { display: none !important; } 
+            .city-card { padding: 4px 8px !important; gap: 4px !important; transform: scale(0.7) !important; border-radius: 10px !important; }
+            .cc-city { font-size: 0.8rem !important; }
+            .cc-leads { font-size: 0.5rem !important; }
+            
+            /* Before/After Slider */
+            .ba-container { height: 400px !important; border-radius: 20px !important; }
 
             /* Mobile Bottom Bar (Sticky) */
             .mobile-bottom-bar { display: flex !important; }
+            .desktop-wa { display: none !important; }
+            .sticky-cta { display: none !important; }
         }
     </style>
     <link rel="stylesheet" href="css/dark-overhaul.css">
