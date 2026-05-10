@@ -169,71 +169,72 @@
         }
 
         /* ==========================================================================
-           ULTIMATE MOBILE COMPACT MATRIX (APP-STYLE)
+           REFINED MOBILE LAYOUT (MINIMAL SPACING & HIGH PERFORMANCE)
            ========================================================================== */
         @media (max-width: 768px) {
-            /* Extreme Padding & Border Radius Reduction */
+            /* Minimal Spacing & Width maximization */
             .section-pad, .growth-engine-section, .story-section, .radar-section, .xray-section, .reels-section, .rush-section { 
-                padding: 3rem 4% !important; 
+                padding: 1.5rem 2% !important; 
             }
-            .main-wrapper { border-bottom-left-radius: 30px !important; border-bottom-right-radius: 30px !important; }
+            .main-wrapper { border-bottom-left-radius: 20px !important; border-bottom-right-radius: 20px !important; }
             .section-2-wrapper, .ars-card, .ge-visual, .ba-container, .city-card { 
-                border-radius: 20px !important; 
+                border-radius: 16px !important; 
                 padding: 15px !important; 
             }
 
-            /* Typography Scaling */
-            .title-massive, .hero-title, .rush-title, .px-content h2, .ge-text h2, .s2-left h2 { font-size: 2.2rem !important; line-height: 1.1 !important; margin-bottom: 10px !important; }
-            .title-lg, .ars-title { font-size: 1.4rem !important; margin-bottom: 10px !important; }
-            p, .hero-desc, .ars-desc, .ge-text p, .s2-left p { font-size: 0.85rem !important; line-height: 1.4 !important; margin-bottom: 15px !important; }
-            .tag-pill, .hero-tag { font-size: 0.65rem !important; padding: 6px 12px !important; margin-bottom: 15px !important; }
+            /* Typography Scaling for readability but fitting screen */
+            .title-massive, .hero-title, .rush-title, .ge-text h2, .s2-left h2 { font-size: 2.2rem !important; line-height: 1.1 !important; margin-bottom: 8px !important; }
+            .title-lg, .ars-title { font-size: 1.5rem !important; margin-bottom: 10px !important; }
+            p, .hero-desc, .ars-desc, .ge-text p, .s2-left p { font-size: 0.95rem !important; line-height: 1.4 !important; margin-bottom: 12px !important; }
+            .tag-pill, .hero-tag { font-size: 0.7rem !important; padding: 6px 14px !important; margin-bottom: 15px !important; }
 
-            /* Force 2-Column Grids (The "App" Look) */
+            /* Hero Layout & iPhone Mockup */
+            .hero-grid { text-align: left !important; gap: 20px !important; }
+            .hero-text { align-items: flex-start !important; }
+            .iphone-mockup { width: 95% !important; max-width: none !important; height: 600px !important; margin: 0 auto !important; padding: 8px !important; border-radius: 45px !important; transform: none !important;}
+            .iphone-mockup > div { border-radius: 38px !important; }
+
+            /* Digital Marketing Services (Short Tiles, 2-column or 3-column tight grid) */
             .ars-container { 
                 grid-template-columns: repeat(2, 1fr) !important; 
                 gap: 10px !important; 
             }
+            .ars-card { padding: 12px !important; text-align: center; align-items: center; justify-content: center; min-height: 140px;}
+            .ars-icon { width: 36px !important; height: 36px !important; font-size: 1.3rem !important; margin-bottom: 8px !important; }
+            .ars-title { font-size: 1.1rem !important; margin-bottom: 5px !important; }
+            .ars-desc { display: none !important; /* Hide long desc on mobile to keep tiles short */ }
             
-            /* Miniaturize Icons & Images */
-            .ars-icon, .cc-icon, .ge-ui-icon { 
-                width: 32px !important; height: 32px !important; font-size: 1.2rem !important; border-radius: 8px !important; margin-bottom: 8px !important; 
-            }
-            .ars-img-wrap { height: 80px !important; border-radius: 10px !important; margin-top: 10px !important; }
-            .ars-card { padding: 15px !important; }
-
-            /* Omnipresent & Social Grid Fix */
-            .s2-social-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 5px !important; }
-            .s2-social-card { padding: 8px !important; flex-direction: column !important; justify-content: center !important; gap: 5px !important;}
+            /* Universal Presence (Hologram & 4 Icons in single line) */
+            .section-2-wrapper { padding: 2rem 2% !important; display: flex !important; flex-direction: column !important; }
+            .s2-right { height: 450px !important; perspective: 1000px !important; margin-bottom: 20px !important; width: 100% !important; order: -1; }
+            .cylinder-carousel { width: 180px !important; height: 320px !important; }
+            .cylinder-face { width: 180px !important; height: 320px !important; transform-origin: center center -150px !important; }
+            .cylinder-face:nth-child(1) { transform: rotateY(0deg) translateZ(160px) !important; }
+            .cylinder-face:nth-child(2) { transform: rotateY(60deg) translateZ(160px) !important; }
+            .cylinder-face:nth-child(3) { transform: rotateY(120deg) translateZ(160px) !important; }
+            .cylinder-face:nth-child(4) { transform: rotateY(180deg) translateZ(160px) !important; }
+            .cylinder-face:nth-child(5) { transform: rotateY(240deg) translateZ(160px) !important; }
+            .cylinder-face:nth-child(6) { transform: rotateY(300deg) translateZ(160px) !important; }
+            .s2-left { width: 100% !important; text-align: center !important; }
+            .s2-social-grid { display: flex !important; flex-direction: row !important; justify-content: space-between !important; gap: 5px !important; margin-top: 15px !important; }
+            .s2-social-card { flex: 1; padding: 10px 5px !important; gap: 0 !important; }
             .s2-social-card span { display: none !important; } 
-            .s2-icon { font-size: 1.5rem !important; margin: 0 !important; }
+            .s2-icon { font-size: 1.8rem !important; margin: 0 !important; }
             
-            /* Micro 3D Cylinder */
-            .s2-right { height: 250px !important; perspective: 800px !important; }
-            .cylinder-carousel { width: 100px !important; height: 160px !important; }
-            .cylinder-face { width: 100px !important; height: 160px !important; border-width: 1px !important;}
-            .cylinder-face:nth-child(1) { transform: rotateY(0deg) translateZ(90px) !important; }
-            .cylinder-face:nth-child(2) { transform: rotateY(60deg) translateZ(90px) !important; }
-            .cylinder-face:nth-child(3) { transform: rotateY(120deg) translateZ(90px) !important; }
-            .cylinder-face:nth-child(4) { transform: rotateY(180deg) translateZ(90px) !important; }
-            .cylinder-face:nth-child(5) { transform: rotateY(240deg) translateZ(90px) !important; }
-            .cylinder-face:nth-child(6) { transform: rotateY(300deg) translateZ(90px) !important; }
-            
-            /* General Fixes */
-            .hero-actions .btn-olive, .f-cta .btn-olive { padding: 12px 24px !important; font-size: 0.85rem !important; width: 100%; text-align: center;}
-            .chat-panel { width: 92% !important; right: 4% !important; bottom: 85px !important; height: 60vh !important; border-radius: 15px !important;}
-            .ai-fab { width: 55px !important; height: 55px !important; }
-            .ai-fab i { font-size: 1.8rem !important; }
-            .wa-float { width: 55px !important; height: 55px !important; font-size: 2rem !important; bottom: 20px !important; left: 20px !important;}
-            
+            /* Parallax Revenue Banner Fix */
+            .parallax-break { height: 250px !important; margin: 2rem auto !important; width: 96% !important; border-radius: 20px !important; }
+            .px-content h2 { font-size: clamp(2rem, 8vw, 3rem) !important; }
+            .px-content p { font-size: 0.7rem !important; letter-spacing: 1px !important; }
+
             /* Radar Map Fixes */
-            .radar-container { height: 300px !important; }
-            .city-card { padding: 8px 12px !important; gap: 8px !important; }
-            .cc-city { font-size: 1rem !important; }
-            .cc-leads { font-size: 0.65rem !important; }
-            
-            /* X-Ray Fixes */
-            .ba-container { height: 250px !important; }
-            .ba-label { font-size: 0.7rem !important; padding: 6px 12px !important; }
+            .radar-container { height: 350px !important; background-size: cover !important; background-position: center !important;}
+            .radar-grid { display: none !important; } /* Clean up to show map */
+            .city-card { padding: 6px 10px !important; gap: 6px !important; transform: scale(0.8) !important; }
+            .cc-city { font-size: 0.9rem !important; }
+            .cc-leads { font-size: 0.6rem !important; }
+
+            /* Mobile Bottom Bar (Sticky) */
+            .mobile-bottom-bar { display: flex !important; }
         }
     </style>
     <link rel="stylesheet" href="css/dark-overhaul.css">
@@ -441,42 +442,48 @@
 
                 <div class="ars-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px;">
                     
-                    <div class="ars-card glow-card reveal-up" style="background: rgba(15, 8, 25, 0.6); backdrop-filter: blur(20px); border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; transition: all 0.4s ease; overflow: hidden; position: relative; opacity: 1 !important; filter: none !important;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 25px 50px rgba(212,175,55,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)';">
+                    <div class="ars-card glow-card reveal-up" onclick="expandServiceCard(this, 'fb_ads')" style="background: rgba(15, 8, 25, 0.6); backdrop-filter: blur(20px); border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; transition: all 0.4s ease; overflow: hidden; position: relative; opacity: 1 !important; filter: none !important; cursor: pointer;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 25px 50px rgba(212,175,55,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)';">
+                        <div style="position: absolute; top: 15px; right: 15px; font-size: 1.2rem; color: rgba(255,255,255,0.2);"><i class="ri-expand-diagonal-line"></i></div>
                         <div class="ars-icon" style="width: 60px; height: 60px; border-radius: 16px; background: rgba(0, 85, 255, 0.1); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #0055FF; margin-bottom: 20px;"><i class="ri-facebook-circle-fill"></i></div>
                         <h3 class="ars-title" data-cms="ars_c1_title" style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; color: var(--rf-text);">Local Business Ads</h3>
                         <p class="ars-desc" data-cms="ars_c1_desc" style="font-family: 'Outfit', sans-serif; font-size: 1rem; color: #B0B0C0; line-height: 1.6; margin-bottom: 25px;">Highly targeted Facebook and Instagram campaigns to reach high-value customers in your city right when they are ready to buy.</p>
                         <div class="ars-img-wrap" style="width: 100%; height: 220px; border-radius: 16px; overflow: hidden; margin-top: auto;"><img src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="Local Business Ads Strategy Punjab" data-cms="ars_c1_img" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"></div>
                     </div>
 
-                    <div class="ars-card glow-card reveal-up" style="background: rgba(15, 8, 25, 0.6); backdrop-filter: blur(20px); border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; transition: all 0.4s ease; overflow: hidden; position: relative; opacity: 1 !important; filter: none !important; transition-delay: 0.1s;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 25px 50px rgba(212,175,55,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)';">
-                        <div class="ars-icon" style="width: 60px; height: 60px; border-radius: 16px; background: rgba(212, 175, 55, 0.1); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #D4AF37; margin-bottom: 20px;"><i class="ri-layout-fluid-fill"></i></div>
+                    <div class="ars-card glow-card reveal-up" onclick="expandServiceCard(this, 'auto_web')" style="background: rgba(15, 8, 25, 0.6); backdrop-filter: blur(20px); border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; transition: all 0.4s ease; overflow: hidden; position: relative; opacity: 1 !important; filter: none !important; transition-delay: 0.1s; cursor: pointer;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 25px 50px rgba(212,175,55,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)';">
+                        <div style="position: absolute; top: 15px; right: 15px; font-size: 1.2rem; color: rgba(255,255,255,0.2);"><i class="ri-expand-diagonal-line"></i></div>
+                        <div class="ars-icon" style="width: 60px; height: 60px; border-radius: 16px; background: rgba(212, 175, 55, 0.1); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #D4AF37; margin-bottom: 20px;"><i class="ri-macbook-fill"></i></div>
                         <h3 class="ars-title" data-cms="ars_c2_title" style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; color: var(--rf-text);">Automated Websites</h3>
                         <p class="ars-desc" data-cms="ars_c2_desc" style="font-family: 'Outfit', sans-serif; font-size: 1rem; color: #B0B0C0; line-height: 1.6; margin-bottom: 25px;">Lightning-fast, high-converting landing pages engineered to capture contact info and book appointments instantly.</p>
                         <div class="ars-img-wrap" style="width: 100%; height: 220px; border-radius: 16px; overflow: hidden; margin-top: auto;"><img src="https://images.pexels.com/photos/19736858/pexels-photo-19736858.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="High-Converting Automated Websites" data-cms="ars_c2_img" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"></div>
                     </div>
 
-                    <div class="ars-card glow-card reveal-up" style="background: rgba(15, 8, 25, 0.6); backdrop-filter: blur(20px); border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; transition: all 0.4s ease; overflow: hidden; position: relative; opacity: 1 !important; filter: none !important; transition-delay: 0.2s;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 25px 50px rgba(212,175,55,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)';">
+                    <div class="ars-card glow-card reveal-up" onclick="expandServiceCard(this, 'seo')" style="background: rgba(15, 8, 25, 0.6); backdrop-filter: blur(20px); border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; transition: all 0.4s ease; overflow: hidden; position: relative; opacity: 1 !important; filter: none !important; transition-delay: 0.2s; cursor: pointer;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 25px 50px rgba(212,175,55,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)';">
+                        <div style="position: absolute; top: 15px; right: 15px; font-size: 1.2rem; color: rgba(255,255,255,0.2);"><i class="ri-expand-diagonal-line"></i></div>
                         <div class="ars-icon" style="width: 60px; height: 60px; border-radius: 16px; background: rgba(139, 0, 0, 0.1); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #8B0000; margin-bottom: 20px;"><i class="ri-search-eye-line"></i></div>
                         <h3 class="ars-title" data-cms="ars_c3_title" style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; color: var(--rf-text);">Google SEO</h3>
                         <p class="ars-desc" data-cms="ars_c3_desc" style="font-family: 'Outfit', sans-serif; font-size: 1rem; color: #B0B0C0; line-height: 1.6; margin-bottom: 25px;">Rank #1 locally so when people search for your exact service, they find you before your competitors.</p>
                         <div class="ars-img-wrap" style="width: 100%; height: 220px; border-radius: 16px; overflow: hidden; margin-top: auto;"><img src="https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="Google SEO and Local Ranking" data-cms="ars_c3_img" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"></div>
                     </div>
 
-                    <div class="ars-card glow-card reveal-up" style="background: rgba(15, 8, 25, 0.6); backdrop-filter: blur(20px); border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; transition: all 0.4s ease; overflow: hidden; position: relative; opacity: 1 !important; filter: none !important; transition-delay: 0.3s;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 25px 50px rgba(212,175,55,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)';">
+                    <div class="ars-card glow-card reveal-up" onclick="expandServiceCard(this, 'web_dev')" style="background: rgba(15, 8, 25, 0.6); backdrop-filter: blur(20px); border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; transition: all 0.4s ease; overflow: hidden; position: relative; opacity: 1 !important; filter: none !important; transition-delay: 0.3s; cursor: pointer;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 25px 50px rgba(212,175,55,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)';">
+                        <div style="position: absolute; top: 15px; right: 15px; font-size: 1.2rem; color: rgba(255,255,255,0.2);"><i class="ri-expand-diagonal-line"></i></div>
                         <div class="ars-icon" style="width: 60px; height: 60px; border-radius: 16px; background: rgba(0, 0, 0, 0.05); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--rf-text); margin-bottom: 20px;"><i class="ri-window-line"></i></div>
                         <h3 class="ars-title" data-cms="ars_c4_title" style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; color: var(--rf-text);">Web Development</h3>
                         <p class="ars-desc" data-cms="ars_c4_desc" style="font-family: 'Outfit', sans-serif; font-size: 1rem; color: #B0B0C0; line-height: 1.6; margin-bottom: 25px;">Bespoke, high-performance web applications and e-commerce platforms built for speed, security, and absolute scale.</p>
                         <div class="ars-img-wrap" style="width: 100%; height: 220px; border-radius: 16px; overflow: hidden; margin-top: auto;"><img src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="Custom Web Development Services" data-cms="ars_c4_img" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"></div>
                     </div>
 
-                    <div class="ars-card glow-card reveal-up" style="background: rgba(15, 8, 25, 0.6); backdrop-filter: blur(20px); border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; transition: all 0.4s ease; overflow: hidden; position: relative; opacity: 1 !important; filter: none !important; transition-delay: 0.4s;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 25px 50px rgba(212,175,55,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)';">
+                    <div class="ars-card glow-card reveal-up" onclick="expandServiceCard(this, 'social')" style="background: rgba(15, 8, 25, 0.6); backdrop-filter: blur(20px); border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; transition: all 0.4s ease; overflow: hidden; position: relative; opacity: 1 !important; filter: none !important; transition-delay: 0.4s; cursor: pointer;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 25px 50px rgba(212,175,55,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)';">
+                        <div style="position: absolute; top: 15px; right: 15px; font-size: 1.2rem; color: rgba(255,255,255,0.2);"><i class="ri-expand-diagonal-line"></i></div>
                         <div class="ars-icon" style="width: 60px; height: 60px; border-radius: 16px; background: rgba(138, 43, 226, 0.1); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #8A2BE2; margin-bottom: 20px;"><i class="ri-megaphone-fill"></i></div>
                         <h3 class="ars-title" data-cms="ars_c5_title" style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; color: var(--rf-text);">Social Media Growth</h3>
                         <p class="ars-desc" data-cms="ars_c5_desc" style="font-family: 'Outfit', sans-serif; font-size: 1rem; color: #B0B0C0; line-height: 1.6; margin-bottom: 25px;">Engaging content, viral reels, and strategic brand positioning to make your business the most famous in your local area.</p>
                         <div class="ars-img-wrap" style="width: 100%; height: 220px; border-radius: 16px; overflow: hidden; margin-top: auto;"><img src="https://images.pexels.com/photos/5053846/pexels-photo-5053846.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="Social Media Marketing and Growth" data-cms="ars_c5_img" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"></div>
                     </div>
 
-                    <div class="ars-card glow-card reveal-up" style="background: rgba(15, 8, 25, 0.6); backdrop-filter: blur(20px); border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; transition: all 0.4s ease; overflow: hidden; position: relative; opacity: 1 !important; filter: none !important; transition-delay: 0.5s;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 25px 50px rgba(212,175,55,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)';">
+                    <div class="ars-card glow-card reveal-up" onclick="expandServiceCard(this, 'crm')" style="background: rgba(15, 8, 25, 0.6); backdrop-filter: blur(20px); border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; transition: all 0.4s ease; overflow: hidden; position: relative; opacity: 1 !important; filter: none !important; transition-delay: 0.5s; cursor: pointer;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 25px 50px rgba(212,175,55,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)';">
+                        <div style="position: absolute; top: 15px; right: 15px; font-size: 1.2rem; color: rgba(255,255,255,0.2);"><i class="ri-expand-diagonal-line"></i></div>
                         <div class="ars-icon" style="width: 60px; height: 60px; border-radius: 16px; background: rgba(20, 184, 166, 0.1); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #14B8A6; margin-bottom: 20px;"><i class="ri-mail-send-fill"></i></div>
                         <h3 class="ars-title" data-cms="ars_c6_title" style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; color: var(--rf-text);">CRM & Automation</h3>
                         <p class="ars-desc" data-cms="ars_c6_desc" style="font-family: 'Outfit', sans-serif; font-size: 1rem; color: #B0B0C0; line-height: 1.6; margin-bottom: 25px;">Automated email sequences, SMS follow-ups, and lead tracking so no potential customer ever slips through the cracks.</p>
@@ -490,8 +497,8 @@
         <section class="parallax-break" id="parallax-break-admin" style="position: relative; width: 96%; max-width: 1600px; margin: 6rem auto; height: 50vh; border-radius: 60px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 40px 80px rgba(0,0,0,0.1); z-index: 5;">
             <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=2000&q=100" class="px-img" alt="Reach Forever Marketing Agency Results" data-cms="px_bg" style="position: absolute; inset: 0; width: 100%; height: 130%; object-fit: cover; filter: brightness(0.4) saturate(1.2); transform: scale(1.1); z-index: 1;">
             <div class="px-content" style="position: relative; z-index: 10; text-align: center; color: #FFFFFF; padding: 0 20px; opacity: 1 !important; display: block !important;">
-                <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 7vw, 7rem); line-height: 1; margin-bottom: 10px; color: #D4AF37; text-shadow: 0 20px 40px rgba(0,0,0,0.8); opacity: 1 !important; display: block !important;">₹85 Lakhs+</h2>
-                <p style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #FFFFFF; text-shadow: 0 10px 20px rgba(0,0,0,0.8); opacity: 1 !important; display: block !important;">Revenue Generated for Local Clients This Quarter</p>
+                <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 10vw, 7rem); line-height: 1; margin-bottom: 10px; color: #D4AF37; text-shadow: 0 20px 40px rgba(0,0,0,0.8); opacity: 1 !important; display: block !important;">₹85 Lakhs+</h2>
+                <p style="font-family: 'Outfit', sans-serif; font-size: clamp(0.7rem, 3vw, 1.2rem); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #FFFFFF; text-shadow: 0 10px 20px rgba(0,0,0,0.8); opacity: 1 !important; display: block !important;">Revenue Generated This Quarter</p>
             </div>
         </section>
 
@@ -501,8 +508,8 @@
                 <h2 class="title-lg reveal-up" data-cms="radar_title" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4.5vw, 4.5rem); margin-bottom: 20px; font-weight: 700; color: var(--rf-text);">Generating Leads <span class="italic-serif" style="color: #C8A96E; font-style: italic;">Everywhere.</span></h2>
             </div>
             
-            <div class="radar-container reveal-up">
-                <div class="radar-grid"></div>
+            <div class="radar-container reveal-up" data-cms="radar_bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/India_map_en.svg/1200px-India_map_en.svg.png'); background-color: #05020A; background-blend-mode: luminosity; background-size: contain; background-position: center; background-repeat: no-repeat; border-radius: 30px;">
+                <div class="radar-grid" style="display: none;"></div>
                 
                 <div class="city-card cc-1">
                     <div class="cc-icon"><i class="ri-map-pin-fill"></i></div>
@@ -1448,6 +1455,162 @@
             window.addEventListener('DOMContentLoaded', lockHeroMute);
             window.addEventListener('pageshow', lockHeroMute);
         })();
+    <!-- =====================================================================
+         ENTERPRISE FEATURES & MODALS
+         ===================================================================== -->
+    <!-- 1. Fullscreen Service Modal -->
+    <div id="serviceModal" style="position: fixed; inset: 0; background: rgba(5, 2, 10, 0.95); backdrop-filter: blur(20px); z-index: 9999999; display: none; opacity: 0; transition: opacity 0.4s ease; overflow-y: auto;">
+        <div style="position: absolute; top: 20px; right: 20px; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #FFF; cursor: pointer; z-index: 10;" onclick="closeServiceModal()">
+            <i class="ri-close-line"></i>
+        </div>
+        <div class="modal-content-wrap" style="max-width: 600px; margin: 60px auto 40px; padding: 30px; background: #0A0514; border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 30px; transform: translateY(50px); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+            <div id="sm-icon" style="width: 80px; height: 80px; border-radius: 20px; background: rgba(212, 175, 55, 0.1); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #D4AF37; margin-bottom: 25px;"><i class="ri-rocket-2-fill"></i></div>
+            <h2 id="sm-title" style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: #FFF; margin-bottom: 15px;">Service Title</h2>
+            <p id="sm-desc" style="font-family: 'Outfit', sans-serif; font-size: 1.1rem; color: #B0B0C0; line-height: 1.6; margin-bottom: 30px;">Service full description goes here.</p>
+            <div style="width: 100%; height: 250px; border-radius: 20px; background: #151020; overflow: hidden; margin-bottom: 30px; position: relative;">
+                <img id="sm-img" src="" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;" alt="Service Graphic">
+                <div style="position: absolute; inset: 0; background: linear-gradient(to top, #0A0514, transparent);"></div>
+            </div>
+            <a href="form.html" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #C8A96E, #A67C00); color: #FFF; padding: 18px 0; border-radius: 100px; font-family: 'Outfit', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; box-shadow: 0 10px 25px rgba(200, 169, 110, 0.35);">Get Started Now</a>
+        </div>
+    </div>
+
+    <!-- 2. iOS Dynamic Island Toast -->
+    <div id="dynamicIsland" style="position: fixed; top: 15px; left: 50%; transform: translateX(-50%) translateY(-100px); width: 150px; height: 40px; background: #000; border-radius: 40px; display: flex; align-items: center; padding: 0 15px; gap: 10px; z-index: 99999999; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);">
+        <i class="ri-notification-3-fill" style="color: #D4AF37; font-size: 1.2rem;"></i>
+        <span id="di-text" style="font-family: 'Outfit', sans-serif; font-size: 0.85rem; color: #FFF; white-space: nowrap; opacity: 0; transition: opacity 0.3s ease;">Performance Optimized</span>
+    </div>
+
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+    <script>
+        // =====================================================================
+        // ENTERPRISE ENGINE 1: Smooth Scrolling (Lenis)
+        // =====================================================================
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), direction: 'vertical', gestureDirection: 'vertical', smooth: true, mouseMultiplier: 1, smoothTouch: false, touchMultiplier: 2, infinite: false });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        // =====================================================================
+        // ENTERPRISE ENGINE 2: Velocity Skewing & Haptics
+        // =====================================================================
+        let currentScroll = 0;
+        let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        lenis.on('scroll', (e) => {
+            currentScroll = e.scroll;
+            // Velocity Skew
+            const skew = Math.min(Math.max(e.velocity * 0.2, -5), 5);
+            document.querySelectorAll('.glow-card').forEach(card => {
+                card.style.transform = `skewY(${skew}deg)`;
+            });
+        });
+
+        // Haptic Feedback for Buttons
+        document.querySelectorAll('a, .ars-card, .pf-col').forEach(el => {
+            el.addEventListener('click', () => {
+                if(isTouchDevice && navigator.vibrate) { navigator.vibrate(50); }
+            });
+        });
+
+        // =====================================================================
+        // ENTERPRISE ENGINE 3: Dynamic Island Notifications
+        // =====================================================================
+        function triggerIsland(msg, iconClass, color) {
+            const di = document.getElementById('dynamicIsland');
+            const diText = document.getElementById('di-text');
+            const diIcon = di.querySelector('i');
+            
+            diIcon.className = iconClass;
+            diIcon.style.color = color;
+            diText.innerText = msg;
+            
+            // Expand
+            di.style.transform = 'translateX(-50%) translateY(0)';
+            di.style.width = '280px';
+            
+            setTimeout(() => { diText.style.opacity = '1'; }, 300);
+            
+            setTimeout(() => {
+                diText.style.opacity = '0';
+                di.style.width = '150px';
+                setTimeout(() => { di.style.transform = 'translateX(-50%) translateY(-100px)'; }, 300);
+            }, 3500);
+        }
+
+        setTimeout(() => { triggerIsland('Performance Optimized', 'ri-flashlight-fill', '#C8A96E'); }, 2000);
+
+        // =====================================================================
+        // ENTERPRISE ENGINE 4: FPS Monitor & Auto-Degradation
+        // =====================================================================
+        let frameCount = 0;
+        let lastTime = performance.now();
+        function monitorFPS() {
+            let now = performance.now();
+            frameCount++;
+            if (now - lastTime >= 1000) {
+                let fps = frameCount;
+                if (fps < 30) {
+                    document.body.classList.add('low-fps-mode');
+                    // Disable heavy effects
+                    document.querySelectorAll('.glow-card').forEach(c => { c.style.transition = 'none'; c.style.transform = 'none'; });
+                }
+                frameCount = 0;
+                lastTime = now;
+            }
+            requestAnimationFrame(monitorFPS);
+        }
+        monitorFPS();
+
+        // =====================================================================
+        // SERVICE FULLSCREEN EXPANSION LOGIC
+        // =====================================================================
+        const serviceData = {
+            'fb_ads': { title: 'Local Business Ads', icon: 'ri-facebook-circle-fill', color: '#0055FF', img: 'https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=800', desc: 'Highly targeted Facebook and Instagram campaigns designed specifically to capture high-value local customers in your city exactly when they are looking to buy your services. We don\'t just get clicks, we get paying clients.' },
+            'auto_web': { title: 'Automated Websites', icon: 'ri-macbook-fill', color: '#D4AF37', img: 'https://images.pexels.com/photos/19736858/pexels-photo-19736858.jpeg?auto=compress&cs=tinysrgb&w=800', desc: 'Lightning-fast, high-converting landing pages engineered specifically to capture contact info and book appointments instantly. No clutter, just pure conversion architecture.' },
+            'seo': { title: 'Google SEO', icon: 'ri-search-eye-line', color: '#8B0000', img: 'https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=800', desc: 'Rank #1 locally so when people search for your exact service, they find you before your competitors. We dominate Google Maps and organic search results for your highest value keywords.' },
+            'web_dev': { title: 'Web Development', icon: 'ri-window-line', color: '#FFFFFF', img: 'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800', desc: 'Bespoke, high-performance web applications and e-commerce platforms built for speed, security, and absolute scale. We build digital assets that run your entire business.' },
+            'social': { title: 'Social Media Growth', icon: 'ri-megaphone-fill', color: '#8A2BE2', img: 'https://images.pexels.com/photos/5053846/pexels-photo-5053846.jpeg?auto=compress&cs=tinysrgb&w=800', desc: 'Engaging content, viral reels, and strategic brand positioning to make your business the most famous in your local area. We turn your social presence into an omnipresent authority.' },
+            'crm': { title: 'CRM & Automation', icon: 'ri-mail-send-fill', color: '#14B8A6', img: 'https://images.pexels.com/photos/7688374/pexels-photo-7688374.jpeg?auto=compress&cs=tinysrgb&w=800', desc: 'Automated email sequences, SMS follow-ups, and lead tracking so no potential customer ever slips through the cracks. Put your entire follow-up system on autopilot.' }
+        };
+
+        function expandServiceCard(card, key) {
+            const data = serviceData[key];
+            if(!data) return;
+            const modal = document.getElementById('serviceModal');
+            document.getElementById('sm-title').innerText = data.title;
+            document.getElementById('sm-desc').innerText = data.desc;
+            document.getElementById('sm-img').src = data.img;
+            
+            const iconWrap = document.getElementById('sm-icon');
+            iconWrap.innerHTML = `<i class="${data.icon}"></i>`;
+            iconWrap.style.color = data.color;
+            iconWrap.style.background = `rgba(${hexToRgb(data.color)}, 0.1)`;
+            
+            if(isTouchDevice && navigator.vibrate) { navigator.vibrate(50); }
+            
+            modal.style.display = 'block';
+            lenis.stop(); // Pause scrolling
+            
+            setTimeout(() => {
+                modal.style.opacity = '1';
+                modal.querySelector('.modal-content-wrap').style.transform = 'translateY(0)';
+            }, 10);
+        }
+
+        function closeServiceModal() {
+            const modal = document.getElementById('serviceModal');
+            modal.style.opacity = '0';
+            modal.querySelector('.modal-content-wrap').style.transform = 'translateY(50px)';
+            setTimeout(() => {
+                modal.style.display = 'none';
+                lenis.start(); // Resume scrolling
+            }, 400);
+        }
+
+        function hexToRgb(hex) {
+            if(hex === '#FFFFFF') return '255,255,255';
+            var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? `${parseInt(result[1], 16)},${parseInt(result[2], 16)},${parseInt(result[3], 16)}` : '212,175,55';
+        }
     </script>
 </body>
 </html>
