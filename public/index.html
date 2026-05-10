@@ -246,44 +246,9 @@
             .mobile-bottom-bar { display: flex !important; }
             .desktop-wa { display: none !important; }
             .sticky-cta { display: none !important; }
-    <link rel="stylesheet" href="css/dark-overhaul.css">
-    <style>
-        /* ==========================================================================
-           ULTRA-PRIORITY MOBILE OVERRIDES (MUST BE BELOW LINK TAGS)
-           ========================================================================== */
-        @media (max-width: 768px) {
-            /* 1. Remove review pill */
-            .review-indicator { display: none !important; }
-
-            /* 2. Absolute Centered iPhone */
-            .hero-grid { grid-template-columns: 1fr !important; text-align: center !important; }
-            .hero-visuals { display: flex !important; justify-content: center !important; align-items: center !important; width: 100% !important; }
-            .iphone-mockup { position: relative !important; right: auto !important; left: auto !important; transform: none !important; margin: 0 auto !important; }
-
-            /* 3. Hologram Gap Fix (Remove transform-origin conflict) */
-            .cylinder-face { transform-origin: 50% 50% 0 !important; }
-            .cylinder-face:nth-child(1) { transform: rotateY(0deg) translateZ(121px) !important; }
-            .cylinder-face:nth-child(2) { transform: rotateY(60deg) translateZ(121px) !important; }
-            .cylinder-face:nth-child(3) { transform: rotateY(120deg) translateZ(121px) !important; }
-            .cylinder-face:nth-child(4) { transform: rotateY(180deg) translateZ(121px) !important; }
-            .cylinder-face:nth-child(5) { transform: rotateY(240deg) translateZ(121px) !important; }
-            .cylinder-face:nth-child(6) { transform: rotateY(300deg) translateZ(121px) !important; }
-
-            /* 4. Map of India pseudo-element to avoid opacity ruining text */
-            .radar-container { background-image: none !important; position: relative; height: 450px !important; }
-            .radar-container::before {
-                content: ""; position: absolute; inset: 0; 
-                background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/India_map_blank.svg/800px-India_map_blank.svg.png'); 
-                background-size: contain; background-position: center; background-repeat: no-repeat;
-                opacity: 0.15; filter: invert(1) brightness(100); z-index: 0; pointer-events: none;
-            }
-            .radar-grid { display: none !important; }
-
-            /* 5. Before/After full Instagram crop fix */
-            .ba-container { height: 600px !important; background: #000 !important; }
-            .ba-img-after, .ba-img-before { object-fit: contain !important; }
         }
     </style>
+    <link rel="stylesheet" href="css/dark-overhaul.css">
 </head>
 <body class="hover-target">
 
@@ -1712,7 +1677,39 @@
             'crm': { title: 'CRM & Automation', icon: 'ri-mail-send-fill', color: '#14B8A6', img: 'https://images.pexels.com/photos/7688374/pexels-photo-7688374.jpeg?auto=compress&cs=tinysrgb&w=800', desc: 'Automated email sequences, SMS follow-ups, and lead tracking so no potential customer ever slips through the cracks. Put your entire follow-up system on autopilot.' }
         };
 
-        // OLD expandServiceCard logic deleted to prevent conflicts
+        function expandServiceCard(card, key) {
+            const data = serviceData[key];
+            if(!data) return;
+            const modal = document.getElementById('serviceModal');
+            document.getElementById('sm-title').innerText = data.title;
+            document.getElementById('sm-desc').innerText = data.desc;
+            document.getElementById('sm-img').src = data.img;
+            
+            const iconWrap = document.getElementById('sm-icon');
+            iconWrap.innerHTML = `<i class="${data.icon}"></i>`;
+            iconWrap.style.color = data.color;
+            iconWrap.style.background = `rgba(${hexToRgb(data.color)}, 0.1)`;
+            
+            if(isTouchDevice && navigator.vibrate) { navigator.vibrate(50); }
+            
+            modal.style.display = 'block';
+            lenis.stop(); // Pause scrolling
+            
+            setTimeout(() => {
+                modal.style.opacity = '1';
+                modal.querySelector('.modal-content-wrap').style.transform = 'translateY(0)';
+            }, 10);
+        }
+
+        function closeServiceModal() {
+            const modal = document.getElementById('serviceModal');
+            modal.style.opacity = '0';
+            modal.querySelector('.modal-content-wrap').style.transform = 'translateY(50px)';
+            setTimeout(() => {
+                modal.style.display = 'none';
+                lenis.start(); // Resume scrolling
+            }, 400);
+        }
 
         function hexToRgb(hex) {
             if(hex === '#FFFFFF') return '255,255,255';
