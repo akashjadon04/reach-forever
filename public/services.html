@@ -34,17 +34,17 @@
 
     /* ── 1. CSS VARIABLES ── */
     :root {
-        --rf-bg: #0A0B0E;
-        --rf-surface: #0F1015;
-        --rf-text: #FFFFFF;
-        --rf-muted: #7A7B8F;
-        --rf-glass: rgba(15,16,21,0.75);
-        --glass-border: rgba(212,175,55,0.2);
-        --glass-bg: rgba(15,16,21,0.6);
+        --rf-bg: #0C0A05;
+        --rf-surface: #1A1208;
+        --rf-text: #F7F4EF;
+        --rf-muted: #9B8E7A;
+        --rf-glass: rgba(12, 10, 5, 0.75);
+        --glass-border: rgba(200, 169, 110, 0.2);
+        --glass-bg: rgba(26, 18, 8, 0.6);
         --accent-olive: #556B2F;
-        --accent-gold: #D4AF37;
+        --accent-gold: #C8A96E;
         --bg-dark: #070809;
-        --nav-bg: rgba(10,11,14,0.8);
+        --nav-bg: rgba(12, 10, 5, 0.8);
     }
     [data-theme="light"] {
         --rf-bg: #F5F2EC;
@@ -63,8 +63,8 @@
     /* ── 2. RESET & BASE ── */
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family:'Outfit',sans-serif; background:var(--rf-bg); color:var(--rf-text); overflow-x:hidden; cursor:none; width:100vw; -webkit-font-smoothing:antialiased; }
-    a, button, input, select { cursor:none; }
+    body { font-family:'Outfit',sans-serif; background:var(--rf-bg); color:var(--rf-text); overflow-x:hidden; cursor:auto; width:100vw; -webkit-font-smoothing:antialiased; }
+    a, button, input, select { cursor:pointer; }
     img { display:block; max-width:100%; }
 
     @media (hover:none) and (pointer:coarse) {
@@ -551,6 +551,7 @@
     .faq-answer-inner { padding-top:14px; padding-bottom:8px; }
     .faq-item.active .faq-question { color:var(--accent-olive); }
     .faq-item.active .faq-question i { transform:rotate(180deg); }
+    .faq-item.active .faq-answer { max-height:600px; }
     @media (max-width:768px) { .faq-section { padding:4rem 5% 6rem; } .faq-question { font-size:1rem; } }
 
     /* ── 19. CHATBOT ── */
@@ -638,17 +639,15 @@
     </style>
 
     <link rel="stylesheet" href="css/overhaul-vars.css">
-    <link rel="stylesheet" href="css/dark-overhaul.css">
+    <link rel="stylesheet" href="css/global-ui.css">
 </head>
 <body>\n<nav id="rfNav">
-  <a href="#" class="nl" id="nl">
-    <img src="assets/logo.png" alt="Reach Forever" id="nlImg" style="height:36px;filter:none!important"
-      onerror="this.style.display='none';document.getElementById('nlFb').style.display='block'">
-    <span class="nl-fb" id="nlFb">Reach Forever</span>
+  <a href="index.html" class="nl" id="nl">
+    <img src="assets/logo.png" alt="Reach Forever" id="nlImg" style="height:36px;width:46px;object-fit:cover;object-position:left;filter:none!important">
   </a>
   <div class="nlinks">
-    <a href="#hero" class="nlink">Home</a>
-    <a href="#svcSec" class="nlink">Services</a>
+    <a href="index.html" class="nlink">Home</a>
+    <a href="services.html" class="nlink">Services</a>
     <a href="reviews.html" class="nlink">Reviews</a>
   </div>
   <a href="form.html" class="ncta">Initiate Project</a>
@@ -1169,18 +1168,19 @@
     </div>
     <div>
       <div class="foot-col-t">Services</div>
-      <a href="#svcSec" class="foot-lk">Local Business Ads</a>
-      <a href="#svcSec" class="foot-lk">Automated Websites</a>
-      <a href="#svcSec" class="foot-lk">Google SEO</a>
-      <a href="#svcSec" class="foot-lk">Social Media Growth</a>
-      <a href="#svcSec" class="foot-lk">Video Production</a>
+      <a href="services.html" class="foot-lk">Local Business Ads</a>
+      <a href="services.html" class="foot-lk">Automated Websites</a>
+      <a href="services.html" class="foot-lk">Google SEO</a>
+      <a href="services.html" class="foot-lk">Social Media Growth</a>
+      <a href="services.html" class="foot-lk">Video Production</a>
     </div>
     <div>
       <div class="foot-col-t">Company</div>
+      <a href="index.html" class="foot-lk">Home</a>
       <a href="reviews.html" class="foot-lk">Reviews</a>
       <a href="form.html" class="foot-lk">Start a Project</a>
-      <a href="#procSec" class="foot-lk">Our Process</a>
-      <a href="#baSec" class="foot-lk">Case Studies</a>
+      <a href="index.html#procSec" class="foot-lk">Our Process</a>
+      <a href="index.html#baSec" class="foot-lk">Case Studies</a>
     </div>
     <div>
       <div class="foot-col-t">Contact</div>
@@ -1240,6 +1240,23 @@
         ScrollTrigger.create({trigger:c,start:'top 88%',once:true,onEnter:function(){gsap.to(c,{opacity:1,y:0,duration:.7,delay:i*.08,ease:'power3.out'});}});
         c.addEventListener('mousemove',function(e){const r=c.getBoundingClientRect();c.style.setProperty('--mouse-x',(e.clientX-r.left)+'px');c.style.setProperty('--mouse-y',(e.clientY-r.top)+'px');});
       });
+      // Horizontal Scroll
+      let hsOuter = document.querySelector('.hs-outer');
+      let hsTrack = document.getElementById('hsTrack');
+      let hsPanels = gsap.utils.toArray('.hs-panel');
+      if (hsOuter && hsTrack && hsPanels.length > 0 && window.innerWidth > 768) {
+        gsap.to(hsPanels, {
+          xPercent: -100 * (hsPanels.length - 1),
+          ease: "none",
+          scrollTrigger: {
+            trigger: hsOuter,
+            pin: true,
+            scrub: 1,
+            snap: 1 / (hsPanels.length - 1),
+            end: () => "+=" + hsTrack.offsetWidth
+          }
+        });
+      }
     }
     // Dev Tabs
     const tabs=document.querySelectorAll('.sc-tab');
@@ -1257,9 +1274,9 @@
     document.querySelectorAll('.faq-question').forEach(function(q){
       q.addEventListener('click',function(){
         const item=q.closest('.faq-item');
-        const isOpen=item.classList.contains('open');
-        document.querySelectorAll('.faq-item.open').forEach(function(o){o.classList.remove('open');});
-        if(!isOpen)item.classList.add('open');
+        const isOpen=item.classList.contains('active');
+        document.querySelectorAll('.faq-item.active').forEach(function(o){o.classList.remove('active');});
+        if(!isOpen)item.classList.add('active');
       });
     });
     // Chatbot
@@ -1280,5 +1297,6 @@
 })();
 </script>
 <script src="js/cms.js" defer></script>
+<script src="js/chatbot.js" defer></script>
 </body>
 </html>

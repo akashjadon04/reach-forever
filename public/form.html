@@ -70,26 +70,27 @@
         /* ==========================================================================
            1. LUXURY VARIABLES & RESET
            ========================================================================== */
-
-        
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Outfit', sans-serif; background-color: var(--rf-bg); color: var(--rf-text); overflow-x: hidden; cursor: none; width: 100vw;}
-        a, button, input, select, textarea { cursor: none; }
-        
-        @media (hover: none) and (pointer: coarse) {
-            body, a, button, input, select, textarea, .magnetic-wrap { cursor: auto !important; }
-            .cursor-dot, .cursor-ring { display: none !important; }
+        :root {
+            --rf-bg: #0C0A05;
+            --rf-surface: #1A1208;
+            --rf-text: #F7F4EF;
+            --rf-muted: #9B8E7A;
+            --rf-glass: rgba(12, 10, 5, 0.75);
+            --glass-border: rgba(200, 169, 110, 0.2);
+            --glass-bg: rgba(26, 18, 8, 0.6);
+            --accent-olive: #556B2F;
+            --accent-gold: #C8A96E;
+            --bg-dark: #070809;
+            --nav-bg: rgba(12, 10, 5, 0.85);
         }
 
-        /* ==========================================================================
-           2. GLOBAL UI: CURSOR & AMBIENT GLOW
-           ========================================================================== */
-        .cursor-dot { position: fixed; top: 0; left: 0; width: 10px; height: 10px; background: #FFF; border-radius: 50%; pointer-events: none; z-index: 999999; transform: translate(-50%, -50%); transition: background 0.2s, width 0.2s, height 0.2s; box-shadow: 0 0 15px #D4AF37; mix-blend-mode: difference; }
-        .cursor-ring { position: fixed; top: 0; left: 0; width: 40px; height: 40px; border: 2px solid #D4AF37; border-radius: 50%; pointer-events: none; z-index: 999998; transform: translate(-50%, -50%); transition: width 0.1s, height 0.1s, border-color 0.2s; mix-blend-mode: difference; }
-        .cursor-ring.hovering { width: 60px; height: 60px; background: rgba(212, 175, 55, 0.1); }
-        .cursor-dot.hovering { width: 0; height: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--rf-bg); color: var(--rf-text); overflow-x: hidden; cursor: auto; width: 100vw;}
+        a, button, input, select, textarea { cursor: pointer; }
 
+        /* ==========================================================================
+           2. GLOBAL UI: AMBIENT GLOW
+           ========================================================================== */
         .ambient-glow { position: fixed; border-radius: 50%; filter: blur(150px); z-index: -1; pointer-events: none; opacity: 0.4; animation: breathe 10s infinite alternate; }
         .glow-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: rgba(85, 107, 47, 0.15); }
         .glow-2 { bottom: -10%; right: -10%; width: 40vw; height: 40vw; background: rgba(212, 175, 55, 0.15); animation-delay: -5s; }
@@ -208,7 +209,7 @@
             .ai-fab i { font-size: 1.8rem !important; }
         }
     </style>
-    <link rel="stylesheet" href="css/dark-overhaul.css">
+    <link rel="stylesheet" href="css/global-ui.css">
 
     <!-- GLOBAL 1S THEME CROSSFADE -->
     <style>
@@ -223,29 +224,25 @@
             transition-duration: 1s, 1s, 1s, 1s, 1s, 0.4s !important;
         }
         /* Exclude cursor and canvas from heavy transitions */
-        canvas, .cursor-dot, .cursor-ring {
+        canvas {
             transition-duration: 0.1s !important;
         }
     </style>
 
 </head>
 <body class="hover-target">\n<nav id="rfNav">
-  <a href="#" class="nl" id="nl">
-    <img src="assets/logo.png" alt="Reach Forever" id="nlImg" style="height:36px;filter:none!important"
-      onerror="this.style.display='none';document.getElementById('nlFb').style.display='block'">
-    <span class="nl-fb" id="nlFb">Reach Forever</span>
+  <a href="index.html" class="nl" id="nl">
+    <img src="assets/logo.png" alt="Reach Forever" id="nlImg" style="height:36px;width:46px;object-fit:cover;object-position:left;filter:none!important">
   </a>
   <div class="nlinks">
-    <a href="#hero" class="nlink">Home</a>
-    <a href="#svcSec" class="nlink">Services</a>
+    <a href="index.html" class="nlink">Home</a>
+    <a href="services.html" class="nlink">Services</a>
     <a href="reviews.html" class="nlink">Reviews</a>
   </div>
   <a href="form.html" class="ncta">Initiate Project</a>
 </nav>\n
 
     <div id="scrollProgress"></div>
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
     <div class="ambient-glow glow-1"></div>
     <div class="ambient-glow glow-2"></div>
 
@@ -405,18 +402,18 @@
     </div>
     <div>
       <div class="foot-col-t">Services</div>
-      <a href="#svcSec" class="foot-lk">Local Business Ads</a>
-      <a href="#svcSec" class="foot-lk">Automated Websites</a>
-      <a href="#svcSec" class="foot-lk">Google SEO</a>
-      <a href="#svcSec" class="foot-lk">Social Media Growth</a>
-      <a href="#svcSec" class="foot-lk">Video Production</a>
+      <a href="services.html" class="foot-lk">Local Business Ads</a>
+      <a href="services.html" class="foot-lk">Automated Websites</a>
+      <a href="services.html" class="foot-lk">Google SEO</a>
+      <a href="services.html" class="foot-lk">Social Media Growth</a>
+      <a href="services.html" class="foot-lk">Video Production</a>
     </div>
     <div>
       <div class="foot-col-t">Company</div>
       <a href="reviews.html" class="foot-lk">Reviews</a>
       <a href="form.html" class="foot-lk">Start a Project</a>
-      <a href="#procSec" class="foot-lk">Our Process</a>
-      <a href="#baSec" class="foot-lk">Case Studies</a>
+      <a href="index.html#procSec" class="foot-lk">Our Process</a>
+      <a href="index.html#baSec" class="foot-lk">Case Studies</a>
     </div>
     <div>
       <div class="foot-col-t">Contact</div>
@@ -437,6 +434,8 @@
   <a href="reviews.html" class="mni"><i class="ri-star-fill"></i>Reviews</a>
   <a href="form.html" class="mni" style="color:#C8A96E"><i class="ri-rocket-fill"></i>Start</a>
 </nav>
+<script src="js/main.js" defer></script>
 <script src="js/cms.js" defer></script>
+<script src="js/chatbot.js" defer></script>
 </body>
 </html>

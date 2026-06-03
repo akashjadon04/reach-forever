@@ -37,6 +37,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/global-ui.css">
 
     <style>
     /* ===================================================================
@@ -45,17 +46,17 @@
 
     /* ── 1. CSS VARIABLES ── */
     :root {
-        --rf-bg: #0A0B0E;
-        --rf-surface: #0F1015;
-        --rf-text: #FFFFFF;
-        --rf-muted: #7A7B8F;
-        --rf-glass: rgba(15,16,21,0.75);
-        --glass-border: rgba(212,175,55,0.2);
-        --glass-bg: rgba(15,16,21,0.6);
+        --rf-bg: #0C0A05;
+        --rf-surface: #1A1208;
+        --rf-text: #F7F4EF;
+        --rf-muted: #9B8E7A;
+        --rf-glass: rgba(12, 10, 5, 0.75);
+        --glass-border: rgba(200, 169, 110, 0.2);
+        --glass-bg: rgba(26, 18, 8, 0.6);
         --accent-olive: #556B2F;
-        --accent-gold: #D4AF37;
+        --accent-gold: #C8A96E;
         --bg-dark: #070809;
-        --nav-bg: rgba(10,11,14,0.85);
+        --nav-bg: rgba(12, 10, 5, 0.85);
     }
     [data-theme="light"] {
         --rf-bg: #F5F2EC;
@@ -76,14 +77,8 @@
        Keeping both causes a muddy/stuck feeling as two engines fight for control. */
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
-    /* FIX: Only apply cursor:none on non-touch devices */
-    @media (hover:hover) and (pointer:fine) {
-        body, a, button, input, select, .magnetic-wrap, .vid-thumb { cursor:none; }
-    }
-    @media (hover:none), (pointer:coarse) {
-        body, a, button, input, select { cursor:auto !important; }
-        .cursor-dot, .cursor-ring { display:none !important; }
-    }
+    /* FIX: Standard cursors applied */
+    body, a, button, input, select { cursor:auto !important; }
 
     body {
         font-family:'Outfit',sans-serif;
@@ -120,23 +115,7 @@
         pointer-events:none; will-change:width;
     }
 
-    /* ── 4. CUSTOM CURSOR — desktop only ── */
-    .cursor-dot {
-        position:fixed; top:0; left:0; width:9px; height:9px;
-        background:#FFF; border-radius:50%; pointer-events:none;
-        z-index:999999; transform:translate(-50%,-50%);
-        mix-blend-mode:difference; will-change:transform;
-    }
-    .cursor-ring {
-        position:fixed; top:0; left:0; width:40px; height:40px;
-        border:1.5px solid var(--accent-gold); border-radius:50%;
-        pointer-events:none; z-index:999998;
-        transform:translate(-50%,-50%);
-        transition:width .15s ease, height .15s ease, border-color .2s ease, background .2s ease;
-        will-change:transform;
-    }
-    .cursor-ring.hovering { width:60px; height:60px; background:rgba(85,107,47,.08); border-color:var(--accent-olive); }
-    .cursor-dot.hovering { opacity:0; }
+    /* ── 4. CUSTOM CURSOR REMOVED ── */
 
     /* ── 5. DYNAMIC ISLAND ── */
     #dynamicIsland {
@@ -170,8 +149,6 @@
     .ambient-glow {
         position:fixed; border-radius:50%; filter:blur(160px);
         z-index:0; pointer-events:none;
-        /* will-change intentionally omitted — blur+will-change creates a
-           new stacking context per element, doubling GPU texture cost */
     }
     .glow-1 { top:-10%; left:-10%; width:55vw; height:55vw; background:rgba(85,107,47,.12); opacity:.65; }
     .glow-2 { bottom:-10%; right:-10%; width:48vw; height:48vw; background:rgba(212,175,55,.1); opacity:.5; }
@@ -180,8 +157,6 @@
     #particle-canvas {
         position:fixed; inset:0; width:100vw; height:100vh;
         z-index:1; pointer-events:none; opacity:.5;
-        /* GPU-composited layer — no will-change needed, fixed position
-           already gets its own compositor layer */
     }
 
     /* ── 8. PRELOADER ── */
@@ -343,7 +318,6 @@
         box-shadow:0 30px 60px rgba(0,0,0,.08);
         display:flex; align-items:center; gap:24px;
         transition:transform .4s ease, border-color .4s ease;
-        will-change:transform;
     }
     .hero-stat-card:hover { transform:translateY(-6px); border-color:var(--accent-gold); }
     .hero-stat-card.offset { margin-left:60px; }
@@ -376,7 +350,6 @@
         .hero-stat-card { padding:20px; gap:16px; border-radius:20px; }
         .hsc-icon { width:52px; height:52px; font-size:1.5rem; }
         .hsc-info h3 { font-size:2.2rem; }
-        /* FIX: Remove expensive backdrop-filter on mobile stat cards */
         .hero-stat-card { backdrop-filter:none; -webkit-backdrop-filter:none; }
     }
 
@@ -385,7 +358,6 @@
         padding:8rem 5%; background:var(--rf-surface);
         position:relative; z-index:5; overflow:hidden;
         border-top:1px solid var(--glass-border);
-        /* FIX: content-visibility speeds up initial render of below-fold sections */
         content-visibility:auto;
         contain-intrinsic-size:0 800px;
     }
@@ -515,7 +487,6 @@
         position:relative; width:260px; z-index:2;
         animation:phoneFloat 5s ease-in-out infinite alternate;
         filter:drop-shadow(0 40px 60px rgba(0,0,0,.45)) drop-shadow(0 0 30px rgba(212,175,55,.12));
-        will-change:transform;
     }
     @keyframes phoneFloat { 0%{transform:translateY(0) rotateY(-4deg)} 100%{transform:translateY(-22px) rotateY(4deg)} }
     .vp-body {
@@ -569,7 +540,6 @@
         border:1px solid var(--glass-border); border-radius:18px; padding:14px 20px;
         box-shadow:0 20px 40px rgba(0,0,0,.2); z-index:5;
         display:flex; align-items:center; gap:12px;
-        will-change:transform;
     }
     .vault-phone-badge.badge-tl { top:8%; left:-30%; animation:badgeFloat1 6s ease-in-out infinite alternate; }
     .vault-phone-badge.badge-br { bottom:8%; right:-30%; animation:badgeFloat2 7s ease-in-out infinite alternate; }
@@ -586,7 +556,6 @@
         box-shadow:0 10px 30px rgba(0,0,0,.04);
         transition:transform .45s cubic-bezier(.16,1,.3,1), border-color .3s ease, box-shadow .3s ease;
         cursor:pointer; position:relative; overflow:hidden;
-        will-change:transform;
     }
     [data-theme="light"] .vid-thumb { background:rgba(255,255,255,.8); border-color:rgba(0,0,0,.06); }
     .vid-thumb::before {
@@ -602,12 +571,6 @@
     .vid-thumb.active .vt-img, .vid-thumb:hover .vt-img { filter:grayscale(0%); }
     .vt-info h4 { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:700; color:var(--rf-text); margin-bottom:5px; line-height:1.1; }
     .vt-info p { font-size:.9rem; color:var(--accent-olive); font-weight:700; text-transform:uppercase; letter-spacing:1px; }
-    .vt-tag {
-        display:inline-block; margin-top:8px; padding:4px 12px;
-        background:rgba(85,107,47,.1); border:1px solid rgba(85,107,47,.3);
-        border-radius:100px; font-size:.72rem; font-weight:700;
-        color:var(--accent-olive); text-transform:uppercase; letter-spacing:1px;
-    }
     @media (max-width:1024px) {
         .vault-layout { grid-template-columns:1fr; gap:50px; }
         .vault-phone-outer { min-height:500px; }
@@ -681,7 +644,6 @@
         box-shadow:0 20px 50px rgba(0,0,0,.04);
         transition:opacity .5s ease, transform .5s ease, border-color .4s ease, box-shadow .4s ease;
         opacity:.35; transform:translateX(30px);
-        will-change:transform, opacity;
     }
     [data-theme="light"] .cs-card { background:rgba(255,255,255,.8); border-color:rgba(0,0,0,.06); }
     .cs-card.active-card { opacity:1; transform:translateX(0); border-color:rgba(212,175,55,.3); box-shadow:0 30px 60px rgba(212,175,55,.08); }
@@ -728,18 +690,12 @@
     }
     .wol-header { text-align:center; margin-bottom:3rem; padding:0 5%; }
     .wol-header h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.8rem,6vw,5.5rem); font-weight:700; color:var(--rf-text); line-height:1.05; }
-    /* FIX: will-change:transform on animated tracks ensures they run on
-       the GPU compositor thread — no main-thread involvement during scroll */
     .wol-track {
         display:flex; width:max-content;
         animation:scrollLeft 40s linear infinite; gap:28px; padding:15px 0;
-        will-change:transform;
-        transform:translateZ(0); /* force GPU layer */
     }
     .wol-track.reverse {
         animation:scrollRight 45s linear infinite; margin-top:20px;
-        will-change:transform;
-        transform:translateZ(0);
     }
     .wol-track:hover, .wol-track.reverse:hover { animation-play-state:paused; }
     .wol-card {
@@ -747,7 +703,7 @@
         padding:38px; border-radius:28px; border:1px solid rgba(255,255,255,.06);
         box-shadow:0 10px 30px rgba(0,0,0,.04); white-space:normal;
         transition:transform .4s ease, border-color .3s ease, box-shadow .3s ease;
-        flex-shrink:0; will-change:transform;
+        flex-shrink:0;
     }
     [data-theme="light"] .wol-card { background:rgba(255,255,255,.8); border-color:rgba(0,0,0,.05); }
     .wol-card:hover { transform:translateY(-10px); border-color:var(--accent-gold); box-shadow:0 20px 50px rgba(212,175,55,.12); }
@@ -826,7 +782,7 @@
         box-shadow:0 20px 50px rgba(0,0,0,.15);
         transform:translateX(360px); opacity:0;
         transition:transform .5s cubic-bezier(.16,1,.3,1), opacity .5s ease;
-        pointer-events:none; will-change:transform, opacity;
+        pointer-events:none;
     }
     #sp-toast.visible { transform:translateX(0); opacity:1; }
     .sp-avatar {
@@ -872,20 +828,9 @@
     }
     .dot-nav-item:hover .dot-nav-tooltip { opacity:1; }
     @media (max-width:1024px) { #dot-nav { display:none; } }
-
-    /* ── MOUSE SPOTLIGHT ── */
-    .spotlight-section { position:relative; }
-    #mouse-spotlight {
-        position:fixed; inset:0; pointer-events:none;
-        z-index:3; opacity:0;
-        transition:opacity .6s ease;
-        background:radial-gradient(circle 280px at var(--mx,50%) var(--my,50%),
-            rgba(212,175,55,.07) 0%, transparent 75%);
-    }
-    #mouse-spotlight.spotlight-active { opacity:1; }
     </style>
 
-    <link rel="stylesheet" href="css/dark-overhaul.css">
+
 </head>
 <body>
 
@@ -902,20 +847,10 @@
     <!-- PARTICLE CANVAS -->
     <canvas id="particle-canvas"></canvas>
 
-    <!-- CURSOR (hidden on mobile via CSS) -->
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
-
     <!-- SCROLL PROGRESS -->
     <div id="scrollProgress"></div>
 
-    <!-- DYNAMIC ISLAND -->
-    <div id="dynamicIsland">
-        <div class="island-inner">
-            <div class="island-dot"></div>
-            <span class="island-text" id="islandText">Reach Forever</span>
-        </div>
-    </div>
+
 
     <!-- SOCIAL PROOF TOAST -->
     <div id="sp-toast">
@@ -936,54 +871,37 @@
         <div class="dot-nav-item" data-section="wall-of-love"><span class="dot-nav-tooltip">Wall of Love</span></div>
     </nav>
 
-    <!-- MOUSE SPOTLIGHT -->
-    <div id="mouse-spotlight"></div>
-
     <!-- WHATSAPP -->
     <a href="https://wa.me/917668758238" target="_blank" rel="noopener noreferrer" class="wa-float magnetic-wrap" aria-label="Chat on WhatsApp" id="waFloatBtn" data-cms="wa_float_link">
         <i class="ri-whatsapp-line magnetic-inner"></i>
     </a>
 
     <!-- NAVBAR -->
-    <div class="header-wrap" id="headerWrap">
-        <nav class="navbar" id="navbar">
-            <a href="index.html" class="nav-brand magnetic-wrap" style="display:flex;align-items:center;height:100%;text-decoration:none;">
-                <span class="magnetic-inner">
-                    <img src="https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png" alt="Reach Forever Logo" style="max-height:44px;width:auto;object-fit:contain;">
-                </span>
-            </a>
-            <ul class="nav-links">
-                <li class="magnetic-wrap"><a href="index.html" class="nav-pill magnetic-inner" data-cms="nav_link_1">Home</a></li>
-                <li class="magnetic-wrap"><a href="services.html" class="nav-pill magnetic-inner" data-cms="nav_link_2">Services</a></li>
-                <li class="magnetic-wrap"><a href="reviews.html" class="nav-pill active magnetic-inner" data-cms="nav_link_3">Reviews</a></li>
-            </ul>
-            <div style="display:flex;align-items:center;gap:8px;">
-                <div class="theme-toggle-btn" id="themeToggleDesktop" title="Toggle Theme">
-                    <i class="ri-sun-fill" id="themeIconDesktop" style="font-size:1.2rem;color:#C8A96E;"></i>
-                </div>
-                <div class="magnetic-wrap nav-btn-wrap">
-                    <a href="form.html" class="btn-olive magnetic-inner" data-cms="nav_btn">Initiate Project</a>
-                </div>
-            </div>
-        </nav>
-    </div>
+    <nav id="rfNav">
+  <a href="index.html" class="nl" id="nl">
+    <img src="assets/logo.png" alt="Reach Forever" id="nlImg" style="height:36px;width:46px;object-fit:cover;object-position:left;filter:none!important">
+  </a>
+  <div class="nlinks">
+    <a href="index.html" class="nlink">Home</a>
+    <a href="services.html" class="nlink">Services</a>
+    <a href="reviews.html" class="nlink active">Reviews</a>
+  </div>
+  <a href="form.html" class="ncta">Initiate Project</a>
+</nav>
 
     <!-- MOBILE NAV -->
-    <div class="mobile-nav">
-        <a href="index.html" class="m-nav-item"><i class="ri-funds-line"></i>Home</a>
-        <a href="services.html" class="m-nav-item"><i class="ri-stack-fill"></i>Services</a>
-        <a href="reviews.html" class="m-nav-item active"><i class="ri-vidicon-fill"></i>Reviews</a>
-        <a href="form.html" class="m-nav-item"><i class="ri-calendar-event-fill"></i>Book</a>
-        <div class="m-nav-item" id="themeToggleMobile" role="button" tabindex="0">
-            <i class="ri-sun-fill" id="themeIconMobile" style="color:#D4AF37;"></i>Theme
-        </div>
-    </div>
+    <nav class="mnav">
+      <a href="index.html" class="mni"><i class="ri-home-4-fill"></i>Home</a>
+      <a href="services.html" class="mni"><i class="ri-stack-fill"></i>Services</a>
+      <a href="reviews.html" class="mni active"><i class="ri-star-fill"></i>Reviews</a>
+      <a href="form.html" class="mni"><i class="ri-rocket-fill"></i>Start</a>
+    </nav>
 
     <!-- =================== MAIN WRAPPER =================== -->
     <div class="main-wrapper">
 
         <!-- HERO -->
-        <section class="reviews-hero spotlight-section" id="heroScene">
+        <section class="reviews-hero" id="heroScene">
             <video autoplay loop muted playsinline class="hero-bg-media" data-cms="rev_hero_bg_vid">
                 <source src="https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_30fps.mp4" type="video/mp4">
             </video>
@@ -1239,12 +1157,6 @@
                 <div class="wol-card"><div class="wol-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div><p class="wol-quote" data-cms="rev_wol_c3_quote">"The luxury design they gave my clinic is unmatched. Patients literally mention the website when they walk in the door. Best investment I made."</p><div class="wol-author"><div class="wol-avatar" data-cms="rev_wol_c3_av">S</div><div><span class="wol-name" data-cms="rev_wol_c3_name">Dr. S. Kaur</span><span class="wol-company" data-cms="rev_wol_c3_comp">Aesthetics Clinic</span></div></div></div>
                 <div class="wol-card"><div class="wol-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div><p class="wol-quote" data-cms="rev_wol_c4_quote">"Reach Forever completely changed my business. The website Akash built is flawless, and the leads haven't stopped coming since day 14."</p><div class="wol-author"><div class="wol-avatar" data-cms="rev_wol_c4_av">R</div><div><span class="wol-name" data-cms="rev_wol_c4_name">Rajat Singh</span><span class="wol-company" data-cms="rev_wol_c4_comp">Local Gym Owner</span></div></div></div>
                 <div class="wol-card"><div class="wol-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div><p class="wol-quote" data-cms="rev_wol_c5_quote">"We were wasting money on Facebook boost buttons. They took over, built a real funnel, and our ROI is sitting at 5x right now. Incredible team."</p><div class="wol-author"><div class="wol-avatar" data-cms="rev_wol_c5_av">A</div><div><span class="wol-name" data-cms="rev_wol_c5_name">Aman Verma</span><span class="wol-company" data-cms="rev_wol_c5_comp">Real Estate Broker</span></div></div></div>
-                <!-- Duplicate set for seamless loop -->
-                <div class="wol-card"><div class="wol-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div><p class="wol-quote">"Reach Forever completely changed my business. The website Akash built is flawless, and the leads haven't stopped coming since day 14."</p><div class="wol-author"><div class="wol-avatar">R</div><div><span class="wol-name">Rajat Singh</span><span class="wol-company">Local Gym Owner</span></div></div></div>
-                <div class="wol-card"><div class="wol-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div><p class="wol-quote">"We were wasting money on Facebook boost buttons. They took over, built a real funnel, and our ROI is sitting at 5x right now."</p><div class="wol-author"><div class="wol-avatar">A</div><div><span class="wol-name">Aman Verma</span><span class="wol-company">Real Estate Broker</span></div></div></div>
-                <div class="wol-card"><div class="wol-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div><p class="wol-quote">"The luxury design they gave my clinic is unmatched. Patients literally mention the website when they walk in the door."</p><div class="wol-author"><div class="wol-avatar">S</div><div><span class="wol-name">Dr. S. Kaur</span><span class="wol-company">Aesthetics Clinic</span></div></div></div>
-                <div class="wol-card"><div class="wol-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div><p class="wol-quote">"Reach Forever completely changed my business. The website Akash built is flawless, and the leads haven't stopped coming since day 14."</p><div class="wol-author"><div class="wol-avatar">R</div><div><span class="wol-name">Rajat Singh</span><span class="wol-company">Local Gym Owner</span></div></div></div>
-                <div class="wol-card"><div class="wol-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div><p class="wol-quote">"We were wasting money on Facebook boost buttons. They took over, built a real funnel, and our ROI is sitting at 5x right now."</p><div class="wol-author"><div class="wol-avatar">A</div><div><span class="wol-name">Aman Verma</span><span class="wol-company">Real Estate Broker</span></div></div></div>
             </div>
             <div class="wol-track reverse">
                 <div class="wol-card"><div class="wol-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div><p class="wol-quote" data-cms="rev_wol_c6_quote">"Highly professional. No jargon, no empty promises. They just built the systems, turned on the ads, and my calendar filled up."</p><div class="wol-author"><div class="wol-avatar" style="background:var(--accent-gold);" data-cms="rev_wol_c6_av">V</div><div><span class="wol-name" data-cms="rev_wol_c6_name">Vikram D.</span><span class="wol-company" data-cms="rev_wol_c6_comp">Legal Consultant</span></div></div></div>
@@ -1252,37 +1164,48 @@
                 <div class="wol-card"><div class="wol-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div><p class="wol-quote" data-cms="rev_wol_c8_quote">"If you want cheap work, go somewhere else. If you want a predictable system that actually makes you money, hire Reach Forever."</p><div class="wol-author"><div class="wol-avatar" style="background:var(--accent-gold);" data-cms="rev_wol_c8_av">P</div><div><span class="wol-name" data-cms="rev_wol_c8_name">Priya T.</span><span class="wol-company" data-cms="rev_wol_c8_comp">Interior Designer</span></div></div></div>
                 <div class="wol-card"><div class="wol-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div><p class="wol-quote" data-cms="rev_wol_c9_quote">"Highly professional. No jargon, no empty promises. They just built the systems, turned on the ads, and my calendar filled up."</p><div class="wol-author"><div class="wol-avatar" style="background:var(--accent-gold);" data-cms="rev_wol_c9_av">V</div><div><span class="wol-name" data-cms="rev_wol_c9_name">Vikram D.</span><span class="wol-company" data-cms="rev_wol_c9_comp">Legal Consultant</span></div></div></div>
                 <div class="wol-card"><div class="wol-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div><p class="wol-quote" data-cms="rev_wol_c10_quote">"Akash is a genius developer. Our old app was buggy and slow. He recoded it from scratch and our user retention went up 40%."</p><div class="wol-author"><div class="wol-avatar" style="background:var(--accent-gold);" data-cms="rev_wol_c10_av">N</div><div><span class="wol-name" data-cms="rev_wol_c10_name">Neha Sharma</span><span class="wol-company" data-cms="rev_wol_c10_comp">E-Commerce Founder</span></div></div></div>
-                <!-- Duplicates -->
-                <div class="wol-card"><div class="wol-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div><p class="wol-quote">"Highly professional. No jargon, no empty promises. They just built the systems, turned on the ads, and my calendar filled up."</p><div class="wol-author"><div class="wol-avatar" style="background:var(--accent-gold);">V</div><div><span class="wol-name">Vikram D.</span><span class="wol-company">Legal Consultant</span></div></div></div>
-                <div class="wol-card"><div class="wol-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div><p class="wol-quote">"Akash is a genius developer. Our old app was buggy and slow. He recoded it from scratch and our user retention went up 40%."</p><div class="wol-author"><div class="wol-avatar" style="background:var(--accent-gold);">N</div><div><span class="wol-name">Neha Sharma</span><span class="wol-company">E-Commerce Founder</span></div></div></div>
-                <div class="wol-card"><div class="wol-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div><p class="wol-quote">"If you want cheap work, go somewhere else. If you want a predictable system that actually makes you money, hire Reach Forever."</p><div class="wol-author"><div class="wol-avatar" style="background:var(--accent-gold);">P</div><div><span class="wol-name">Priya T.</span><span class="wol-company">Interior Designer</span></div></div></div>
-                <div class="wol-card"><div class="wol-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div><p class="wol-quote">"Highly professional. No jargon, no empty promises. They just built the systems, turned on the ads, and my calendar filled up."</p><div class="wol-author"><div class="wol-avatar" style="background:var(--accent-gold);">V</div><div><span class="wol-name">Vikram D.</span><span class="wol-company">Legal Consultant</span></div></div></div>
-                <div class="wol-card"><div class="wol-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div><p class="wol-quote">"Akash is a genius developer. Our old app was buggy and slow. He recoded it from scratch and our user retention went up 40%."</p><div class="wol-author"><div class="wol-avatar" style="background:var(--accent-gold);">N</div><div><span class="wol-name">Neha Sharma</span><span class="wol-company">E-Commerce Founder</span></div></div></div>
             </div>
         </section>
 
     </div><!-- /main-wrapper -->
 
-    <!-- FOOTER CTA -->
-    <footer class="footer-fixed" id="footer-cta">
-        <div class="f-cta">
-            <h2>Stop Losing Revenue.<br><em>Start Scaling.</em></h2>
-            <p>Join 50+ Punjab businesses who scaled predictably with the Reach Forever system. Let's engineer your growth next.</p>
-            <div class="magnetic-wrap" style="display:inline-block;">
-                <a href="form.html" class="btn-olive magnetic-inner" style="padding:18px 44px;font-size:1.1rem;border-radius:100px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;">
-                    <i class="ri-rocket-2-fill"></i> Initiate Your Project
-                </a>
-            </div>
+    <!-- FOOTER -->
+    <footer id="rfFoot">
+      <div class="foot-in">
+        <div>
+          <div class="foot-logo">
+            <img src="assets/logo.png" alt="Reach Forever" style="filter:none!important"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <div class="foot-logo-fb">Reach Forever</div>
+          </div>
+          <p class="foot-desc">Punjab's #1 Digital Marketing Agency — engineering growth through data-driven strategies and creative execution.</p>
         </div>
-        <div class="f-bottom">
-            <span>© 2025 Reach Forever. All Rights Reserved.</span>
-            <div style="display:flex;gap:24px;">
-                <a href="#" style="color:rgba(255,255,255,.35);text-decoration:none;">Privacy Policy</a>
-                <a href="#" style="color:rgba(255,255,255,.35);text-decoration:none;">Terms</a>
-                <a href="https://wa.me/917888429760" target="_blank" id="wa_footer_link" style="color:rgba(255,255,255,.35);text-decoration:none;">WhatsApp</a>
-            </div>
-            <span>Made by <a href="https://zyrovadigital.online" target="_blank" class="pf-zyrova-link">Zyrova Digital</a></span>
+        <div>
+          <div class="foot-col-t">Services</div>
+          <a href="services.html" class="foot-lk">Local Business Ads</a>
+          <a href="services.html" class="foot-lk">Automated Websites</a>
+          <a href="services.html" class="foot-lk">Google SEO</a>
+          <a href="services.html" class="foot-lk">Social Media Growth</a>
+          <a href="services.html" class="foot-lk">Video Production</a>
         </div>
+        <div>
+          <div class="foot-col-t">Company</div>
+          <a href="index.html" class="foot-lk">Home</a>
+          <a href="reviews.html" class="foot-lk">Reviews</a>
+          <a href="form.html" class="foot-lk">Start a Project</a>
+        </div>
+        <div>
+          <div class="foot-col-t">Contact</div>
+          <a href="https://wa.me/918146652870" class="foot-lk"><i class="ri-whatsapp-line"></i> WhatsApp Us</a>
+          <a href="https://instagram.com/reachforever" class="foot-lk"><i class="ri-instagram-line"></i> Instagram</a>
+          <a href="https://facebook.com/reachforever" class="foot-lk"><i class="ri-facebook-circle-line"></i> Facebook</a>
+          <a href="mailto:hello@reachforever.in" class="foot-lk"><i class="ri-mail-line"></i> Email Us</a>
+        </div>
+      </div>
+      <div class="foot-bot">
+        <div>&copy; 2024 Reach Forever. All rights reserved.</div>
+        <div>Designed &amp; Developed by <a href="https://zyrova.com" target="_blank">Zyrova</a></div>
+      </div>
     </footer>
 
     <!-- CHATBOT FAB -->
@@ -1320,7 +1243,8 @@
     <!-- SCRIPTS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.0.45/dist/lenis.min.js"></script>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -1329,6 +1253,24 @@
 
         /* ══════════════════════════════════
            1. LENIS SMOOTH SCROLL
+           FIX 1 (CSS): scroll-behavior:smooth
+           was removed from html{} in CSS so
+           only Lenis controls the scroll.
+        ══════════════════════════════════ */
+        let lenis = null;
+        if (typeof Lenis !== 'undefined' && !IS_MOBILE) {
+            lenis = new Lenis({
+                duration: 1.1,
+                easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smoothTouch: false,
+            });
+            function rafLenis(time) {
+                lenis.raf(time);
+                requestAnimationFrame(rafLenis);
+            }
+            requestAnimationFrame(rafLenis);
+            if (typeof gsap !== 'undefined') {
+                lenis.on('scroll', () => {
                     if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.update();
                 });
             }
@@ -1352,39 +1294,6 @@
                 island.classList.remove('island-active');
             }, duration);
         };
-
-        /* ══════════════════════════════════
-           3. LERP CURSOR — desktop only
-        ══════════════════════════════════ */
-        if (!IS_TOUCH) {
-            const dot  = document.getElementById('cursorDot');
-            const ring = document.getElementById('cursorRing');
-            if (dot && ring) {
-                let mx = 0, my = 0, rx = 0, ry = 0;
-                const LERP = 0.1;
-
-                window.addEventListener('mousemove', e => {
-                    mx = e.clientX; my = e.clientY;
-                    dot.style.transform = `translate(${mx}px,${my}px) translate(-50%,-50%)`;
-                }, { passive: true });
-
-                document.addEventListener('mousedown', () => { dot.classList.add('clicking'); ring.classList.add('clicking'); });
-                document.addEventListener('mouseup',   () => { dot.classList.remove('clicking'); ring.classList.remove('clicking'); });
-
-                const renderRing = () => {
-                    rx += (mx - rx) * LERP;
-                    ry += (my - ry) * LERP;
-                    ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
-                    requestAnimationFrame(renderRing);
-                };
-                renderRing();
-
-                document.querySelectorAll('a, button, .vid-thumb, .cs-card, .hero-stat-card, .wol-card, .dot-nav-item').forEach(el => {
-                    el.addEventListener('mouseenter', () => { ring.classList.add('hovering'); dot.classList.add('hovering'); });
-                    el.addEventListener('mouseleave', () => { ring.classList.remove('hovering'); dot.classList.remove('hovering'); });
-                });
-            }
-        }
 
         /* ══════════════════════════════════
            4. MAGNETIC BUTTONS
@@ -2059,53 +1968,8 @@
             bindToggle('themeToggleMobile');
         }
     })();
-
-
-    /* ═══════════════════════════════════════════════
-       CMS ENGINE — Never triggers island
-    ═══════════════════════════════════════════════ */
-    document.addEventListener('DOMContentLoaded', async () => {
-        const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-            ? 'http://localhost:5000/api'
-            : 'https://reach-forever.onrender.com/api';
-
-        let pageName = window.location.pathname.split('/').pop().replace('.html', '') || 'reviews';
-
-        try {
-            const [pageRes, globalRes] = await Promise.all([
-                fetch(`${API_BASE}/content/${pageName}`),
-                fetch(`${API_BASE}/content/global`)
-            ]);
-            const [data, globalData] = await Promise.all([pageRes.json(), globalRes.json()]);
-            let all = [];
-            if (data.success       && data.data)       all = [...all, ...data.data];
-            if (globalData.success && globalData.data) all = [...all, ...globalData.data];
-            all.forEach(dbItem => {
-                document.querySelectorAll(`[data-cms="${dbItem.elementId}"]`).forEach(el => {
-                    if (dbItem.contentType === 'text') {
-                        el.innerHTML = dbItem.contentValue;
-                        if (dbItem.elementId === 'wa_float_link') {
-                            const wb = document.getElementById('waFloatBtn');
-                            const wf = document.getElementById('wa_footer_link');
-                            if (wb) wb.href = dbItem.contentValue;
-                            if (wf) wf.href = dbItem.contentValue;
-                        }
-                    } else if (dbItem.contentType === 'image') {
-                        if (el.tagName === 'DIV' || el.tagName === 'SECTION') el.style.backgroundImage = `url('${dbItem.contentValue}')`;
-                        else el.src = dbItem.contentValue;
-                    } else if (dbItem.contentType === 'video') {
-                        const s = el.querySelector('source');
-                        if (s) s.remove();
-                        el.src = dbItem.contentValue;
-                        el.load();
-                    }
-                });
-            });
-        } catch(e) {
-            console.warn('[Reach Forever CMS] Sync skipped:', e.message);
-        }
-    });
     </script>
-
+    <script src="js/cms.js" defer></script>
+    <script src="js/chatbot.js" defer></script>
 </body>
 </html>

@@ -1,13 +1,11 @@
-// public/js/cms.js
 // ZYROVA CMS - INFINITE SCALING ENGINE (IPHONE MASTER FEED)
 
-const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-    ? "http://localhost:5000/api" 
-    : "https://reach-forever.onrender.com/api";
+const API_BASE_URL = "https://reach-forever.onrender.com/api";
 
 async function syncZyrovaCMS() {
     let pageName = window.location.pathname.split("/").pop().replace(".html", "");
     if (!pageName || pageName === "index") pageName = "home";
+    if (pageName === "results") pageName = "reviews";
 
     try {
         console.log("[CMS] 📡 Connecting to Database...");
@@ -31,7 +29,6 @@ async function syncZyrovaCMS() {
 
         // 1. Process Database Payload
         allContent.forEach(dbItem => {
-        if (dbItem.elementId === 'header_logo' || dbItem.elementId === 'home_iphone_reel') return;
             if (!dbItem || !dbItem.elementId) return;
 
             if (dbItem.elementId.startsWith('dynreel_')) {
@@ -50,6 +47,9 @@ async function syncZyrovaCMS() {
                         else if (dbItem.contentType === 'image') {
                             if (el.tagName === "DIV" || el.classList.contains('bk-left-bg-overlay')) {
                                 el.style.backgroundImage = `url('${dbItem.contentValue}')`;
+                                el.style.backgroundSize = "cover";
+                                el.style.backgroundPosition = "center";
+                                el.innerHTML = "";
                             } else {
                                 el.src = dbItem.contentValue;
                             }
@@ -57,6 +57,8 @@ async function syncZyrovaCMS() {
                         else if (dbItem.contentType === 'video') {
                             el.src = dbItem.contentValue;
                             el.load(); 
+                            let p = el.play();
+                            if (p !== undefined) p.catch(e => console.log('Autoplay prevented:', e));
                         }
                     });
                 }
@@ -155,6 +157,27 @@ async function syncZyrovaCMS() {
                 }
 
                 // LOCK BACKGROUND AND OPEN MODAL
+                const openModalHandler = () => {
+                    const rm = document.getElementById('reelsModal'); 
+                    if(rm) {
+                        document.body.style.overflow = 'hidden';
+                        rm.style.opacity = '1';
+                        rm.style.pointerEvents = 'auto';
+                        
+                        const heroVid = document.getElementById('heroVideoAd');
+                        if(heroVid) heroVid.pause();
+                        
+                        const firstModalVid = document.querySelector('.rm-container .rm-video');
+                        if(firstModalVid) {
+                            firstModalVid.muted = false;
+                            let playPromise = firstModalVid.play();
+                            if (playPromise !== undefined) {
+                                playPromise.catch(error => console.log("Modal play blocked"));
+                            }
+                        }
+                    }
+                };
+
                 if (iphoneLayer) {
                     iphoneLayer.removeAttribute('onclick'); 
                     iphoneLayer.onclick = null; 
@@ -162,25 +185,19 @@ async function syncZyrovaCMS() {
                     const newIphoneLayer = iphoneLayer.cloneNode(true);
                     iphoneLayer.parentNode.replaceChild(newIphoneLayer, iphoneLayer);
 
-                    newIphoneLayer.addEventListener('click', () => {
-                        const rm = document.getElementById('reelsModal'); 
-                        if(rm) {
-                            document.body.style.overflow = 'hidden';
-                            rm.style.opacity = '1';
-                            rm.style.pointerEvents = 'auto';
-                            
-                            const heroVid = document.getElementById('heroVideoAd');
-                            if(heroVid) heroVid.pause();
-                            
-                            const firstModalVid = document.querySelector('.rm-container .rm-video');
-                            if(firstModalVid) {
-                                firstModalVid.muted = false;
-                                let playPromise = firstModalVid.play();
-                                if (playPromise !== undefined) {
-                                    playPromise.catch(error => console.log("Modal play blocked"));
-                                }
-                            }
-                        }
+                    newIphoneLayer.addEventListener('click', openModalHandler);
+                }
+
+                // Bind Watch Results button
+                const watchBtn = document.querySelector('.btn-o');
+                if (watchBtn) {
+                    watchBtn.removeAttribute('onclick');
+                    watchBtn.onclick = null;
+                    const newWatchBtn = watchBtn.cloneNode(true);
+                    watchBtn.parentNode.replaceChild(newWatchBtn, watchBtn);
+                    newWatchBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        openModalHandler();
                     });
                 }
                 
@@ -204,7 +221,6 @@ async function syncZyrovaCMS() {
                                 entry.target.currentTime = 0; 
                             }
                         });
-                    });
                     }, { threshold: 0.6 }); 
                     rmVideos.forEach(video => videoObserver.observe(video));
                 }
