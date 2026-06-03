@@ -1,1372 +1,973 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Reach Forever | Best Digital Marketing Agency in Punjab</title>
-    <meta name="description" content="Reach Forever is the #1 premium digital marketing agency in Punjab. We engineer predictable revenue systems, high-ROI local ads, and automated websites.">
-    <meta name="keywords" content="Best Digital Marketing Agency in Jalandhar, Digital Marketing in Phagwara, Marketing Agency Amritsar, Best SEO Punjab, Facebook Ads expert Punjab, Premium Web Development India, Reach Forever">
-    <meta name="author" content="Zyrova Digital | Designed by Akash Jadon">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="theme-color" content="#05020A">
-    
-    <link rel="canonical" href="https://reachforever.com/">
-    <link rel="icon" type="image/png" href="https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png">
-    
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Reach Forever | Best Digital Marketing Agency in Punjab">
-    <meta property="og:description" content="We engineer predictable revenue systems, high-ROI local ads, and automated websites in Punjab.">
-    <meta property="og:url" content="https://reachforever.com/">
-    <meta property="og:site_name" content="Reach Forever Agency">
-    <meta property="og:image" content="https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png">
-
-    <script type="application/ld+json">
-    {
-      "@context":"https://schema.org",
-      "@type":"MarketingAgency",
-      "name":"Reach Forever",
-      "image":"https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png",
-      "description":"Premium Digital Marketing Agency serving Jalandhar, Phagwara, Amritsar, and all of Punjab.",
-      "url":"https://reachforever.com",
-      "telephone":"+917668758238",
-      "address":{
-          "@type":"PostalAddress",
-          "streetAddress":"Digital HQ",
-          "addressLocality":"Jalandhar",
-          "addressRegion":"Punjab",
-          "postalCode":"144001",
-          "addressCountry":"IN"
-      },
-      "areaServed":["Jalandhar","Phagwara","Amritsar","Punjab"],
-      "priceRange":"$$$$"
-    }
-    </script>
-
-    <script>
-      (function() {
-        const savedTheme = localStorage.getItem('rf-theme');
-        if (savedTheme === 'light') document.documentElement.setAttribute('data-theme', 'light');
-      })();
-    </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/dark-overhaul.css">
-
-    <style>
-/* ============================================================
-   GLOBAL STYLES & OVERRIDES
-   ============================================================ */
-html, body { overflow-x: hidden; scroll-behavior: auto !important; margin: 0; padding: 0; }
-body.hover-target { cursor: none; }
-
-/* ============================================================
-   SCROLL PROGRESS BAR
-   ============================================================ */
-#scrollProgress { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, #9047FF, #D4AF37); z-index: 999999; width: 0%; transition: width 0.1s ease-out; border-top-right-radius: 4px; border-bottom-right-radius: 4px; box-shadow: 0 0 15px rgba(212, 175, 55, 0.8); }
-
-/* ============================================================
-   MAGNETIC CURSOR (BUTTERY SMOOTH LERP)
-   ============================================================ */
-.cursor-dot { position: fixed; top: 0; left: 0; width: 8px; height: 8px; background: #FFF; border-radius: 50%; pointer-events: none; z-index: 999999; mix-blend-mode: difference; box-shadow: 0 0 15px #D4AF37; will-change: transform; transform: translate(-50%, -50%); }
-.cursor-ring { position: fixed; top: 0; left: 0; width: 40px; height: 40px; border: 2px solid #D4AF37; border-radius: 50%; pointer-events: none; z-index: 999998; mix-blend-mode: difference; will-change: transform; transform: translate(-50%, -50%); }
-
-/* ============================================================
-   DYNAMIC ISLAND (FEATURE 1)
-   ============================================================ */
-#dynamicIsland { position: fixed; top: 15px; left: 50%; transform: translateX(-50%) translateY(-150px); min-width: 140px; height: 42px; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); border-radius: 40px; display: flex; align-items: center; justify-content: center; padding: 0 20px; gap: 12px; z-index: 99999999; transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.1); white-space: nowrap; overflow: hidden; }
-#di-icon { font-size: 1.2rem; color: #D4AF37; }
-#di-text { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #FFF; font-weight: 600; opacity: 0; transition: opacity 0.3s ease 0.2s; }
-#dynamicIsland.di-active { transform: translateX(-50%) translateY(0); min-width: 260px; }
-#dynamicIsland.di-active #di-text { opacity: 1; }
-
-/* ============================================================
-   HERO TEXT ROTATOR
-   ============================================================ */
-.text-rotator-wrap{display:inline-block;position:relative;height:1.05em;vertical-align:bottom;overflow:hidden;padding-bottom:5px}
-.text-rotator{display:inline-flex;flex-direction:column;animation:spinWordsCSS 15s cubic-bezier(.85,0,.15,1) infinite}
-.tr-word{display:block;height:1.05em;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600}
-@keyframes spinWordsCSS{0%,13%{transform:translateY(0)}16%,29%{transform:translateY(-1.05em)}33%,46%{transform:translateY(-2.1em)}50%,63%{transform:translateY(-3.15em)}66%,79%{transform:translateY(-4.2em)}83%,96%{transform:translateY(-5.25em)}100%{transform:translateY(-6.3em)}}
-
-/* ============================================================
-   SERVICE MODAL (FULLSCREEN GLASSMORPHIC)
-   ============================================================ */
-.service-modal-overlay{position:fixed;inset:0;background:rgba(5,2,10,.96);backdrop-filter:blur(30px);z-index:9999999;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .4s ease;padding:20px;will-change:opacity; overflow-y: auto;}
-.service-modal-content{background:rgba(15,8,25,.95);border:1px solid rgba(212,175,55,.25);border-radius:30px;width:100%;max-width:550px;padding:40px 35px;box-shadow:0 40px 100px rgba(0,0,0,.8);transform:translateY(50px) scale(.95);transition:all .5s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;will-change:transform,opacity; margin: auto;}
-.service-modal-content::before{content:'';position:absolute;top:0;left:0;width:100%;height:180px;background:linear-gradient(180deg,rgba(212,175,55,.08) 0%,transparent 100%);pointer-events:none}
-.sm-close-btn{position:absolute;top:20px;right:20px;width:42px;height:42px;background:rgba(255,255,255,.08);border-radius:50%;display:flex;justify-content:center;align-items:center;color:#fff;font-size:1.5rem;cursor:pointer;z-index:10;border:1px solid rgba(255,255,255,.08);transition:.3s}
-.sm-close-btn:hover{background:rgba(212,175,55,.2);border-color:#D4AF37;transform:rotate(90deg)}
-
-/* ============================================================
-   THE REACH BLUEPRINT SECTION (Replaced Radar)
-   ============================================================ */
-.blueprint-section { padding: 8rem 0; position: relative; z-index: 5; background: var(--bg-main, #05020A); border-radius: 60px; margin: 0 2%; border: 1px solid rgba(255,255,255,.07); box-shadow: 0 20px 60px rgba(0,0,0,.3); overflow: hidden; }
-.blueprint-bg-glow { position: absolute; top: -20%; left: 50%; transform: translateX(-50%); width: 80%; height: 60%; background: radial-gradient(ellipse at top, rgba(212,175,55,0.08), transparent 70%); pointer-events: none; z-index: 0; }
-.blueprint-grid { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; position: relative; max-width: 1200px; margin: 0 auto; z-index: 2; padding: 0 20px; }
-.bp-card { flex: 1; background: var(--bg-panel, rgba(15,8,25,.6)); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,.08); border-radius: 30px; padding: 45px 30px; text-align: center; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,.2); transition: transform 0.4s ease, border-color 0.4s; will-change: transform; }
-.bp-card:hover { transform: translateY(-10px); border-color: rgba(212,175,55,.4); }
-.bp-number { position: absolute; top: -30px; left: 50%; transform: translateX(-50%); font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 700; color: rgba(255,255,255,.03); -webkit-text-stroke: 1px rgba(212,175,55,.2); pointer-events: none; }
-.bp-icon { width: 70px; height: 70px; margin: 0 auto 25px; background: rgba(212,175,55,.1); border: 1px solid rgba(212,175,55,.3); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #D4AF37; box-shadow: 0 10px 20px rgba(212,175,55,.1); }
-.bp-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: var(--rf-text, #FFF); margin-bottom: 15px; line-height: 1.2; }
-.bp-card p { font-family: 'Outfit', sans-serif; font-size: 1.05rem; color: var(--rf-muted, #B0B0C0); line-height: 1.6; margin: 0; }
-.bp-connector { flex: 0 0 40px; height: 2px; background: linear-gradient(90deg, rgba(212,175,55,.1), rgba(212,175,55,.6), rgba(212,175,55,.1)); margin-top: 100px; position: relative; }
-.bp-connector::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 8px; height: 8px; background: #D4AF37; border-radius: 50%; box-shadow: 0 0 15px #D4AF37; }
-
-/* Hide connectors on tablets so cards fit nicely */
-@media (max-width: 1024px) {
-    .bp-connector { display: none; }
-    .blueprint-grid { gap: 30px; }
-}
-/* ============================================================
-   GROWTH ENGINE SECTION
-   ============================================================ */
-.growth-engine-section{background:var(--bg-main, #05020A);color:var(--rf-text, #fff);padding:8rem 5%;position:relative;z-index:5;border-radius:60px;margin:40px 2%;border:1px solid rgba(255,255,255,.07);box-shadow:0 40px 80px rgba(0,0,0,.25);overflow:hidden}
-.ge-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;max-width:1400px;margin:0 auto;align-items:center}
-.ge-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5.5rem);color:var(--rf-text);line-height:1.1;margin-bottom:20px}
-.ge-text p{font-family:'Outfit',sans-serif;font-size:1.15rem;color:var(--rf-muted, #B0B0C0);line-height:1.6;margin-bottom:30px}
-.ge-features{display:flex;flex-direction:column;gap:15px}
-.ge-feat{display:flex;align-items:center;gap:12px;font-family:'Outfit',sans-serif;font-size:1.1rem;color:var(--rf-text);font-weight:500}
-.ge-feat i{color:#D4AF37;font-size:1.5rem}
-.ge-visual{position:relative;width:100%;height:500px;border-radius:30px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.08)}
-.ge-visual img{width:100%;height:100%;object-fit:cover;filter:brightness(.85);transition:transform .8s ease;will-change:transform}
-.ge-visual:hover img{transform:scale(1.05)}
-.ge-floating-ui{position:absolute;bottom:40px;left:-30px;background:var(--bg-panel, rgba(10,11,14,.85));backdrop-filter:blur(20px);border:1px solid rgba(200,169,110,.3);padding:25px;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,.5);display:flex;align-items:center;gap:20px}
-.ge-ui-icon{width:50px;height:50px;border-radius:50%;background:rgba(85,107,47,.2);color:#C8A96E;display:flex;justify-content:center;align-items:center;font-size:1.5rem;border:1px solid #9047FF}
-.ge-ui-text h4{font-family:'Outfit',sans-serif;font-size:1rem;color:var(--rf-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
-.ge-ui-text span{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--rf-text);line-height:1}
-
-/* ============================================================
-   CHATBOT ANIMATIONS
-   ============================================================ */
-@keyframes slideUpFade{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
-.msg{animation:slideUpFade .4s cubic-bezier(.16,1,.3,1) forwards}
-.msg.user{background:linear-gradient(135deg,#9047FF 0%,#435525 100%);box-shadow:0 5px 15px rgba(85,107,47,.3);color:#FFF}
-.msg.ai{border-radius:20px;border-bottom-left-radius:4px;background:rgba(15,8,25,.7);border:1px solid rgba(255,255,255,.08);box-shadow:0 8px 20px rgba(0,0,0,.05);color:#FFF}
-#auraBody::-webkit-scrollbar{width:4px}
-#auraBody::-webkit-scrollbar-track{background:transparent}
-#auraBody::-webkit-scrollbar-thumb{background:rgba(212,175,55,.5);border-radius:10px}
-
-/* ============================================================
-   FULLSCREEN LIGHTBOX
-   ============================================================ */
-.fullscreen-lightbox{position:fixed;inset:0;background:rgba(0,0,0,.96);backdrop-filter:blur(20px);z-index:999999;display:flex;justify-content:center;align-items:center;opacity:0;pointer-events:none;transition:opacity .4s cubic-bezier(.16,1,.3,1)}
-.fullscreen-lightbox.active{opacity:1;pointer-events:auto}
-.fl-close{position:absolute;top:25px;right:25px;width:48px;height:48px;background:rgba(255,255,255,.1);border-radius:50%;color:#fff;display:flex;justify-content:center;align-items:center;font-size:1.4rem;cursor:pointer;border:1px solid rgba(255,255,255,.2);transition:.3s;z-index:10}
-.fl-close:hover{background:#D4AF37;border-color:#D4AF37;transform:rotate(90deg)}
-.fl-content{max-width:90vw;max-height:90vh;border-radius:20px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.6);transform:scale(.9);transition:transform .5s cubic-bezier(.16,1,.3,1);border:2px solid rgba(200,169,110,.2)}
-.fullscreen-lightbox.active .fl-content{transform:scale(1)}
-.fl-content img{width:100%;height:auto;max-height:90vh;object-fit:contain;display:block}
-.fl-content video{width:100%;height:auto;max-height:90vh;outline:none;display:block}
-
-/* ============================================================
-   APPLE-STYLE SCROLL REVEAL
-   ============================================================ */
-.reveal-on-scroll{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1); will-change: transform, opacity;}
-.reveal-on-scroll.revealed{opacity:1;transform:translateY(0)}
-.reveal-on-scroll.delay-1{transition-delay:.1s}
-.reveal-on-scroll.delay-2{transition-delay:.2s}
-.reveal-on-scroll.delay-3{transition-delay:.3s}
-
-/* ============================================================
-   CYLINDER FACES
-   ============================================================ */
-.cylinder-face{cursor:pointer!important;transition:box-shadow .4s ease!important; will-change: transform;}
-.cylinder-face:hover{box-shadow:0 0 40px rgba(200,169,110,.4)!important}
-
-/* ============================================================
-   WHATSAPP FLOAT
-   ============================================================ */
-.wa-float{position:fixed!important;bottom:25px!important;left:25px!important;width:56px!important;height:56px!important;background:#25D366!important;color:#fff!important;border-radius:50%!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:1.8rem!important;z-index:99990!important;box-shadow:0 6px 20px rgba(37,211,102,.4)!important;transition:all .3s ease!important;text-decoration:none!important}
-.wa-float:hover{transform:scale(1.1)!important;box-shadow:0 8px 30px rgba(37,211,102,.6)!important}
-
-/* ============================================================
-   PREMIUM FOOTER & MAIN WRAPPER FLUSH FIX
-   ============================================================ */
-.main-wrapper { margin-bottom: 0 !important; border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; padding-bottom: 0 !important; box-shadow: none !important; }
-.premium-footer{position:relative;z-index:50;background:var(--bg-main, #05020A);padding:4rem 5% 4rem;color:var(--rf-muted, #A0A0A0);font-family:'Outfit',sans-serif; margin-top: 0 !important; border-top: none !important;}
-.pf-container{max-width:1250px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
-.pf-brand img{max-height:45px;margin-bottom:20px}
-.pf-brand p{font-size:.95rem;line-height:1.6;color:var(--rf-muted);max-width:300px}
-.pf-col h4{color:var(--rf-text);font-size:1.1rem;margin-bottom:20px;font-weight:600;font-family:'Outfit',sans-serif}
-.pf-links{list-style:none;padding:0;margin:0}
-.pf-links li{margin-bottom:12px}
-.pf-links a{color:var(--rf-muted);text-decoration:none;transition:color .3s}
-.pf-links a:hover{color:#D4AF37}
-.pf-bottom{margin-top:50px;padding-top:20px;border-top:1px solid rgba(255,255,255,.05);text-align:center}
-.pf-signature{font-size:.85rem;letter-spacing:2px;text-transform:uppercase;color:var(--rf-muted)}
-
-/* ============================================================
-   TABLET (1024px) — KEEP DESKTOP SAFE
-   ============================================================ */
-@media (max-width:1024px){
-    .hero-social-float{display:none!important}
-    .hero-grid{grid-template-columns:1fr!important;text-align:center;gap:50px!important}
-    .hero-text{margin:0 auto;display:flex;flex-direction:column;align-items:center}
-    .hero-desc{border-left:none!important;padding-left:0!important;max-width:100%!important}
-    .hero-actions{justify-content:center}
-    .iphone-mockup{margin:0 auto;transform:scale(.9)!important}
-    .review-indicator{left:50%;transform:translateX(-50%);top:-30px;animation:none}
-    .ge-grid{grid-template-columns:1fr;text-align:center;gap:40px}
-    .ge-features{align-items:center}
-    .ge-visual{height:400px}
-    .ge-floating-ui{left:50%;transform:translateX(-50%);bottom:-20px;width:90%;justify-content:center}
-    .section-2-wrapper{grid-template-columns:1fr!important;text-align:center;padding:4rem 5%!important;border-radius:40px!important}
-    .s2-social-grid{justify-items:center}
-    .pf-container{grid-template-columns:1fr;text-align:center}
-    .pf-brand p{max-width:100%;margin:0 auto}
-}
-
-/* ============================================================
-   ██████  MOBILE  ██████  (max-width: 768px)
-   ALL MOBILE FIXES ARE INSIDE THIS BLOCK — DESKTOP UNTOUCHED
-   ============================================================ */
-@media (max-width:768px){
-
-    /* --- Global spacing --- */
-    html,body{overflow-x:hidden}
-    .section-pad,.growth-engine-section,.story-section,.radar-section,.xray-section,.reels-section,.rush-section{padding:2rem 3% 2rem!important}
-    .container{padding:0 4%!important}
-
-    /* --- Typography --- */
-    .title-massive,#hero-main-title{font-size:2.2rem!important;line-height:1.1!important;margin-bottom:10px!important}
-    .title-lg{font-size:1.6rem!important;margin-bottom:10px!important}
-    p,.hero-desc,.ars-desc,.ge-text p{font-size:.9rem!important;line-height:1.45!important;margin-bottom:10px!important}
-    .tag-pill,.hero-tag{font-size:.65rem!important;padding:6px 14px!important;margin-left:auto;margin-right:auto}
-
-    /* --- Hero grid: FIT TO SCREEN PERFECTLY --- */
-    .hero-grid{grid-template-columns:1fr!important;text-align:center!important;gap:15px!important;min-height:85vh;display:flex;flex-direction:column;justify-content:center;}
-    .hero-text{align-items:center!important;margin:0 auto!important;display:flex;flex-direction:column}
-    .hero-desc{border-left:none!important;padding-left:0!important;text-align:center!important;max-width:100%!important}
-    .hero-actions{justify-content:center!important}
-
-    /* --- iPhone Mockup: Perfect Center & Fits Screen --- */
-    .hero-visuals{display:flex!important;justify-content:center!important;align-items:center!important;width:100%!important;margin-top:10px!important}
-    .iphone-mockup{
-        width:280px!important;
-        height:570px!important; 
-        margin:0 auto!important;
-        transform:scale(0.85)!important;
-        animation:none!important;
-        border-radius:40px!important;
-        right:auto!important;left:auto!important;
-        position:relative!important;
-        flex-shrink:0!important;
-    }
-    .review-indicator{position:relative!important;left:auto!important;transform:none!important;top:auto!important;animation:none!important;margin:0 auto 12px auto!important}
-
-    /* --- Section 2: Hologram / Cylinder --- */
-    .section-2-wrapper{
-        padding:1.5rem 3%!important;
-        display:flex!important;
-        flex-direction:column!important;
-        align-items:center!important;
-        gap:16px!important;
-        border-radius:24px!important
-    }
-    .s2-right{
-        height:340px!important; 
-        perspective:900px!important;
-        width:100%!important;
-        order:-1;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        overflow:visible!important
-    }
-    /* Cylinder sized perfectly for clear phone view */
-    .cylinder-carousel{width:200px!important;height:300px!important}
-    .cylinder-face{
-        width:200px!important;
-        height:300px!important;
-        transform-origin:center center!important
-    }
-    .cylinder-face:nth-child(1){transform:rotateY(0deg) translateZ(180px)!important}
-    .cylinder-face:nth-child(2){transform:rotateY(60deg) translateZ(180px)!important}
-    .cylinder-face:nth-child(3){transform:rotateY(120deg) translateZ(180px)!important}
-    .cylinder-face:nth-child(4){transform:rotateY(180deg) translateZ(180px)!important}
-    .cylinder-face:nth-child(5){transform:rotateY(240deg) translateZ(180px)!important}
-    .cylinder-face:nth-child(6){transform:rotateY(300deg) translateZ(180px)!important}
-
-    .s2-left{width:100%!important;text-align:center!important}
-
-    /* 4 social icons in ONE horizontal row — clickable */
-    .s2-social-grid{
-        display:flex!important;
-        flex-direction:row!important;
-        justify-content:center!important;
-        gap:10px!important;
-        margin-top:12px!important;
-        flex-wrap:nowrap!important;
-        width:100%
-    }
-    .s2-social-card{
-        width:58px!important;
-        height:58px!important;
-        padding:0!important;
-        gap:0!important;
-        border-radius:14px!important;
-        display:flex!important;
-        align-items:center!important;
-        justify-content:center!important;
-        flex:0 0 auto!important;
-        flex-grow:0!important
-    }
-    .s2-social-card span{display:none!important}
-    .s2-icon{font-size:1.7rem!important;margin:0!important}
-
-    /* --- Digital Marketing Services: 3-column grid, icon + title only --- */
-    .ars-container{
-        grid-template-columns:repeat(3,1fr)!important;
-        gap:7px!important
-    }
-    .ars-card{
-        padding:14px 6px!important;
-        text-align:center;
-        align-items:center;
-        justify-content:center;
-        min-height:90px!important;
-        display:flex!important;
-        flex-direction:column!important
-    }
-    .ars-card .ri-expand-diagonal-line{display:none!important}
-    .ars-icon{width:42px!important;height:42px!important;font-size:1.5rem!important;margin-bottom:6px!important;margin-left:auto;margin-right:auto}
-    .ars-title{font-size:.6rem!important;margin-bottom:0!important;line-height:1.2!important;font-weight:700!important;text-align:center!important}
-    .ars-desc{display:none!important}
-    .ars-img-wrap{display:none!important}
-    .ars-card:nth-child(2) .ars-icon{
-        background:rgba(212,175,55,.15)!important;
-        color:#D4AF37!important;
-        border:1px solid rgba(212,175,55,.3)!important
-    }
-    .ars-card:nth-child(2) .ars-icon i{display:block!important;opacity:1!important;visibility:visible!important}
-
-    /* --- Parallax Revenue Banner: scaled text --- */
-    .parallax-break{
-        height:240px!important; 
-        margin:1rem auto!important;
-        width:94%!important;
-        border-radius:22px!important
-    }
-    .px-content h2{font-size:clamp(2rem,8vw,4rem)!important;margin-bottom:4px!important;line-height:1.1!important; width: 100%;}
-    .px-content p{font-size:.8rem!important;letter-spacing:1px!important; width: 100%;}
-
-   /* --- The Blueprint Section (Mobile) --- */
-    .blueprint-section { padding: 2.5rem 4% !important; border-radius: 24px !important; margin: 0 1% !important; }
-    .blueprint-grid { flex-direction: column; align-items: center; gap: 30px; padding: 0; }
-    .bp-card { width: 100%; max-width: 400px; padding: 30px 20px; border-radius: 24px; }
-    .bp-number { font-size: 3rem; top: -20px; }
-    .bp-icon { width: 55px; height: 55px; font-size: 1.6rem; margin-bottom: 15px; border-radius: 16px; }
-    .bp-card h3 { font-size: 1.6rem; margin-bottom: 10px; }
-    .bp-card p { font-size: 0.95rem; }
-    .bp-connector { display: none; }
-
-    /* --- Before/After slider --- */
-    .ba-container{height:280px!important;border-radius:22px!important}
-
-    /* --- Growth Engine --- */
-    .growth-engine-section{margin:16px 1%!important;border-radius:24px!important;padding:2rem 4%!important}
-    .ge-grid{grid-template-columns:1fr!important;text-align:center!important;gap:20px!important}
-    .ge-features{align-items:center!important}
-    .ge-visual{height:260px!important}
-    .ge-floating-ui{left:50%!important;transform:translateX(-50%)!important;bottom:-12px!important;width:90%!important;justify-content:center!important}
-
-    /* --- Rush section (Flush with footer) --- */
-    .rush-section{border-radius:24px 24px 0 0 !important; margin:0!important; padding:3rem 4%!important;height:auto!important; border-bottom: none !important;}
-    .rush-title{font-size:clamp(1.8rem,8vw,2.8rem)!important}
-
-    /* --- Story section --- */
-    .story-section{padding:2.5rem 4%!important}
-    .story-p{font-size:clamp(1.5rem,6vw,2.5rem)!important;margin-bottom:40px!important}
-
-    /* --- Arsenal section --- */
-    .arsenal-section{border-radius:24px!important;margin:0 1%!important;padding:1.5rem 3%!important}
-
-    /* --- Footer above bottom nav --- */
-    .premium-footer{padding-bottom:100px!important;} /* Gives space for mobile nav */
-    .mobile-nav{
-        box-sizing:border-box!important;
-        width:90vw!important;
-        max-width:400px!important;
-        left:50%!important;
-        transform:translateX(-50%)!important;
-        bottom:16px!important
-    }
-    .m-nav-item{font-size:.6rem!important}
-    .m-nav-item i{font-size:1.2rem!important}
-
-    /* --- AI chat panel --- */
-    .ai-fab-wrap,#auraFab{bottom:90px!important;right:14px!important}
-    .chat-panel,#auraPanel{width:94%!important;right:3%!important;left:3%!important;bottom:150px!important;border-radius:20px!important;max-height:60vh!important}
-
-    /* WA float above mobile nav */
-    .wa-float{bottom:85px!important;left:14px!important;width:46px!important;height:46px!important;font-size:1.5rem!important}
-
-    /* Sticky CTA above bottom nav */
-    .sticky-cta{bottom:82px!important;width:90%!important}
-    .sc-text{font-size:.78rem!important}
-
-    /* Service modal on mobile */
-    .service-modal-content{padding:28px 20px!important;border-radius:24px!important;max-height:92vh;overflow-y:auto}
-}
-
-/* Extra small */
-@media (max-width:380px){
-    .iphone-mockup{transform:scale(0.75)!important}
-    .ars-title{font-size:.52rem!important}
-    .s2-social-card{width:50px!important;height:50px!important}
-}
-
-/* Low FPS mode: kills heavy animations */
-.low-fps-mode .cylinder-carousel,.low-fps-mode .radar-grid{animation:none!important}
-.low-fps-mode .glow-card{transition:none!important;transform:none!important}
-
-/* Reels swiper hidden on desktop */
-@media (min-width:1025px){.reels-section{display:none!important}}
-/* Mobile nav hidden on desktop */
-@media (min-width:1025px){.mobile-nav{display:none!important}}
-    </style>
-</head>
-<body class="hover-target">
-
-<h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Reach Forever | Best Digital Marketing Agency in Punjab</h1>
-
-<div id="scrollProgress"></div>
-
-<div id="preloader">
-    <div class="pl-logo" style="font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:700;color:#FFF"><span>REACH.</span></div>
-    <div class="pl-progress-box" style="width:200px;height:2px;background:rgba(255,255,255,.1);margin-top:30px;position:relative;overflow:hidden">
-        <div id="pl-bar" style="position:absolute;top:0;left:0;height:100%;width:0%;background:#D4AF37;transition:width .1s"></div>
-    </div>
-</div>
-
-<div id="dynamicIsland">
-    <i id="di-icon" class="ri-flashlight-fill"></i>
-    <span id="di-text">Performance Active</span>
-</div>
-
-<canvas id="gold-dust-canvas" style="position:fixed;inset:0;width:100vw;height:100vh;z-index:99;pointer-events:none;opacity:.55"></canvas>
-
-<div class="sticky-cta" id="stickyCta">
-    <div class="sc-text" data-cms="sticky_cta_text">Ready to grow your business?</div>
-    <a href="form.html" class="btn btn-olive" data-cms="sticky_cta_btn" style="background:linear-gradient(135deg,#C8A96E,#A67C00);color:#FFF;padding:12px 25px;border-radius:100px;font-family:'Outfit',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:1px;text-decoration:none">Initiate Project</a>
-</div>
-
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<div class="main-wrapper" style="position:relative;z-index:2;background-color:var(--bg-main, #05020A); box-shadow:0 40px 100px rgba(0,0,0,.3)">
-
-    <div class="header-wrap" id="headerWrap" style="position:fixed;top:15px;left:0;width:100%;z-index:1000;display:flex;justify-content:center;transition:top .4s ease;pointer-events:none">
-        <nav class="navbar" id="navbar" style="pointer-events:auto;width:92%;max-width:1250px;height:70px;background:rgba(15,8,25,.6);backdrop-filter:blur(20px);border-radius:100px;border:1px solid rgba(255,255,255,.08);box-shadow:0 0 20px rgba(200,169,110,.3);display:flex;justify-content:space-between;align-items:center;padding:0 10px 0 25px">
-            <a href="index.html" class="nav-brand magnetic-wrap" style="display:flex;align-items:center;height:100%;text-decoration:none">
-                <span class="magnetic-inner" style="display:inline-block">
-                    <img src="https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png" alt="Reach Forever Digital Marketing Agency Logo" id="logoImg" data-cms="header_logo" style="max-height:45px;width:auto;object-fit:contain">
-                </span>
-            </a>
-            <ul class="nav-links">
-                <li class="magnetic-wrap"><a href="index.html" class="nav-pill active magnetic-inner" data-cms="nav_link_1">Home</a></li>
-                <li class="magnetic-wrap"><a href="services.html" class="nav-pill magnetic-inner" data-cms="nav_link_2">Services</a></li>
-                <li class="magnetic-wrap"><a href="reviews.html" class="nav-pill magnetic-inner" data-cms="nav_link_3">Reviews</a></li>
-            </ul>
-            <div class="magnetic-wrap nav-btn-wrap" style="display:flex;align-items:center">
-                <a href="form.html" class="btn-olive magnetic-inner" data-cms="nav_btn" style="background:linear-gradient(135deg,#C8A96E,#A67C00);color:#FFF;padding:12px 28px;border-radius:100px;font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;text-decoration:none;box-shadow:0 10px 25px rgba(200,169,110,.35)">Initiate Project</a>
-            </div>
-            <div class="theme-toggle-btn" id="themeToggleDesktop" title="Toggle Theme" style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(200,169,110,.3);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.3s;flex-shrink:0;margin-right:10px">
-                <i class="ri-sun-fill" id="themeIconDesktop" style="font-size:1.2rem;color:#C8A96E"></i>
-            </div>
-        </nav>
-    </div>
-
-    <div class="mobile-nav">
-        <a href="index.html" class="m-nav-item active"><i class="ri-funds-line"></i>Home</a>
-        <a href="services.html" class="m-nav-item"><i class="ri-stack-fill"></i>Services</a>
-        <a href="reviews.html" class="m-nav-item"><i class="ri-vidicon-fill"></i>Reviews</a>
-        <a href="form.html" class="m-nav-item"><i class="ri-calendar-event-fill"></i>Book</a>
-        <div class="m-nav-item" id="themeToggleMobile" style="cursor:pointer"><i class="ri-sun-fill" id="themeIconMobile" style="color:#D4AF37"></i>Theme</div>
-    </div>
-
-    <section class="section-pad" style="padding-top:120px;min-height:100vh;display:flex;align-items:center;background:transparent;position:relative">
-        <div class="hero-social-float hsf-ig" style="position:absolute;bottom:15%;right:3%;width:65px;height:65px;border-radius:18px;background:rgba(15,8,25,.6);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);display:flex;justify-content:center;align-items:center;font-size:2.2rem;color:#E4405F;z-index:5;animation:sfFloat 6s infinite alternate-reverse ease-in-out"><i class="ri-instagram-line"></i></div>
-        <div class="hero-social-float hsf-yt" style="position:absolute;top:18%;right:4%;width:65px;height:65px;border-radius:18px;background:rgba(15,8,25,.6);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);display:flex;justify-content:center;align-items:center;font-size:2.2rem;color:#FF0000;z-index:5;animation:sfFloat 5s infinite alternate ease-in-out"><i class="ri-youtube-fill"></i></div>
-        <div class="hero-social-float hsf-li" style="position:absolute;bottom:12%;left:4%;width:65px;height:65px;border-radius:18px;background:rgba(15,8,25,.6);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);display:flex;justify-content:center;align-items:center;font-size:2.2rem;color:#0A66C2;z-index:5;animation:sfFloat 7s infinite alternate-reverse ease-in-out"><i class="ri-linkedin-fill"></i></div>
-        <style>@keyframes sfFloat{0%{transform:translateY(0) rotate(-8deg)}100%{transform:translateY(-25px) rotate(8deg)}}</style>
-
-        <div class="container hero-grid" style="display:grid;grid-template-columns:1.15fr .85fr;gap:40px;width:100%;position:relative;z-index:2;align-items:center">
-            <div class="hero-text" id="hero-text-module" style="position:relative;z-index:5">
-                <span class="tag-pill reveal-on-scroll" data-cms="hero_tag" style="display:inline-flex;align-items:center;gap:8px;padding:10px 24px;background:rgba(15,8,25,.6);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:100px;font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#C8A96E;margin-bottom:20px"><i class="ri-funds-line"></i> Start Growing Now</span>
-                
-                <h2 class="title-massive reveal-on-scroll delay-1" id="hero-main-title" data-cms="home_hero_text" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,4.5vw,4.8rem);margin-bottom:15px;line-height:1.1;font-weight:700;color:var(--rf-text)">
-                    We turn <br>
-                    <span class="text-rotator-wrap">
-                        <span class="text-rotator" id="appleRotator">
-                            <span class="tr-word" style="color:#D4AF37">Ad Spend</span>
-                            <span class="tr-word" style="color:#C8A96E">Clicks</span>
-                            <span class="tr-word" style="color:#FF4D6A">Traffic</span>
-                            <span class="tr-word" style="color:var(--rf-text)">Leads</span>
-                            <span class="tr-word" style="color:#D4AF37">Sales</span>
-                            <span class="tr-word" style="color:#D4AF37">Ad Spend</span>
-                        </span>
-                    </span><br>
-                    into paying clients.
-                </h2>
-                
-                <p class="hero-desc reveal-on-scroll delay-2" id="hero-main-desc" data-cms="hero_desc" style="font-family:'Outfit',sans-serif;font-size:clamp(1.05rem,1.2vw,1.15rem);color:var(--rf-muted);line-height:1.6;margin-bottom:30px;font-weight:400;max-width:500px;border-left:3px solid #C8A96E;padding-left:20px">We help you get more customers through Google Ads, Social Media, and fast websites. Real results, not just likes.</p>
-                <div class="hero-actions reveal-on-scroll delay-3" style="display:flex;gap:15px;flex-wrap:wrap">
-                    <div class="magnetic-wrap"><a href="form.html" class="btn btn-olive magnetic-inner" data-cms="hero_btn" style="background:linear-gradient(135deg,#C8A96E,#A67C00);color:#FFF;padding:16px 36px;border-radius:100px;font-family:'Outfit',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:1px;text-decoration:none;box-shadow:0 10px 25px rgba(200,169,110,.35)">Start Growing Now</a></div>
-                </div>
-            </div>
-
-            <div class="hero-visuals reveal-on-scroll delay-1" style="display:flex;justify-content:center;align-items:center;width:100%;position:relative;perspective:1500px;z-index:10">
-                <div class="review-indicator" style="position:absolute;left:-40px;top:15%;background:rgba(15,8,25,.6);backdrop-filter:blur(20px);padding:10px 20px;border-radius:100px;border:1px solid rgba(200,169,110,.3);box-shadow:0 10px 30px rgba(0,0,0,.04);display:flex;align-items:center;gap:10px;z-index:20;animation:float1 4s infinite alternate ease-in-out">
-                    <div class="ri-dot" style="width:12px;height:12px;background:#C8A96E;border-radius:50%;animation:blink 1.5s infinite"></div>
-                    <span class="ri-text" data-cms="hero_indicator_text" style="font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:700;color:var(--rf-text)">See Real Results</span>
-                </div>
-                <style>@keyframes float1{0%{transform:translateY(0)}100%{transform:translateY(-12px)}} @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}</style>
-
-                <div class="iphone-mockup hover-video" id="heroIphoneScroll" style="position:relative;width:280px;height:570px;flex-shrink:0;background:#1a1a1a;padding:6px;border-radius:40px;box-shadow:inset 0 0 2px rgba(255,255,255,.2),0 40px 80px rgba(0,0,0,.2);transform:perspective(1000px) rotateY(-15deg) rotateX(5deg);transition:transform .5s cubic-bezier(.16,1,.3,1);z-index:5;transform-style:preserve-3d">
-                    <div style="position:relative;width:100%;height:100%;background:#000;border-radius:34px;overflow:hidden;transform:translateZ(0);z-index:1">
-                        <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:110px;height:25px;background:#1a1a1a;border-radius:0 0 16px 16px;z-index:20;pointer-events:none"></div>
-                        <video class="active rm-video" autoplay loop muted playsinline id="heroVideoAd" data-cms="home_iphone_reel" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;border-radius:34px">
-                            <source src="https://videos.pexels.com/video-files/4100018/4100018-uhd_1440_2560_25fps.mp4" type="video/mp4">
-                        </video>
-                        <div class="iphone-ui" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.95) 0%,rgba(0,0,0,.4) 30%,transparent 60%);z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:25px 20px;pointer-events:none;border-radius:34px">
-                            <div class="iu-client" data-cms="hero_iphone_client" style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:var(--rf-text);margin-bottom:5px;line-height:1.1">Thorne Dental Clinic</div>
-                            <div class="iu-stars" style="color:#D4AF37;font-size:.85rem;margin-bottom:8px"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
-                            <div class="reel-caption" data-cms="hero_iphone_caption" style="font-family:'Outfit',sans-serif;color:rgba(255,255,255,.9);font-size:.85rem;line-height:1.4">"120 new patients this month. Unbelievable."</div>
-                        </div>
-                        <div class="iphone-click-layer" id="iphoneClickLayer" style="position:absolute;inset:0;z-index:30;cursor:pointer;border-radius:34px"></div>
-                    </div>
-                    <div class="audio-indicator" id="audioIndicator" style="position:absolute;top:40px;right:-15px;background:rgba(0,0,0,.8);backdrop-filter:blur(5px);color:var(--rf-text);padding:6px 12px;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:700;z-index:20;display:flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.2);pointer-events:none"><i class="ri-play-circle-fill"></i> Tap to Watch</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-pad">
-        <div class="container">
-            <div class="section-2-wrapper reveal-on-scroll" style="background:var(--bg-main, #05020A);border-radius:60px;padding:6rem 5%;border:1px solid rgba(255,255,255,.06);box-shadow:0 10px 30px rgba(0,0,0,.2);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center">
-                <div class="s2-left">
-                    <h2 class="title-lg" data-cms="s2_title" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,4.5vw,4.5rem);margin-bottom:10px;font-weight:700;color:var(--rf-text)">Everywhere Online.</h2>
-                    <p data-cms="s2_desc" style="font-family:'Outfit',sans-serif;font-size:1.1rem;color:var(--rf-muted)">We put your business on every platform where your customers are. See our real work below.</p>
-                    <div class="s2-social-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:30px">
-                        <div class="s2-social-card social-float glow-card" id="card-ig" onclick="switchCylinder('ig');triggerHaptic();triggerIsland('Instagram Portfolio','ri-instagram-fill','#E4405F')" style="background:var(--bg-card, #FFF);border-radius:24px;padding:25px;display:flex;align-items:center;gap:15px;box-shadow:0 10px 30px rgba(0,0,0,.04);border:2px solid #D4AF37;cursor:pointer;transition:.3s"><i class="ri-instagram-fill s2-icon" style="font-size:2.5rem;color:#E4405F"></i><span style="font-family:'Outfit',sans-serif;font-weight:700;color:var(--rf-text)">Instagram</span></div>
-                        <div class="s2-social-card social-float glow-card" id="card-fb" onclick="switchCylinder('fb');triggerHaptic();triggerIsland('Facebook Portfolio','ri-facebook-circle-fill','#1877F2')" style="background:var(--bg-card, #FFF);border-radius:24px;padding:25px;display:flex;align-items:center;gap:15px;box-shadow:0 10px 30px rgba(0,0,0,.04);border:2px solid transparent;cursor:pointer;transition:.3s"><i class="ri-facebook-circle-fill s2-icon" style="font-size:2.5rem;color:#1877F2"></i><span style="font-family:'Outfit',sans-serif;font-weight:700;color:var(--rf-text)">Facebook</span></div>
-                        <div class="s2-social-card social-float glow-card" id="card-go" onclick="switchCylinder('go');triggerHaptic();triggerIsland('Google Portfolio','ri-google-fill','#DB4437')" style="background:var(--bg-card, #FFF);border-radius:24px;padding:25px;display:flex;align-items:center;gap:15px;box-shadow:0 10px 30px rgba(0,0,0,.04);border:2px solid transparent;cursor:pointer;transition:.3s"><i class="ri-google-fill s2-icon" style="font-size:2.5rem;color:#DB4437"></i><span style="font-family:'Outfit',sans-serif;font-weight:700;color:var(--rf-text)">Google</span></div>
-                        <div class="s2-social-card social-float glow-card" id="card-web" onclick="switchCylinder('web');triggerHaptic();triggerIsland('Web Portfolio','ri-window-line','#C8A96E')" style="background:var(--bg-card, #FFF);border-radius:24px;padding:25px;display:flex;align-items:center;gap:15px;box-shadow:0 10px 30px rgba(0,0,0,.04);border:2px solid transparent;cursor:pointer;transition:.3s"><i class="ri-window-line s2-icon" style="font-size:2.5rem;color:var(--rf-text)"></i><span style="font-family:'Outfit',sans-serif;font-weight:700;color:var(--rf-text)">Websites</span></div>
-                    </div>
-                </div>
-
-                <div class="s2-right" style="display:flex;justify-content:center;align-items:center;height:400px;perspective:1200px">
-                    <div class="cylinder-carousel" style="width:250px;height:350px;position:relative;transform-style:preserve-3d;animation:rotateCyl 25s infinite linear">
-                        <div class="cylinder-face" onclick="openImageLightbox(this.querySelector('img').src)" style="position:absolute;width:100%;height:100%;border-radius:20px;overflow:hidden;border:2px solid #D4AF37;box-shadow:0 40px 80px rgba(0,0,0,.1);backface-visibility:hidden;background:#000;transform:rotateY(0deg) translateZ(240px)"><img src="https://images.pexels.com/photos/3779701/pexels-photo-3779701.jpeg?auto=compress&cs=tinysrgb&w=400&q=80" id="cyl-img-1" alt="Client Result 1" data-cms="cyl_ig_1" style="width:100%;height:100%;object-fit:cover"></div>
-                        <div class="cylinder-face" onclick="openImageLightbox(this.querySelector('img').src)" style="position:absolute;width:100%;height:100%;border-radius:20px;overflow:hidden;border:2px solid #D4AF37;box-shadow:0 40px 80px rgba(0,0,0,.1);backface-visibility:hidden;background:#000;transform:rotateY(60deg) translateZ(240px)"><img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400&q=80" id="cyl-img-2" alt="Client Result 2" data-cms="cyl_ig_2" style="width:100%;height:100%;object-fit:cover"></div>
-                        <div class="cylinder-face" onclick="openImageLightbox(this.querySelector('img').src)" style="position:absolute;width:100%;height:100%;border-radius:20px;overflow:hidden;border:2px solid #D4AF37;box-shadow:0 40px 80px rgba(0,0,0,.1);backface-visibility:hidden;background:#000;transform:rotateY(120deg) translateZ(240px)"><img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=400&q=80" id="cyl-img-3" alt="Client Result 3" data-cms="cyl_ig_3" style="width:100%;height:100%;object-fit:cover"></div>
-                        <div class="cylinder-face" onclick="openImageLightbox(this.querySelector('img').src)" style="position:absolute;width:100%;height:100%;border-radius:20px;overflow:hidden;border:2px solid #D4AF37;box-shadow:0 40px 80px rgba(0,0,0,.1);backface-visibility:hidden;background:#000;transform:rotateY(180deg) translateZ(240px)"><img src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=400&q=80" id="cyl-img-4" alt="Client Result 4" data-cms="cyl_ig_4" style="width:100%;height:100%;object-fit:cover"></div>
-                        <div class="cylinder-face" onclick="openImageLightbox(this.querySelector('img').src)" style="position:absolute;width:100%;height:100%;border-radius:20px;overflow:hidden;border:2px solid #D4AF37;box-shadow:0 40px 80px rgba(0,0,0,.1);backface-visibility:hidden;background:#000;transform:rotateY(240deg) translateZ(240px)"><img src="https://images.pexels.com/photos/5608034/pexels-photo-5608034.jpeg?auto=compress&cs=tinysrgb&w=400&q=80" id="cyl-img-5" alt="Client Result 5" data-cms="cyl_ig_5" style="width:100%;height:100%;object-fit:cover"></div>
-                        <div class="cylinder-face" onclick="openImageLightbox(this.querySelector('img').src)" style="position:absolute;width:100%;height:100%;border-radius:20px;overflow:hidden;border:2px solid #D4AF37;box-shadow:0 40px 80px rgba(0,0,0,.1);backface-visibility:hidden;background:#000;transform:rotateY(300deg) translateZ(240px)"><img src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=400&q=80" id="cyl-img-6" alt="Client Result 6" data-cms="cyl_ig_6" style="width:100%;height:100%;object-fit:cover"></div>
-                    </div>
-                    <style>@keyframes rotateCyl{0%{transform:rotateY(0deg)}100%{transform:rotateY(-360deg)}}</style>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="story-section" style="background:transparent;display:flex;align-items:center;justify-content:center;text-align:center;z-index:5;position:relative;overflow:hidden;padding:10rem 5%">
-        <div class="container text-center">
-            <p class="story-p apple-text-reveal" data-cms="story_1" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:600;line-height:1.2;margin-bottom:80px;max-width:1000px;margin-inline:auto;background:linear-gradient(to right,#FFFFFF 50%,rgba(255,255,255,.1) 50%);background-size:200% 100%;background-position:100% 0;-webkit-background-clip:text;color:transparent">Likes don't bring money. <span class="italic-serif" style="color:#C8A96E;font-style:italic">Customers do.</span></p>
-            <p class="story-p apple-text-reveal" data-cms="story_2" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:600;line-height:1.2;margin-bottom:80px;max-width:1000px;margin-inline:auto;background:linear-gradient(to right,#FFFFFF 50%,rgba(255,255,255,.1) 50%);background-size:200% 100%;background-position:100% 0;-webkit-background-clip:text;color:transparent">We build <span class="italic-serif" style="color:#D4AF37;font-style:italic">predictable sales systems.</span></p>
-            <p class="story-p apple-text-reveal" data-cms="story_3" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:600;line-height:1.2;margin-bottom:80px;max-width:1000px;margin-inline:auto;background:linear-gradient(to right,#FFFFFF 50%,rgba(255,255,255,.1) 50%);background-size:200% 100%;background-position:100% 0;-webkit-background-clip:text;color:transparent">Transforming your brand into a <span class="italic-serif" style="color:#8B0000;font-style:italic">revenue machine.</span></p>
-        </div>
-    </section>
-
-    <section class="arsenal-section section-pad" id="arsenal" style="background:var(--bg-main, #05020A);border-radius:60px;margin:0 2%;padding:8rem 5%;position:relative;border:1px solid rgba(255,255,255,.06);box-shadow:0 10px 30px rgba(0,0,0,.2);overflow:hidden">
-        <div class="container">
-            <div class="text-center" style="margin-bottom:60px">
-                <span class="tag-pill reveal-up" data-cms="ars_tag" style="display:inline-flex;align-items:center;gap:8px;padding:10px 24px;background:rgba(15,8,25,.6);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:100px;font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#C8A96E;margin-bottom:20px"><i class="ri-stack-fill"></i> Our Arsenal</span>
-                <h2 class="title-lg reveal-up" data-cms="ars_title" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,4.5vw,4.5rem);margin-bottom:20px;font-weight:700;color:var(--rf-text)">Digital Marketing <span class="italic-serif" style="color:#C8A96E;font-style:italic">Services.</span></h2>
-            </div>
-
-            <div class="ars-container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;margin-top:40px">
-
-                <div class="ars-card glow-card reveal-on-scroll" onclick="expandServiceCard(this,'fb_ads');triggerHaptic();triggerIsland('Local Business Ads','ri-facebook-circle-fill','#0055FF')" style="background:var(--bg-panel, rgba(15,8,25,.6));backdrop-filter:blur(20px);border-radius:24px;padding:30px;border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;transition:all .4s ease;overflow:hidden;position:relative;cursor:pointer">
-                    <div style="position:absolute;top:15px;right:15px;font-size:1.2rem;color:rgba(255,255,255,.2)"><i class="ri-expand-diagonal-line"></i></div>
-                    <div class="ars-icon" style="width:60px;height:60px;border-radius:16px;background:rgba(0,85,255,.12);display:flex;align-items:center;justify-content:center;font-size:2rem;color:#0055FF;margin-bottom:20px"><i class="ri-facebook-circle-fill"></i></div>
-                    <h3 class="ars-title" data-cms="ars_c1_title" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;margin-bottom:10px;color:var(--rf-text)">Local Business Ads</h3>
-                    <p class="ars-desc" data-cms="ars_c1_desc" style="font-family:'Outfit',sans-serif;font-size:1rem;color:var(--rf-muted);line-height:1.6;margin-bottom:25px">Highly targeted Facebook and Instagram campaigns to reach high-value customers in your city right when they are ready to buy.</p>
-                    <div class="ars-img-wrap" style="width:100%;height:220px;border-radius:16px;overflow:hidden;margin-top:auto"><img src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="Local Business Ads Strategy Punjab" data-cms="ars_c1_img" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease" loading="lazy"></div>
-                </div>
-
-                <div class="ars-card glow-card reveal-on-scroll delay-1" onclick="expandServiceCard(this,'auto_web');triggerHaptic();triggerIsland('Automated Websites','ri-macbook-fill','#D4AF37')" style="background:var(--bg-panel, rgba(15,8,25,.6));backdrop-filter:blur(20px);border-radius:24px;padding:30px;border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;transition:all .4s ease;overflow:hidden;position:relative;cursor:pointer">
-                    <div style="position:absolute;top:15px;right:15px;font-size:1.2rem;color:rgba(255,255,255,.2)"><i class="ri-expand-diagonal-line"></i></div>
-                    <div class="ars-icon" style="width:60px;height:60px;border-radius:16px;background:rgba(212,175,55,.15);display:flex;align-items:center;justify-content:center;font-size:2rem;color:#D4AF37;margin-bottom:20px;border:1px solid rgba(212,175,55,.3)"><i class="ri-macbook-fill" style="display:block!important;visibility:visible!important;opacity:1!important;color:#D4AF37!important"></i></div>
-                    <h3 class="ars-title" data-cms="ars_c2_title" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;margin-bottom:10px;color:var(--rf-text)">Automated Websites</h3>
-                    <p class="ars-desc" data-cms="ars_c2_desc" style="font-family:'Outfit',sans-serif;font-size:1rem;color:var(--rf-muted);line-height:1.6;margin-bottom:25px">Lightning-fast, high-converting landing pages engineered to capture contact info and book appointments instantly.</p>
-                    <div class="ars-img-wrap" style="width:100%;height:220px;border-radius:16px;overflow:hidden;margin-top:auto"><img src="https://images.pexels.com/photos/19736858/pexels-photo-19736858.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="High-Converting Automated Websites" data-cms="ars_c2_img" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease" loading="lazy"></div>
-                </div>
-
-                <div class="ars-card glow-card reveal-on-scroll delay-2" onclick="expandServiceCard(this,'seo');triggerHaptic();triggerIsland('Google SEO','ri-search-eye-line','#8B0000')" style="background:var(--bg-panel, rgba(15,8,25,.6));backdrop-filter:blur(20px);border-radius:24px;padding:30px;border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;transition:all .4s ease;overflow:hidden;position:relative;cursor:pointer">
-                    <div style="position:absolute;top:15px;right:15px;font-size:1.2rem;color:rgba(255,255,255,.2)"><i class="ri-expand-diagonal-line"></i></div>
-                    <div class="ars-icon" style="width:60px;height:60px;border-radius:16px;background:rgba(139,0,0,.12);display:flex;align-items:center;justify-content:center;font-size:2rem;color:#8B0000;margin-bottom:20px"><i class="ri-search-eye-line"></i></div>
-                    <h3 class="ars-title" data-cms="ars_c3_title" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;margin-bottom:10px;color:var(--rf-text)">Google SEO</h3>
-                    <p class="ars-desc" data-cms="ars_c3_desc" style="font-family:'Outfit',sans-serif;font-size:1rem;color:var(--rf-muted);line-height:1.6;margin-bottom:25px">Rank #1 locally so when people search for your exact service, they find you before your competitors.</p>
-                    <div class="ars-img-wrap" style="width:100%;height:220px;border-radius:16px;overflow:hidden;margin-top:auto"><img src="https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="Google SEO and Local Ranking" data-cms="ars_c3_img" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease" loading="lazy"></div>
-                </div>
-
-                <div class="ars-card glow-card reveal-on-scroll delay-3" onclick="expandServiceCard(this,'web_dev');triggerHaptic();triggerIsland('Web Development','ri-window-line','#C8A96E')" style="background:var(--bg-panel, rgba(15,8,25,.6));backdrop-filter:blur(20px);border-radius:24px;padding:30px;border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;transition:all .4s ease;overflow:hidden;position:relative;cursor:pointer">
-                    <div style="position:absolute;top:15px;right:15px;font-size:1.2rem;color:rgba(255,255,255,.2)"><i class="ri-expand-diagonal-line"></i></div>
-                    <div class="ars-icon" style="width:60px;height:60px;border-radius:16px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--rf-text);margin-bottom:20px"><i class="ri-window-line"></i></div>
-                    <h3 class="ars-title" data-cms="ars_c4_title" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;margin-bottom:10px;color:var(--rf-text)">Web Development</h3>
-                    <p class="ars-desc" data-cms="ars_c4_desc" style="font-family:'Outfit',sans-serif;font-size:1rem;color:var(--rf-muted);line-height:1.6;margin-bottom:25px">Bespoke, high-performance web applications and e-commerce platforms built for speed, security, and absolute scale.</p>
-                    <div class="ars-img-wrap" style="width:100%;height:220px;border-radius:16px;overflow:hidden;margin-top:auto"><img src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="Custom Web Development Services" data-cms="ars_c4_img" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease" loading="lazy"></div>
-                </div>
-
-                <div class="ars-card glow-card reveal-on-scroll" onclick="expandServiceCard(this,'social');triggerHaptic();triggerIsland('Social Media Growth','ri-megaphone-fill','#8A2BE2')" style="background:var(--bg-panel, rgba(15,8,25,.6));backdrop-filter:blur(20px);border-radius:24px;padding:30px;border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;transition:all .4s ease;overflow:hidden;position:relative;cursor:pointer">
-                    <div style="position:absolute;top:15px;right:15px;font-size:1.2rem;color:rgba(255,255,255,.2)"><i class="ri-expand-diagonal-line"></i></div>
-                    <div class="ars-icon" style="width:60px;height:60px;border-radius:16px;background:rgba(138,43,226,.12);display:flex;align-items:center;justify-content:center;font-size:2rem;color:#8A2BE2;margin-bottom:20px"><i class="ri-megaphone-fill"></i></div>
-                    <h3 class="ars-title" data-cms="ars_c5_title" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;margin-bottom:10px;color:var(--rf-text)">Social Media Growth</h3>
-                    <p class="ars-desc" data-cms="ars_c5_desc" style="font-family:'Outfit',sans-serif;font-size:1rem;color:var(--rf-muted);line-height:1.6;margin-bottom:25px">Engaging content, viral reels, and strategic brand positioning to make your business the most famous in your local area.</p>
-                    <div class="ars-img-wrap" style="width:100%;height:220px;border-radius:16px;overflow:hidden;margin-top:auto"><img src="https://images.pexels.com/photos/5053846/pexels-photo-5053846.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="Social Media Marketing and Growth" data-cms="ars_c5_img" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease" loading="lazy"></div>
-                </div>
-
-                <div class="ars-card glow-card reveal-on-scroll delay-1" onclick="expandServiceCard(this,'crm');triggerHaptic();triggerIsland('CRM Automation','ri-mail-send-fill','#14B8A6')" style="background:var(--bg-panel, rgba(15,8,25,.6));backdrop-filter:blur(20px);border-radius:24px;padding:30px;border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;transition:all .4s ease;overflow:hidden;position:relative;cursor:pointer">
-                    <div style="position:absolute;top:15px;right:15px;font-size:1.2rem;color:rgba(255,255,255,.2)"><i class="ri-expand-diagonal-line"></i></div>
-                    <div class="ars-icon" style="width:60px;height:60px;border-radius:16px;background:rgba(20,184,166,.12);display:flex;align-items:center;justify-content:center;font-size:2rem;color:#14B8A6;margin-bottom:20px"><i class="ri-mail-send-fill"></i></div>
-                    <h3 class="ars-title" data-cms="ars_c6_title" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;margin-bottom:10px;color:var(--rf-text)">CRM & Automation</h3>
-                    <p class="ars-desc" data-cms="ars_c6_desc" style="font-family:'Outfit',sans-serif;font-size:1rem;color:var(--rf-muted);line-height:1.6;margin-bottom:25px">Automated email sequences, SMS follow-ups, and lead tracking so no potential customer ever slips through the cracks.</p>
-                    <div class="ars-img-wrap" style="width:100%;height:220px;border-radius:16px;overflow:hidden;margin-top:auto"><img src="https://images.pexels.com/photos/7688374/pexels-photo-7688374.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="CRM and Marketing Automation System" data-cms="ars_c6_img" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease" loading="lazy"></div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="parallax-break" id="parallax-break-admin" style="position:relative;width:96%;max-width:1600px;margin:6rem auto;height:50vh;border-radius:60px;overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 40px 80px rgba(0,0,0,.15);z-index:5">
-        <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=2000&q=100" class="px-img" alt="Reach Forever Marketing Agency Results" data-cms="px_bg" style="position:absolute;inset:0;width:100%;height:130%;object-fit:cover;filter:brightness(.4) saturate(1.2);transform:scale(1.1);z-index:1" loading="lazy">
-        <div class="px-content reveal-on-scroll" style="position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#FFF;padding:0 20px">
-            <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,8vw,7rem);line-height:1;margin-bottom:10px;color:#D4AF37;text-shadow:0 20px 40px rgba(0,0,0,.8)">₹85 Lakhs+</h2>
-            <p style="font-family:'Outfit',sans-serif;font-size:clamp(.75rem,2.5vw,1.2rem);font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#FFF;text-shadow:0 10px 20px rgba(0,0,0,.8)">Revenue Generated This Quarter</p>
-        </div>
-    </section>
-
-    <section class="blueprint-section">
-        <div class="blueprint-bg-glow"></div>
-        <div class="container text-center" style="margin-bottom:50px; position:relative; z-index:2;">
-            <span class="tag-pill reveal-up" style="display:inline-flex;align-items:center;gap:8px;padding:10px 24px;background:var(--bg-panel, rgba(15,8,25,.6));backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:100px;font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#C8A96E;margin-bottom:20px"><i class="ri-route-line"></i> Our Process</span>
-            <h2 class="title-lg reveal-up" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,4.5vw,4.5rem);margin-bottom:20px;font-weight:700;color:var(--rf-text)">The Reach <span class="italic-serif" style="color:#C8A96E;font-style:italic">Blueprint.</span></h2>
-        </div>
-        
-        <div class="blueprint-grid reveal-on-scroll">
-            <div class="bp-card">
-                <div class="bp-number">01</div>
-                <div class="bp-icon"><i class="ri-focus-3-line"></i></div>
-                <h3 data-cms="bp_title_1">Hyper-Targeted Traffic</h3>
-                <p data-cms="bp_desc_1">We deploy data-driven campaigns across Meta and Google, capturing high-intent customers in your exact service area.</p>
-            </div>
-            
-            <div class="bp-connector"></div>
-            
-            <div class="bp-card delay-1">
-                <div class="bp-number">02</div>
-                <div class="bp-icon"><i class="ri-filter-3-line"></i></div>
-                <h3 data-cms="bp_title_2">Conversion Architecture</h3>
-                <p data-cms="bp_desc_2">Traffic is routed to lightning-fast, psychology-backed landing pages designed to turn clicks into booked appointments instantly.</p>
-            </div>
-            
-            <div class="bp-connector"></div>
-            
-            <div class="bp-card delay-2">
-                <div class="bp-number">03</div>
-                <div class="bp-icon"><i class="ri-robot-2-line"></i></div>
-                <h3 data-cms="bp_title_3">Automated Ascension</h3>
-                <p data-cms="bp_desc_3">Our custom CRM nurtures leads via SMS and Email 24/7, ensuring no prospect ever slips through the cracks.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="growth-engine-section reveal-on-scroll" id="pricing">
-        <div class="ge-grid">
-            <div class="ge-text">
-                <h2 data-cms="ge_title">The Growth <span style="color:#C8A96E;font-style:italic">Engine.</span></h2>
-                <p data-cms="ge_desc">We don't just run ads. We architect full-funnel ecosystems designed to capture attention, build trust, and convert clicks into paying customers on autopilot.</p>
-                <div class="ge-features">
-                    <div class="ge-feat"><i class="ri-check-double-line"></i><span data-cms="ge_feat_1">Guaranteed Positive ROI</span></div>
-                    <div class="ge-feat"><i class="ri-check-double-line"></i><span data-cms="ge_feat_2">Strict City Exclusivity</span></div>
-                    <div class="ge-feat"><i class="ri-check-double-line"></i><span data-cms="ge_feat_3">Rapid 14-Day Launch</span></div>
-                </div>
-            </div>
-            <div class="ge-visual">
-                <img src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80" alt="Digital Marketing Growth Engine Dashboard" data-cms="ge_img" loading="lazy">
-                <div class="ge-floating-ui">
-                    <div class="ge-ui-icon"><i class="ri-rocket-fill"></i></div>
-                    <div class="ge-ui-text">
-                        <h4 data-cms="ge_stat_title">Average Return</h4>
-                        <span data-cms="ge_stat_val">4.8x ROAS</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="xray-section section-pad" style="background:var(--bg-main, #05020A);z-index:5;position:relative">
-        <div class="container text-center">
-            <span class="tag-pill" data-cms="xray_tag" style="display:inline-flex;align-items:center;gap:8px;padding:10px 24px;background:var(--bg-panel, rgba(15,8,25,.6));backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:100px;font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#C8A96E;margin-bottom:20px"><i class="ri-magic-line"></i> The Difference</span>
-            <h2 class="title-lg" data-cms="xray_title" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,4.5vw,4.5rem);margin-bottom:20px;font-weight:700;color:var(--rf-text)">Before vs <span class="italic-serif" style="color:#C8A96E;font-style:italic">After</span>.</h2>
-            <p style="font-family:'Outfit',sans-serif;font-size:1.1rem;color:var(--rf-muted);max-width:650px;margin:0 auto 40px" data-cms="xray_desc">Slide to see how upgrading your digital presence instantly builds trust and lowers your cost-per-lead.</p>
-            <div class="ba-container reveal-on-scroll" id="baContainer" style="position:relative;width:100%;max-width:1000px;margin:0 auto;height:450px;border-radius:40px;overflow:hidden;cursor:col-resize;box-shadow:0 30px 60px rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.06);touch-action:pan-y">
-                <img src="https://images.pexels.com/photos/19736858/pexels-photo-19736858.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80" class="ba-img-after" alt="Modern High-Converting Website Design After" data-cms="ba_img_after" draggable="false" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;user-select:none" loading="lazy">
-                <img src="https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80" class="ba-img-before" id="baBefore" alt="Outdated Website Design Before" data-cms="ba_img_before" draggable="false" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:2;clip-path:inset(0 50% 0 0);pointer-events:none;user-select:none" loading="lazy">
-                <div class="ba-handle" id="baHandle" style="position:absolute;top:0;bottom:0;left:50%;width:4px;background:#FFF;z-index:3;transform:translateX(-50%);pointer-events:none;display:flex;align-items:center;justify-content:center;box-shadow:0 0 15px rgba(0,0,0,.2)">
-                    <div style="width:60px;height:60px;background:rgba(15,8,25,.6);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#C8A96E;font-size:1.8rem;box-shadow:0 10px 30px rgba(0,0,0,.15)"><i class="ri-skip-left-right-line"></i></div>
-                </div>
-                <div style="position:absolute;bottom:30px;left:30px;right:30px;display:flex;justify-content:space-between;z-index:4;pointer-events:none">
-                    <div id="baLabelBefore" data-cms="ba_lbl_before" style="background:rgba(15,8,25,.7);padding:12px 25px;border-radius:100px;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:700;color:#FFF;border:1px solid rgba(255,255,255,.08)">Before Design</div>
-                    <div id="baLabelAfter" data-cms="ba_lbl_after" style="background:linear-gradient(135deg,#C8A96E,#A67C00);color:#FFF;padding:12px 25px;border-radius:100px;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:700">After Upgrade</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="reels-section section-pad" id="proof" style="background:var(--bg-main, #05020A);padding:8rem 0;position:relative;z-index:5;border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04)">
-        <div class="container text-center" style="margin-bottom:40px">
-            <span class="tag-pill" data-cms="reels_tag" style="display:inline-flex;align-items:center;gap:8px;padding:10px 24px;background:var(--bg-panel, rgba(15,8,25,.6));backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:100px;font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#C8A96E;margin-bottom:20px"><i class="ri-chat-smile-3-line"></i> Video Reviews</span>
-            <div style="display:flex;align-items:center;justify-content:center;gap:15px;margin-bottom:40px">
-                <div style="width:15px;height:15px;border-radius:50%;background:#9047FF;animation:rlaPulse 2s infinite"></div>
-                <h2 class="title-lg" data-cms="reels_title" style="margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--rf-text)">REAL CLIENT REVIEWS</h2>
-            </div>
-            <style>@keyframes rlaPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:.5}}</style>
-            <p data-cms="reels_desc" style="font-family:'Outfit',sans-serif;font-size:1.2rem;color:var(--rf-muted);max-width:600px;margin:0 auto">Authentic business owners. Real growth. Click any video to watch in fullscreen.</p>
-        </div>
-        <div class="swiper swiper-container-reels" id="reels-swiper-future-loop" style="width:100%;max-width:1400px;margin:0 auto;overflow:visible;padding:20px 0">
-            <div class="swiper-wrapper" id="dynamic-swiper-wrapper"></div>
-        </div>
-    </section>
-
-    <section class="rush-section" style="background:var(--bg-main, #05020A);color:var(--rf-text);padding:8rem 5%;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;z-index:5;border-radius:60px 60px 0 0 !important; margin:0 !important; border-bottom:none !important; box-shadow:0 -10px 40px rgba(0,0,0,.3)">
-        <div style="content:'';position:absolute;inset:0;background:radial-gradient(circle at center,rgba(144,71,255,.12),transparent 70%);pointer-events:none;z-index:0"></div>
-        <div class="container reveal-on-scroll" style="position:relative;z-index:2">
-            <h2 class="rush-title" data-cms="rush_title" style="font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,6.5rem);line-height:1.1;margin-bottom:25px;background:linear-gradient(135deg,#9047FF 0%,#D4AF37 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Get a <span>Rush</span> In Your Store.</h2>
-            <p class="rush-desc" data-cms="rush_desc" style="font-family:'Outfit',sans-serif;font-size:clamp(1.1rem,1.5vw,1.3rem);color:rgba(255,255,255,.8);max-width:600px;margin:0 auto;line-height:1.6">Our digital marketing drives 90% of your business growth. Stop waiting for referrals. Build a system that brings customers automatically.</p>
-        </div>
-    </section>
-
-</div><div class="reels-modal" id="reelsModal" style="position:fixed;inset:0;background:#000;z-index:99999;display:flex;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s ease">
-    <div class="rm-close" id="rmClose" style="position:absolute;top:30px;left:30px;width:50px;height:50px;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--rf-text);font-size:1.5rem;cursor:pointer;border:1px solid rgba(255,255,255,.2);z-index:10;transition:.3s"><i class="ri-arrow-left-line"></i></div>
-    <div class="rm-container" id="rmModalContainer" style="width:100%;max-width:450px;height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth;-ms-overflow-style:none;scrollbar-width:none"></div>
-</div>
-
-<div class="fullscreen-lightbox" id="fsLightbox">
-    <div class="fl-close" id="fsClose"><i class="ri-close-line"></i></div>
-    <div class="fl-content" id="fsContent">
-        <img id="fsImg" src="" alt="Lightbox Image" style="display:none">
-        <video class="fl-video" id="fsVideo" controls playsinline style="display:none"></video>
-    </div>
-</div>
-
-<div class="ai-fab-wrap magnetic-wrap" style="position:fixed;bottom:40px;right:40px;z-index:10000;pointer-events:auto">
-    <div class="magnetic-inner ai-fab" id="auraFab" role="button" aria-label="Open Assistant" style="width:65px;height:65px;border-radius:50%;background:var(--bg-panel, rgba(15,8,25,.8));backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);box-shadow:0 10px 30px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;transition:.6s;position:relative;cursor:pointer">
-        <i class="ri-customer-service-2-fill" style="font-size:2.2rem;color:#C8A96E"></i>
-        <div id="botNotif" style="position:absolute;top:5px;right:5px;width:12px;height:12px;background:#EF4444;border-radius:50%;border:2px solid #fff;animation:blink 1.5s infinite"></div>
-    </div>
-</div>
-
-<div class="chat-panel" id="auraPanel" aria-hidden="true" style="position:fixed;bottom:130px;right:40px;width:420px;background:rgba(10,11,14,.92);backdrop-filter:blur(40px);border-radius:32px;border:1px solid rgba(255,255,255,.08);box-shadow:0 40px 80px rgba(0,0,0,.2);z-index:10001;overflow:hidden;transform:translateY(40px) scale(.95);opacity:0;pointer-events:none;transition:.5s cubic-bezier(.19,1,.22,1);display:flex;flex-direction:column">
-    <div class="cp-header" style="padding:25px 30px;display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);position:relative">
-        <div style="display:flex;gap:15px;align-items:center">
-            <div style="width:45px;height:45px;border-radius:50%;background:rgba(85,107,47,.1);border:1px solid #9047FF;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#C8A96E"><i class="ri-user-smile-line"></i></div>
-            <div>
-                <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;margin-bottom:2px;color:#111">Reach Assistant</h4>
-                <span style="font-size:.75rem;color:#10B981;font-weight:700;text-transform:uppercase;letter-spacing:2px;display:flex;align-items:center;gap:6px"><div style="width:8px;height:8px;background:#10B981;border-radius:50%"></div> Online Now</span>
-            </div>
-        </div>
-        <button id="auraClose" aria-label="Close Chat" style="font-size:2rem;color:#B0B0C0;cursor:pointer;pointer-events:auto;background:none;border:none;transition:.3s"><i class="ri-close-line"></i></button>
-    </div>
-    <div class="cp-body" id="auraBody" style="height:400px;padding:25px;overflow-y:auto;display:flex;flex-direction:column;background:#05020A"></div>
-    <div style="padding:20px;background:#fff;border-top:1px solid rgba(0,0,0,.06);display:flex;gap:15px;align-items:center">
-        <input type="text" placeholder="Type your message..." id="auraInput" aria-label="Chat input" style="flex:1;border:1px solid rgba(0,0,0,.08);background:#05020A;padding:15px 20px;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.95rem;color:#FFF;outline:none;transition:.3s;pointer-events:auto">
-        <button id="auraSend" aria-label="Send message" style="width:50px;height:50px;border-radius:50%;border:none;background:#1A1C20;color:#FFF;font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.3s;pointer-events:auto"><i class="ri-send-plane-fill"></i></button>
-    </div>
-</div>
-
-<footer class="premium-footer" style="padding-top: 4rem !important; margin-top: 0 !important; background: var(--bg-main, #05020A); border-top: none !important;">
-    <div class="pf-container">
-        <div class="pf-col pf-brand">
-            <img src="https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png" id="footerLogoImg" alt="Reach Forever" data-cms="footer_logo" style="max-height: 45px;">
-            <p>We engineer predictable revenue systems that flood your business with high-ticket local customers.</p>
-        </div>
-        <div class="pf-col">
-            <h4>Sitemap</h4>
-            <ul class="pf-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
-                <li><a href="form.html">Initiate Project</a></li>
-            </ul>
-        </div>
-        <div class="pf-col">
-            <h4>Legal & Contact</h4>
-            <ul class="pf-links">
-                <li><a href="https://wa.me/917888429760" target="_blank">WhatsApp Support</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-            </ul>
-            <div style="margin-top:20px;color:var(--rf-muted);font-size:.9rem;line-height:1.6">
-                <p style="margin-bottom:5px"><strong style="color:var(--rf-text)">Reach Forever HQ</strong></p>
-                <p style="margin-bottom:5px">Digital HQ, Jalandhar, Punjab, 144001, India</p>
-                <p>Phone: +91 76687 58238</p>
-            </div>
-        </div>
-    </div>
-    <div class="pf-bottom">
-        <div class="pf-signature">made by <a href="https://zyrovadigital.online" target="_blank" style="color:#D4AF37; font-weight:700; text-decoration:none; transition: 0.3s;">zyrova digital</a></div>
-    </div>
-</footer>
-
-<a href="https://wa.me/917888429760" target="_blank" class="wa-float" aria-label="Chat on WhatsApp"><i class="ri-whatsapp-line"></i></a>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Reach Forever — Punjab's #1 Digital Marketing Agency</title>
+<meta name="description" content="We engineer full-funnel digital systems — Meta Ads, Google SEO, viral reels & high-converting websites — that flood your business with customers on autopilot.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-<script src="js/main.js" defer></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F7F4EF;--dark:#0C0A05;--dark2:#1A1208;
+  --gold:#C8A96E;--gold2:#D4AF37;--goldd:#A67C00;
+  --tx:#1A1208;--tx2:#4A3F30;--tx3:#6B5E4A;--txm:#9B8E7A;
+  --sf:'Cormorant Garamond',Georgia,serif;
+  --ss:'Outfit',system-ui,sans-serif;
+  --ex:cubic-bezier(0.16,1,0.3,1);
+  --bk:cubic-bezier(0.34,1.56,0.64,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidden;cursor:none}
+@media(max-width:768px){body{cursor:auto}}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+/* ── progress ── */
+#prog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--gold),var(--gold2));z-index:2147483647;pointer-events:none}
+
+/* ── cursor ── */
+#cdot{position:fixed;top:0;left:0;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:2147483646;mix-blend-mode:multiply;transform:translate(-50%,-50%)}
+#cring{position:fixed;top:0;left:0;width:38px;height:38px;border:1.5px solid rgba(200,169,110,.5);border-radius:50%;pointer-events:none;z-index:2147483645;transform:translate(-50%,-50%);transition:width .4s var(--ex),height .4s var(--ex),border-color .3s}
+@media(max-width:768px){#cdot,#cring{display:none}}
+
+/* ── preloader ── */
+#pl{position:fixed;inset:0;background:var(--dark);z-index:2147483640;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transition:opacity .7s ease,visibility .7s ease}
+#pl.done{opacity:0;visibility:hidden;pointer-events:none}
+.pl-logo{font-family:var(--sf);font-size:2.8rem;font-weight:700;color:var(--gold);letter-spacing:-1px;animation:ppulse 1.4s ease-in-out infinite}
+.pl-bar{width:180px;height:2px;background:rgba(200,169,110,.15);border-radius:2px;overflow:hidden}
+.pl-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));animation:pfill 1s ease-out forwards}
+@keyframes ppulse{0%,100%{opacity:.4;transform:scale(.97)}50%{opacity:1;transform:scale(1)}}
+@keyframes pfill{from{width:0}to{width:100%}}
+
+/* ── navbar ── */
+#rfNav{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:calc(100% - 40px);max-width:1320px;background:rgba(247,244,239,.85);backdrop-filter:blur(40px) saturate(1.8);-webkit-backdrop-filter:blur(40px) saturate(1.8);border:1px solid rgba(200,169,110,.18);border-radius:100px;padding:11px 22px;display:flex;align-items:center;justify-content:space-between;z-index:9999990;box-shadow:0 8px 40px rgba(26,18,8,.07);transition:all .4s var(--ex)}
+#rfNav.scrolled{background:rgba(247,244,239,.96);box-shadow:0 12px 50px rgba(26,18,8,.12)}
+.nl img{height:36px;width:auto;filter:none!important;display:block}
+.nl-fb{font-family:var(--sf);font-size:1.45rem;font-weight:700;color:var(--dark2);display:none;letter-spacing:-.5px}
+.nlinks{display:flex;align-items:center;gap:2px}
+.nlink{font-family:var(--ss);font-size:.84rem;font-weight:600;color:var(--tx2);text-decoration:none;padding:8px 16px;border-radius:100px;text-transform:uppercase;letter-spacing:.5px;transition:all .3s}
+.nlink:hover{color:var(--goldd);background:rgba(200,169,110,.08)}
+.ncta{font-family:var(--ss);font-size:.84rem;font-weight:700;color:#FFF;background:linear-gradient(135deg,#C8A96E,#A67C00);text-decoration:none;padding:10px 22px;border-radius:100px;text-transform:uppercase;letter-spacing:.5px;box-shadow:0 8px 24px rgba(200,169,110,.38);transition:all .3s var(--ex)}
+.ncta:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(200,169,110,.55)}
+@media(max-width:768px){#rfNav{width:calc(100% - 20px);padding:9px 14px}.nlinks{display:none}}
+
+/* ── section utils ── */
+.sec{position:relative;overflow:hidden}
+.sin{max-width:1320px;margin:0 auto;padding:0 5%;position:relative;z-index:2}
+.sec-lbl{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:100px;font-family:var(--ss);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:18px}
+.sec-lbl.gold{background:rgba(200,169,110,.1);border:1px solid rgba(200,169,110,.22);color:var(--goldd)}
+.sec-lbl.light{background:rgba(247,244,239,.07);border:1px solid rgba(200,169,110,.18);color:var(--gold)}
+
+/* ── grain ── */
+.grain::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.028;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:150px}
+
+/* ── hero ── */
+#hero{background:var(--bg);padding:160px 5% 100px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;min-height:100vh;position:relative;overflow:hidden}
+.h-orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(100px)}
+.h-orb1{width:600px;height:600px;top:-200px;right:-80px;background:radial-gradient(circle,rgba(200,169,110,.18),transparent 70%)}
+.h-orb2{width:380px;height:380px;bottom:-80px;left:-80px;background:radial-gradient(circle,rgba(200,169,110,.1),transparent 70%)}
+.h-content{position:relative;z-index:2;opacity:0;transform:translateY(40px)}
+.h-tag{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;background:rgba(200,169,110,.1);border:1px solid rgba(200,169,110,.22);border-radius:100px;font-family:var(--ss);font-size:.77rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--goldd);margin-bottom:26px}
+.h-dot{width:7px;height:7px;background:var(--gold);border-radius:50%;animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.h1{font-family:var(--sf);font-size:clamp(3rem,5.5vw,6.5rem);font-weight:700;color:var(--dark2);line-height:.98;letter-spacing:-3px;margin-bottom:26px}
+.h-rot-wrap{display:inline-block;overflow:hidden;height:1.05em;vertical-align:bottom}
+.h-rot{display:flex;flex-direction:column;transition:transform .8s cubic-bezier(.76,0,.24,1)}
+.h-rot span{display:block;height:1.05em;font-style:italic}
+.h-sub{font-family:var(--ss);font-size:1rem;color:var(--tx3);line-height:1.8;max-width:480px;margin-bottom:38px;border-left:3px solid var(--gold);padding-left:18px}
+.h-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.btn-g{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#C8A96E,#A67C00);color:#FFF;padding:15px 38px;border-radius:100px;font-family:var(--ss);font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;text-decoration:none;box-shadow:0 12px 36px rgba(200,169,110,.38);transition:all .4s var(--ex)}
+.btn-g:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(200,169,110,.55)}
+.btn-o{display:inline-flex;align-items:center;gap:10px;background:rgba(26,18,8,.06);border:1px solid rgba(26,18,8,.1);color:var(--dark2);padding:15px 32px;border-radius:100px;font-family:var(--ss);font-size:.9rem;font-weight:700;text-decoration:none;transition:all .3s var(--ex)}
+.btn-o:hover{background:rgba(26,18,8,.1);transform:translateY(-2px)}
+.btn-o i{color:var(--gold)}
+.h-trust{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tr-lbl{font-family:var(--ss);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--txm)}
+.tr-b{display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:100px;background:rgba(26,18,8,.05);border:1px solid rgba(26,18,8,.07);font-family:var(--ss);font-size:.79rem;font-weight:700;color:var(--tx2)}
+
+
+/* ── phone bezel ── */
+.phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:110px;height:30px;background:#000;border-bottom-left-radius:18px;border-bottom-right-radius:18px;z-index:20;display:flex;justify-content:center;align-items:center}
+.phone-notch::before{content:'';width:12px;height:12px;border-radius:50%;background:#090909;box-shadow:inset 0 0 4px rgba(255,255,255,.1);margin-right:12px}
+.phone-notch::after{content:'';width:40px;height:4px;background:#151515;border-radius:10px}
+#heroPhone{width:290px;height:600px;border:14px solid #000;border-radius:55px;background:#000;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2), inset 0 0 0 4px rgba(0,0,0,1), 0 60px 140px rgba(26,18,8,.4), 0 0 0 1px rgba(200,169,110,.2);cursor:pointer;position:relative;z-index:2;transform:perspective(1200px) rotateY(-14deg) rotateX(4deg);transition:transform .7s cubic-bezier(0.16,1,0.3,1);margin-left:9vw;}
+#heroPhone:hover{transform:perspective(1200px) rotateY(-5deg) rotateX(0deg) scale(1.05)}
+#heroPhone::before{content:'';position:absolute;top:100px;bottom:100px;left:-16px;width:2px;background:#333;border-radius:2px} /* volume buttons mock */
+#heroPhone::after{content:'';position:absolute;top:150px;bottom:250px;right:-16px;width:2px;background:#333;border-radius:2px} /* power button mock */
+#heroPhone video{width:100%;height:100%;object-fit:cover;display:block;border-radius:40px}
+#heroPhone .ph-fallback{width:100%;height:100%;object-fit:cover;display:none;border-radius:40px}
+
+/* ── phone ── */
+.h-visual{position:relative;display:flex;justify-content:center;align-items:center;z-index:2;opacity:0;transform:translateY(40px)}
+#heroPhone{width:274px;border-radius:44px;overflow:hidden;box-shadow:0 60px 120px rgba(26,18,8,.25),0 0 0 8px #1A1208;cursor:pointer;position:relative;z-index:2;transform:perspective(1000px) rotateY(-12deg) rotateX(2deg);transition:transform .6s var(--ex)}
+#heroPhone:hover{transform:perspective(1000px) rotateY(-6deg) rotateX(0deg) scale(1.03)}
+#heroPhone video,#heroPhone img{width:100%;height:500px;object-fit:cover;display:block}
+.phone-badge{position:absolute;top:14px;right:14px;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-radius:100px;padding:6px 12px;font-family:var(--ss);font-size:.68rem;font-weight:700;color:var(--dark2);display:flex;align-items:center;gap:5px}
+.phone-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:#EF4444;animation:blink 1s infinite;flex-shrink:0}
+
+/* ── floating stat cards ── */
+.fsc{position:absolute;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-radius:20px;padding:14px 18px;z-index:20;display:flex;align-items:center;gap:12px;background:rgba(12,10,5,.88);border:1px solid rgba(200,169,110,.18);box-shadow:0 16px 48px rgba(0,0,0,.32)}
+.fsc-1{top:8%;left:-14%;animation:flt 5s ease-in-out infinite alternate}
+.fsc-2{bottom:12%;left:-12%;animation:flt 6s ease-in-out infinite alternate-reverse}
+@keyframes flt{0%{transform:translateY(0) rotate(-.4deg)}100%{transform:translateY(-16px) rotate(.4deg)}}
+.fsc-ic{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;color:#FFF}
+.fsc-num{font-family:var(--sf);font-size:1.9rem;font-weight:700;color:#F7F4EF;line-height:1}
+.fsc-lbl{font-family:var(--ss);font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+@media(max-width:1000px){#hero{grid-template-columns:1fr;text-align:center;padding:140px 5% 80px}.h-visual{margin-top:0px}.h-sub{margin:0 auto 38px}.h-btns,.h-trust{justify-content:center}.fsc{display:none}}
+
+/* ── stats bar ── */
+#statsBar{background:var(--dark);padding:60px 5%;display:grid;grid-template-columns:repeat(4,1fr);position:relative;overflow:hidden}
+#statsBar::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 100% at 50% 0%,rgba(200,169,110,.07),transparent 70%);pointer-events:none}
+.si{text-align:center;padding:20px;border-right:1px solid rgba(247,244,239,.05);position:relative;z-index:1}
+.si:last-child{border-right:none}
+.si-num{font-family:var(--sf);font-size:clamp(2.6rem,4vw,4.5rem);font-weight:700;color:var(--gold);letter-spacing:-2px;line-height:1}
+.si-lbl{font-family:var(--ss);font-size:.8rem;font-weight:600;color:rgba(247,244,239,.38);text-transform:uppercase;letter-spacing:1.5px;margin-top:6px}
+@media(max-width:768px){#statsBar{grid-template-columns:repeat(2,1fr)}.si:nth-child(2){border-right:none}}
+
+/* ── platform sec ── */
+#platformSec{background:var(--dark);padding:8rem 5%;position:relative;overflow:hidden}
+#platformSec::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;background:radial-gradient(ellipse 80% 60% at 80% 50%,rgba(200,169,110,.055),transparent 70%)}
+.plat-h2{font-family:var(--sf);font-size:clamp(2.5rem,5vw,5.2rem);font-weight:700;color:#F7F4EF;line-height:.98;letter-spacing:-2px;margin-bottom:12px}
+.plat-h2 em{color:var(--gold);font-style:italic}
+.plat-sub{font-family:var(--ss);font-size:1rem;color:rgba(247,244,239,.38);max-width:480px}
+.plat-tabs{display:flex;gap:10px;margin:36px 0 28px;flex-wrap:wrap}
+.ptab{display:flex;align-items:center;gap:8px;padding:10px 22px;border-radius:100px;border:1.5px solid rgba(247,244,239,.1);background:rgba(247,244,239,.04);color:rgba(247,244,239,.45);font-family:var(--ss);font-size:.84rem;font-weight:700;cursor:pointer;transition:all .4s var(--ex);text-transform:uppercase;letter-spacing:.4px}
+.ptab:hover{background:rgba(247,244,239,.08);color:rgba(247,244,239,.75)}
+#platformGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;transition:opacity .35s ease,transform .35s ease}
+.pgc{border-radius:16px;overflow:hidden;aspect-ratio:4/5;position:relative;cursor:zoom-in;background:rgba(247,244,239,.04);border:1px solid rgba(247,244,239,.07);transition:transform .45s var(--ex),box-shadow .45s}
+.pgc:hover{transform:scale(1.05) translateY(-5px);box-shadow:0 32px 64px rgba(0,0,0,.42)}
+.pgc img{width:100%;height:100%;object-fit:cover;display:block}
+.pgc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,10,5,.7) 0%,transparent 50%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:14px}
+.pgc:hover .pgc-ov{opacity:1}
+.pgc-ov span{font-family:var(--ss);font-size:.73rem;font-weight:700;color:rgba(247,244,239,.75);text-transform:uppercase;letter-spacing:1px}
+@media(max-width:640px){#platformGrid{grid-template-columns:repeat(2,1fr)}}
+
+/* ── services ── */
+#svcSec{background:var(--bg);padding:8rem 5%;position:relative;overflow:hidden}
+.svc-wm{position:absolute;top:40px;left:50%;transform:translateX(-50%);font-family:var(--sf);font-size:clamp(5rem,18vw,18rem);font-weight:700;color:rgba(26,18,8,.022);white-space:nowrap;pointer-events:none;letter-spacing:-6px;line-height:1;z-index:0;user-select:none}
+.svc-hdr{text-align:center;margin-bottom:70px;position:relative;z-index:2}
+.svc-h2{font-family:var(--sf);font-size:clamp(2.5rem,4.5vw,5.2rem);font-weight:700;color:var(--dark2);line-height:.98;letter-spacing:-2px;margin-bottom:12px}
+.svc-h2 em{color:var(--gold);font-style:italic}
+.svc-sub{font-family:var(--ss);font-size:1rem;color:var(--tx3);max-width:500px;margin:0 auto}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative;z-index:2}
+.svc-card{border-radius:28px;padding:44px 32px;display:flex;flex-direction:column;min-height:420px;position:relative;overflow:hidden;cursor:pointer;border:1px solid rgba(255,255,255,.06);box-shadow:0 8px 32px rgba(0,0,0,.14);transition:box-shadow .5s var(--ex),transform .5s var(--ex)}
+.svc-card:hover{box-shadow:0 40px 80px rgba(0,0,0,.35)}
+.svc-glow{position:absolute;top:-80px;right:-80px;width:260px;height:260px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(var(--gc),.16),transparent 70%)}
+.svc-top-line{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--lc),transparent);opacity:.35}
+.svc-icon{width:60px;height:60px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.9rem;margin-bottom:24px;flex-shrink:0;border:1px solid rgba(255,255,255,.08)}
+.svc-title{font-family:var(--sf);font-size:2rem;font-weight:700;color:#F7F4EF;margin-bottom:12px;line-height:1.1}
+.svc-desc{font-family:var(--ss);font-size:.9rem;color:rgba(247,244,239,.48);line-height:1.78;margin-bottom:24px;flex-grow:1}
+.svc-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.svc-tag{padding:5px 13px;border-radius:100px;font-family:var(--ss);font-size:.72rem;font-weight:700;letter-spacing:.4px;border:1px solid;background:transparent}
+.svc-glare{position:absolute;inset:0;border-radius:28px;pointer-events:none;opacity:0;transition:opacity .3s;z-index:3}
+@media(max-width:1000px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.svc-grid{grid-template-columns:1fr}}
+
+/* ── process ── */
+#procSec{background:var(--dark);padding:8rem 5%;position:relative;overflow:hidden}
+#procSec::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(200,169,110,.07),transparent 70%)}
+.proc-hdr{text-align:center;margin-bottom:80px;position:relative;z-index:2}
+.proc-h2{font-family:var(--sf);font-size:clamp(2.5rem,5vw,5.5rem);font-weight:700;color:#F7F4EF;line-height:.98;letter-spacing:-2px;margin-bottom:12px}
+.proc-h2 em{color:var(--gold);font-style:italic}
+.proc-sub{font-family:var(--ss);font-size:1rem;color:rgba(247,244,239,.38);max-width:480px;margin:0 auto}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;position:relative;z-index:2}
+.proc-line{position:absolute;top:72px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,transparent,rgba(200,169,110,.22) 20%,rgba(200,169,110,.22) 80%,transparent);z-index:0}
+.proc-step{padding:0 18px;text-align:center;position:relative;z-index:1;transition:transform .5s var(--ex)}
+.proc-step:hover{transform:translateY(-12px)}
+.proc-circle{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 32px;position:relative}
+.proc-num{font-family:var(--sf);font-size:2.2rem;font-weight:700;color:#FFF;position:relative;z-index:1}
+.proc-spin{position:absolute;inset:-5px;border-radius:50%;border:1px dashed rgba(255,255,255,.2);animation:spin 20s linear infinite}
+@keyframes spin{100%{transform:rotate(360deg)}}
+.proc-title{font-family:var(--sf);font-size:1.7rem;font-weight:700;color:#F7F4EF;margin-bottom:12px}
+.proc-desc{font-family:var(--ss);font-size:.87rem;color:rgba(247,244,239,.42);line-height:1.78}
+@media(max-width:900px){.proc-grid{grid-template-columns:repeat(2,1fr);gap:40px}.proc-line{display:none}}
+
+/* ── before/after ── */
+#baSec{background:var(--bg);padding:8rem 5%;position:relative;overflow:hidden}
+.ba-hdr{text-align:center;margin-bottom:60px}
+.ba-h2{font-family:var(--sf);font-size:clamp(2.5rem,4.5vw,5.2rem);font-weight:700;color:var(--dark2);line-height:.98;letter-spacing:-2px;margin-bottom:12px}
+.ba-h2 em{color:var(--gold);font-style:italic}
+#baSlider{position:relative;width:100%;max-width:960px;height:500px;border-radius:32px;overflow:hidden;cursor:col-resize;box-shadow:0 40px 100px rgba(26,18,8,.14);border:1px solid rgba(200,169,110,.2);margin:0 auto;user-select:none;touch-action:pan-y}
+#baAfter{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+#baBefore{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;clip-path:inset(0 50% 0 0)}
+#baDivider{position:absolute;top:0;bottom:0;left:50%;z-index:3;width:2px;background:#FFF;cursor:col-resize;transform:translateX(-50%)}
+#baDivider::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;background:#FFF;border-radius:50%;box-shadow:0 4px 20px rgba(0,0,0,.28)}
+#baDivider::after{content:'◀▶';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:.6rem;color:var(--dark2);letter-spacing:-1px;font-weight:900}
+.ba-lbl{position:absolute;top:20px;z-index:4;color:#FFF;font-family:var(--ss);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:6px 14px;border-radius:100px}
+.ba-lbl.bef{left:20px;background:rgba(219,68,55,.85)}
+.ba-lbl.aft{right:20px;background:rgba(16,185,129,.85)}
+.ba-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:40px auto 0}
+.ba-s{text-align:center;padding:28px;border-radius:20px;background:rgba(26,18,8,.04);border:1px solid rgba(26,18,8,.07)}
+.ba-sn{font-family:var(--sf);font-size:2.5rem;font-weight:700;color:var(--goldd);letter-spacing:-1px}
+.ba-sl{font-family:var(--ss);font-size:.79rem;color:var(--tx3);margin-top:4px;font-weight:600}
+@media(max-width:600px){#baSlider{height:320px}.ba-stats{grid-template-columns:1fr;max-width:320px}}
+
+/* ── testimonials ── */
+#testiSec{background:var(--bg);padding:8rem 0;overflow:hidden;position:relative}
+.testi-hdr{text-align:center;padding:0 5%;margin-bottom:60px}
+.testi-h2{font-family:var(--sf);font-size:clamp(2.5rem,4.5vw,5.2rem);font-weight:700;color:var(--dark2);letter-spacing:-2px;line-height:.98;margin-bottom:12px}
+.testi-h2 em{color:var(--gold);font-style:italic}
+.tt-wrap{overflow:hidden;position:relative}
+.tt-wrap::before,.tt-wrap::after{content:'';position:absolute;top:0;bottom:0;z-index:2;width:100px;pointer-events:none}
+.tt-wrap::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.tt-wrap::after{right:0;background:linear-gradient(270deg,var(--bg),transparent)}
+.tt{display:flex;gap:20px;width:max-content;animation:mq 42s linear infinite}
+.tt:hover{animation-play-state:paused}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.tc{width:360px;flex-shrink:0;padding:30px;background:rgba(255,255,255,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(200,169,110,.14);border-radius:24px;box-shadow:0 4px 20px rgba(26,18,8,.05);transition:transform .4s var(--ex),box-shadow .4s}
+.tc:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(26,18,8,.1)}
+.tc-stars{color:var(--gold);font-size:.88rem;margin-bottom:14px;letter-spacing:2px}
+.tc-text{font-family:var(--ss);font-size:.93rem;color:var(--tx2);line-height:1.72;margin-bottom:18px;font-style:italic}
+.tc-author{display:flex;align-items:center;gap:12px}
+.tc-av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--goldd));display:flex;align-items:center;justify-content:center;font-family:var(--sf);font-size:1.2rem;font-weight:700;color:#FFF;border:2px solid rgba(200,169,110,.3);flex-shrink:0}
+.tc-name{font-family:var(--ss);font-size:.87rem;font-weight:700;color:var(--tx)}
+.tc-biz{font-family:var(--ss);font-size:.73rem;color:var(--txm);margin-top:2px}
+
+/* ── rush / CTA ── */
+#rushSec{background:var(--dark);padding:8rem 5%;position:relative;overflow:hidden}
+#rushSec::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(200,169,110,.08),transparent 70%);pointer-events:none}
+.rush-in{max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:2}
+.rush-h2{font-family:var(--sf);font-size:clamp(3rem,6vw,7.5rem);font-weight:700;color:#F7F4EF;letter-spacing:-3px;line-height:.93;margin-bottom:24px}
+.rush-h2 em{color:var(--gold);font-style:italic}
+.rush-sub{font-family:var(--ss);font-size:1rem;color:rgba(247,244,239,.42);line-height:1.75;max-width:480px;margin:0 auto 44px}
+.rush-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-l{display:inline-flex;align-items:center;gap:10px;background:rgba(247,244,239,.07);border:1px solid rgba(247,244,239,.14);color:rgba(247,244,239,.65);padding:15px 32px;border-radius:100px;font-family:var(--ss);font-size:.88rem;font-weight:700;text-decoration:none;transition:all .3s}
+.btn-l:hover{background:rgba(247,244,239,.12);color:#F7F4EF}
+
+/* ── footer ── */
+#rfFoot{background:var(--dark);border-top:1px solid rgba(200,169,110,.09);padding:60px 5% 40px}
+.foot-in{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.foot-logo img{height:38px;filter:none!important;margin-bottom:14px;display:block}
+.foot-logo-fb{font-family:var(--sf);font-size:1.7rem;font-weight:700;color:var(--gold);display:none;margin-bottom:14px;letter-spacing:-.5px}
+.foot-desc{font-family:var(--ss);font-size:.87rem;color:rgba(247,244,239,.35);line-height:1.75;max-width:260px}
+.foot-col-t{font-family:var(--ss);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:16px}
+.foot-lk{display:block;font-family:var(--ss);font-size:.87rem;color:rgba(247,244,239,.38);text-decoration:none;margin-bottom:10px;transition:color .3s}
+.foot-lk:hover{color:rgba(247,244,239,.75)}
+.foot-bot{max-width:1320px;margin:0 auto;padding-top:24px;border-top:1px solid rgba(247,244,239,.05);display:flex;justify-content:space-between;align-items:center;font-family:var(--ss);font-size:.77rem;color:rgba(247,244,239,.2)}
+.foot-bot a{color:var(--gold);text-decoration:none;font-weight:700}
+@media(max-width:768px){.foot-in{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:480px){.foot-in{grid-template-columns:1fr}}
+
+/* ── floats ── */
+.wa{position:fixed;bottom:88px;left:20px;width:54px;height:54px;background:#25D366;color:#FFF;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;z-index:9999960;text-decoration:none;box-shadow:0 6px 20px rgba(37,211,102,.4);transition:transform .3s var(--ex)}
+.wa:hover{transform:scale(1.12)}
+.scta{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(100px);opacity:0;z-index:9999950;white-space:nowrap;transition:all .5s var(--ex);display:flex;align-items:center;gap:12px;background:rgba(12,10,5,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(200,169,110,.18);border-radius:100px;padding:12px 18px 12px 22px;box-shadow:0 20px 60px rgba(0,0,0,.38)}
+.scta.on{transform:translateX(-50%) translateY(0);opacity:1}
+.scta span{font-family:var(--ss);font-size:.8rem;font-weight:600;color:rgba(247,244,239,.6)}
+.scta a{font-family:var(--ss);font-size:.8rem;font-weight:700;color:#FFF;text-decoration:none;padding:8px 18px;background:linear-gradient(135deg,#C8A96E,#A67C00);border-radius:100px}
+.aifab{position:fixed;bottom:80px;right:20px;width:58px;height:58px;border-radius:50%;background:var(--dark2);border:1px solid rgba(200,169,110,.22);box-shadow:0 10px 40px rgba(26,18,8,.2);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:9999940;transition:transform .3s var(--ex)}
+.aifab:hover{transform:scale(1.1)}
+.aifab i{font-size:1.9rem;color:var(--gold)}
+.aifab-dot{position:absolute;top:4px;right:4px;width:11px;height:11px;background:#EF4444;border-radius:50%;border:2px solid var(--dark2);animation:blink 1.5s infinite}
+
+/* ── reels modal ── */
+#rmModal{position:fixed;inset:0;background:#000;z-index:2147483640;display:flex;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s ease}
+#rmModal.open{opacity:1;pointer-events:auto}
+#rmClose{position:absolute;top:26px;left:26px;width:48px;height:48px;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#FFF;font-size:1.4rem;cursor:pointer;border:1px solid rgba(255,255,255,.18);z-index:10;transition:.3s}
+#rmClose:hover{background:rgba(255,255,255,.2)}
+#rmCon{width:100%;max-width:450px;height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;scrollbar-width:none;-ms-overflow-style:none}
+#rmCon::-webkit-scrollbar{display:none}
+
+/* ── lightbox ── */
+#fsLb{position:fixed;inset:0;background:rgba(0,0,0,.96);backdrop-filter:blur(20px);z-index:2147483641;display:flex;justify-content:center;align-items:center;opacity:0;pointer-events:none;transition:opacity .4s ease}
+#fsLb.open{opacity:1;pointer-events:auto}
+#fsClose{position:absolute;top:22px;right:22px;width:48px;height:48px;background:rgba(255,255,255,.1);border-radius:50%;color:#FFF;display:flex;justify-content:center;align-items:center;font-size:1.4rem;cursor:pointer;border:1px solid rgba(255,255,255,.18);z-index:10;transition:.3s}
+#fsClose:hover{background:rgba(255,255,255,.2)}
+#fsImg{max-width:90vw;max-height:90vh;border-radius:16px;object-fit:contain}
+
+/* ── mobile nav ── */
+.mnav{display:none;position:fixed;bottom:14px;left:4%;right:4%;background:rgba(12,10,5,.92);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(200,169,110,.14);border-radius:20px;padding:12px 0 max(12px,env(safe-area-inset-bottom));z-index:9999930;justify-content:space-around;align-items:center}
+@media(max-width:768px){.mnav{display:flex}}
+.mni{display:flex;flex-direction:column;align-items:center;gap:3px;color:rgba(247,244,239,.38);font-family:var(--ss);font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-decoration:none;padding:4px 12px}
+.mni i{font-size:1.25rem}
+.mni:hover,.mni.on{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<div id="pl"><div class="pl-logo">Reach Forever</div><div class="pl-bar"><div class="pl-fill"></div></div></div>
+<div id="prog"></div>
+<div id="cdot"></div>
+<div id="cring"></div>
+
+<!-- NAV -->
+<nav id="rfNav">
+  <a href="#" class="nl" id="nl">
+    <img src="assets/logo.png" alt="Reach Forever" id="nlImg" style="height:36px;filter:none!important"
+      onerror="this.style.display='none';document.getElementById('nlFb').style.display='block'">
+    <span class="nl-fb" id="nlFb">Reach Forever</span>
+  </a>
+  <div class="nlinks">
+    <a href="#hero" class="nlink">Home</a>
+    <a href="#svcSec" class="nlink">Services</a>
+    <a href="reviews.html" class="nlink">Reviews</a>
+  </div>
+  <a href="form.html" class="ncta">Initiate Project</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="grain">
+  <div class="h-orb h-orb1"></div>
+  <div class="h-orb h-orb2"></div>
+  <div class="h-content" id="hContent">
+    <div class="h-tag" data-cms="hero_tag"><span class="h-dot"></span> Punjab's #1 Digital Agency</div>
+    <h1 class="h1" id="heroH1">
+      We turn<br>
+      <span class="h-rot-wrap">
+        <span class="h-rot" id="hRot">
+          <span style="color:#D4AF37">Ad Spend</span>
+          <span style="color:#FF6B6B">Clicks</span>
+          <span style="color:#C084FC">Traffic</span>
+          <span style="color:#6EE7B7">Leads</span>
+          <span style="color:#60A5FA">Sales</span>
+        </span>
+      </span><br>into paying clients.
+    </h1>
+    <p class="h-sub" data-cms="hero_desc">We engineer full-funnel digital systems — Meta Ads, Google SEO, viral reels & high-converting websites — that flood your business with customers on autopilot.</p>
+    <div class="h-btns">
+      <a href="form.html" class="btn-g">Start Growing Now <i class="ri-arrow-right-line"></i></a>
+      <a href="#" class="btn-o" onclick="openReel();return false"><i class="ri-play-circle-line"></i> Watch Results</a>
+    </div>
+    <div class="h-trust">
+      <span class="tr-lbl">Trusted by</span>
+      <div class="tr-b"><i class="ri-google-fill" style="color:#DB4437"></i> Google</div>
+      <div class="tr-b"><i class="ri-facebook-circle-fill" style="color:#1877F2"></i> Meta</div>
+      <div class="tr-b"><i class="ri-shield-check-fill" style="color:#C8A96E"></i> Certified</div>
+    </div>
+  </div>
+  <div class="h-visual" id="hVisual">
+    <div class="fsc fsc-1">
+      <div class="fsc-ic" style="background:linear-gradient(135deg,#C8A96E,#A67C00)"><i class="ri-group-fill"></i></div>
+      <div><div class="fsc-num">320+</div><div class="fsc-lbl" style="color:#C8A96E">Happy Clients</div></div>
+    </div>
+    <div id="heroPhone" onclick="openReel()">
+      <div class="phone-notch"></div><div class="phone-badge" style="top:40px;"><i class="ri-play-circle-fill" style="color:#EF4444;font-size:.78rem"></i> Tap to Watch</div>
+      <video id="hVid" autoplay muted loop playsinline onerror="this.style.display='none'">
+        <source src="assets/video_1.mp4" type="video/mp4">
+      </video>
+      <img src="assets/ig_1.jpg" alt="Client result" style="display:none"
+        onerror="this.style.display='none'" onload="document.getElementById('hVid').style.display='none';this.style.display='block'">
+    </div>
+    <div class="fsc fsc-2">
+      <div class="fsc-ic" style="background:linear-gradient(135deg,#10B981,#059669)"><i class="ri-line-chart-fill"></i></div>
+      <div><div class="fsc-num">4.8×</div><div class="fsc-lbl" style="color:#10B981">Avg ROAS</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div id="statsBar">
+  <div class="si"><div class="si-num" data-c="320" data-s="+" data-cms="stat_clients">320+</div><div class="si-lbl" data-cms="stat_clients_lbl">Happy Clients</div></div>
+  <div class="si"><div class="si-num" data-c="4.8" data-s="×" data-f="1" data-cms="stat_roas">4.8×</div><div class="si-lbl" data-cms="stat_roas_lbl">Average ROAS</div></div>
+  <div class="si"><div class="si-num" data-c="60" data-s="%" data-cms="stat_cpl">60%</div><div class="si-lbl" data-cms="stat_cpl_lbl">Less Cost Per Lead</div></div>
+  <div class="si"><div class="si-num" data-c="14" data-s=" Days" data-cms="stat_days">14 Days</div><div class="si-lbl" data-cms="stat_days_lbl">To First Results</div></div>
+</div>
+
+<!-- PLATFORM -->
+<section id="platformSec" class="sec">
+<div class="sin">
+  <span class="sec-lbl light"><i class="ri-global-line"></i> Universal Presence</span>
+  <h2 class="plat-h2">Be everywhere<br>your <em>customers look.</em></h2>
+  <p class="plat-sub">We manage your brand across every platform — simultaneously.</p>
+  <div class="plat-tabs" id="platTabs">
+    <div class="ptab" data-p="ig" onclick="swPlat('ig')"><i class="ri-instagram-fill"></i> Instagram</div>
+    <div class="ptab" data-p="fb" onclick="swPlat('fb')"><i class="ri-facebook-circle-fill"></i> Facebook</div>
+    <div class="ptab" data-p="go" onclick="swPlat('go')"><i class="ri-google-fill"></i> Google</div>
+    <div class="ptab" data-p="web" onclick="swPlat('web')"><i class="ri-window-line"></i> Website</div>
+  </div>
+  <div id="platformGrid"></div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="svcSec" class="sec">
+  <div class="svc-wm">SERVICES</div>
+  <div class="sin">
+    <div class="svc-hdr">
+      <span class="sec-lbl gold"><i class="ri-stack-fill"></i> Our Arsenal</span>
+      <h2 class="svc-h2">Digital Marketing <em>Services.</em></h2>
+      <p class="svc-sub">Every service is engineered to generate measurable revenue, not vanity metrics.</p>
+    </div>
+    <div class="svc-grid" id="svcGrid">
+<div class="svc-card" data-tilt style="background:#0A081E">
+  <div class="svc-glow" style="--gc:100,80,255"></div>
+  <div class="svc-top-line" style="--lc:rgb(100,80,255)"></div>
+  <div class="svc-icon" style="background:rgba(100,80,255,0.12);color:#A78BFA"><i class="ri-facebook-circle-fill"></i></div>
+  <div class="svc-title">Local Business Ads</div>
+  <div class="svc-desc">Hyper-targeted Meta & Google campaigns that capture high-intent customers in your exact area — precisely when they're ready to buy.</div>
+  <div class="svc-tags"><span class="svc-tag" style="border-color:rgba(100,80,255,0.25);color:#A78BFA">Retargeting</span><span class="svc-tag" style="border-color:rgba(100,80,255,0.25);color:#A78BFA">4.8× ROAS</span><span class="svc-tag" style="border-color:rgba(100,80,255,0.25);color:#A78BFA">Lookalikes</span></div>
+  <div class="svc-glare"></div>
+</div>
+<div class="svc-card" data-tilt style="background:#0D0A05">
+  <div class="svc-glow" style="--gc:200,169,110"></div>
+  <div class="svc-top-line" style="--lc:rgb(200,169,110)"></div>
+  <div class="svc-icon" style="background:rgba(200,169,110,0.12);color:#D4AF37"><i class="ri-macbook-fill"></i></div>
+  <div class="svc-title">Automated Websites</div>
+  <div class="svc-desc">Lightning-fast, booking-optimised landing pages that convert strangers into paying customers 24/7 — even while you sleep.</div>
+  <div class="svc-tags"><span class="svc-tag" style="border-color:rgba(200,169,110,0.25);color:#D4AF37">14-Day Launch</span><span class="svc-tag" style="border-color:rgba(200,169,110,0.25);color:#D4AF37">A/B Tested</span><span class="svc-tag" style="border-color:rgba(200,169,110,0.25);color:#D4AF37">SEO Ready</span></div>
+  <div class="svc-glare"></div>
+</div>
+<div class="svc-card" data-tilt style="background:#1A0505">
+  <div class="svc-glow" style="--gc:219,68,55"></div>
+  <div class="svc-top-line" style="--lc:rgb(219,68,55)"></div>
+  <div class="svc-icon" style="background:rgba(219,68,55,0.12);color:#FF6B6B"><i class="ri-search-eye-line"></i></div>
+  <div class="svc-title">Google SEO</div>
+  <div class="svc-desc">Dominate local search. When customers look for your service in Punjab — you're always ranked first, every time.</div>
+  <div class="svc-tags"><span class="svc-tag" style="border-color:rgba(219,68,55,0.25);color:#FF6B6B">GMB #1</span><span class="svc-tag" style="border-color:rgba(219,68,55,0.25);color:#FF6B6B">Backlinks</span><span class="svc-tag" style="border-color:rgba(219,68,55,0.25);color:#FF6B6B">Local Pack</span></div>
+  <div class="svc-glare"></div>
+</div>
+<div class="svc-card" data-tilt style="background:#160820">
+  <div class="svc-glow" style="--gc:228,64,95"></div>
+  <div class="svc-top-line" style="--lc:rgb(228,64,95)"></div>
+  <div class="svc-icon" style="background:rgba(228,64,95,0.12);color:#FF8FAB"><i class="ri-megaphone-fill"></i></div>
+  <div class="svc-title">Social Media Growth</div>
+  <div class="svc-desc">Viral reels, brand authority content, and daily organic enquiries from Instagram & Facebook that build lasting trust.</div>
+  <div class="svc-tags"><span class="svc-tag" style="border-color:rgba(228,64,95,0.25);color:#FF8FAB">Viral Reels</span><span class="svc-tag" style="border-color:rgba(228,64,95,0.25);color:#FF8FAB">Brand Identity</span><span class="svc-tag" style="border-color:rgba(228,64,95,0.25);color:#FF8FAB">Daily Posts</span></div>
+  <div class="svc-glare"></div>
+</div>
+<div class="svc-card" data-tilt style="background:#031412">
+  <div class="svc-glow" style="--gc:20,184,166"></div>
+  <div class="svc-top-line" style="--lc:rgb(20,184,166)"></div>
+  <div class="svc-icon" style="background:rgba(20,184,166,0.12);color:#5EEAD4"><i class="ri-mail-send-fill"></i></div>
+  <div class="svc-title">CRM & Automation</div>
+  <div class="svc-desc">Automated SMS follow-ups and lead tracking pipelines so no potential customer ever slips through the cracks again.</div>
+  <div class="svc-tags"><span class="svc-tag" style="border-color:rgba(20,184,166,0.25);color:#5EEAD4">SMS Nurture</span><span class="svc-tag" style="border-color:rgba(20,184,166,0.25);color:#5EEAD4">Auto Follow-up</span><span class="svc-tag" style="border-color:rgba(20,184,166,0.25);color:#5EEAD4">Pipeline</span></div>
+  <div class="svc-glare"></div>
+</div>
+<div class="svc-card" data-tilt style="background:#180C03">
+  <div class="svc-glow" style="--gc:251,146,60"></div>
+  <div class="svc-top-line" style="--lc:rgb(251,146,60)"></div>
+  <div class="svc-icon" style="background:rgba(251,146,60,0.12);color:#FDBA74"><i class="ri-vidicon-fill"></i></div>
+  <div class="svc-title">Video Production</div>
+  <div class="svc-desc">Professional reels, testimonial videos, and ad creatives that stop the scroll and generate real appointment bookings.</div>
+  <div class="svc-tags"><span class="svc-tag" style="border-color:rgba(251,146,60,0.25);color:#FDBA74">Ad Creatives</span><span class="svc-tag" style="border-color:rgba(251,146,60,0.25);color:#FDBA74">Testimonials</span><span class="svc-tag" style="border-color:rgba(251,146,60,0.25);color:#FDBA74">Reels</span></div>
+  <div class="svc-glare"></div>
+</div></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="procSec" class="sec">
+<div class="sin">
+  <div class="proc-hdr">
+    <span class="sec-lbl light"><i class="ri-route-fill"></i> The Reach Process</span>
+    <h2 class="proc-h2">Zero to <em>Fully Booked.</em></h2>
+    <p class="proc-sub">Our 4-step system gets you results in 30 days or your money back.</p>
+  </div>
+  <div class="proc-grid" style="position:relative">
+    <div class="proc-line"></div>
+    
+<div class="proc-step">
+  <div class="proc-circle" style="background:linear-gradient(135deg,#C8A96E,#A67C00);box-shadow:0 16px 48px rgba(200,169,110,0.4)">
+    <span class="proc-num">01</span>
+    <div class="proc-spin"></div>
+  </div>
+  <div class="proc-title">Deep Audit</div>
+  <div class="proc-desc">We dissect your market, competitors, and existing digital footprint to uncover hidden revenue opportunities.</div>
+</div>
+<div class="proc-step">
+  <div class="proc-circle" style="background:linear-gradient(135deg,#6450FF,#4F3FCC);box-shadow:0 16px 48px rgba(100,80,255,0.4)">
+    <span class="proc-num">02</span>
+    <div class="proc-spin"></div>
+  </div>
+  <div class="proc-title">Strategy Build</div>
+  <div class="proc-desc">A bespoke growth blueprint — channels, creatives, funnels — all mapped precisely to your business goals.</div>
+</div>
+<div class="proc-step">
+  <div class="proc-circle" style="background:linear-gradient(135deg,#10B981,#059669);box-shadow:0 16px 48px rgba(16,185,129,0.4)">
+    <span class="proc-num">03</span>
+    <div class="proc-spin"></div>
+  </div>
+  <div class="proc-title">Launch & Scale</div>
+  <div class="proc-desc">We go live within 14 days and relentlessly optimise for maximum ROI across every active channel simultaneously.</div>
+</div>
+<div class="proc-step">
+  <div class="proc-circle" style="background:linear-gradient(135deg,#DB4437,#B91C1C);box-shadow:0 16px 48px rgba(219,68,55,0.4)">
+    <span class="proc-num">04</span>
+    <div class="proc-spin"></div>
+  </div>
+  <div class="proc-title">Report & Grow</div>
+  <div class="proc-desc">Weekly transparent reports. You see every rupee spent, every lead generated, every rupee returned — always.</div>
+</div>
+  </div>
+</div>
+</section>
+
+<!-- B/A -->
+<section id="baSec" class="sec">
+<div class="sin">
+  <div class="ba-hdr">
+    <span class="sec-lbl gold"><i class="ri-magic-line"></i> The Difference</span>
+    <h2 class="ba-h2">Before vs <em>After.</em></h2>
+    <p style="font-family:var(--ss);font-size:1rem;color:var(--tx3);max-width:520px;margin:0 auto;line-height:1.75">Drag the slider to see how upgrading your digital presence instantly builds trust.</p>
+  </div>
+  <div id="baSlider">
+    <img id="baAfter" src="assets/after.png" alt="After" data-cms="ba_img_after"
+      onerror="this.src='https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1260&q=80'">
+    <img id="baBefore" src="assets/before.png" alt="Before" data-cms="ba_img_before"
+      onerror="this.src='https://images.pexels.com/photos/5632381/pexels-photo-5632381.jpeg?auto=compress&cs=tinysrgb&w=1260&q=80'">
+    <div id="baDivider"></div>
+    <div class="ba-lbl bef">BEFORE</div>
+    <div class="ba-lbl aft">AFTER</div>
+  </div>
+  <div class="ba-stats">
+    <div class="ba-s"><div class="ba-sn">-62%</div><div class="ba-sl">Cost Per Lead Reduced</div></div>
+    <div class="ba-s"><div class="ba-sn">4.8×</div><div class="ba-sl">Return on Ad Spend</div></div>
+    <div class="ba-s"><div class="ba-sn">14 Days</div><div class="ba-sl">To First Results</div></div>
+  </div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testiSec" class="sec">
+  <div class="testi-hdr">
+    <span class="sec-lbl gold"><i class="ri-star-fill"></i> Client Reviews</span>
+    <h2 class="testi-h2">Real Results, <em>Real Clients.</em></h2>
+  </div>
+  <div class="tt-wrap"><div class="tt" id="tt">
+<div class="tc">
+  <div class="tc-stars">★★★★★</div>
+  <div class="tc-text">"120 new patients in the first month. Their Meta Ads strategy is absolutely unmatched."</div>
+  <div class="tc-author">
+    <div class="tc-av">H</div>
+    <div><div class="tc-name">Harpreet S.</div><div class="tc-biz">Dental Clinic, Ludhiana</div></div>
+  </div>
+</div>
+<div class="tc">
+  <div class="tc-stars">★★★★★</div>
+  <div class="tc-text">"3× leads in 6 weeks. Best ROI I've ever seen in 10 years of running marketing."</div>
+  <div class="tc-author">
+    <div class="tc-av">G</div>
+    <div><div class="tc-name">Gurjinder K.</div><div class="tc-biz">Real Estate, Amritsar</div></div>
+  </div>
+</div>
+<div class="tc">
+  <div class="tc-stars">★★★★★</div>
+  <div class="tc-text">"Website bookings literally doubled overnight. Absolutely stunning execution."</div>
+  <div class="tc-author">
+    <div class="tc-av">M</div>
+    <div><div class="tc-name">Mandeep B.</div><div class="tc-biz">Salon Chain, Chandigarh</div></div>
+  </div>
+</div>
+<div class="tc">
+  <div class="tc-stars">★★★★★</div>
+  <div class="tc-text">"Online orders tripled. The reels they made went viral — 2 million+ views!"</div>
+  <div class="tc-author">
+    <div class="tc-av">R</div>
+    <div><div class="tc-name">Rajveer S.</div><div class="tc-biz">Restaurant, Jalandhar</div></div>
+  </div>
+</div>
+<div class="tc">
+  <div class="tc-stars">★★★★★</div>
+  <div class="tc-text">"Our Google ranking jumped from page 5 to #1 in just 45 days. Unreal results."</div>
+  <div class="tc-author">
+    <div class="tc-av">P</div>
+    <div><div class="tc-name">Parminder H.</div><div class="tc-biz">Coaching Institute, Patiala</div></div>
+  </div>
+</div>
+<div class="tc">
+  <div class="tc-stars">★★★★★</div>
+  <div class="tc-text">"Instagram following grew 10× and sales followed. Pure gold strategy that works."</div>
+  <div class="tc-author">
+    <div class="tc-av">S</div>
+    <div><div class="tc-name">Simran A.</div><div class="tc-biz">Boutique, Mohali</div></div>
+  </div>
+</div>
+<div class="tc">
+  <div class="tc-stars">★★★★★</div>
+  <div class="tc-text">"120 new patients in the first month. Their Meta Ads strategy is absolutely unmatched."</div>
+  <div class="tc-author">
+    <div class="tc-av">H</div>
+    <div><div class="tc-name">Harpreet S.</div><div class="tc-biz">Dental Clinic, Ludhiana</div></div>
+  </div>
+</div>
+<div class="tc">
+  <div class="tc-stars">★★★★★</div>
+  <div class="tc-text">"3× leads in 6 weeks. Best ROI I've ever seen in 10 years of running marketing."</div>
+  <div class="tc-author">
+    <div class="tc-av">G</div>
+    <div><div class="tc-name">Gurjinder K.</div><div class="tc-biz">Real Estate, Amritsar</div></div>
+  </div>
+</div>
+<div class="tc">
+  <div class="tc-stars">★★★★★</div>
+  <div class="tc-text">"Website bookings literally doubled overnight. Absolutely stunning execution."</div>
+  <div class="tc-author">
+    <div class="tc-av">M</div>
+    <div><div class="tc-name">Mandeep B.</div><div class="tc-biz">Salon Chain, Chandigarh</div></div>
+  </div>
+</div>
+<div class="tc">
+  <div class="tc-stars">★★★★★</div>
+  <div class="tc-text">"Online orders tripled. The reels they made went viral — 2 million+ views!"</div>
+  <div class="tc-author">
+    <div class="tc-av">R</div>
+    <div><div class="tc-name">Rajveer S.</div><div class="tc-biz">Restaurant, Jalandhar</div></div>
+  </div>
+</div>
+<div class="tc">
+  <div class="tc-stars">★★★★★</div>
+  <div class="tc-text">"Our Google ranking jumped from page 5 to #1 in just 45 days. Unreal results."</div>
+  <div class="tc-author">
+    <div class="tc-av">P</div>
+    <div><div class="tc-name">Parminder H.</div><div class="tc-biz">Coaching Institute, Patiala</div></div>
+  </div>
+</div>
+<div class="tc">
+  <div class="tc-stars">★★★★★</div>
+  <div class="tc-text">"Instagram following grew 10× and sales followed. Pure gold strategy that works."</div>
+  <div class="tc-author">
+    <div class="tc-av">S</div>
+    <div><div class="tc-name">Simran A.</div><div class="tc-biz">Boutique, Mohali</div></div>
+  </div>
+</div></div></div>
+</section>
+
+<!-- RUSH -->
+<section id="rushSec" class="sec">
+  <div class="rush-in">
+    <span class="sec-lbl light" style="margin-bottom:28px"><i class="ri-fire-fill"></i> Limited Availability</span>
+    <h2 class="rush-h2">Only <em>3 Spots</em><br>Left This Month.</h2>
+    <p class="rush-sub">We only take on 5 clients per month to ensure every client gets our full, undivided attention and best results.</p>
+    <div class="rush-btns">
+      <a href="form.html" class="btn-g">Book Your Free Call <i class="ri-arrow-right-line"></i></a>
+      <a href="reviews.html" class="btn-l"><i class="ri-star-fill" style="color:var(--gold)"></i> See All Reviews</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="rfFoot">
+  <div class="foot-in">
+    <div>
+      <div class="foot-logo">
+        <img src="assets/logo.png" alt="Reach Forever" style="filter:none!important"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="foot-logo-fb">Reach Forever</div>
+      </div>
+      <p class="foot-desc">Punjab's #1 Digital Marketing Agency — engineering growth through data-driven strategies and creative execution.</p>
+    </div>
+    <div>
+      <div class="foot-col-t">Services</div>
+      <a href="#svcSec" class="foot-lk">Local Business Ads</a>
+      <a href="#svcSec" class="foot-lk">Automated Websites</a>
+      <a href="#svcSec" class="foot-lk">Google SEO</a>
+      <a href="#svcSec" class="foot-lk">Social Media Growth</a>
+      <a href="#svcSec" class="foot-lk">Video Production</a>
+    </div>
+    <div>
+      <div class="foot-col-t">Company</div>
+      <a href="reviews.html" class="foot-lk">Reviews</a>
+      <a href="form.html" class="foot-lk">Start a Project</a>
+      <a href="#procSec" class="foot-lk">Our Process</a>
+      <a href="#baSec" class="foot-lk">Case Studies</a>
+    </div>
+    <div>
+      <div class="foot-col-t">Contact</div>
+      <a href="https://wa.me/918146652870" class="foot-lk"><i class="ri-whatsapp-line"></i> WhatsApp Us</a>
+      <a href="https://instagram.com/reachforever" class="foot-lk"><i class="ri-instagram-line"></i> Instagram</a>
+      <a href="https://facebook.com/reachforever" class="foot-lk"><i class="ri-facebook-circle-line"></i> Facebook</a>
+      <a href="mailto:hello@reachforever.in" class="foot-lk"><i class="ri-mail-line"></i> Email Us</a>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>© 2025 Reach Forever. All rights reserved.</span>
+    <span>Made by <a href="https://zyrovadigital.online" target="_blank">zyrova digital</a></span>
+  </div>
+</footer>
+
+<!-- FLOATS -->
+<a href="https://wa.me/918146652870" target="_blank" class="wa"><i class="ri-whatsapp-line"></i></a>
+<div class="scta" id="scta"><span>Limited spots left this month</span><a href="form.html">Book a Call →</a></div>
+<div class="aifab"><i class="ri-customer-service-2-fill"></i><div class="aifab-dot"></div></div>
+
+<!-- MOBILE NAV -->
+<nav class="mnav">
+  <a href="#hero" class="mni on"><i class="ri-home-4-fill"></i>Home</a>
+  <a href="#svcSec" class="mni"><i class="ri-stack-fill"></i>Services</a>
+  <a href="reviews.html" class="mni"><i class="ri-star-fill"></i>Reviews</a>
+  <a href="form.html" class="mni" style="color:#C8A96E"><i class="ri-rocket-fill"></i>Start</a>
+</nav>
+
+<!-- REELS MODAL -->
+<div id="rmModal">
+  <div id="rmClose"><i class="ri-arrow-left-line"></i></div>
+  <div id="rmCon"></div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="fsLb">
+  <div id="fsClose"><i class="ri-close-line"></i></div>
+  <img id="fsImg" src="" alt="">
+</div>
 
 <script>
-/* ================================================================
-   MUTE LOCK — hero video always muted on page load
-   ================================================================ */
+// ═══ PLATFORM GRID ═══
 (function(){
-    function lockMute(){
-        const v = document.getElementById('heroVideoAd');
-        if(v && !v.hasAttribute('data-mute-locked')){
-            v.muted = true; v.setAttribute('muted',''); v.setAttribute('data-mute-locked','true');
-        }
-    }
-    lockMute();
-    window.addEventListener('DOMContentLoaded', lockMute);
-    window.addEventListener('pageshow', lockMute);
-})();
-
-/* ================================================================
-   FEATURE 1: DYNAMIC ISLAND
-   ================================================================ */
-let diTimer = null;
-function triggerIsland(msg, iconClass, color){
-    const di = document.getElementById('dynamicIsland');
-    const diText = document.getElementById('di-text');
-    const diIcon = document.getElementById('di-icon');
-    if(!di) return;
-    if(diTimer) clearTimeout(diTimer);
-    if(iconClass) diIcon.className = iconClass;
-    diIcon.style.color = color || '#D4AF37';
-    diText.innerText = msg;
-    di.classList.add('di-active');
-    diTimer = setTimeout(()=>{ di.classList.remove('di-active'); }, 3200);
-}
-setTimeout(()=>triggerIsland('Performance Optimized ⚡','ri-flashlight-fill','#C8A96E'), 2000);
-
-/* ================================================================
-   FEATURE 4: ADVANCED MAGNETIC CURSOR (SMOOTH LERP NO MESSY TRAILS)
-   ================================================================ */
-(function(){
-    if(window.innerWidth <= 1024) return;
-    const dot = document.getElementById('cursorDot');
-    const ring = document.getElementById('cursorRing');
-    
-    let mx = 0, my = 0; 
-    let rx = 0, ry = 0; 
-
-    window.addEventListener('mousemove', e => {
-        mx = e.clientX;
-        my = e.clientY;
+  const P={
+    ig:{pre:'ig',n:6,col:'#E4405F',ic:'ri-instagram-fill',lbl:'Instagram',gr:'linear-gradient(135deg,rgba(228,64,95,.3),rgba(119,0,255,.2))'},
+    fb:{pre:'fb',n:6,col:'#1877F2',ic:'ri-facebook-circle-fill',lbl:'Facebook',gr:'linear-gradient(135deg,rgba(24,119,242,.3),rgba(0,40,120,.2))'},
+    go:{pre:'gl',n:6,col:'#DB4437',ic:'ri-google-fill',lbl:'Google',gr:'linear-gradient(135deg,rgba(219,68,55,.3),rgba(244,160,0,.2))'},
+    web:{pre:'wb',n:6,col:'#C8A96E',ic:'ri-window-line',lbl:'Website',gr:'linear-gradient(135deg,rgba(200,169,110,.3),rgba(26,18,8,.2))'}
+  };
+  window.swPlat=function(key){
+    const p=P[key]; if(!p)return;
+    const g=document.getElementById('platformGrid');
+    document.querySelectorAll('.ptab').forEach(t=>{
+      const a=t.getAttribute('data-p')===key;
+      t.style.border=a?'1.5px solid '+p.col:'1.5px solid rgba(247,244,239,.1)';
+      t.style.background=a?p.gr:'rgba(247,244,239,.04)';
+      t.style.color=a?'#FFF':'rgba(247,244,239,.45)';
+      t.style.transform=a?'translateY(-3px)':'';
+      t.style.boxShadow=a?'0 10px 28px rgba(0,0,0,.26)':'';
     });
-
-    function loopCursor() {
-        rx += (mx - rx) * 0.2;
-        ry += (my - ry) * 0.2;
-        
-        if(dot) dot.style.transform = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
-        if(ring) ring.style.transform = `translate(calc(${rx}px - 50%), calc(${ry}px - 50%))`;
-        
-        requestAnimationFrame(loopCursor);
-    }
-    loopCursor();
-})();
-
-/* ================================================================
-   FEATURE 3: HAPTIC FEEDBACK (Mobile)
-   ================================================================ */
-window.triggerHaptic = function(pattern){
-    if('vibrate' in navigator) navigator.vibrate(pattern || 45);
-};
-
-/* ================================================================
-   SCROLL PROGRESS BAR
-   ================================================================ */
-window.addEventListener('scroll', ()=>{
-    const scrollPx = document.documentElement.scrollTop;
-    const winH = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const sp = document.getElementById('scrollProgress');
-    if(sp) sp.style.width = (scrollPx / winH * 100) + '%';
-}, {passive:true});
-
-/* ================================================================
-   PARTICLE SYSTEM (Always Gold, Theme Independent)
-   ================================================================ */
-document.addEventListener('DOMContentLoaded',()=>{
-    const canvas = document.getElementById('gold-dust-canvas');
-    if(!canvas) return;
-    const ctx = canvas.getContext('2d');
-    const count = window.innerWidth < 768 ? 30 : 70;
-    let particles = [];
-    function resize(){ canvas.width=window.innerWidth; canvas.height=window.innerHeight; }
-    window.addEventListener('resize', resize, {passive:true}); resize();
-    for(let i=0;i<count;i++) particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.8+.4,dx:(Math.random()-.5)*.25,dy:(Math.random()-1)*.35-.08,alpha:Math.random()*.45+.15});
-    function frame(){
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        particles.forEach(p=>{
-            ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-            // ALWAYS GOLD, regardless of theme
-            ctx.fillStyle = `rgba(212,175,55,${p.alpha})`;
-            ctx.fill();
-            p.x+=p.dx; p.y+=p.dy;
-            if(p.y<0) p.y=canvas.height;
-            if(p.x<0) p.x=canvas.width;
-            if(p.x>canvas.width) p.x=0;
-        });
-        requestAnimationFrame(frame);
-    }
-    frame();
-});
-
-/* ================================================================
-   LENIS SMOOTH SCROLL + VELOCITY SKEWING (Restored)
-   ================================================================ */
-document.addEventListener('DOMContentLoaded',()=>{
-    if(typeof Lenis !== 'undefined'){
-        const lenis = new Lenis({
-            duration:1.2,
-            easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),
-            smoothTouch:false,
-            touchMultiplier:1.5
-        });
-        window._lenis = lenis;
-        function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
-        requestAnimationFrame(raf);
-        
-        // VELOCITY SKEWING ENGINE RESTORED
-        lenis.on('scroll', (e) => {
-            if(typeof ScrollTrigger !== 'undefined') ScrollTrigger.update();
-            const skew = Math.min(Math.max(e.velocity * 0.2, -5), 5);
-            document.querySelectorAll('.glow-card').forEach(card => {
-                card.style.transform = `skewY(${skew}deg)`;
-            });
-        });
-    }
-
-    // Sticky header shrink & CTA Overlap Fix
-    const headerWrap = document.getElementById('headerWrap');
-    window.addEventListener('scroll',()=>{
-        if(headerWrap) headerWrap.style.top = window.scrollY>80 ? '8px' : '15px';
-        
-        const sc = document.getElementById('stickyCta');
-        if(sc){ 
-            const isAtBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 150;
-            if(window.scrollY > 700 && !isAtBottom) { 
-                sc.style.transform='translateX(-50%) translateY(0)'; 
-                sc.style.opacity='1'; 
-                sc.style.pointerEvents='auto'; 
-            } else { 
-                sc.style.transform='translateX(-50%) translateY(100px)'; 
-                sc.style.opacity='0'; 
-                sc.style.pointerEvents='none'; 
-            } 
-        }
-    }, {passive:true});
-
-    // GSAP scroll animations
-    if(typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined'){
-        gsap.registerPlugin(ScrollTrigger);
-        // City card entrance
-        gsap.fromTo('.city-card',{scale:.5,opacity:0},{scale:1,opacity:1,duration:.8,stagger:.2,ease:'back.out(1.5)',scrollTrigger:{trigger:'.radar-section',start:'top 70%'}});
-        // Apple text reveal
-        document.querySelectorAll('.apple-text-reveal').forEach(el=>{
-            gsap.fromTo(el,{backgroundPositionX:'100%',opacity:.3},{backgroundPositionX:'0%',opacity:1,ease:'none',scrollTrigger:{trigger:el,start:'top 85%',end:'bottom 45%',scrub:1}});
-        });
-    }
-
-    // Intersection Observer for .reveal-on-scroll
-    if('IntersectionObserver' in window){
-        const io = new IntersectionObserver((entries)=>{
-            entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('revealed'); io.unobserve(e.target); }});
-        },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
-        document.querySelectorAll('.reveal-on-scroll').forEach(el=>io.observe(el));
-    }
-});
-
-/* ================================================================
-   BEFORE / AFTER SLIDER
-   ================================================================ */
-document.addEventListener('DOMContentLoaded',()=>{
-    const c = document.getElementById('baContainer');
-    const b = document.getElementById('baBefore');
-    const h = document.getElementById('baHandle');
-    if(!c||!b||!h) return;
-    let dragging=false;
-    function upd(x){ const r=c.getBoundingClientRect(); const pct=Math.max(0,Math.min((x-r.left)/r.width,1))*100; h.style.left=pct+'%'; b.style.clipPath=`inset(0 ${100-pct}% 0 0)`; }
-    c.addEventListener('mousedown',e=>{dragging=true;upd(e.clientX);});
-    window.addEventListener('mouseup',()=>dragging=false);
-    window.addEventListener('mousemove',e=>{if(dragging)upd(e.clientX);});
-    c.addEventListener('touchstart',e=>{dragging=true;upd(e.touches[0].clientX);},{passive:true});
-    window.addEventListener('touchend',()=>dragging=false);
-    window.addEventListener('touchmove',e=>{if(dragging){if(e.cancelable)e.preventDefault();upd(e.touches[0].clientX);}},{passive:false});
-});
-
-/* ================================================================
-   LIGHTBOX (Images & Video)
-   ================================================================ */
-function openImageLightbox(src){
-    const lb = document.getElementById('fsLightbox');
-    const img = document.getElementById('fsImg');
-    const vid = document.getElementById('fsVideo');
-    if(!lb||!img) return;
-    vid.style.display='none'; vid.pause(); vid.src='';
-    img.src=src; img.style.display='block';
-    lb.classList.add('active');
-    triggerHaptic(30);
-}
-window.openImageLightbox = openImageLightbox;
-
-document.addEventListener('DOMContentLoaded',()=>{
-    const fsClose = document.getElementById('fsClose');
-    const lb = document.getElementById('fsLightbox');
-    if(fsClose && lb){
-        fsClose.addEventListener('click',()=>{
-            lb.classList.remove('active');
-            const v=document.getElementById('fsVideo'); if(v){v.pause();v.src='';}
-            const i=document.getElementById('fsImg'); if(i) i.src='';
-        });
-        lb.addEventListener('click',e=>{ if(e.target===lb) fsClose.click(); });
-    }
-});
-
-/* ================================================================
-   SERVICE CARD EXPANSION MODAL
-   ================================================================ */
-const serviceData = {
-    fb_ads:{title:'Local Business Ads',icon:'ri-facebook-circle-fill',color:'#0055FF',bgColor:'rgba(0,85,255,.12)',img:'https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=800',desc:'Highly targeted Facebook and Instagram campaigns designed specifically to capture high-value local customers in your city exactly when they are looking to buy your services. We get paying clients, not just clicks.'},
-    auto_web:{title:'Automated Websites',icon:'ri-macbook-fill',color:'#D4AF37',bgColor:'rgba(212,175,55,.12)',img:'https://images.pexels.com/photos/19736858/pexels-photo-19736858.jpeg?auto=compress&cs=tinysrgb&w=800',desc:'Lightning-fast, high-converting landing pages engineered to capture contact info and book appointments instantly. No clutter, just pure conversion architecture that turns visitors into booked clients.'},
-    seo:{title:'Google SEO',icon:'ri-search-eye-line',color:'#8B0000',bgColor:'rgba(139,0,0,.12)',img:'https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=800',desc:'Rank #1 locally so when people search for your exact service, they find you before your competitors. We dominate Google Maps and organic search results for your highest value keywords.'},
-    web_dev:{title:'Web Development',icon:'ri-window-line',color:'#C8A96E',bgColor:'rgba(200,169,110,.12)',img:'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800',desc:'Bespoke, high-performance web applications and e-commerce platforms built for speed, security, and absolute scale. We build digital assets that run your entire business on autopilot.'},
-    social:{title:'Social Media Growth',icon:'ri-megaphone-fill',color:'#8A2BE2',bgColor:'rgba(138,43,226,.12)',img:'https://images.pexels.com/photos/5053846/pexels-photo-5053846.jpeg?auto=compress&cs=tinysrgb&w=800',desc:'Engaging content, viral reels, and strategic brand positioning to make your business the most famous in your local area. We turn your social presence into an omnipresent revenue machine.'},
-    crm:{title:'CRM & Automation',icon:'ri-mail-send-fill',color:'#14B8A6',bgColor:'rgba(20,184,166,.12)',img:'https://images.pexels.com/photos/7688374/pexels-photo-7688374.jpeg?auto=compress&cs=tinysrgb&w=800',desc:'Automated email sequences, SMS follow-ups, and lead tracking so no potential customer ever slips through the cracks. Put your entire follow-up system on autopilot and watch revenue grow.'}
-};
-
-window.expandServiceCard = function(card, key){
-    const d = serviceData[key];
-    if(!d) return;
-    const existing = document.getElementById('serviceModalOverlay');
-    if(existing) existing.remove();
-    triggerIsland('Service Details','ri-information-line','#D4AF37');
-    const html = `
-    <div class="service-modal-overlay" id="serviceModalOverlay" onclick="if(event.target.id==='serviceModalOverlay')closeServiceModal()">
-        <div class="service-modal-content">
-            <button class="sm-close-btn" onclick="closeServiceModal()"><i class="ri-close-line"></i></button>
-            <div style="display:flex;justify-content:center;margin-bottom:24px">
-                <div style="width:72px;height:72px;border-radius:18px;background:${d.bgColor};display:flex;align-items:center;justify-content:center;font-size:2.4rem;color:${d.color};border:1px solid ${d.color}33"><i class="${d.icon}"></i></div>
-            </div>
-            <h2 style="font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;color:#D4AF37;text-align:center;margin-bottom:14px;line-height:1.1">${d.title}</h2>
-            <p style="font-family:'Outfit',sans-serif;font-size:1.05rem;color:var(--rf-muted);text-align:center;line-height:1.65;margin-bottom:28px">${d.desc}</p>
-            <div style="width:100%;height:200px;border-radius:18px;overflow:hidden;margin-bottom:28px;border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 40px rgba(0,0,0,.5)">
-                <img src="${d.img}" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85)" loading="lazy" alt="${d.title}">
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-                <a href="form.html" style="display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#C8A96E,#A67C00);color:#FFF;padding:15px 20px;border-radius:100px;font-family:'Outfit',sans-serif;font-weight:700;font-size:1rem;text-decoration:none;box-shadow:0 12px 25px rgba(200,169,110,.3)"><i class="ri-rocket-fill"></i>Start Now</a>
-                <a href="https://wa.me/917888429760?text=Hi!%20I'm%20interested%20in%20${encodeURIComponent(d.title)}" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(37,211,102,.15);color:#25D366;padding:15px 20px;border-radius:100px;font-family:'Outfit',sans-serif;font-weight:700;font-size:1rem;text-decoration:none;border:1px solid rgba(37,211,102,.3)"><i class="ri-whatsapp-line"></i>WhatsApp</a>
-            </div>
-        </div>
-    </div>`;
-    document.body.insertAdjacentHTML('beforeend', html);
-    if(window._lenis) window._lenis.stop();
-    document.body.style.overflow='hidden';
+    g.style.opacity='0'; g.style.transform='translateY(18px)';
     setTimeout(()=>{
-        const ov = document.getElementById('serviceModalOverlay');
-        const ct = ov && ov.querySelector('.service-modal-content');
-        if(ov) ov.style.opacity='1';
-        if(ct) ct.style.transform='translateY(0) scale(1)';
-    },10);
-};
-
-window.closeServiceModal = function(){
-    const ov = document.getElementById('serviceModalOverlay');
-    const ct = ov && ov.querySelector('.service-modal-content');
-    if(!ov) return;
-    ov.style.opacity='0';
-    if(ct) ct.style.transform='translateY(30px) scale(.95)';
-    setTimeout(()=>{
-        ov.remove();
-        document.body.style.overflow='';
-        if(window._lenis) window._lenis.start();
-    },400);
-};
-
-/* ================================================================
-   CYLINDER SWAP + PLACEHOLDER IMAGES
-   ================================================================ */
-window.siteData = [];
-const cylPlaceholders = {
-    ig:['https://images.pexels.com/photos/3779701/pexels-photo-3779701.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/5608034/pexels-photo-5608034.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=400&q=80'],
-    fb:['https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=400&q=80'],
-    go:['https://images.pexels.com/photos/19736858/pexels-photo-19736858.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/5053846/pexels-photo-5053846.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/7688374/pexels-photo-7688374.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/3183132/pexels-photo-3183132.jpeg?auto=compress&cs=tinysrgb&w=400&q=80'],
-    web:['https://images.pexels.com/photos/19736858/pexels-photo-19736858.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/3182746/pexels-photo-3182746.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=400&q=80','https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=400&q=80']
-};
-window.switchCylinder = function(platform){
-    for(let i=1;i<=6;i++){
-        const img = document.getElementById('cyl-img-'+i);
-        const dbKey = 'cyl_'+platform+'_'+i;
-        const dbItem = window.siteData.find(x=>x.elementId===dbKey);
-        if(img) img.src = (dbItem && dbItem.contentValue) ? dbItem.contentValue : cylPlaceholders[platform][i-1];
-    }
-    document.querySelectorAll('.s2-social-card').forEach(c=>c.style.border='2px solid transparent');
-    const ac = document.getElementById('card-'+platform);
-    if(ac) ac.style.border='2px solid #D4AF37';
-    triggerHaptic(40);
-};
-
-/* ================================================================
-   REELS MODAL
-   ================================================================ */
-document.addEventListener('DOMContentLoaded',()=>{
-    // iPhone click → open reels modal
-    const iphoneLayer = document.getElementById('iphoneClickLayer');
-    if(iphoneLayer){
-        iphoneLayer.addEventListener('click',()=>{
-            const rm = document.getElementById('reelsModal');
-            if(rm){
-                document.body.style.overflow='hidden';
-                rm.style.opacity='1'; rm.style.pointerEvents='auto';
-                const hv = document.getElementById('heroVideoAd'); if(hv) hv.pause();
-                const fv = document.querySelector('#rmModalContainer .rm-video');
-                if(fv){ fv.muted=false; fv.play().catch(()=>{}); }
-                triggerHaptic(60);
-            }
-        });
-    }
-    // Close reels modal
-    const rmClose = document.getElementById('rmClose');
-    if(rmClose){
-        rmClose.addEventListener('click',()=>{
-            const rm = document.getElementById('reelsModal');
-            if(rm){ rm.style.opacity='0'; rm.style.pointerEvents='none'; }
-            document.querySelectorAll('.rm-video').forEach(v=>{ v.pause(); v.muted=true; });
-            document.body.style.overflow='';
-        });
-    }
-});
-
-/* ================================================================
-   AI CHATBOT
-   ================================================================ */
-document.addEventListener('DOMContentLoaded',()=>{
-    const fab = document.getElementById('auraFab');
-    const panel = document.getElementById('auraPanel');
-    const closeBtn = document.getElementById('auraClose');
-    const body = document.getElementById('auraBody');
-    const input = document.getElementById('auraInput');
-    const sendBtn = document.getElementById('auraSend');
-    const notif = document.getElementById('botNotif');
-    if(!fab||!panel) return;
-
-    const kb=[
-        {re:/(hi|hello|hey)$/i,r:"Hey! I'm the Reach Forever AI. We help local businesses scale aggressively. What's your revenue goal?"},
-        {re:/(price|cost|fee|how much)/i,r:"We build high-ROI systems, not cheap templates. Pricing is custom to your needs — book a free call and let's talk numbers."},
-        {re:/(time|how long|launch|start)/i,r:"14 Days. That's our rapid-launch guarantee. We build your funnel and launch your ads in exactly two weeks."},
-        {re:/(proof|reviews|results|scam)/i,r:"Numbers don't lie. We've generated over ₹85 Lakhs for local clients. Check our Reviews page for the video proof."},
-        {re:/(guarantee|risk|refund)/i,r:"We guarantee positive ROI. If you don't make more money than you spend with us, we aren't doing our job."},
-        {re:/.*/,r:"If you're serious about getting more customers, stop guessing. Click 'Book Free Call' and let our team build your blueprint."}
-    ];
-    let processing=false;
-    function addMsg(text,isAi){
-        const m = document.createElement('div');
-        m.className='msg '+(isAi?'ai':'user');
-        m.style.cssText=`font-family:'Outfit',sans-serif;padding:14px 18px;border-radius:18px;font-size:.92rem;line-height:1.5;max-width:85%;font-weight:500;margin-bottom:12px;align-self:${isAi?'flex-start':'flex-end'}`;
-        m.innerHTML=text;
-        if(body){ body.appendChild(m); body.scrollTop=body.scrollHeight; }
-    }
-    function sendMsg(){
-        if(processing||!input.value.trim()) return;
-        const t=input.value.trim(); input.value=''; addMsg(t,false); processing=true;
-        let reply=kb[kb.length-1].r;
-        for(const r of kb){ if(r.re.test(t)){reply=r.r;break;} }
-        setTimeout(()=>{ addMsg(reply,true); processing=false; },850);
-    }
-    fab.addEventListener('click',()=>{
-        panel.style.opacity='1'; panel.style.transform='translateY(0) scale(1)'; panel.style.pointerEvents='auto';
-        if(notif) notif.style.display='none';
-        if(body.children.length===0){
-            setTimeout(()=>{ addMsg("Tired of wasting money on ads that don't convert? I can help.",true); },400);
-        }
-        triggerHaptic(30);
-    });
-    if(closeBtn) closeBtn.addEventListener('click',e=>{e.preventDefault();panel.style.opacity='0';panel.style.transform='translateY(40px) scale(.95)';panel.style.pointerEvents='none';});
-    if(sendBtn) sendBtn.addEventListener('click',sendMsg);
-    if(input) input.addEventListener('keypress',e=>{ if(e.key==='Enter') sendMsg(); });
-    window.sendAuraSuggestion = t=>{ input.value=t; sendMsg(); };
-    setTimeout(()=>{ if(notif) notif.style.display='block'; }, 3000);
-});
-
-/* ================================================================
-   THEME TOGGLE
-   ================================================================ */
-function initThemeToggle(){
-    const td=document.getElementById('themeToggleDesktop'), id=document.getElementById('themeIconDesktop');
-    const tm=document.getElementById('themeToggleMobile'), im=document.getElementById('themeIconMobile');
-    function updateIcons(isLight){
-        if(id) id.className=isLight?'ri-moon-fill':'ri-sun-fill';
-        if(im) im.className=isLight?'ri-moon-fill':'ri-sun-fill';
-    }
-    function toggle(){
-        const html=document.documentElement;
-        const isLight=html.getAttribute('data-theme')==='light';
-        html.setAttribute('data-theme',isLight?'dark':'light');
-        localStorage.setItem('rf-theme',isLight?'dark':'light');
-        updateIcons(!isLight);
-        window.dispatchEvent(new Event('themeChanged'));
-        triggerIsland(isLight?'Dark Mode On 🌙':'Light Mode On ☀️','ri-sun-fill',isLight?'#9047FF':'#D4AF37');
-        triggerHaptic(30);
-    }
-    if(td) td.addEventListener('click',toggle);
-    if(tm) tm.addEventListener('click',toggle);
-    const saved=localStorage.getItem('rf-theme');
-    document.documentElement.setAttribute('data-theme',saved||'dark');
-    updateIcons(saved==='light');
-}
-document.addEventListener('DOMContentLoaded', initThemeToggle);
-
-/* ================================================================
-   PRELOADER
-   ================================================================ */
-document.addEventListener('DOMContentLoaded',()=>{
-    const pl=document.getElementById('preloader');
-    if(pl){
-        setTimeout(()=>{ pl.style.opacity='0'; pl.style.transition='opacity .5s'; setTimeout(()=>pl.style.display='none',500); },900);
-    }
-});
-
-/* ================================================================
-   BACKEND API SYNC (CMS + REELS)
-   ================================================================ */
-document.addEventListener('DOMContentLoaded', async ()=>{
-    const API_BASE = (window.location.hostname==='localhost'||window.location.hostname==='127.0.0.1')
-        ?'http://localhost:5000/api':'https://reach-forever.onrender.com/api';
-    let page = window.location.pathname.split('/').pop().replace('.html','') || 'home';
-    if(page===''||page==='index') page='home';
-    try{
-        const [res1,res2] = await Promise.all([fetch(`${API_BASE}/content/${page}`), fetch(`${API_BASE}/content/global`)]);
-        const [d1,d2] = await Promise.all([res1.json(), res2.json()]);
-        const allContent=[];
-        if(d1.success&&d1.data) allContent.push(...d1.data);
-        if(d2.success&&d2.data) allContent.push(...d2.data);
-        window.siteData = allContent;
-
-        const dynamicReels={};
-        allContent.forEach(item=>{
-            if(!item||!item.elementId) return;
-            if(item.elementId.startsWith('dynreel_')){
-                const parts=item.elementId.split('_');
-                const rid=parts[1], prop=parts[2];
-                if(!dynamicReels[rid]) dynamicReels[rid]={id:rid};
-                dynamicReels[rid][prop]=item.contentValue;
-            } else if(!item.elementId.startsWith('cyl_') && item.elementId!=='home_iphone_reel' && item.elementId!=='hero_iphone_client' && item.elementId!=='hero_iphone_caption'){
-                document.querySelectorAll(`[data-cms="${item.elementId}"]`).forEach(el=>{
-                    if(item.contentType==='text') el.innerHTML=item.contentValue;
-                    else if(item.contentType==='image'){ if(el.tagName==='DIV') el.style.backgroundImage=`url('${item.contentValue}')`; else el.src=item.contentValue; }
-                    else if(item.contentType==='video'){ el.src=item.contentValue; el.load(); }
-                });
-            }
-        });
-
-        // FIXED LOGO SCRIPT (Updates BOTH Header and Footer Logos)
-        const logoData = allContent.find(i => i.elementId === 'header_logo' || i.elementId === 'footer_logo');
-        if (logoData) {
-            document.querySelectorAll('#logoImg, #footerLogoImg').forEach(img => {
-                img.src = logoData.contentValue;
-            });
-        }
-
-        window.switchCylinder('ig');
-
-        const modal=document.getElementById('rmModalContainer');
-        let reels=Object.values(dynamicReels).sort((a,b)=>b.id-a.id);
-        reels.push({vid:'https://videos.pexels.com/video-files/4100018/4100018-uhd_1440_2560_25fps.mp4',name:'Dr. Aris Thorne',cap:'120 new patients this month. Unbelievable.',avatar:'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=100&q=80'});
-        if(modal){ modal.innerHTML=''; modal.setAttribute('data-lenis-prevent','true'); modal.style.overscrollBehaviorY='contain'; }
-        reels.forEach((reel,i)=>{
-            if(!reel.vid) return;
-            if(i===0){
-                const hv=document.getElementById('heroVideoAd');
-                if(hv){ hv.src=reel.vid; hv.load(); hv.play().catch(()=>{}); }
-                const hc=document.querySelector('.iphone-ui .iu-client');
-                const hca=document.querySelector('.iphone-ui .reel-caption');
-                if(hc) hc.innerHTML=reel.name||'Client';
-                if(hca) hca.innerHTML=`"${reel.cap||''}"`;
-            }
-            if(modal){
-                modal.insertAdjacentHTML('beforeend',`
-                <div class="rm-slide" style="width:100%;height:100vh;scroll-snap-align:start;position:relative;background:#111">
-                    <video class="rm-video" loop playsinline style="width:100%;height:100%;object-fit:cover" src="${reel.vid}"></video>
-                    <div style="position:absolute;bottom:100px;right:15px;display:flex;flex-direction:column;gap:20px;z-index:10;color:#fff;font-size:2rem;text-align:center">
-                        <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><i class="ri-heart-fill" style="color:#FF3B30"></i><span style="font-size:.8rem;font-weight:600">${Math.floor(Math.random()*20+5)}k</span></div>
-                        <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><i class="ri-chat-3-fill"></i><span style="font-size:.8rem;font-weight:600">${Math.floor(Math.random()*500+100)}</span></div>
-                        <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><i class="ri-share-forward-fill"></i><span style="font-size:.8rem;font-weight:600">Share</span></div>
-                    </div>
-                    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.95) 0%,rgba(0,0,0,.4) 30%,transparent 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:40px 80px 40px 20px;pointer-events:none">
-                        <div style="display:flex;align-items:center;gap:15px;margin-bottom:12px">
-                            <img src="${reel.avatar||''}" style="width:50px;height:50px;border-radius:50%;border:2px solid #D4AF37;object-fit:cover" alt="${reel.name||'Client'}">
-                            <div><div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:#fff;font-weight:700">${reel.name||'Client'}</div><div style="font-size:.8rem;color:#D4AF37;font-weight:600;text-transform:uppercase;letter-spacing:1px">Partner</div></div>
-                        </div>
-                        <div style="font-family:'Outfit',sans-serif;font-size:1rem;color:rgba(255,255,255,.92);line-height:1.5">${reel.cap||''}</div>
-                    </div>
-                </div>`);
-            }
-        });
-
-        // TikTok-style scroll observer for videos
-        if('IntersectionObserver' in window){
-            const vobs = new IntersectionObserver(entries=>{
-                entries.forEach(e=>{
-                    const rm=document.getElementById('reelsModal');
-                    const isOpen=rm&&rm.style.opacity==='1';
-                    if(e.isIntersecting&&isOpen){ e.target.muted=false; e.target.play().catch(()=>{}); }
-                    else { e.target.pause(); e.target.currentTime=0; }
-                },{threshold:.6});
-            });
-            document.querySelectorAll('#rmModalContainer .rm-video').forEach(v=>vobs.observe(v));
-        }
-
-    } catch(err){ console.error('Zyrova Engine Sync:',err); }
-});
-
-/* ================================================================
-   FPS MONITOR + AUTO-DEGRADATION (Now Less Aggressive)
-   ================================================================ */
-(function(){
-    let frames=0,last=performance.now();
-    function monitor(){
-        const now=performance.now(); frames++;
-        if(now-last>=1000){
-            // Only trigger low FPS mode if it drops below 20 (more forgiving for mobile)
-            if(frames<20) document.body.classList.add('low-fps-mode');
-            else document.body.classList.remove('low-fps-mode');
-            frames=0; last=now;
-        }
-        requestAnimationFrame(monitor);
-    }
-    requestAnimationFrame(monitor);
+      g.innerHTML='';
+      for(let i=1;i<=p.n;i++){
+        const c=document.createElement('div'); c.className='pgc';
+        const img=document.createElement('img');
+        img.src='assets/'+p.pre+'_'+i+'.jpg'; img.alt=p.lbl+' '+i; img.loading='lazy'; img.setAttribute('data-cms', 'cyl_'+p.pre+'_'+i);
+        const ov=document.createElement('div'); ov.className='pgc-ov';
+        ov.innerHTML='<span>'+p.lbl+' Result '+i+'</span>';
+        img.onerror=function(){
+          c.innerHTML='<div style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px"><i class="'+p.ic+'" style="font-size:2.8rem;color:'+p.col+';opacity:.25"></i><span style="font-family:Outfit,sans-serif;font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(247,244,239,.18)">'+p.lbl+' '+i+'</span></div>';
+          c.style.cursor='default';
+        };
+        c.addEventListener('click',()=>{ if(img.complete&&img.naturalWidth>0) openLb(img.src); });
+        c.appendChild(img); c.appendChild(ov); g.appendChild(c);
+      }
+      if(window.gsap) gsap.fromTo(g.children,{opacity:0,y:22,scale:.94},{opacity:1,y:0,scale:1,duration:.5,stagger:.06,ease:'power3.out'});
+      g.style.opacity='1'; g.style.transform='';
+    },280);
+  };
+  window.switchPlatform=window.swPlat;
+  document.addEventListener('DOMContentLoaded',()=>swPlat('ig'));
 })();
 </script>
 
+<script>
+// ═══ CORE ═══
+document.addEventListener('DOMContentLoaded',()=>{
+
+  // Preloader
+  const pl=document.getElementById('pl');
+  if(pl) setTimeout(()=>{pl.classList.add('done');setTimeout(()=>pl.remove(),800);},1200);
+
+  // Progress
+  const prog=document.getElementById('prog');
+  window.addEventListener('scroll',()=>{
+    if(prog){const p=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100;prog.style.width=p+'%';}
+  },{passive:true});
+
+  // Nav scroll
+  const nav=document.getElementById('rfNav');
+  window.addEventListener('scroll',()=>{if(nav)nav.classList.toggle('scrolled',window.scrollY>50)},{passive:true});
+
+  // Sticky CTA
+  const sc=document.getElementById('scta');
+  window.addEventListener('scroll',()=>{if(sc)sc.classList.toggle('on',window.scrollY>600)},{passive:true});
+
+  // Hero rotator
+  let ri=0; const rot=document.getElementById('hRot');
+  if(rot) setInterval(()=>{ri=(ri+1)%5;rot.style.transform='translateY(-'+(ri*1.05)+'em)';},2800);
+
+  // B/A slider
+  const bsl=document.getElementById('baSlider');
+  const bb=document.getElementById('baBefore');
+  const bd=document.getElementById('baDivider');
+  if(bsl&&bb&&bd){
+    let drag=false;
+    const mv=x=>{const r=bsl.getBoundingClientRect();const p=Math.min(Math.max((x-r.left)/r.width,.04),.96);bb.style.clipPath='inset(0 '+((1-p)*100)+'% 0 0)';bd.style.left=(p*100)+'%';};
+    bsl.addEventListener('mousedown',e=>{drag=true;mv(e.clientX);});
+    document.addEventListener('mousemove',e=>{if(drag)mv(e.clientX);});
+    document.addEventListener('mouseup',()=>{drag=false;});
+    bsl.addEventListener('touchstart',e=>{drag=true;mv(e.touches[0].clientX);},{passive:true});
+    document.addEventListener('touchmove',e=>{if(drag)mv(e.touches[0].clientX);},{passive:true});
+    document.addEventListener('touchend',()=>{drag=false;});
+  }
+
+  // Reels modal
+  const rm=document.getElementById('rmModal');
+  const rmc=document.getElementById('rmClose');
+  const rcon=document.getElementById('rmCon');
+
+  window.openReel=function(){
+    if(!rm)return;
+    document.body.style.overflow='hidden';
+    rm.classList.add('open');
+    document.querySelectorAll('#rfNav,.mnav,.header-wrap,.navbar').forEach(el=>{el.style.opacity='0';el.style.pointerEvents='none';});
+    document.getElementById('hVid')&&document.getElementById('hVid').pause();
+    setTimeout(()=>{const fv=rcon&&rcon.querySelector('.rmv');if(fv){fv.muted=false;fv.play().catch(()=>{});}},350);
+  };
+  window.openReelsModal=window.openReel;
+
+  if(rmc&&rm){
+    rmc.addEventListener('click',()=>{
+      rm.querySelectorAll('video').forEach(v=>{v.pause();v.currentTime=0;v.muted=true;});
+      rm.classList.remove('open');
+      document.body.style.overflow='';
+      document.querySelectorAll('#rfNav,.mnav,.header-wrap,.navbar').forEach(el=>{el.style.opacity='';el.style.pointerEvents='';});
+      const hv=document.getElementById('hVid'); if(hv){hv.muted=true;hv.play().catch(()=>{});}
+    });
+  }
+
+  // Populate reels
+  if(rcon){
+    rcon.innerHTML='';
+    for(let i=1;i<=10;i++){
+      rcon.insertAdjacentHTML('beforeend',
+        '<div style="width:100%;height:100vh;scroll-snap-align:start;position:relative;background:#0C0A05">'+
+        '<video class="rmv" loop playsinline style="width:100%;height:100%;object-fit:cover" src="assets/video_'+i+'.mp4"></video>'+
+        '<div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9) 0%,transparent 50%);display:flex;flex-direction:column;justify-content:flex-end;padding:40px 24px;pointer-events:none">'+
+        '<div style="font-family:Cormorant Garamond,serif;font-size:1.5rem;color:#FFF;font-weight:700">Client Story '+i+'</div>'+
+        '<div style="font-family:Outfit,sans-serif;font-size:.87rem;color:rgba(255,255,255,.55);margin-top:6px">Real results from Reach Forever.</div></div></div>'
+      );
+    }
+    if('IntersectionObserver' in window){
+      const vio=new IntersectionObserver(entries=>entries.forEach(e=>{
+        const open=rm&&rm.classList.contains('open');
+        if(e.isIntersecting&&open){e.target.muted=false;e.target.play().catch(()=>{});}
+        else{e.target.pause();e.target.currentTime=0;}
+      }),{threshold:.6});
+      rcon.querySelectorAll('.rmv').forEach(v=>vio.observe(v));
+    }
+  }
+
+  // Lightbox
+  window.openLb=function(src){
+    const lb=document.getElementById('fsLb');
+    const img=document.getElementById('fsImg');
+    if(!lb||!img)return;
+    img.src=src; lb.classList.add('open');
+  };
+  const fsc=document.getElementById('fsClose');
+  const fslb=document.getElementById('fsLb');
+  if(fsc&&fslb){
+    fsc.addEventListener('click',()=>fslb.classList.remove('open'));
+    fslb.addEventListener('click',e=>{if(e.target===fslb)fslb.classList.remove('open');});
+  }
+});
+</script>
+
+<script>
+// ═══ ANIMATIONS ═══
+window.addEventListener('load',function(){
+
+  // GSAP
+  if(window.gsap&&window.ScrollTrigger){
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero
+    const ht=gsap.timeline({delay:1.3});
+    ht.to('#hContent',{opacity:1,y:0,duration:1,ease:'power4.out'})
+      .to('#hVisual',{opacity:1,y:0,duration:1.2,ease:'power4.out'},0.2)
+      .fromTo('.fsc',{opacity:0,scale:.7},{opacity:1,scale:1,duration:.8,stagger:.2,ease:'back.out(1.7)'},1);
+
+    // Stats
+    ScrollTrigger.create({trigger:'#statsBar',start:'top 80%',once:true,onEnter:()=>{
+      document.querySelectorAll('[data-c]').forEach(el=>{
+        const t=parseFloat(el.getAttribute('data-c'));
+        const s=el.getAttribute('data-s')||'';
+        const f=!!el.getAttribute('data-f');
+        gsap.fromTo({v:0},{v:t},{duration:2.2,ease:'power2.out',
+          onUpdate:function(){el.textContent=(f?this.targets()[0].v.toFixed(1):Math.round(this.targets()[0].v))+s;},
+          onComplete:()=>{el.textContent=(f?t.toFixed(1):t)+s;}
+        });
+      });
+      gsap.fromTo('.si',{opacity:0,y:40},{opacity:1,y:0,duration:.7,stagger:.12,ease:'power3.out'});
+    }});
+
+    // Platform
+    ScrollTrigger.create({trigger:'#platformSec',start:'top 80%',once:true,onEnter:()=>{
+      gsap.fromTo('.plat-h2',{opacity:0,y:50},{opacity:1,y:0,duration:.9,ease:'power4.out'});
+      gsap.fromTo('.plat-sub',{opacity:0,y:20},{opacity:1,y:0,duration:.7,ease:'power3.out',delay:.2});
+      gsap.fromTo('.ptab',{opacity:0,y:20,scale:.9},{opacity:1,y:0,scale:1,duration:.5,stagger:.07,ease:'back.out(1.4)',delay:.35});
+    }});
+
+    // Services
+    ScrollTrigger.create({trigger:'#svcGrid',start:'top 78%',once:true,onEnter:()=>{
+      gsap.fromTo('.svc-card',{opacity:0,y:80,scale:.9},{opacity:1,y:0,scale:1,duration:.8,stagger:.1,ease:'power4.out'});
+    }});
+
+    // Process
+    ScrollTrigger.create({trigger:'#procSec',start:'top 80%',once:true,onEnter:()=>{
+      gsap.fromTo('.proc-h2',{opacity:0,y:50},{opacity:1,y:0,duration:.9,ease:'power4.out'});
+      gsap.fromTo('.proc-step',{opacity:0,y:60},{opacity:1,y:0,duration:.7,stagger:.18,ease:'power3.out',delay:.3});
+    }});
+
+    // B/A
+    ScrollTrigger.create({trigger:'#baSec',start:'top 80%',once:true,onEnter:()=>{
+      gsap.fromTo('#baSlider',{opacity:0,scale:.92,y:50},{opacity:1,scale:1,y:0,duration:1.1,ease:'power4.out'});
+      gsap.fromTo('.ba-s',{opacity:0,y:30},{opacity:1,y:0,duration:.6,stagger:.1,ease:'power3.out',delay:.6});
+      const bb=document.getElementById('baBefore'),bd=document.getElementById('baDivider');
+      if(bb&&bd){gsap.fromTo({v:.9},{v:.5},{duration:2.2,ease:'power2.inOut',delay:.9,
+        onUpdate:function(){const p=this.targets()[0].v;bb.style.clipPath='inset(0 '+((1-p)*100)+'% 0 0)';bd.style.left=(p*100)+'%';}
+      });}
+    }});
+
+    // Testi
+    ScrollTrigger.create({trigger:'#testiSec',start:'top 85%',once:true,onEnter:()=>{
+      gsap.fromTo('.testi-h2',{opacity:0,y:40},{opacity:1,y:0,duration:.9,ease:'power4.out'});
+    }});
+
+    // Rush
+    ScrollTrigger.create({trigger:'#rushSec',start:'top 80%',once:true,onEnter:()=>{
+      gsap.fromTo('.rush-h2,.rush-sub,.rush-btns',{opacity:0,y:50},{opacity:1,y:0,duration:.8,stagger:.14,ease:'power4.out'});
+    }});
+  }
+
+  // 3D tilt service cards
+  document.querySelectorAll('.svc-card[data-tilt]').forEach(c=>{
+    c.addEventListener('mousemove',e=>{
+      const r=c.getBoundingClientRect();
+      const cx=(e.clientX-r.left)/r.width-.5;
+      const cy=(e.clientY-r.top)/r.height-.5;
+      c.style.transform='perspective(900px) rotateX('+(cy*-18)+'deg) rotateY('+(cx*18)+'deg) translateY(-14px) scale(1.02)';
+      c.style.boxShadow='0 40px 80px rgba(0,0,0,.38)';
+      const gl=c.querySelector('.svc-glare');
+      if(gl){const gx=(e.clientX-r.left)/r.width*100;const gy=(e.clientY-r.top)/r.height*100;gl.style.opacity='1';gl.style.background='radial-gradient(circle at '+gx+'% '+gy+'%,rgba(255,255,255,.07) 0%,transparent 60%)';}
+    });
+    c.addEventListener('mouseleave',()=>{
+      c.style.transform='';c.style.boxShadow='';
+      const gl=c.querySelector('.svc-glare');if(gl)gl.style.opacity='0';
+    });
+  });
+
+  // Phone parallax on desktop
+  const ph=document.getElementById('heroPhone');
+  if(ph&&window.innerWidth>1000){
+    document.addEventListener('mousemove',e=>{
+      const cx=(e.clientX/window.innerWidth-.5)*2;
+      const cy=(e.clientY/window.innerHeight-.5)*2;
+      ph.style.transform='perspective(1000px) rotateY('+(-12+cx*9)+'deg) rotateX('+(2+cy*-5)+'deg)';
+    });
+  }
+
+  // Custom cursor
+  const dot=document.getElementById('cdot');
+  const ring=document.getElementById('cring');
+  if(dot&&ring&&window.innerWidth>768){
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+    (function lr(){
+      rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
+      dot.style.transform='translate('+mx+'px,'+my+'px) translate(-50%,-50%)';
+      ring.style.transform='translate('+rx+'px,'+ry+'px) translate(-50%,-50%)';
+      requestAnimationFrame(lr);
+    })();
+    document.querySelectorAll('a,button,.svc-card,.pgc,#heroPhone,.ptab,.btn-g,.btn-o,.ncta').forEach(el=>{
+      el.addEventListener('mouseenter',()=>{ring.style.width='54px';ring.style.height='54px';ring.style.borderColor='rgba(200,169,110,.8)';});
+      el.addEventListener('mouseleave',()=>{ring.style.width='38px';ring.style.height='38px';ring.style.borderColor='rgba(200,169,110,.5)';});
+    });
+  }
+});
+</script>
+<script src="js/cms.js" defer></script>
 </body>
 </html>

@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-    <script>
-        (function() {
-            let savedTheme = 'dark';
-            try { savedTheme = localStorage.getItem('rf-theme') || 'dark'; } catch(e) {}
-            document.documentElement.setAttribute('data-theme', savedTheme);
-        })();
-    </script>
+    
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
@@ -646,7 +640,19 @@
     <link rel="stylesheet" href="css/overhaul-vars.css">
     <link rel="stylesheet" href="css/dark-overhaul.css">
 </head>
-<body>
+<body>\n<nav id="rfNav">
+  <a href="#" class="nl" id="nl">
+    <img src="assets/logo.png" alt="Reach Forever" id="nlImg" style="height:36px;filter:none!important"
+      onerror="this.style.display='none';document.getElementById('nlFb').style.display='block'">
+    <span class="nl-fb" id="nlFb">Reach Forever</span>
+  </a>
+  <div class="nlinks">
+    <a href="#hero" class="nlink">Home</a>
+    <a href="#svcSec" class="nlink">Services</a>
+    <a href="reviews.html" class="nlink">Reviews</a>
+  </div>
+  <a href="form.html" class="ncta">Initiate Project</a>
+</nav>\n
 
     <!-- PRELOADER -->
     <div id="preloader">
@@ -676,26 +682,7 @@
 
     <!-- NAVBAR -->
     <div class="header-wrap" id="headerWrap">
-        <nav class="navbar" id="navbar">
-            <a href="index.html" class="nav-brand magnetic-wrap" style="display:flex;align-items:center;height:100%;text-decoration:none;">
-                <span class="magnetic-inner">
-                    <img src="https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png" alt="Reach Forever Logo" data-cms="header_logo" style="max-height:44px;width:auto;object-fit:contain;">
-                </span>
-            </a>
-            <ul class="nav-links">
-                <li class="magnetic-wrap"><a href="index.html" class="nav-pill magnetic-inner" data-cms="nav_link_1">Home</a></li>
-                <li class="magnetic-wrap"><a href="services.html" class="nav-pill active magnetic-inner" data-cms="nav_link_2">Services</a></li>
-                <li class="magnetic-wrap"><a href="reviews.html" class="nav-pill magnetic-inner" data-cms="nav_link_3">Reviews</a></li>
-            </ul>
-            <div style="display:flex;align-items:center;gap:8px;">
-                <div class="theme-toggle-btn" id="themeToggleDesktop" title="Toggle Theme">
-                    <i class="ri-sun-fill" id="themeIconDesktop" style="font-size:1.2rem;color:#C8A96E;"></i>
-                </div>
-                <div class="magnetic-wrap nav-btn-wrap">
-                    <a href="form.html" class="btn-olive magnetic-inner" data-cms="nav_btn">Initiate Project</a>
-                </div>
-            </div>
-        </nav>
+        
     </div>
 
     <!-- MOBILE NAV -->
@@ -1160,842 +1147,138 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="premium-footer">
-        <div class="pf-container">
-            <div class="pf-col pf-brand">
-                <img src="https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png" alt="Reach Forever" data-cms="header_logo">
-                <p>We engineer predictable revenue systems that flood your business with high-ticket local customers.</p>
-            </div>
-            <div class="pf-col">
-                <h4>Sitemap</h4>
-                <ul class="pf-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="reviews.html">Reviews</a></li>
-                    <li><a href="form.html">Initiate Project</a></li>
-                </ul>
-            </div>
-            <div class="pf-col">
-                <h4>Legal &amp; Contact</h4>
-                <ul class="pf-links">
-                    <li><a href="https://wa.me/917888429760" target="_blank" id="wa_footer_link">WhatsApp Support</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="pf-bottom">
-            <div class="pf-signature">made by <span><a href="https://zyrovadigital.online" target="_blank" rel="noopener noreferrer" class="pf-zyrova-link">zyrova digital</a></span></div>
-        </div>
-    </footer>
+    
 
-    <!-- HIDDEN CMS WIRING PRESERVATION -->
+
+    <!-- HIDDEN CMS WIRING PRESERVATION — dashboard controls these -->
     <div style="display:none;visibility:hidden;position:absolute;overflow:hidden;width:0;height:0;" aria-hidden="true">
         <h3 data-cms="dev_tab3_title">Facebook Ads Ecosystem</h3>
         <p data-cms="dev_tab3_desc">Aggressive local targeting to capture high-value buyers precisely when they are most likely to convert.</p>
         <a id="insta_footer_link" href="#" data-cms="ft_insta_link"></a>
     </div>
 
-    <!-- HERO VIDEO MUTE LOCK -->
-    <script>
-        (function() {
-            function lockHeroMute() {
-                const heroVid = document.getElementById('heroVideoAd');
-                if (heroVid && !heroVid.hasAttribute('data-mute-locked')) {
-                    heroVid.muted = true; heroVid.setAttribute('muted', ''); heroVid.setAttribute('data-mute-locked', 'true');
-                    Object.defineProperty(heroVid, 'muted', { get: function() { return true; }, set: function() {} });
-                }
-            }
-            lockHeroMute();
-            window.addEventListener('DOMContentLoaded', lockHeroMute);
-            window.addEventListener('pageshow', lockHeroMute);
-        })();
-    </script>
-
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <!-- VanillaTilt -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-    <!-- Lenis Smooth Scroll -->
-    <script src="https://cdn.jsdelivr.net/npm/lenis@1.0.45/dist/lenis.min.js"></script>
-
-    <!-- ═══════════════════════════════════════════════════════════════════
-         MASTER JAVASCRIPT ENGINE — SINGLE UNIFIED — ALL BUGS FIXED
-         ═══════════════════════════════════════════════════════════════════ -->
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const IS_TOUCH = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-        const IS_MOBILE = window.innerWidth <= 768;
-
-        /* ══════════════════════════════════════
-           1. LENIS SMOOTH SCROLL ENGINE
-           NOTE: Disabled on mobile — native scroll handles the carousel
-        ══════════════════════════════════════ */
-        let lenis = null;
-        if (typeof Lenis !== 'undefined' && !IS_MOBILE) {
-            lenis = new Lenis({
-                duration: 1.3,
-                easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-                smooth: true,
-                smoothTouch: false,
-            });
-            if (typeof gsap !== 'undefined') {
-                gsap.ticker.add((time) => { lenis.raf(time * 1000); });
-                gsap.ticker.lagSmoothing(0);
-            } else {
-                const lenisRaf = (time) => { lenis.raf(time); requestAnimationFrame(lenisRaf); };
-                requestAnimationFrame(lenisRaf);
-            }
-        }
-
-        /* ══════════════════════════════════════
-           2. PERFORMANCE DIRECTOR (Anti-Lag / Eco Mode)
-           Replaces the old simple FPS check.
-           Monitors delta time between frames;
-           3 consecutive slow frames → eco-mode.
-        ══════════════════════════════════════ */
-        let lastFrameTime = performance.now();
-        let slowFrameCount = 0;
-        let ecoModeActive = false;
-        const ECO_DELTA_THRESHOLD = 50;   // ms → below 20fps
-        const ECO_FRAME_TRIGGER   = 3;    // consecutive slow frames before eco kicks in
-        const ECO_RECOVERY_FRAMES = 10;   // consecutive fast frames before eco lifts
-
-        let fastFrameCount = 0;
-
-        const perfDirector = (now) => {
-            const delta = now - lastFrameTime;
-            lastFrameTime = now;
-
-            if (delta > ECO_DELTA_THRESHOLD) {
-                slowFrameCount++;
-                fastFrameCount = 0;
-                if (slowFrameCount >= ECO_FRAME_TRIGGER && !ecoModeActive) {
-                    ecoModeActive = true;
-                    document.body.classList.add('eco-mode');
-                    console.warn('[Reach Forever] Eco Mode ON — GPU saving active');
-                }
-            } else {
-                fastFrameCount++;
-                if (fastFrameCount >= ECO_RECOVERY_FRAMES && ecoModeActive) {
-                    ecoModeActive = false;
-                    slowFrameCount = 0;
-                    document.body.classList.remove('eco-mode');
-                }
-            }
-            requestAnimationFrame(perfDirector);
-        };
-        requestAnimationFrame(perfDirector);
-
-        /* ══════════════════════════════════════
-           3. VELOCITY SKEWING PHYSICS
-        ══════════════════════════════════════ */
-        if (lenis && typeof gsap !== 'undefined' && !IS_MOBILE) {
-            let lastScrollY = window.scrollY;
-            let currentSkew = 0;
-            const SKEW_MAX = 3.5, SKEW_STRENGTH = 0.055, SKEW_EASE = 0.1;
-
-            lenis.on('scroll', ({ scroll }) => {
-                const rawVelocity = scroll - lastScrollY;
-                lastScrollY = scroll;
-                const targetSkew = Math.max(-SKEW_MAX, Math.min(SKEW_MAX, rawVelocity * SKEW_STRENGTH));
-                currentSkew += (targetSkew - currentSkew) * SKEW_EASE;
-                document.querySelectorAll('.glow-card, .process-3d-card').forEach(card => {
-                    gsap.to(card, { skewY: currentSkew, duration: 0.5, ease: 'power2.out', overwrite: 'auto' });
-                });
-            });
-            setInterval(() => {
-                document.querySelectorAll('.glow-card, .process-3d-card').forEach(card => {
-                    gsap.to(card, { skewY: 0, duration: 1.2, ease: 'elastic.out(1, 0.4)', overwrite: 'auto' });
-                });
-            }, 300);
-        }
-
-        /* ══════════════════════════════════════
-           4. CURSOR — FULL LERP (desktop only)
-        ══════════════════════════════════════ */
-        if (!IS_TOUCH) {
-            const dot  = document.getElementById('cursorDot');
-            const ring = document.getElementById('cursorRing');
-            let mx = innerWidth / 2, my = innerHeight / 2;
-            let rx = mx, ry = my;
-            const LERP = 0.10;
-
-            window.addEventListener('mousemove', e => {
-                mx = e.clientX; my = e.clientY;
-                if (dot) { dot.style.left = mx + 'px'; dot.style.top = my + 'px'; }
-            });
-            document.addEventListener('mousedown', () => {
-                if (dot)  dot.classList.add('clicking');
-                if (ring) ring.classList.add('clicking');
-            });
-            document.addEventListener('mouseup', () => {
-                if (dot)  dot.classList.remove('clicking');
-                if (ring) ring.classList.remove('clicking');
-            });
-            const renderRing = () => {
-                rx += (mx - rx) * LERP;
-                ry += (my - ry) * LERP;
-                if (ring) { ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
-                requestAnimationFrame(renderRing);
-            };
-            requestAnimationFrame(renderRing);
-
-            document.querySelectorAll('a, button, input, .magnetic-wrap, .sc-tab, .faq-question, .perf-card').forEach(el => {
-                el.addEventListener('mouseenter', () => { ring?.classList.add('hovering'); dot?.classList.add('hovering'); });
-                el.addEventListener('mouseleave', () => { ring?.classList.remove('hovering'); dot?.classList.remove('hovering'); });
-            });
-        }
-
-        /* ══════════════════════════════════════
-           5. MAGNETIC BUTTON PHYSICS
-        ══════════════════════════════════════ */
-        if (!IS_TOUCH && typeof gsap !== 'undefined') {
-            document.querySelectorAll('.magnetic-wrap').forEach(wrap => {
-                const inner = wrap.querySelector('.magnetic-inner');
-                if (!inner) return;
-                const STRENGTH = 0.45;
-                wrap.addEventListener('mousemove', e => {
-                    const r = wrap.getBoundingClientRect();
-                    const dx = e.clientX - (r.left + r.width / 2);
-                    const dy = e.clientY - (r.top  + r.height / 2);
-                    const dist = Math.sqrt(dx*dx + dy*dy);
-                    const maxDist = Math.max(r.width, r.height) * 1.5;
-                    if (dist < maxDist) {
-                        const pull = (1 - dist / maxDist) * STRENGTH;
-                        gsap.to(inner, { x: dx * pull * 2.2, y: dy * pull * 2.2, duration: 0.35, ease: 'power3.out', overwrite: 'auto' });
-                    }
-                });
-                wrap.addEventListener('mouseleave', () => {
-                    gsap.to(inner, { x: 0, y: 0, duration: 1.0, ease: 'elastic.out(1, 0.35)', overwrite: 'auto' });
-                });
-            });
-        }
-
-        /* ══════════════════════════════════════
-           6. DYNAMIC ISLAND
-           BUG FIX: NO auto-fire on load.
-           Only triggered by explicit user clicks.
-        ══════════════════════════════════════ */
-        const island = document.getElementById('dynamicIsland');
-        const islandText = document.getElementById('islandText');
-        let islandTimer = null;
-
-      window.islandNotify = function(msg, iconClass = 'ri-flashlight-fill', color = '#D4AF37', duration = 2500) {
-            if (!island || !islandText) return;
-            islandText.textContent = msg;
-            if (islandIcon) { islandIcon.className = iconClass; islandIcon.style.color = color; }
-            // Always clear previous timer before setting new one
-            if (islandTimer) clearTimeout(islandTimer);
-            islandTimer = setTimeout(() => {island.classList.remove('island-active');
-                islandTimer = null
-                ;
-            }, duration);
-        };
-
-        // Only fires on explicit user interaction
-        document.addEventListener('click', e => {
-            if (e.target.closest('.sc-tab'))
-                return; // handled in switchTab
-            if (e.target.closest('.faq-item'))
-                islandNotify('FAQ Expanded');
-            if (e.target.closest('#themeToggleDesktop') || e.target.closest('#themeToggleMobile')) {
-                const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-                islandNotify(isLight ? 'Dark Mode On 🌙' : 'Light Mode On ☀️');
-            }
-        });
-
-        /* ══════════════════════════════════════
-           7. DYNAMIC AMBIENT AURA
-        ══════════════════════════════════════ */
-        const g1 = document.getElementById('aura1');
-        const g2 = document.getElementById('aura2');
-        let curR = 85, curG = 107, curB = 47;
-        let tgtR = 85, tgtG = 107, tgtB = 47;
-        const lerpAura = () => {
-            curR += (tgtR - curR) * 0.015;
-            curG += (tgtG - curG) * 0.015;
-            curB += (tgtB - curB) * 0.015;
-            const r = Math.round(curR), g = Math.round(curG), b = Math.round(curB);
-            if (g1) g1.style.background = `rgba(${r},${g},${b},.1)`;
-            if (g2) g2.style.background = `rgba(${Math.round(255-r*.3)},${Math.round(b*.8)},${Math.round(g*.5)},.08)`;
-            requestAnimationFrame(lerpAura);
-        };
-        requestAnimationFrame(lerpAura);
-
-        window.setTargetAuraColor = function(c) { tgtR = c.r; tgtG = c.g; tgtB = c.b; };
-
-        const auraMap = [
-            { id: 'marketing',   r: 180, g: 50,  b: 90  },
-            { id: 'dev-section', r: 212, g: 175, b: 55  },
-            { id: 'founder',     r: 139, g: 90,  b: 43  },
-            { id: 'performance', r: 20,  g: 160, b: 140 },
-            { id: 'process',     r: 85,  g: 107, b: 47  },
-        ];
-        const auraObs = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    const match = auraMap.find(a => a.id === e.target.id);
-                    if (match) setTargetAuraColor(match);
-                }
-            });
-        }, { threshold: 0.35 });
-        auraMap.forEach(a => { const el = document.getElementById(a.id); if (el) auraObs.observe(el); });
-
-        /* ══════════════════════════════════════
-           8. SCROLL PROGRESS BAR
-        ══════════════════════════════════════ */
-        const prog = document.getElementById('scrollProgress');
-        window.addEventListener('scroll', () => {
-            if (!prog) return;
-            const pct = document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
-            prog.style.width = pct + '%';
-        }, { passive: true });
-
-        /* ══════════════════════════════════════
-           9. PARALLAX BG TEXT
-        ══════════════════════════════════════ */
-        const heroParallaxBg = document.getElementById('heroParallaxBg');
-        if (heroParallaxBg) {
-            window.addEventListener('scroll', () => {
-                heroParallaxBg.style.transform = `translate(-50%, calc(-50% + ${window.scrollY * 0.25}px))`;
-            }, { passive: true });
-        }
-
-        /* ══════════════════════════════════════
-           10. STICKY CTA — IntersectionObserver
-        ══════════════════════════════════════ */
-        const stickyCta = document.getElementById('stickyCta');
-        const footer = document.querySelector('.premium-footer');
-        if (stickyCta && footer) {
-            const footerObs = new IntersectionObserver(entries => {
-                entries.forEach(e => {
-                    stickyCta.classList.toggle('footer-visible', e.isIntersecting);
-                });
-            }, { threshold: 0.05 });
-            footerObs.observe(footer);
-        }
-
-        /* ══════════════════════════════════════
-           11. SCROLL BLUR DEPTH
-        ══════════════════════════════════════ */
-        const blurObs = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                const r = e.intersectionRatio;
-                e.target.style.filter  = r < 0.12 ? 'blur(3px)' : 'blur(0px)';
-                e.target.style.opacity = r < 0.12 ? '0.7'  : '1';
-            });
-        }, { threshold: [0, 0.12, 0.4, 0.8, 1] });
-        document.querySelectorAll('.blur-depth').forEach(el => blurObs.observe(el));
-
-        /* ══════════════════════════════════════
-           12. CYBER-DECODE TEXT MATRIX
-        ══════════════════════════════════════ */
-        const MATRIX_CHARS = '!@#$%^&*_+{}|<>?~ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789★◆●▲■◇✦≈∞';
-
-        function cyberDecode(el) {
-            if (el.dataset.decoded === '1') return;
-            el.dataset.decoded = '1';
-            const finalHTML = el.innerHTML;
-            const finalText = el.textContent;
-            const totalIter = Math.ceil(finalText.length * 2.8);
-            let iter = 0;
-            const tick = setInterval(() => {
-                let out = '';
-                for (let i = 0; i < finalText.length; i++) {
-                    if (finalText[i] === ' ' || finalText[i] === '\n') { out += finalText[i]; continue; }
-                    if (i < Math.floor(iter / 2.8)) {
-                        out += finalText[i];
-                    } else {
-                        const randChar = MATRIX_CHARS[Math.floor(Math.random() * MATRIX_CHARS.length)];
-                        out += `<span style="color:var(--accent-gold);opacity:.65;font-style:normal;">${randChar}</span>`;
-                    }
-                }
-                el.innerHTML = out;
-                iter++;
-                if (iter > totalIter) {
-                    clearInterval(tick);
-                    el.innerHTML = finalHTML;
-                }
-            }, 26);
-        }
-
-        const decodeObs = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (e.isIntersecting) { cyberDecode(e.target); decodeObs.unobserve(e.target); }
-            });
-        }, { threshold: 0.35 });
-        document.querySelectorAll('.decode-h2').forEach(el => decodeObs.observe(el));
-
-        /* ══════════════════════════════════════
-           13. GSAP: REVEALS + HORIZONTAL SCROLL
-        ══════════════════════════════════════ */
-        if (typeof gsap !== 'undefined') {
-            gsap.registerPlugin(ScrollTrigger);
-
-            if (lenis) {
-                lenis.on('scroll', ScrollTrigger.update);
-            }
-
-            // Reveal animations
-            document.querySelectorAll('.reveal-up').forEach((el, i) => {
-                gsap.fromTo(el,
-                    { opacity: 0, y: 40 },
-                    { opacity: 1, y: 0, duration: 0.9, delay: (i % 4) * 0.07,
-                      scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
-            });
-
-            // Horizontal scroll — DESKTOP ONLY
-            // On mobile, native touch scroll handles the carousel (no GSAP interference)
-            const hsTrack  = document.getElementById('hsTrack');
-            const hsPanels = gsap.utils.toArray('.hs-panel');
-            const hsDots   = document.querySelectorAll('.hs-dot');
-            const hsOuter  = document.getElementById('marketing');
-
-            if (!IS_MOBILE && hsTrack && hsPanels.length > 0 && hsOuter) {
-                // Ensure track has correct desktop width before calculating
-                hsTrack.style.width = hsPanels.length * 100 + 'vw';
-
-                gsap.to(hsTrack, {
-                    x: () => -(hsTrack.scrollWidth - window.innerWidth),
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: hsOuter,
-                        start: 'top top',
-                        end: () => '+=' + (hsTrack.scrollWidth - window.innerWidth),
-                        pin: true,
-                        scrub: 1.4,
-                        snap: {
-                            snapTo: 1 / (hsPanels.length - 1),
-                            duration: { min: 0.3, max: 0.6 },
-                            ease: 'power2.inOut',
-                            delay: 0.05
-                        },
-                        onUpdate: self => {
-                            const idx = Math.round(self.progress * (hsPanels.length - 1));
-                            hsDots.forEach((d, i) => d.classList.toggle('active', i === idx));
-                            const panelColors = [
-                                { r: 180, g: 50,  b: 90 },
-                                { r: 30,  g: 100, b: 220 },
-                                { r: 20,  g: 160, b: 140 }
-                            ];
-                            if (panelColors[idx]) setTargetAuraColor(panelColors[idx]);
-                        },
-                        // Refresh on resize so end() stays accurate
-                        onRefresh: self => self.vars.end = () => '+=' + (hsTrack.scrollWidth - window.innerWidth)
-                    }
-                });
-            }
-
-            // Mobile dot sync via native scroll
-            if (IS_MOBILE && hsTrack) {
-                hsTrack.addEventListener('scroll', () => {
-                    const idx = Math.round(hsTrack.scrollLeft / window.innerWidth);
-                    hsDots.forEach((d, i) => d.classList.toggle('active', i === idx));
-                }, { passive: true });
-            }
-
-            // ── SCROLL-SCRUBBED WATERMARK ──
-            const watermark = document.getElementById('perfWatermark');
-            if (watermark) {
-                gsap.to(watermark, {
-                    backgroundSize: '100% 100%',
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: '.perf-section',
-                        start: 'top 80%',
-                        end: 'bottom 20%',
-                        scrub: true
-                    }
-                });
-            }
-
-            // ── MAGNETIC PULL-QUOTE ──
-            const pullQuote = document.getElementById('pullQuote');
-            if (pullQuote) {
-                // Wrap each word in a span
-                const rawText = pullQuote.textContent;
-                pullQuote.innerHTML = rawText.split(' ').map(
-                    w => `<span class="pq-word">${w}&nbsp;</span>`
-                ).join('');
-
-                gsap.fromTo(pullQuote.querySelectorAll('.pq-word'),
-                    { opacity: 0, filter: 'blur(10px)', y: 18 },
-                    {
-                        opacity: 1, filter: 'blur(0px)', y: 0,
-                        stagger: 0.07, duration: 0.8, ease: 'power3.out',
-                        scrollTrigger: { trigger: pullQuote, start: 'top 85%', once: true }
-                    }
-                );
-            }
-
-            // ScrollTrigger resize refresh
-            window.addEventListener('resize', () => ScrollTrigger.refresh(), { passive: true });
-        }
-
-        /* ══════════════════════════════════════
-           14. DEV SECTION TAB SWITCH
-           BUG FIX: Added mobile else block with
-           appropriate transforms for small screens.
-        ══════════════════════════════════════ */
-        const tabs  = document.querySelectorAll('.sc-tab');
-        const mac   = document.getElementById('macbook3d');
-        const phone = document.getElementById('iphone3d');
-        const seoMacOverlay   = document.getElementById('seoMacOverlay');
-        const seoPhoneOverlay = document.getElementById('seoPhoneOverlay');
-        const vidWeb = document.getElementById('vid-web');
-        const vidApp = document.getElementById('vid-app');
-
-        // Initial desktop 3D positioning
-        if (typeof gsap !== 'undefined' && mac && phone && !IS_MOBILE) {
-            gsap.set(mac,   { rotateY: -15, rotateX: 5, z: 80,  filter: 'blur(0px) brightness(1)',   zIndex: 5 });
-            gsap.set(phone, { x: 30, rotateY: -28, z: 60, scale: 1, filter: 'blur(0px) brightness(.9)', zIndex: 6 });
-        }
-
-        function switchTab(target) {
-            tabs.forEach(t => t.classList.remove('active'));
-            const activeTab = document.querySelector(`.sc-tab[data-target="${target}"]`);
-            if (activeTab) activeTab.classList.add('active');
-
-            // Notify island only on user-triggered click (passed via click handler)
-            const tabLabel = activeTab?.querySelector('h3')?.textContent?.slice(0, 30) || 'Service';
-            islandNotify(tabLabel);
-
-            if (typeof gsap === 'undefined' || !mac || !phone) return;
-
-            if (target === 'web') {
-                if (!IS_MOBILE) {
-                    // Desktop 3D positions
-                    gsap.to(mac,   { rotateY: -15, rotateX: 5, z: 80, x: 0, scale: 1, filter: 'blur(0px) brightness(1)',   zIndex: 5, duration: 1.3, ease: 'expo.out' });
-                    gsap.to(phone, { x: 30, rotateY: -28, z: 60, scale: 1,   filter: 'blur(0px) brightness(.9)', zIndex: 6, duration: 1.3, ease: 'expo.out' });
-                } else {
-                    // Mobile: flat, no perspective transforms
-                    gsap.to(mac,   { x: 0, rotateY: 0, rotateX: 0, scale: 1, zIndex: 5, duration: 0.8, ease: 'expo.out' });
-                    gsap.to(phone, { x: 0, rotateY: 0, scale: 1, zIndex: 6,              duration: 0.8, ease: 'expo.out' });
-                }
-                if (seoMacOverlay)   seoMacOverlay.classList.remove('visible');
-                if (seoPhoneOverlay) seoPhoneOverlay.classList.remove('visible');
-                if (vidWeb) { vidWeb.classList.add('active');    vidWeb.play().catch(() => {}); }
-                if (vidApp) { vidApp.classList.add('active');    vidApp.play().catch(() => {}); }
-                setTargetAuraColor({ r: 212, g: 175, b: 55 });
-
-            } else if (target === 'seo') {
-                if (!IS_MOBILE) {
-                    // Desktop 3D positions — SEO view
-                    gsap.to(mac,   { rotateY: 8, rotateX: 3, z: 100, x: -50, scale: 0.92, filter: 'blur(0px) brightness(.95)', zIndex: 5, duration: 1.3, ease: 'expo.out' });
-                    gsap.to(phone, { x: 60, rotateY: -10, z: 120,    scale: 1.1,          filter: 'blur(0px) brightness(1)',   zIndex: 7, duration: 1.3, ease: 'expo.out' });
-                } else {
-                    // Mobile: emphasise phone (scale up slightly)
-                    gsap.to(mac,   { x: 0, rotateY: 0, rotateX: 0, scale: 0.95, zIndex: 5, duration: 0.8, ease: 'expo.out' });
-                    gsap.to(phone, { x: 0, rotateY: 0, scale: 1.05,             zIndex: 7, duration: 0.8, ease: 'expo.out' });
-                }
-                if (vidWeb) vidWeb.classList.remove('active');
-                if (vidApp) vidApp.classList.remove('active');
-                if (seoMacOverlay)   seoMacOverlay.classList.add('visible');
-                if (seoPhoneOverlay) seoPhoneOverlay.classList.add('visible');
-                // Animate SEO bars
-                setTimeout(() => {
-                    document.querySelectorAll('.seo-rank-bar').forEach((bar, i) => {
-                        const w = bar.style.width; bar.style.width = '0';
-                        setTimeout(() => {
-                            bar.style.transition = `width ${0.8 + i * 0.1}s cubic-bezier(.16,1,.3,1)`;
-                            bar.style.width = w;
-                        }, 50);
-                    });
-                }, 200);
-                setTargetAuraColor({ r: 20, g: 160, b: 140 });
-            }
-        }
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => switchTab(tab.getAttribute('data-target') || 'web'));
-        });
-
-        /* ══════════════════════════════════════
-           15. VANILLA TILT — 3D CARD PHYSICS
-           BUG FIX: .sc-tab excluded from tilt to
-           prevent conflict with CSS translateX(18px)
-           on the active state.
-        ══════════════════════════════════════ */
-        if (!IS_TOUCH && typeof VanillaTilt !== 'undefined') {
-            // NOTE: Explicitly selects tilt-card but NOT .sc-tab
-            VanillaTilt.init(document.querySelectorAll('.tilt-card:not(.sc-tab)'), {
-                max: 8, speed: 500, glare: true, 'max-glare': 0.15, perspective: 1200
-            });
-            VanillaTilt.init(document.querySelectorAll('.perf-card'), {
-                max: 6, speed: 600, glare: true, 'max-glare': 0.12, perspective: 1400
-            });
-        }
-
-        /* ══════════════════════════════════════
-           16. PROXIMITY SPOTLIGHT BORDERS
-           CSS custom properties --mouse-x/y drive
-           the radial gradient ::after on .perf-card.
-        ══════════════════════════════════════ */
-        document.querySelectorAll('.perf-card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-                card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-            });
-        });
-
-        /* ══════════════════════════════════════
-           17. FAQ ACCORDION
-        ══════════════════════════════════════ */
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.querySelector('.faq-question')?.addEventListener('click', () => {
-                const isOpen = item.classList.contains('active');
-                document.querySelectorAll('.faq-item').forEach(f => {
-                    f.classList.remove('active');
-                    const a = f.querySelector('.faq-answer');
-                    if (a) a.style.maxHeight = null;
-                });
-                if (!isOpen) {
-                    item.classList.add('active');
-                    const ans = item.querySelector('.faq-answer');
-                    if (ans) ans.style.maxHeight = ans.scrollHeight + 'px';
-                }
-            });
-        });
-
-        /* ══════════════════════════════════════
-           18. CHATBOT
-        ══════════════════════════════════════ */
-        const fab      = document.getElementById('auraFab');
-        const panel    = document.getElementById('auraPanel');
-        const closeBtn = document.getElementById('auraClose');
-        const body     = document.getElementById('auraBody');
-        const input    = document.getElementById('auraInput');
-        const send     = document.getElementById('auraSend');
-
-        if (fab) {
-            const badge = document.createElement('div');
-            badge.id = 'botBadge';
-            badge.style.cssText = 'position:absolute;top:4px;right:4px;width:12px;height:12px;background:#EF4444;border-radius:50%;border:2px solid #FFF;';
-            fab.appendChild(badge);
-        }
-
-        const openPanel = () => {
-            if (!panel) return;
-            panel.style.opacity = '1'; panel.style.transform = 'translateY(0) scale(1)'; panel.style.pointerEvents = 'auto';
-            const b = document.getElementById('botBadge'); if (b) b.style.display = 'none';
-            islandNotify('Chat opened ✦');
-        };
-        const closePanel = () => {
-            if (!panel) return;
-            panel.style.opacity = '0'; panel.style.transform = 'translateY(40px) scale(.95)'; panel.style.pointerEvents = 'none';
-        };
-        if (fab) fab.addEventListener('click', openPanel);
-        if (closeBtn) closeBtn.addEventListener('click', closePanel);
-
-        const KB = [
-            { re: /^(hi|hello|hey)[!?]*$/i, r: "Hey! I'm the Reach Forever AI. We scale local businesses aggressively. What's your monthly revenue goal?" },
-            { re: /(price|pricing|cost|how much)/i, r: "We build high-ROI revenue machines, not cheap templates. Pricing is custom to your needs — book a Strategy Call and let's talk numbers." },
-            { re: /(how long|time|launch|14 days)/i, r: "14 Days — that's our rapid-launch guarantee. Funnel built, ads live, leads flowing within two weeks." },
-            { re: /(proof|results|case|review)/i, r: "Numbers don't lie. We've generated ₹85L+ for local clients. Check our Reviews page for video proof." },
-            { re: /(akash|web|website|app|code)/i, r: "Akash Jadon is our Lead Engineer — custom React/Node builds only, no templates. Your site will be the fastest in your city." },
-            { re: /(ansh|marketing|ads|seo|instagram|facebook)/i, r: "Ansh Khatri architects our viral campaigns. He's flooded hundreds of businesses with paying customers using his Client Acquisition System." },
-            { re: /(guarantee|risk|refund)/i, r: "We guarantee positive ROI. If you don't make more than you spend with us, we aren't doing our job." },
-            { re: /.*/, r: "Stop guessing. Click 'Initiate Project' above, and our team will build your custom revenue blueprint within 24 hours." }
-        ];
-
-        let isBotBusy = false;
-        function addMsg(txt, isAi = false) {
-            const m = document.createElement('div');
-            m.className = 'msg ' + (isAi ? 'ai' : 'user');
-            m.style.cssText = `font-family:'Outfit',sans-serif;padding:13px 18px;border-radius:18px;font-size:.9rem;line-height:1.5;max-width:85%;font-weight:500;margin-bottom:12px;align-self:${isAi?'flex-start':'flex-end'};background:${isAi?'var(--rf-surface)':'linear-gradient(135deg,#556B2F,#435525)'};color:${isAi?'var(--rf-text)':'#FFF'};border:${isAi?'1px solid rgba(212,175,55,.12)':'none'};border-bottom-${isAi?'left':'right'}-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.08);`;
-            m.innerHTML = txt;
-            if (body) { body.appendChild(m); body.scrollTop = body.scrollHeight; }
-        }
-
-        function handleSend() {
-            if (isBotBusy || !input || !input.value.trim()) return;
-            const msg = input.value.trim(); input.value = ''; isBotBusy = true;
-            addMsg(msg, false);
-            let reply = KB[KB.length - 1].r;
-            for (const k of KB) { if (k.re.test(msg)) { reply = k.r; break; } }
-            const tid = 't' + Date.now();
-            if (body) {
-                body.insertAdjacentHTML('beforeend', `<div id="${tid}" style="display:flex;gap:5px;padding:12px 16px;background:var(--rf-surface);border:1px solid rgba(212,175,55,.1);border-radius:16px;border-bottom-left-radius:3px;width:fit-content;align-self:flex-start;margin-bottom:12px;"><div style="width:5px;height:5px;background:#556B2F;border-radius:50%;animation:islandPulse 1s infinite;"></div><div style="width:5px;height:5px;background:#556B2F;border-radius:50%;animation:islandPulse 1s .2s infinite;"></div><div style="width:5px;height:5px;background:#556B2F;border-radius:50%;animation:islandPulse 1s .4s infinite;"></div></div>`);
-                body.scrollTop = body.scrollHeight;
-            }
-            setTimeout(() => {
-                document.getElementById(tid)?.remove();
-                addMsg(reply, true); isBotBusy = false;
-            }, 850);
-        }
-
-        window.sendAuraSuggestion = t => { if (input) input.value = t; handleSend(); };
-        if (send)  send.addEventListener('click', handleSend);
-        if (input) input.addEventListener('keypress', e => { if (e.key === 'Enter') handleSend(); });
-
-        // Initial bot greeting (after 1.5s — only fires once when body is empty)
-        setTimeout(() => {
-            if (body && body.children.length === 0) {
-                addMsg("Tired of wasting money on ads that don't work? I'm here to help.", true);
-                body.insertAdjacentHTML('beforeend', `<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;"><button onclick="sendAuraSuggestion('What is the price?')" style="padding:8px 14px;background:var(--rf-bg);border:1px solid rgba(212,175,55,.3);border-radius:100px;font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:600;color:#556B2F;cursor:pointer;">Pricing?</button><button onclick="sendAuraSuggestion('Show me results.')" style="padding:8px 14px;background:var(--rf-bg);border:1px solid rgba(212,175,55,.3);border-radius:100px;font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:600;color:#556B2F;cursor:pointer;">Results?</button><button onclick="sendAuraSuggestion('How long to launch?')" style="padding:8px 14px;background:var(--rf-bg);border:1px solid rgba(212,175,55,.3);border-radius:100px;font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:600;color:#556B2F;cursor:pointer;">How fast?</button></div>`);
-            }
-        }, 1500);
-
-        /* ══════════════════════════════════════
-           19. PRELOADER EXIT
-        ══════════════════════════════════════ */
-        const pl    = document.getElementById('preloader');
-        const plBar = document.getElementById('pl-bar');
-        if (plBar) setTimeout(() => { plBar.style.width = '100%'; }, 100);
-        if (pl)    setTimeout(() => { pl.style.opacity = '0'; setTimeout(() => pl.style.display = 'none', 600); }, 900);
-
-    }); // END DOMContentLoaded
-
-
-    /* ═══════════════════════════════════════════════════════════════════
-       PARTICLE ENGINE
-       BUG FIX: Hardcoded gold rgba — NEVER changes with theme.
-       No theme checking, no grey glitch.
-       ═══════════════════════════════════════════════════════════════════ */
-    document.addEventListener('DOMContentLoaded', () => {
-        const canvas = document.getElementById('particle-canvas');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-
-        const resize = () => { canvas.width = innerWidth; canvas.height = innerHeight; };
-        resize();
-        window.addEventListener('resize', resize, { passive: true });
-
-        const pts = Array.from({ length: 55 }, () => ({
-            x:     Math.random() * innerWidth,
-            y:     Math.random() * innerHeight,
-            r:     Math.random() * 1.8 + 0.4,
-            dx:    (Math.random() - 0.5) * 0.38,
-            dy:    (Math.random() - 0.5) * 0.38,
-            alpha: Math.random() * 0.4 + 0.15
-        }));
-
-        const draw = () => {
-            ctx.clearRect(0, 0, innerWidth, innerHeight);
-
-            pts.forEach(p => {
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                // HARDCODED GOLD — does not check theme, will never turn grey
-                ctx.fillStyle = `rgba(212,175,55,${p.alpha})`;
-                ctx.fill();
-                p.x += p.dx; p.y += p.dy;
-                if (p.x < 0 || p.x > innerWidth)  p.dx *= -1;
-                if (p.y < 0 || p.y > innerHeight)  p.dy *= -1;
-            });
-
-            for (let i = 0; i < pts.length; i++) {
-                for (let j = i + 1; j < pts.length; j++) {
-                    const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
-                    const dist = Math.sqrt(dx*dx + dy*dy);
-                    if (dist < 120) {
-                        ctx.beginPath();
-                        ctx.moveTo(pts[i].x, pts[i].y);
-                        ctx.lineTo(pts[j].x, pts[j].y);
-                        // Gold connection lines — hardcoded, no theme check
-                        ctx.strokeStyle = `rgba(212,175,55,${0.06 * (1 - dist / 120)})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.stroke();
-                    }
-                }
-            }
-            requestAnimationFrame(draw);
-        };
-        draw();
-    });
-
-
-    /* ═══════════════════════════════════════════════════════════════════
-       THEME TOGGLE ENGINE
-       ═══════════════════════════════════════════════════════════════════ */
-    function initThemeToggle() {
-        function updateIcons(isLight) {
-            const d = document.getElementById('themeIconDesktop');
-            const m = document.getElementById('themeIconMobile');
-            const cls = isLight ? 'ri-moon-fill' : 'ri-sun-fill';
-            if (d) d.className = cls;
-            if (m) m.className = cls;
-        }
-        function toggleTheme() {
-            const html = document.documentElement;
-            const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-            html.setAttribute('data-theme', next);
-            try { localStorage.setItem('rf-theme', next); } catch(e) {}
-            updateIcons(next === 'light');
-        }
-        let saved = 'dark';
-        try { saved = localStorage.getItem('rf-theme') || 'dark'; } catch(e) {}
-        document.documentElement.setAttribute('data-theme', saved);
-        updateIcons(saved === 'light');
-        // Use cloneNode to remove any duplicate event listeners before adding
-        const td = document.getElementById('themeToggleDesktop');
-        const tm = document.getElementById('themeToggleMobile');
-        if (td) { const n = td.cloneNode(true); td.parentNode.replaceChild(n, td); n.addEventListener('click', toggleTheme); }
-        if (tm) { const n = tm.cloneNode(true); tm.parentNode.replaceChild(n, tm); n.addEventListener('click', toggleTheme); }
+<footer id="rfFoot">
+  <div class="foot-in">
+    <div>
+      <div class="foot-logo">
+        <img src="assets/logo.png" alt="Reach Forever" style="filter:none!important"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="foot-logo-fb">Reach Forever</div>
+      </div>
+      <p class="foot-desc">Punjab's #1 Digital Marketing Agency — engineering growth through data-driven strategies and creative execution.</p>
+    </div>
+    <div>
+      <div class="foot-col-t">Services</div>
+      <a href="#svcSec" class="foot-lk">Local Business Ads</a>
+      <a href="#svcSec" class="foot-lk">Automated Websites</a>
+      <a href="#svcSec" class="foot-lk">Google SEO</a>
+      <a href="#svcSec" class="foot-lk">Social Media Growth</a>
+      <a href="#svcSec" class="foot-lk">Video Production</a>
+    </div>
+    <div>
+      <div class="foot-col-t">Company</div>
+      <a href="reviews.html" class="foot-lk">Reviews</a>
+      <a href="form.html" class="foot-lk">Start a Project</a>
+      <a href="#procSec" class="foot-lk">Our Process</a>
+      <a href="#baSec" class="foot-lk">Case Studies</a>
+    </div>
+    <div>
+      <div class="foot-col-t">Contact</div>
+      <a href="https://wa.me/918146652870" class="foot-lk"><i class="ri-whatsapp-line"></i> WhatsApp Us</a>
+      <a href="https://instagram.com/reachforever" class="foot-lk"><i class="ri-instagram-line"></i> Instagram</a>
+      <a href="https://facebook.com/reachforever" class="foot-lk"><i class="ri-facebook-circle-line"></i> Facebook</a>
+      <a href="mailto:hello@reachforever.in" class="foot-lk"><i class="ri-mail-line"></i> Email Us</a>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>© 2025 Reach Forever. All rights reserved.</span>
+    <span>Made by <a href="https://zyrovadigital.online" target="_blank">zyrova digital</a></span>
+  </div>
+</footer>
+<nav class="mnav">
+  <a href="index.html" class="mni on"><i class="ri-home-4-fill"></i>Home</a>
+  <a href="services.html" class="mni"><i class="ri-stack-fill"></i>Services</a>
+  <a href="reviews.html" class="mni"><i class="ri-star-fill"></i>Reviews</a>
+  <a href="form.html" class="mni" style="color:#C8A96E"><i class="ri-rocket-fill"></i>Start</a>
+</nav>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  'use strict';
+  // Preloader
+  window.addEventListener('load',function(){
+    const pl=document.getElementById('preloader');
+    if(pl){setTimeout(function(){pl.style.opacity='0';pl.style.visibility='hidden';setTimeout(function(){if(pl.parentNode)pl.parentNode.removeChild(pl);},700);},1000);}
+  });
+  // Scroll Progress
+  const prog=document.getElementById('scrollProgress');
+  if(prog){window.addEventListener('scroll',function(){prog.style.width=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%';},{passive:true});}
+  // Custom Cursor
+  if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+    const dot=document.querySelector('.cursor-dot');
+    const ring=document.querySelector('.cursor-ring');
+    if(dot&&ring){
+      let mx=0,my=0,rx=0,ry=0;
+      document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';},{passive:true});
+      (function lr(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(lr);})();
+      document.querySelectorAll('a,button,.sc-tab,.faq-question,.btn-olive,.magnetic-wrap').forEach(function(el){
+        el.addEventListener('mouseenter',function(){ring.classList.add('hovering');dot.classList.add('hovering');});
+        el.addEventListener('mouseleave',function(){ring.classList.remove('hovering');dot.classList.remove('hovering');});
+      });
     }
-    document.readyState === 'loading'
-        ? document.addEventListener('DOMContentLoaded', initThemeToggle)
-        : initThemeToggle();
-
-
-    /* ═══════════════════════════════════════════════════════════════════
-       CMS ENGINE DB CALL
-       ═══════════════════════════════════════════════════════════════════ */
-    document.addEventListener('DOMContentLoaded', async () => {
-        const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-            ? 'http://localhost:5000/api'
-            : 'https://reach-forever.onrender.com/api';
-
-        let pageName = window.location.pathname.split('/').pop().replace('.html', '');
-        if (!pageName || pageName === '' || pageName === 'index') pageName = 'services';
-
-        try {
-            const [pageRes, globalRes] = await Promise.all([
-                fetch(`${API_BASE_URL}/content/${pageName}`),
-                fetch(`${API_BASE_URL}/content/global`)
-            ]);
-            const [data, globalData] = await Promise.all([pageRes.json(), globalRes.json()]);
-
-            let allContent = [];
-            if (data.success       && data.data)       allContent = [...allContent, ...data.data];
-            if (globalData.success && globalData.data) allContent = [...allContent, ...globalData.data];
-
-            allContent.forEach(dbItem => {
-                document.querySelectorAll(`[data-cms="${dbItem.elementId}"]`).forEach(element => {
-                    if (dbItem.contentType === 'text') {
-                        element.innerHTML = dbItem.contentValue;
-                        if (dbItem.elementId === 'wa_float_link') {
-                            const waBtn    = document.getElementById('waFloatBtn');
-                            const waFooter = document.getElementById('wa_footer_link');
-                            if (waBtn)    waBtn.href    = dbItem.contentValue;
-                            if (waFooter) waFooter.href = dbItem.contentValue;
-                        }
-                        if (dbItem.elementId === 'ft_insta_link') {
-                            const instaBtn = document.getElementById('insta_footer_link');
-                            if (instaBtn) instaBtn.href = dbItem.contentValue;
-                        }
-                    } else if (dbItem.contentType === 'image') {
-                        if (element.tagName === 'DIV' || element.tagName === 'SECTION') {
-                            element.style.backgroundImage = `url('${dbItem.contentValue}')`;
-                        } else { element.src = dbItem.contentValue; }
-                    } else if (dbItem.contentType === 'video') {
-                        const sourceTag = element.querySelector('source');
-                        if (sourceTag) sourceTag.remove();
-                        element.src = dbItem.contentValue;
-                        element.load();
-                    }
-                });
-            });
-        } catch (error) {
-            // Silent fail — CMS content unavailable, static content remains
-            console.warn('[Reach Forever CMS] Sync skipped:', error.message);
-        }
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    // GSAP reveal animations
+    if(window.gsap&&window.ScrollTrigger){
+      gsap.registerPlugin(ScrollTrigger);
+      document.querySelectorAll('.reveal-up').forEach(function(el){
+        ScrollTrigger.create({trigger:el,start:'top 88%',once:true,onEnter:function(){gsap.to(el,{opacity:1,y:0,duration:.8,ease:'power3.out'});}});
+      });
+      gsap.utils.toArray('.perf-card').forEach(function(c,i){
+        c.style.opacity='0'; c.style.transform='translateY(30px)';
+        ScrollTrigger.create({trigger:c,start:'top 88%',once:true,onEnter:function(){gsap.to(c,{opacity:1,y:0,duration:.7,delay:i*.08,ease:'power3.out'});}});
+        c.addEventListener('mousemove',function(e){const r=c.getBoundingClientRect();c.style.setProperty('--mouse-x',(e.clientX-r.left)+'px');c.style.setProperty('--mouse-y',(e.clientY-r.top)+'px');});
+      });
+    }
+    // Dev Tabs
+    const tabs=document.querySelectorAll('.sc-tab');
+    const vids=document.querySelectorAll('.device-media');
+    const seoOv=document.querySelector('.seo-overlay');
+    function switchTab(idx){
+      tabs.forEach(function(t,i){t.classList.toggle('active',i===idx);});
+      vids.forEach(function(v){v.classList.remove('active');if(v.tagName==='VIDEO')v.pause();});
+      if(vids[idx]){vids[idx].classList.add('active');if(vids[idx].tagName==='VIDEO')vids[idx].play().catch(function(){});}
+      if(seoOv)seoOv.classList.toggle('visible',idx===2);
+    }
+    tabs.forEach(function(t,i){t.addEventListener('click',function(){switchTab(i);});});
+    if(tabs.length)switchTab(0);
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(function(q){
+      q.addEventListener('click',function(){
+        const item=q.closest('.faq-item');
+        const isOpen=item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(function(o){o.classList.remove('open');});
+        if(!isOpen)item.classList.add('open');
+      });
     });
-    </script>
-
+    // Chatbot
+    const fab=document.getElementById('auraFab'),panel=document.getElementById('auraPanel'),closeBtn=document.getElementById('auraClose'),body=document.getElementById('auraBody'),inp=document.getElementById('auraInput'),send=document.getElementById('auraSend');
+    const replies=['Thanks! Our team will contact you within 24 hours.','We\'d love to help! Share more about your business.','Book a free strategy call at the top of this page.','Most clients see results within 14-30 days.'];
+    function addMsg(t,type){const d=document.createElement('div');d.style.cssText='margin-bottom:12px;padding:14px 18px;border-radius:18px;font-size:.9rem;line-height:1.5;max-width:85%;'+(type==='bot'?'background:rgba(85,107,47,.12);border:1px solid rgba(85,107,47,.3);':'background:var(--accent-olive);color:#FFF;margin-left:auto;');d.textContent=t;if(body){body.appendChild(d);body.scrollTop=body.scrollHeight;}}
+    function openBot(){if(panel){panel.style.opacity='1';panel.style.transform='translateY(0) scale(1)';panel.style.pointerEvents='auto';if(body&&!body.children.length)addMsg('Hello! How can Reach Forever help your business grow today?','bot');}}
+    function closeBot(){if(panel){panel.style.opacity='0';panel.style.transform='translateY(40px) scale(.95)';panel.style.pointerEvents='none';}}
+    if(fab)fab.addEventListener('click',function(){panel&&panel.style.opacity==='1'?closeBot():openBot();});
+    if(closeBtn)closeBtn.addEventListener('click',closeBot);
+    function sendMsg(){if(!inp||!inp.value.trim())return;addMsg(inp.value.trim(),'user');inp.value='';setTimeout(function(){addMsg(replies[Math.floor(Math.random()*replies.length)],'bot');},800);}
+    if(send)send.addEventListener('click',sendMsg);
+    if(inp)inp.addEventListener('keydown',function(e){if(e.key==='Enter')sendMsg();});
+    // Sticky Nav
+    const nav=document.querySelector('.navbar');
+    if(nav){window.addEventListener('scroll',function(){nav.style.boxShadow=window.scrollY>60?'0 0 40px rgba(200,169,110,.25)':'0 0 25px rgba(200,169,110,.15)';},{passive:true});}
+  });
+})();
+</script>
+<script src="js/cms.js" defer></script>
 </body>
 </html>

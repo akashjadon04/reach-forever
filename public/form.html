@@ -3,13 +3,7 @@
 <head>
 
     <!-- CRITICAL THEME SYNC SCRIPT (Must run before CSS loads) -->
-    <script>
-        (function() {
-            let savedTheme = 'dark';
-            try { savedTheme = localStorage.getItem('rf-theme') || 'dark'; } catch(e) {}
-            document.documentElement.setAttribute('data-theme', savedTheme);
-        })();
-    </script>
+    
 
     <title>Book Your Free Strategy Call | Reach Forever</title>
     <meta name="description" content="Schedule your exclusive strategy session with Reach Forever. Let us build your predictable revenue system today.">
@@ -235,7 +229,19 @@
     </style>
 
 </head>
-<body class="hover-target">
+<body class="hover-target">\n<nav id="rfNav">
+  <a href="#" class="nl" id="nl">
+    <img src="assets/logo.png" alt="Reach Forever" id="nlImg" style="height:36px;filter:none!important"
+      onerror="this.style.display='none';document.getElementById('nlFb').style.display='block'">
+    <span class="nl-fb" id="nlFb">Reach Forever</span>
+  </a>
+  <div class="nlinks">
+    <a href="#hero" class="nlink">Home</a>
+    <a href="#svcSec" class="nlink">Services</a>
+    <a href="reviews.html" class="nlink">Reviews</a>
+  </div>
+  <a href="form.html" class="ncta">Initiate Project</a>
+</nav>\n
 
     <div id="scrollProgress"></div>
     <div class="cursor-dot" id="cursorDot"></div>
@@ -251,25 +257,7 @@
     </div>
 
     <div class="header-wrap" id="headerWrap" style="position: fixed; top: 15px; left: 0; width: 100%; z-index: 1000; display: flex; justify-content: center; transition: top 0.4s ease; pointer-events: none;">
-            <nav class="navbar" id="navbar" style="pointer-events: auto; width: 92%; max-width: 1250px; height: 70px; background: rgba(15, 8, 25, 0.6); backdrop-filter: blur(20px); border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 0 20px rgba(200, 169, 110, 0.3); display: flex; justify-content: space-between; align-items: center; padding: 0 10px 0 25px;">
-                <a href="index.html" class="nav-brand magnetic-wrap" style="display: flex; align-items: center; height: 100%; text-decoration: none;">
-                    <span class="magnetic-inner" style="display: inline-block;">
-                        <img src="https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png" alt="Reach Forever Logo" data-cms="header_logo"  style=" max-height: 45px; width: auto; object-fit: contain;">
-                        
-                    </span>
-                </a>
-                <ul class="nav-links">
-                    <li class="magnetic-wrap"><a href="index.html" class="nav-pill active magnetic-inner" data-cms="nav_link_1">Home</a></li>
-                    <li class="magnetic-wrap"><a href="services.html" class="nav-pill magnetic-inner" data-cms="nav_link_2">Services</a></li>
-                    <li class="magnetic-wrap"><a href="reviews.html" class="nav-pill magnetic-inner" data-cms="nav_link_3">Reviews</a></li>
-                </ul>
-                <div class="magnetic-wrap nav-btn-wrap" style="display: flex; align-items: center;">
-                    <a href="form.html" class="btn-olive magnetic-inner" data-cms="nav_btn" style="background: linear-gradient(135deg, #C8A96E, #A67C00); color: #FFF; padding: 12px 28px; border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; box-shadow: 0 10px 25px rgba(200, 169, 110, 0.35);">Initiate Project</a>
-                </div>
-                <div class="theme-toggle-btn" id="themeToggleDesktop" title="Toggle Theme" style="width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1px solid rgba(200,169,110,0.3); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; flex-shrink: 0; margin-right: 10px;">
-                    <i class="ri-sun-fill" id="themeIconDesktop" style="font-size: 1.2rem; color: #C8A96E;"></i>
-                </div>
-            </nav>
+            
         </div>
 
     <div class="mobile-nav">
@@ -385,321 +373,70 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            // 1. CUSTOM CURSOR
-            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.matchMedia("(pointer: coarse)").matches);
-            if (!isTouchDevice) {
-                const cursorDot = document.getElementById('cursorDot');
-                const cursorRing = document.getElementById('cursorRing');
-                let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
-                let ringX = mouseX, ringY = mouseY;
-
-                window.addEventListener('mousemove', (e) => {
-                    mouseX = e.clientX; mouseY = e.clientY;
-                    if(cursorDot) { cursorDot.style.left = `${mouseX}px`; cursorDot.style.top = `${mouseY}px`; }
-                });
-
-                const renderCursor = () => {
-                    ringX += (mouseX - ringX) * 0.15;
-                    ringY += (mouseY - ringY) * 0.15;
-                    if(cursorRing) { cursorRing.style.left = `${ringX}px`; cursorRing.style.top = `${ringY}px`; }
-                    requestAnimationFrame(renderCursor);
-                };
-                requestAnimationFrame(renderCursor);
-
-                const hoverTargets = document.querySelectorAll('a, button, input, select, textarea, .magnetic-wrap');
-                hoverTargets.forEach(target => {
-                    target.addEventListener('mouseenter', () => {
-                        if(cursorRing) cursorRing.classList.add('hovering');
-                        if(cursorDot) cursorDot.classList.add('hovering');
-                    });
-                    target.addEventListener('mouseleave', () => {
-                        if(cursorRing) cursorRing.classList.remove('hovering');
-                        if(cursorDot) cursorDot.classList.remove('hovering');
-                    });
-                });
-
-                document.querySelectorAll('.magnetic-wrap').forEach(wrap => {
-                    const inner = wrap.querySelector('.magnetic-inner');
-                    if(!inner) return;
-                    wrap.addEventListener('mousemove', (e) => {
-                        const rect = wrap.getBoundingClientRect();
-                        const x = (e.clientX - rect.left) - rect.width / 2;
-                        const y = (e.clientY - rect.top) - rect.height / 2;
-                        inner.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-                    });
-                    wrap.addEventListener('mouseleave', () => { inner.style.transform = `translate(0px, 0px)`; });
-                });
-            }
-
-            // 2. SCROLL PROGRESS
-            window.addEventListener('scroll', () => {
-                const scrollPx = document.documentElement.scrollTop;
-                const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = `${scrollPx / winHeightPx * 100}%`;
-                const progress = document.getElementById('scrollProgress');
-                if(progress) progress.style.width = scrolled;
-            });
-
-            // 3. SILENT CHATBOT ENGINE
-            const auraFab = document.getElementById('auraFab');
-            const auraPanel = document.getElementById('auraPanel');
-            const auraClose = document.getElementById('auraClose');
-            const auraBody = document.getElementById('auraBody');
-            const auraInput = document.getElementById('auraInput');
-            const auraSend = document.getElementById('auraSend');
-
-            if(auraFab && auraPanel) { auraFab.addEventListener('click', () => { auraPanel.style.opacity = '1'; auraPanel.style.transform = 'translateY(0) scale(1)'; auraPanel.style.pointerEvents = 'auto'; }); }
-            if(auraClose && auraPanel) { auraClose.addEventListener('click', (e) => { e.preventDefault(); auraPanel.style.opacity = '0'; auraPanel.style.transform = 'translateY(40px) scale(0.95)'; auraPanel.style.pointerEvents = 'none'; }); }
-
-            const botKnowledge = [
-                { "regex": "^(hi|hello|hey|greetings)[!?]*$", "response": "Hello! I see you are on our application page. Do you have any questions before filling out the form?" },
-                { "regex": "(price|pricing|cost|fee|how much)", "response": "Our pricing is customized to exactly what your business needs. Please fill out the form so we can give you an accurate, no-obligation quote on the call!" },
-                { "regex": "(time|how long|start)", "response": "Once we agree to partner, we have a Rapid 14-Day Launch guarantee. We move fast." },
-                { "regex": ".*", "response": "I recommend filling out the application form on this screen! Our expert team will review it and get back to you with a custom strategy." }
-            ];
-
-            let isBotProcessing = false;
-            function addBotMessage(text, isAi = false) {
-                const msg = document.createElement('div');
-                msg.className = `msg ${isAi ? 'ai' : 'user'}`;
-                msg.innerHTML = text;
-                if(auraBody) { auraBody.appendChild(msg); auraBody.scrollTop = auraBody.scrollHeight; }
-            }
-
-            function handleBotSend() {
-                if (isBotProcessing || !auraInput || !auraInput.value.trim()) return;
-                const text = auraInput.value.trim();
-                addBotMessage(text, false);
-                auraInput.value = '';
-                isBotProcessing = true;
-
-                let botReply = botKnowledge[botKnowledge.length - 1].response;
-                for(let rule of botKnowledge) {
-                    try { if (new RegExp(rule.regex, 'i').test(text)) { botReply = rule.response; break; } } catch(e) {}
-                }
-
-                const typingId = 'typing-' + Date.now();
-                if(auraBody) {
-                    auraBody.insertAdjacentHTML('beforeend', `<div id="${typingId}" style="display: flex; gap: 6px; padding: 15px 20px; background: #1A1C20; border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; border-bottom-left-radius: 4px; width: fit-content; align-self: flex-start; margin-bottom: 15px;"><div style="width: 6px; height: 6px; background: var(--accent-gold); border-radius: 50%;"></div><div style="width: 6px; height: 6px; background: var(--accent-gold); border-radius: 50%;"></div><div style="width: 6px; height: 6px; background: var(--accent-gold); border-radius: 50%;"></div></div>`);
-                    auraBody.scrollTop = auraBody.scrollHeight;
-                }
-
-                setTimeout(() => {
-                    const tNode = document.getElementById(typingId);
-                    if(tNode) tNode.remove();
-                    addBotMessage(botReply, true);
-                    isBotProcessing = false;
-                }, 1000);
-            }
-
-            if(auraSend) auraSend.addEventListener('click', handleBotSend);
-            if(auraInput) auraInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') handleBotSend(); });
-
-            // Silent Load
-            setTimeout(() => {
-                if(auraBody) {
-                    addBotMessage("Hi! Ready to book your strategy call? Let me know if you need help filling out the form.", true);
-                }
-            }, 3000);
-
-            // Preloader Exit
-            const preloader = document.getElementById('preloader');
-            if (preloader) {
-                setTimeout(() => {
-                    preloader.style.opacity = '0';
-                    setTimeout(() => { preloader.style.display = 'none'; }, 500);
-                }, 800);
-            }
-        });
-    </script>
-
-    <script>
-        // CMS ENGINE DB CALL
-        document.addEventListener("DOMContentLoaded", async () => {
-            const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-                ? 'http://localhost:5000/api' 
-                : 'https://reach-forever.onrender.com/api';
-
-            try {
-                const response = await fetch(`${API_BASE_URL}/content/form`);
-                const data = await response.json();
-                
-                const globalResponse = await fetch(`${API_BASE_URL}/content/global`);
-                const globalData = await globalResponse.json();
-
-                let allContent = [];
-                if (data.success && data.data) allContent = [...allContent, ...data.data];
-                if (globalData.success && globalData.data) allContent = [...allContent, ...globalData.data];
-
-                allContent.forEach(dbItem => {
-                    // DYNAMIC FORM SUBMISSION ROUTING
-                    if (dbItem.elementId === 'frm_submit_email') {
-                        const contactForm = document.getElementById('mainContactForm');
-                        if (contactForm && dbItem.contentValue) {
-                            // Automatically update where the emails are sent
-                            contactForm.action = `https://formsubmit.co/${dbItem.contentValue}`;
-                        }
-                        return; // Skip regular element finding
-                    }
-
-                    const elements = document.querySelectorAll(`[data-cms="${dbItem.elementId}"]`);
-                    elements.forEach(element => {
-                        if (dbItem.contentType === 'text') {
-                            element.innerHTML = dbItem.contentValue;
-                        } else if (dbItem.contentType === 'image') {
-                            element.src = dbItem.contentValue;
-                        }
-                    });
-                });
-            } catch (error) {
-                console.error("Zyrova Engine Sync Failed:", error);
-            }
-        });
-    </script>
-
-        <footer class="premium-footer">
-        <div class="pf-container">
-            <div class="pf-col pf-brand">
-                <img src="https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png" alt="Reach Forever" data-cms="header_logo">
-                <p>We engineer predictable revenue systems that flood your business with high-ticket local customers.</p>
-            </div>
-            <div class="pf-col">
-                <h4>Sitemap</h4>
-                <ul class="pf-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="reviews.html">Reviews</a></li>
-                    <li><a href="form.html">Initiate Project</a></li>
-                </ul>
-            </div>
-            <div class="pf-col">
-                <h4>Legal & Contact</h4>
-                <ul class="pf-links">
-                    <li><a href="https://wa.me/917888429760" target="_blank">WhatsApp Support</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="pf-bottom">
-            <div class="pf-signature">made by <span>zyrova digital</span></div>
-        </div>
-    </footer>
-
-
-    <script>
-        (function() {
-            function lockHeroMute() {
-                const heroVid = document.getElementById('heroVideoAd');
-                if (heroVid && !heroVid.hasAttribute('data-mute-locked')) {
-                    heroVid.muted = true;
-                    heroVid.setAttribute('muted', '');
-                    heroVid.setAttribute('data-mute-locked', 'true');
-                    Object.defineProperty(heroVid, 'muted', {
-                        get: function() { return true; },
-                        set: function(val) { /* Blocked */ }
-                    });
-                }
-            }
-            // Attempt lock immediately and on load
-            lockHeroMute();
-            window.addEventListener('DOMContentLoaded', lockHeroMute);
-            window.addEventListener('pageshow', lockHeroMute);
-        })();
-    </script>
-
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const canvas = document.getElementById('particle-canvas');
-            if(canvas) {
-                const ctx = canvas.getContext('2d');
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-                let particles = [];
-                for(let i=0; i<40; i++) {
-                    particles.push({
-                        x: Math.random() * canvas.width,
-                        y: Math.random() * canvas.height,
-                        radius: Math.random() * 2 + 1,
-                        dx: (Math.random() - 0.5) * 0.5,
-                        dy: (Math.random() - 0.5) * 0.5
-                    });
-                }
-                function animate() {
-                    requestAnimationFrame(animate);
-                    ctx.clearRect(0, 0, innerWidth, innerHeight);
-                    ctx.fillStyle = document.documentElement.getAttribute('data-theme') === 'light' ? 'rgba(0,0,0,0.5)' : 'rgba(212, 175, 55, 0.5)';
-                    particles.forEach(p => {
-                        ctx.beginPath();
-                        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2, false);
-                        ctx.fill();
-                        p.x += p.dx; p.y += p.dy;
-                        if(p.x < 0 || p.x > innerWidth) p.dx = -p.dx;
-                        if(p.y < 0 || p.y > innerHeight) p.dy = -p.dy;
-                    });
-                }
-                animate();
-            }
-        });
-    </script>
     
 
-    <script>
-        </script>
+    
+
+        
+
+
+    
+
+
+    
+    
+
+    
 
 
     <!-- UNIVERSAL THEME TOGGLE SCRIPT -->
-    <script>
-        function initThemeToggle() {
-            const toggleDesktop = document.getElementById('themeToggleDesktop');
-            const toggleMobile = document.getElementById('themeToggleMobile');
+    
 
-            function updateIcons(isLight) {
-                const iconDesktop = document.getElementById('themeIconDesktop');
-                const iconMobile = document.getElementById('themeIconMobile');
-                if (iconDesktop) iconDesktop.className = isLight ? 'ri-moon-fill' : 'ri-sun-fill';
-                if (iconMobile) {
-                    const iTag = iconMobile.tagName && iconMobile.tagName.toLowerCase() === 'i' ? iconMobile : iconMobile.querySelector('i');
-                    if(iTag) iTag.className = isLight ? 'ri-moon-fill' : 'ri-sun-fill';
-                }
-            }
 
-            function toggleTheme() {
-                const html = document.documentElement;
-                const isCurrentlyLight = html.getAttribute('data-theme') === 'light';
-                const nextTheme = isCurrentlyLight ? 'dark' : 'light';
-                
-                html.setAttribute('data-theme', nextTheme);
-                try { localStorage.setItem('rf-theme', nextTheme); } catch(e) {}
-                updateIcons(!isCurrentlyLight);
-            }
-
-            // Sync initial state safely
-            let savedTheme = 'dark';
-            try { savedTheme = localStorage.getItem('rf-theme') || 'dark'; } catch(e) {}
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            updateIcons(savedTheme === 'light');
-
-            if(toggleDesktop) {
-                toggleDesktop.replaceWith(toggleDesktop.cloneNode(true));
-                document.getElementById('themeToggleDesktop').addEventListener('click', toggleTheme);
-            }
-            if(toggleMobile) {
-                toggleMobile.replaceWith(toggleMobile.cloneNode(true));
-                document.getElementById('themeToggleMobile').addEventListener('click', toggleTheme);
-            }
-        }
-        
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initThemeToggle);
-        } else {
-            initThemeToggle();
-        }
-    </script>
-
+<footer id="rfFoot">
+  <div class="foot-in">
+    <div>
+      <div class="foot-logo">
+        <img src="assets/logo.png" alt="Reach Forever" style="filter:none!important"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="foot-logo-fb">Reach Forever</div>
+      </div>
+      <p class="foot-desc">Punjab's #1 Digital Marketing Agency — engineering growth through data-driven strategies and creative execution.</p>
+    </div>
+    <div>
+      <div class="foot-col-t">Services</div>
+      <a href="#svcSec" class="foot-lk">Local Business Ads</a>
+      <a href="#svcSec" class="foot-lk">Automated Websites</a>
+      <a href="#svcSec" class="foot-lk">Google SEO</a>
+      <a href="#svcSec" class="foot-lk">Social Media Growth</a>
+      <a href="#svcSec" class="foot-lk">Video Production</a>
+    </div>
+    <div>
+      <div class="foot-col-t">Company</div>
+      <a href="reviews.html" class="foot-lk">Reviews</a>
+      <a href="form.html" class="foot-lk">Start a Project</a>
+      <a href="#procSec" class="foot-lk">Our Process</a>
+      <a href="#baSec" class="foot-lk">Case Studies</a>
+    </div>
+    <div>
+      <div class="foot-col-t">Contact</div>
+      <a href="https://wa.me/918146652870" class="foot-lk"><i class="ri-whatsapp-line"></i> WhatsApp Us</a>
+      <a href="https://instagram.com/reachforever" class="foot-lk"><i class="ri-instagram-line"></i> Instagram</a>
+      <a href="https://facebook.com/reachforever" class="foot-lk"><i class="ri-facebook-circle-line"></i> Facebook</a>
+      <a href="mailto:hello@reachforever.in" class="foot-lk"><i class="ri-mail-line"></i> Email Us</a>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>© 2025 Reach Forever. All rights reserved.</span>
+    <span>Made by <a href="https://zyrovadigital.online" target="_blank">zyrova digital</a></span>
+  </div>
+</footer>
+<nav class="mnav">
+  <a href="index.html" class="mni on"><i class="ri-home-4-fill"></i>Home</a>
+  <a href="services.html" class="mni"><i class="ri-stack-fill"></i>Services</a>
+  <a href="reviews.html" class="mni"><i class="ri-star-fill"></i>Reviews</a>
+  <a href="form.html" class="mni" style="color:#C8A96E"><i class="ri-rocket-fill"></i>Start</a>
+</nav>
+<script src="js/cms.js" defer></script>
 </body>
 </html>

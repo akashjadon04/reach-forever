@@ -1,53 +1,68 @@
 const fs = require('fs');
-const path = require('path');
 
-const filePath = path.join(__dirname, 'public', 'index.html');
-let html = fs.readFileSync(filePath, 'utf8');
+let html = fs.readFileSync('public/index.html', 'utf8');
 
-// 1. Mobile Overlap Fixes
-const mobileCssFixes = `
-            /* Fix AI Fab & Mobile Nav */
-            .main-wrapper { padding-bottom: 120px !important; border-bottom-left-radius: 30px !important; border-bottom-right-radius: 30px !important; }
-            .ai-fab-wrap { bottom: 100px !important; right: 20px !important; }
-            .mobile-nav { background: rgba(15, 8, 25, 0.8) !important; backdrop-filter: blur(20px) !important; border-top: 1px solid rgba(255,255,255,0.08) !important; z-index: 10000 !important; }
-            .hero-grid { grid-template-columns: 1fr !important; width: 100% !important; margin: 0 !important; padding: 0 !important; }
-            .hero { padding-top: 100px !important; }
+// 1. Remove third section of text
+html = html.replace(/<p class="story-p apple-text-reveal" data-cms="story_3"[\s\S]*?<\/p>/, '');
+
+// 2. Change phone number to 8146652870
+html = html.replace(/917888429760/g, '918146652870');
+html = html.replace(/\+91 76687 58238/g, '+91 81466 52870');
+
+// 3. Make footer black and text white
+html = html.replace(/<footer class="premium-footer" style="padding-top: 4rem !important; margin-top: 0 !important; background: var\(--bg-base, #FDFDFB\); border-top: none !important;">/, 
+    '<footer class="premium-footer" style="padding-top: 4rem !important; margin-top: 0 !important; background: #05020A; border-top: none !important;">');
+
+// The footer has some hardcoded text colors now due to my previous script. Let's fix them to be light since bg is black.
+html = html.replace(/<p>We engineer predictable revenue systems that flood your business with high-ticket local customers.<\/p>/, 
+    '<p style="color: #A0A0A0">We engineer predictable revenue systems that flood your business with high-ticket local customers.</p>');
+
+// "Reach Forever HQ" should be white.
+html = html.replace(/<strong style="color:var\(--text-dark, #1A1C20\)">Reach Forever HQ<\/strong>/g, 
+    '<strong style="color:#FFF">Reach Forever HQ</strong>');
+
+// Change text colors in footer headings to white.
+// .pf-col h4{color:var(--text-dark, #1A1C20); ...} -> .pf-col h4{color:#FFF; ...}
+// I will just add an inline style to the footer section or overwrite it.
+html = html.replace(/<div class="pf-container">/, '<div class="pf-container" style="color: #A0A0A0;">');
+html = html.replace(/<h4>Sitemap<\/h4>/, '<h4 style="color:#FFF;">Sitemap</h4>');
+html = html.replace(/<h4>Legal & Contact<\/h4>/, '<h4 style="color:#FFF;">Legal & Contact</h4>');
+html = html.replace(/<div style="margin-top:20px;color:var\(--text-muted, #6B7280\);font-size:.9rem;line-height:1.6">/, '<div style="margin-top:20px;color:#A0A0A0;font-size:.9rem;line-height:1.6">');
+
+// 4. "Revenue Generated This Quarter" is dark, make it white.
+html = html.replace(/<p style="font-family:'Outfit',sans-serif;font-size:clamp\(\.75rem,2.5vw,1.2rem\);font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var\(--text-dark, #1A1C20\);text-shadow:0 10px 20px rgba\(0,0,0,\.8\)">Revenue Generated This Quarter<\/p>/, 
+    '<p style="font-family:\'Outfit\',sans-serif;font-size:clamp(.75rem,2.5vw,1.2rem);font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#FFF;text-shadow:0 10px 20px rgba(0,0,0,.8)">Revenue Generated This Quarter</p>');
+
+// Also change the h2 text "Before vs After." just to be sure it looks good. It was `#1A1C20` but there was a section background `#FDFDFB`. Wait, the user said "dont also make it empty empty...".
+// I'll add a subtle radial gradient to the `.blueprint-section` and `.reels-section`.
+html = html.replace(/<section class="blueprint-section">/, '<section class="blueprint-section" style="background: radial-gradient(circle at top right, rgba(212,175,55,0.05), transparent 50%);">');
+html = html.replace(/<section class="reels-section section-pad" id="proof" style="background:var\(--bg-base, #FDFDFB\);/, '<section class="reels-section section-pad" id="proof" style="background:var(--bg-base, #FDFDFB); background-image: radial-gradient(circle at bottom left, rgba(144,71,255,0.03), transparent 40%);');
+
+// 5. Fix video modal click
+// Replace the iphoneClickLayer div to include onclick directly
+html = html.replace(/<div class="iphone-click-layer" id="iphoneClickLayer" style="position:absolute;inset:0;z-index:30;cursor:pointer;border-radius:34px"><\/div>/, 
+    `<div class="iphone-click-layer" id="iphoneClickLayer" style="position:absolute;inset:0;z-index:30;cursor:pointer;border-radius:34px" onclick="openReelsModal()"></div>`);
+
+// Also add openReelsModal function inside the main script tag
+const openReelsModalFunc = `
+window.openReelsModal = function() {
+    const rm = document.getElementById('reelsModal');
+    if(rm){
+        document.body.style.overflow='hidden';
+        rm.style.opacity='1'; rm.style.pointerEvents='auto';
+        const hv = document.getElementById('heroVideoAd'); if(hv) hv.pause();
+        const fv = document.querySelector('#rmModalContainer .rm-video');
+        if(fv){ fv.muted=false; fv.play().catch(()=>{}); }
+        if(window.triggerHaptic) window.triggerHaptic(60);
+    }
+};
 `;
-html = html.replace(/\.main-wrapper \{ border-bottom-left-radius: 30px !important; border-bottom-right-radius: 30px !important; \}/, mobileCssFixes);
+// Put it right before triggerIsland function
+html = html.replace(/function triggerIsland\(/, openReelsModalFunc + '\nfunction triggerIsland(');
 
-// 2. Logo Bug Fix
-const oldLogo = /<img src="https:\/\/agency-resources\.zyrova\.com\/reachforever\/ReachForever_Illustrative_Logo_8K\.png"[^>]+data-cms="header_logo"[^>]+>/;
-const newLogo = `<span data-cms="header_logo" style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: #FFF; letter-spacing: 1px; text-shadow: 0 0 10px rgba(144, 71, 255, 0.5);">ReachForever.</span>`;
-html = html.replace(oldLogo, newLogo);
+// Now remove the duplicate event listener from the bottom script
+html = html.replace(/const iphoneLayer = document\.getElementById\('iphoneClickLayer'\);\s*if\(iphoneLayer\)\{\s*iphoneLayer\.addEventListener\('click',\(\)=>\{[\s\S]*?\}\);\s*\}/, '');
 
-// 3. Hologram Glow Fix & Hero Shift Fix
-// Remove old injected glow div
-const oldGlowDiv = /<div style="position: absolute; top: 50%; left: 50%; transform: translate\(-50%, -50%\); width: 140%; height: 140%; background: radial-gradient\(circle, rgba\(144,71,255,0\.4\) 0%, transparent 60%\); filter: blur\(40px\); z-index: 1; pointer-events: none; mix-blend-mode: screen;"><\/div>/;
-html = html.replace(oldGlowDiv, '');
 
-// Apply background to hero-visuals
-const heroVisualsRegex = /<div class="hero-visuals reveal-up" style="(.*?)">/;
-html = html.replace(heroVisualsRegex, (match, styles) => {
-    // Add radial gradient background to hero-visuals
-    return `<div class="hero-visuals reveal-up" style="${styles}; background: radial-gradient(circle at center, rgba(144, 71, 255, 0.5) 0%, transparent 70%); border-radius: 50%;">`;
-});
-
-// Remove width: 280px constraint from iphone mockup on mobile via style block if needed, but flex-shrink is 0. 
-// Just ensure hero-text aligns properly.
-const heroTextRegex = /<div class="hero-text" id="hero-text-module" style="(.*?)">/;
-html = html.replace(heroTextRegex, (match, styles) => {
-    return `<div class="hero-text" id="hero-text-module" style="${styles}; width: 100%;">`;
-});
-
-// 4. Footer Layout
-const footerRegex = /<footer class="footer-fixed" id="contact" style="(.*?)height: 85vh;(.*?)padding: 0 5%;(.*?)">/;
-html = html.replace(footerRegex, (match, p1, p2, p3) => {
-    return `<footer class="footer-fixed" id="contact" style="${p1}min-height: 85vh; height: auto;${p2}padding: 60px 5%;${p3}">`;
-});
-
-// 5. Button Shadows Fix (Replacing any remaining gold shadows with purple)
-html = html.replace(/rgba\(212, 175, 55, 0\.4\)/g, 'rgba(144, 71, 255, 0.4)');
-html = html.replace(/rgba\(212,175,55,0\.4\)/g, 'rgba(144,71,255,0.4)');
-
-fs.writeFileSync(filePath, html, 'utf8');
-console.log('Layout fixes applied successfully.');
+fs.writeFileSync('public/index.html', html);
+console.log('Fixes applied to index.html.');

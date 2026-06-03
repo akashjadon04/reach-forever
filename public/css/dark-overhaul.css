@@ -1,32 +1,31 @@
 /**
  * ============================================================================
- * REACH FOREVER — PREMIUM DARK OVERHAUL (FINAL BUILD)
- * 
- * Architecture:
- * - Default = DARK mode (Rich Noir + Warm Gold)  
- * - [data-theme="light"] = Original cream/olive theme restored
- * - Uses !important ONLY on color properties to beat inline specificity
- * - ZERO layout changes (no width/height/grid/flex/position/padding/margin)
+ * REACH FOREVER — PERMANENT LIGHT BEIGE MODE
+ * Dark mode has been permanently removed. Site always uses light beige.
  * ============================================================================
  */
 
 /* ==========================================================================
-   1. THEME TOKENS
+   1. THEME TOKENS — Always Light Beige
    ========================================================================== */
 :root {
-    --rf-bg: #000000;
-    --rf-surface: #0A0A0A;
-    --rf-elevated: #141320;
+    --rf-bg: #F7F4EF;
+    --rf-surface: #FFFFFF;
+    --rf-elevated: #FDFDFB;
     --rf-accent: #C8A96E;
     --rf-accent-bright: #E8D5A3;
     --rf-accent-dim: #A67C00;
-    --rf-accent-glow: rgba(200, 169, 110, 0.25);
-    --rf-text: #FFFFFF;
-    --rf-text-secondary: #B0B0C0;
-    --rf-text-muted: #6B6B80;
-    --rf-glass: rgba(12, 11, 20, 0.8);
-    --rf-glass-border: rgba(200, 169, 110, 0.2);
-    --rf-glass-border-soft: rgba(255, 255, 255, 0.06);
+    --rf-accent-glow: rgba(200, 169, 110, 0.2);
+    --rf-text: #1A1208;
+    --rf-text-secondary: #4A3F30;
+    --rf-text-muted: #6B5E4A;
+    --rf-glass: rgba(255, 255, 255, 0.8);
+    --rf-glass-border: rgba(200, 169, 110, 0.3);
+    --rf-glass-border-soft: rgba(0, 0, 0, 0.06);
+    --bg-main: #F7F4EF;
+    --bg-card: #FFFFFF;
+    --bg-panel: rgba(255, 255, 255, 0.7);
+    --rf-muted: #6B5E4A;
 }
 
 /* ==========================================================================
@@ -41,16 +40,18 @@
 }
 
 .nav-brand img {
-    filter: brightness(0) saturate(100%) invert(71%) sepia(49%) saturate(464%) hue-rotate(5deg) brightness(93%) contrast(89%) !important;
+    /* FIXED: Show logo in original colors, no golden filter */
+    filter: none !important;
 }
 
 .nav-pill {
-    color: rgba(255, 255, 255, 0.65) !important;
+    /* FIXED: Dark text on light navbar */
+    color: #4A3F30 !important;
 }
 .nav-pill:hover, .nav-pill.active {
     color: var(--rf-accent) !important;
-    background: rgba(200, 169, 110, 0.1) !important;
-    border-color: rgba(200, 169, 110, 0.3) !important;
+    background: rgba(200, 169, 110, 0.08) !important;
+    border-color: rgba(200, 169, 110, 0.2) !important;
 }
 
 .nav-btn-wrap .btn-olive,
@@ -544,7 +545,10 @@ body .header-wrap .navbar {
     box-shadow: 0 0 20px rgba(212, 175, 55, 0.2), 0 8px 32px rgba(0,0,0,0.06) !important;
 }
 [data-theme="light"] .nav-brand img {
-    filter: brightness(0) saturate(100%) invert(71%) sepia(49%) saturate(464%) hue-rotate(5deg) brightness(93%) contrast(89%) !important;
+    /* LOGO FIX: Show original logo, no golden conversion */
+    filter: none !important;
+    opacity: 1 !important;
+    mix-blend-mode: normal !important;
 }
 [data-theme="light"] .nav-pill {
     color: #1A1C20 !important;
@@ -1115,8 +1119,14 @@ body {
 
 
 
-.main-wrapper, .bg-white, section, div[style*="background: #FFF"], div[style*="background: white"], div[style*="background-color: #FFF"] {
+/* FIXED: Only reset non-dark sections. Dark sections (#1A1208) keep their background. */
+.main-wrapper, .bg-white, div[style*="background: #FFF"], div[style*="background: white"], div[style*="background-color: #FFF"] {
     background-color: var(--bg-main) !important;
+}
+/* Ensure sections with explicit inline dark background keep it */
+section[style*="background:#1A1208"] {
+    background: #1A1208 !important;
+    background-color: #1A1208 !important;
 }
 
 /* ==========================================================================

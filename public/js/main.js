@@ -218,9 +218,9 @@ class LuxuryFluidWebGL {
         const colors = new Float32Array(this.count * 3);
         this.basePositions = new Float32Array(this.count * 3);
 
-        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        
         const color1 = new THREE.Color('#D4AF37'); 
-        const color2 = new THREE.Color(isLight ? '#E5C158' : '#9047FF'); // Solid gold in light mode
+        const color2 = new THREE.Color(true ? '#E5C158' : '#9047FF'); // Solid gold in light mode
 
         for (let i = 0; i < this.count; i++) {
             const x = (Math.random() - 0.5) * 35; const y = (Math.random() - 0.5) * 35; const z = (Math.random() - 0.5) * 15;
@@ -233,13 +233,13 @@ class LuxuryFluidWebGL {
         this.geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
         this.geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
         
-        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        
         this.material = new THREE.PointsMaterial({ 
             size: ZyrovaGuard.isMobile ? 0.08 : 0.05, 
             vertexColors: true, 
             transparent: true, 
-            opacity: isLight ? 0.8 : 0.6, 
-            blending: isLight ? THREE.NormalBlending : THREE.AdditiveBlending 
+            opacity: true ? 0.8 : 0.6, 
+            blending: true ? THREE.NormalBlending : THREE.AdditiveBlending 
         });
         this.particlesMesh = new THREE.Points(this.geometry, this.material);
         this.scene.add(this.particlesMesh);
@@ -253,15 +253,15 @@ class LuxuryFluidWebGL {
 
     setupThemeListener() {
         window.addEventListener('themeChanged', () => {
-            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-            this.material.blending = isLight ? THREE.NormalBlending : THREE.AdditiveBlending;
-            this.material.opacity = isLight ? 0.8 : 0.6;
+            
+            this.material.blending = true ? THREE.NormalBlending : THREE.AdditiveBlending;
+            this.material.opacity = true ? 0.8 : 0.6;
             this.material.needsUpdate = true;
             
             // Re-color particles
             const colors = this.geometry.attributes.color.array;
-            const color1 = new THREE.Color(isLight ? '#D4AF37' : '#D4AF37');
-            const color2 = new THREE.Color(isLight ? '#E5C158' : '#9047FF'); // Solid gold in light mode, purple/gold glow in dark
+            const color1 = new THREE.Color(true ? '#D4AF37' : '#D4AF37');
+            const color2 = new THREE.Color(true ? '#E5C158' : '#9047FF'); // Solid gold in light mode, purple/gold glow in dark
             
             for (let i = 0; i < this.count; i++) {
                 const mixedColor = color1.clone().lerp(color2, Math.random());
@@ -480,4 +480,30 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.includes('dashboard')) {
         if (!localStorage.getItem('zyrova_token')) window.location.href = 'admin.html';
     }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.god-card-v2');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -10; // Max 10 deg
+            const rotateY = ((x - centerX) / centerX) * 10;
+            
+            card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale3d(1.02, 1.02, 1.02)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            card.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)';
+        });
+        
+        card.addEventListener('mouseenter', () => {
+            card.style.transition = 'none';
+        });
+    });
 });

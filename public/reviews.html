@@ -949,7 +949,7 @@
         <nav class="navbar" id="navbar">
             <a href="index.html" class="nav-brand magnetic-wrap" style="display:flex;align-items:center;height:100%;text-decoration:none;">
                 <span class="magnetic-inner">
-                    <img src="https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png" alt="Reach Forever Logo" data-cms="header_logo" style="max-height:44px;width:auto;object-fit:contain;">
+                    <img src="https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png" alt="Reach Forever Logo" style="max-height:44px;width:auto;object-fit:contain;">
                 </span>
             </a>
             <ul class="nav-links">
@@ -1320,8 +1320,7 @@
     <!-- SCRIPTS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lenis@1.0.45/dist/lenis.min.js"></script>
+
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -1330,24 +1329,6 @@
 
         /* ══════════════════════════════════
            1. LENIS SMOOTH SCROLL
-           FIX 1 (CSS): scroll-behavior:smooth
-           was removed from html{} in CSS so
-           only Lenis controls the scroll.
-        ══════════════════════════════════ */
-        let lenis = null;
-        if (typeof Lenis !== 'undefined' && !IS_MOBILE) {
-            lenis = new Lenis({
-                duration: 1.1,
-                easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-                smoothTouch: false,
-            });
-            function rafLenis(time) {
-                lenis.raf(time);
-                requestAnimationFrame(rafLenis);
-            }
-            requestAnimationFrame(rafLenis);
-            if (typeof gsap !== 'undefined') {
-                lenis.on('scroll', () => {
                     if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.update();
                 });
             }
@@ -1899,11 +1880,7 @@
                 const section = document.getElementById(sectionId);
                 if (!section) return;
                 const top = section.getBoundingClientRect().top + window.scrollY - 80;
-                if (lenis) {
-                    lenis.scrollTo(top, { duration: 1.5 });
-                } else {
-                    window.scrollTo({ top, behavior: 'smooth' });
-                }
+                window.scrollTo({ top, behavior: 'smooth' });
                 islandNotify('↓ ' + (dot.querySelector('.dot-nav-tooltip')?.textContent || ''));
             });
         });

@@ -11,7 +11,7 @@
    1. GOD-TIER VARIABLES & COLOR THEORY
    ========================================================================== */
 :root {
-    --bg-base: #FDFDFB;       
+    --bg-base: #F4F4F0;       
     --bg-surface: #FFFFFF;    
     --bg-elevated: #F4F4F0;   
     --bg-dark: #0A0B0E;       
@@ -59,7 +59,7 @@
    ========================================================================== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html, body { width: 100%; overflow-x: hidden; background-color: var(--bg-base); scroll-behavior: auto; }
-body { font-family: var(--font-sans); color: var(--text-dark); -webkit-font-smoothing: antialiased; line-height: 1.6; cursor: none; position: relative; }
+body { font-family: var(--font-sans); color: var(--text-dark); -webkit-font-smoothing: antialiased; line-height: 1.6; cursor: pointer; position: relative; }
 
 ::selection { background-color: var(--accent-gold); color: var(--text-light); }
 ::-webkit-scrollbar { width: 6px; } 
@@ -95,7 +95,7 @@ body.hover-video #cursorRing::after { content: 'PLAY'; font-family: var(--font-s
 body.hover-video #cursorDot { opacity: 0; }
 @media (max-width: 1024px) { #cursorDot, #cursorRing { display: none !important; } body, a, button { cursor: auto !important; } }
 
-.magnetic-wrap { display: inline-block; position: relative; z-index: 10; cursor: none; padding: 10px; margin: -10px; }
+.magnetic-wrap { display: inline-block; position: relative; z-index: 10; cursor: pointer; padding: 10px; margin: -10px; }
 .magnetic-inner { display: inline-block; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); pointer-events: auto; }
 
 /* BUTTONS */
@@ -229,7 +229,7 @@ body.hover-video #cursorDot { opacity: 0; }
 .s2-icon { font-size: 2.5rem; }
 
 /* Right: Pure CSS 3D Rotating Cylinder */
-.s2-right { display: flex; justify-content: center; align-items: center; height: 400px; perspective: 1200px; cursor: none;}
+.s2-right { display: flex; justify-content: center; align-items: center; height: 400px; perspective: 1200px; cursor: pointer;}
 
 .cylinder-carousel { 
     width: 250px; height: 350px; position: relative; 
@@ -348,7 +348,7 @@ body.hover-video #cursorDot { opacity: 0; }
 .apple-bento-section { padding: 4rem 0; position: relative; z-index: 5; background: var(--bg-base);}
 .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 250px; gap: 20px; margin-top: 30px; }
 
-.bento-item { position: relative; border-radius: 30px; overflow: hidden; box-shadow: var(--shadow-soft); border: 1px solid var(--border-soft); transition: var(--transition-smooth); cursor: none;}
+.bento-item { position: relative; border-radius: 30px; overflow: hidden; box-shadow: var(--shadow-soft); border: 1px solid var(--border-soft); transition: var(--transition-smooth); cursor: pointer;}
 .bento-item:hover { transform: translateY(-10px); box-shadow: var(--shadow-heavy); border-color: var(--accent-gold);}
 .bento-large { grid-column: span 2; grid-row: span 2; }
 
@@ -392,7 +392,7 @@ body.hover-video #cursorDot { opacity: 0; }
 .swiper-container-reels { width: 100%; max-width: 1400px; margin: 0 auto; overflow: visible; padding: 20px 0;}
 
 /* Fully visible, bright videos */
-.swiper-slide-reel { width: 320px; height: 580px; border-radius: 30px; overflow: hidden; border: 1px solid var(--border-soft); background: #000; position: relative; cursor: none; box-shadow: var(--shadow-float); transition: 0.5s; transform: scale(0.95); opacity: 1; }
+.swiper-slide-reel { width: 320px; height: 580px; border-radius: 30px; overflow: hidden; border: 1px solid var(--border-soft); background: #000; position: relative; cursor: pointer; box-shadow: var(--shadow-float); transition: 0.5s; transform: scale(0.95); opacity: 1; }
 .swiper-slide-active { transform: scale(1.05); border-color: var(--accent-gold); box-shadow: var(--shadow-heavy); z-index: 10; }
 
 .reel-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
@@ -460,7 +460,7 @@ body.hover-video #cursorDot { opacity: 0; }
 /* ==========================================================================
    19. AURA 13.0 (LUXURY AI CONCIERGE)
    ========================================================================== */
-.ai-fab-wrap { position: fixed; bottom: 40px; right: 40px; z-index: 10000; cursor: none; pointer-events: auto; }
+.ai-fab-wrap { position: fixed; bottom: 40px; right: 40px; z-index: 10000; cursor: pointer; pointer-events: auto; }
 .ai-fab { width: 65px; height: 65px; border-radius: 50%; background: var(--bg-surface); border: 1px solid var(--border-gold); box-shadow: var(--shadow-card); display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth); position: relative; }
 .ai-fab::before { content:''; position:absolute; inset: -8px; border-radius: 50%; background: linear-gradient(135deg, rgba(212,175,55,0.4), rgba(74,93,35,0.4)); filter: blur(15px); opacity: 0.6; z-index: -1; animation: breatheAura 3s infinite alternate ease-in-out; }
 @keyframes breatheAura { 0% { transform: scale(0.9); opacity: 0.3; } 100% { transform: scale(1.15); opacity: 0.7; } }

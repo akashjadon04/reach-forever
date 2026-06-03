@@ -31,6 +31,7 @@ async function syncZyrovaCMS() {
 
         // 1. Process Database Payload
         allContent.forEach(dbItem => {
+        if (dbItem.elementId === 'header_logo' || dbItem.elementId === 'home_iphone_reel') return;
             if (!dbItem || !dbItem.elementId) return;
 
             if (dbItem.elementId.startsWith('dynreel_')) {

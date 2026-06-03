@@ -1,0 +1,659 @@
+/* ═══════════════════════════════════════════════════════════════════
+   REACH FOREVER — MASTERPIECE CSS
+   God-level. Multimillion dollar. Light beige foundation.
+   Every section crafted separately. Zero compromise.
+═══════════════════════════════════════════════════════════════════ */
+
+/* ── 0. RESET & BASE ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { background: #F7F4EF; scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  background: #F7F4EF;
+  color: #1A1208;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: none;
+}
+@media (max-width: 768px) { body { cursor: auto !important; } }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; padding: 0; margin: 0; }
+
+/* ── 1. CUSTOM CURSOR ─────────────────────────────────────────── */
+#cursorDot, .cursor-dot {
+  position: fixed !important;
+  width: 8px; height: 8px;
+  background: #C8A96E;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999999;
+  box-shadow: 0 0 12px rgba(200,169,110,0.8);
+  will-change: transform;
+  transition: width .2s, height .2s;
+}
+#cursorRing, .cursor-ring {
+  position: fixed !important;
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(200,169,110,0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999998;
+  will-change: transform;
+  transition: width .3s, height .3s, border-color .3s;
+}
+
+/* ── 2. SCROLL PROGRESS ──────────────────────────────────────── */
+#scrollProgress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, #C8A96E, #D4AF37, #A67C00);
+  background-size: 200%;
+  animation: progressShimmer 2s linear infinite;
+  z-index: 999997;
+  box-shadow: 0 0 10px rgba(200,169,110,0.6);
+  transition: width .08s linear;
+  border-radius: 0 2px 2px 0;
+}
+@keyframes progressShimmer { 0%{background-position:0%} 100%{background-position:200%} }
+
+/* ── 3. PRELOADER ─────────────────────────────────────────────── */
+#preloader {
+  position: fixed !important;
+  inset: 0;
+  background: #F7F4EF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999999;
+  transition: opacity .6s ease;
+}
+
+/* ── 4. NAVBAR ────────────────────────────────────────────────── */
+.header-wrap {
+  position: fixed !important;
+  top: 16px !important;
+  left: 0 !important;
+  width: 100% !important;
+  z-index: 9999 !important;
+  padding: 0 3% !important;
+  pointer-events: none !important;
+}
+.navbar {
+  pointer-events: auto !important;
+  transition: box-shadow .4s ease, background .4s ease !important;
+}
+.navbar:hover {
+  box-shadow: 0 12px 48px rgba(26,18,8,0.1), 0 1px 0 rgba(255,255,255,0.9) inset !important;
+}
+.nav-pill {
+  transition: all .25s ease !important;
+  position: relative;
+}
+.nav-pill:hover {
+  color: #A67C00 !important;
+  background: rgba(200,169,110,0.08) !important;
+}
+.nav-pill::after {
+  content: '';
+  position: absolute;
+  bottom: 6px; left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 16px; height: 2px;
+  background: #C8A96E;
+  border-radius: 2px;
+  transition: transform .3s cubic-bezier(.16,1,.3,1);
+}
+.nav-pill:hover::after { transform: translateX(-50%) scaleX(1); }
+.nav-pill.active { color: #A67C00 !important; }
+.nav-pill.active::after { transform: translateX(-50%) scaleX(1); }
+
+/* ── 5. MAIN WRAPPER ─────────────────────────────────────────── */
+.main-wrapper {
+  background: #F7F4EF !important;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Hero rotator — force each span's color to show despite h1 inheritance ── */
+#heroRotator span[style] {
+  -webkit-text-fill-color: currentColor !important;
+  color: inherit !important;
+}
+#heroRotator span[style*="color:#D4AF37"] { color: #D4AF37 !important; }
+#heroRotator span[style*="color:#FF6B6B"] { color: #FF6B6B !important; }
+#heroRotator span[style*="color:#C084FC"] { color: #C084FC !important; }
+#heroRotator span[style*="color:#6EE7B7"] { color: #6EE7B7 !important; }
+#heroRotator span[style*="color:#60A5FA"] { color: #60A5FA !important; }
+
+/* spinSlow for process circles */
+@keyframes spinSlow { 100% { transform: rotate(360deg); } }
+
+/* ── 6. HERO SECTION ─────────────────────────────────────────── */
+#home {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero h1 fix — always dark on light bg */
+#home h1 {
+  color: #1A1208 !important;
+  -webkit-text-fill-color: #1A1208 !important;
+}
+
+/* Hero text gold accent */
+#home h1 #heroRotator span {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/* Hero video iPhone glow */
+#heroIphoneScroll {
+  filter: drop-shadow(0 40px 60px rgba(26,18,8,0.2));
+}
+
+/* iPhone parallax smooth */
+#heroIphoneScroll {
+  transition: transform .5s cubic-bezier(.16,1,.3,1) !important;
+}
+
+/* Floating hero cards animation */
+@keyframes hfloat {
+  0%   { transform: translateY(0) rotate(-1deg); }
+  100% { transform: translateY(-16px) rotate(1deg); }
+}
+
+/* Stats bar shimmer */
+@keyframes statsShine {
+  0%   { left: -100%; }
+  100% { left: 200%; }
+}
+
+/* Counter number font */
+[data-counter] {
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+  min-width: 3ch;
+}
+
+/* ── 7. UNIVERSAL PRESENCE SECTION ───────────────────────────── */
+/* Platform tabs active state */
+.ptab {
+  transition: all .35s cubic-bezier(.16,1,.3,1) !important;
+  outline: none !important;
+  font-family: 'Outfit', sans-serif !important;
+}
+.ptab:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.25) !important;
+}
+.ptab-active {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important;
+}
+
+/* Platform grid images */
+#platformGrid {
+  transition: opacity .4s ease !important;
+}
+#platformGrid > div {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+#platformGrid > div:hover {
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3) !important;
+}
+
+/* ── Service cards — CSS tilt removed, handled by JS ── */
+.svc-card { transition: box-shadow 0.4s ease; }
+.svc-card:hover { transform: none; }
+
+/* Accent line at card bottom reveals on hover */
+.svc-card .accent-line {
+  height: 3px;
+  width: 0%;
+  transition: width .5s cubic-bezier(.16,1,.3,1);
+  position: absolute;
+  bottom: 0; left: 0;
+  border-radius: 0 0 32px 32px;
+}
+.svc-card:hover .accent-line { width: 100% !important; }
+
+/* Service card tags */
+.svc-card span {
+  transition: all .25s ease !important;
+}
+.svc-card:hover span {
+  background: rgba(255,255,255,0.08) !important;
+}
+
+/* ── 9. PROCESS SECTION ───────────────────────────────────────── */
+.proc-card {
+  background: rgba(247,244,239,0.04) !important;
+  border-radius: 24px;
+  border: 1px solid rgba(247,244,239,0.06);
+  transition: all .5s cubic-bezier(.16,1,.3,1) !important;
+}
+.proc-card:hover {
+  background: rgba(247,244,239,0.07) !important;
+  border-color: rgba(200,169,110,0.15) !important;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15) !important;
+}
+
+/* Step circle hover */
+.proc-card:hover > div:first-child {
+  transform: scale(1.08);
+  box-shadow: 0 20px 50px rgba(200,169,110,0.5) !important;
+}
+
+@keyframes spinSlow {
+  100% { transform: rotate(360deg); }
+}
+
+/* Process connector line */
+@media (max-width: 900px) {
+  .proc-card:nth-child(n) {
+    grid-column: span 2;
+  }
+}
+
+/* ── 10. BEFORE / AFTER SLIDER ────────────────────────────────── */
+#baSlider {
+  cursor: col-resize;
+  will-change: transform;
+}
+#baSlider:active { cursor: grabbing; }
+
+#baDivider {
+  transition: left .02s linear;
+  will-change: left;
+}
+
+/* Result cards */
+#baSlider + div > div {
+  transition: all .4s cubic-bezier(.16,1,.3,1) !important;
+}
+#baSlider + div > div:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 50px rgba(26,18,8,0.09) !important;
+  border-color: rgba(200,169,110,0.2) !important;
+}
+
+/* ── 11. TESTIMONIALS ─────────────────────────────────────────── */
+@keyframes marqueeRoll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+#testiTrack {
+  animation: marqueeRoll 38s linear infinite;
+  will-change: transform;
+}
+#testiTrack:hover {
+  animation-play-state: paused !important;
+}
+
+/* Testi cards */
+#testiTrack > div {
+  transition: all .4s cubic-bezier(.16,1,.3,1) !important;
+}
+#testiTrack > div:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 24px 60px rgba(26,18,8,0.09) !important;
+  border-color: rgba(200,169,110,0.2) !important;
+}
+
+/* ── 12. RUSH / CTA SECTION ──────────────────────────────────── */
+/* Gold text gradient */
+.rush-gradient-text {
+  background: linear-gradient(135deg, #C8A96E, #A67C00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* CTA section pulse ring */
+@keyframes ctaRingPulse {
+  0%, 100% { transform: translate(-50%,-50%) scale(1); opacity: .06; }
+  50%       { transform: translate(-50%,-50%) scale(1.2); opacity: .03; }
+}
+
+/* ── 13. FOOTER ───────────────────────────────────────────────── */
+footer a {
+  transition: color .25s ease !important;
+}
+
+/* ── 14. WABUTTON ─────────────────────────────────────────────── */
+/* WA bounce on load */
+@keyframes waEntrance {
+  0%   { transform: scale(0) rotate(-180deg); opacity: 0; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+.wa-float, a[href*="wa.me"]:not(.nav-pill):not(.btn-olive):not([style*="border-radius:100px"]) {
+  animation: waEntrance .6s cubic-bezier(.16,1,.3,1) 1.5s both !important;
+}
+
+/* ── 15. REELS MODAL ─────────────────────────────────────────── */
+.reels-modal, #reelsModal {
+  background: rgba(0,0,0,0.98) !important;
+}
+#rmClose {
+  transition: all .3s ease !important;
+}
+#rmClose:hover {
+  background: rgba(200,169,110,0.3) !important;
+  border-color: #C8A96E !important;
+  transform: scale(1.1) !important;
+}
+
+/* ── 16. LIGHTBOX ─────────────────────────────────────────────── */
+#fsLightbox {
+  background: rgba(26,18,8,0.96) !important;
+}
+#fsClose:hover {
+  background: #C8A96E !important;
+  border-color: #C8A96E !important;
+  transform: rotate(90deg) !important;
+}
+
+/* ── 17. STICKY CTA ──────────────────────────────────────────── */
+#stickyCTA {
+  transition: all .5s cubic-bezier(.16,1,.3,1) !important;
+}
+
+/* ── 18. CHATBOT FAB ─────────────────────────────────────────── */
+#auraFab {
+  transition: all .4s cubic-bezier(.16,1,.3,1) !important;
+  animation: waEntrance .6s cubic-bezier(.16,1,.3,1) 2s both !important;
+}
+#auraFab:hover {
+  transform: scale(1.1) rotate(-5deg) !important;
+  box-shadow: 0 16px 48px rgba(26,18,8,0.3) !important;
+}
+
+/* ── 19. BLINK ANIMATION ─────────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .25; }
+}
+
+/* ── 20. REVEAL ON SCROLL ────────────────────────────────────── */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity .9s cubic-bezier(.16,1,.3,1),
+              transform .9s cubic-bezier(.16,1,.3,1);
+  will-change: transform, opacity;
+}
+.reveal-on-scroll.revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.reveal-on-scroll.delay-1 { transition-delay: .12s !important; }
+.reveal-on-scroll.delay-2 { transition-delay: .24s !important; }
+.reveal-on-scroll.delay-3 { transition-delay: .36s !important; }
+
+/* ── 21. GLOBAL SECTION TRANSITIONS ─────────────────────────── */
+section {
+  position: relative;
+}
+
+/* ── 22. SCROLLBAR ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F7F4EF; }
+::-webkit-scrollbar-thumb { background: rgba(200,169,110,0.4); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(200,169,110,0.7); }
+
+/* ── 23. SELECTION ───────────────────────────────────────────── */
+::selection { background: rgba(200,169,110,0.25); color: #1A1208; }
+
+/* ── 24. FOCUS STYLES ────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid rgba(200,169,110,0.6);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE — Every breakpoint handled
+═══════════════════════════════════════════════════════════════ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  #home > .container, #home > div > .container {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    gap: 40px !important;
+  }
+  #home h1 { font-size: clamp(2.8rem, 7vw, 4.5rem) !important; }
+  #heroVisuals { justify-content: center !important; }
+
+  /* Services 2-col on tablet */
+  #servicesGrid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Process 2-col on tablet */
+  #processGrid, section > div > div[style*="grid-template-columns:repeat(4"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  /* Hide desktop nav */
+  .nav-links, .nav-btn-wrap { display: none !important; }
+
+  /* Show mobile nav */
+  .mobile-nav { display: flex !important; }
+
+  /* Hero */
+  #home {
+    padding: 110px 0 60px !important;
+    text-align: center !important;
+  }
+  #home h1 {
+    font-size: clamp(2.4rem, 8vw, 3.5rem) !important;
+    letter-spacing: -1px !important;
+  }
+  #home p { max-width: 100% !important; }
+  #home .trust-strip { justify-content: center !important; }
+
+  /* Hero grid single col */
+  #home [style*="grid-template-columns:1.1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    text-align: center !important;
+  }
+
+  /* iPhone smaller on mobile */
+  #heroIphoneScroll {
+    width: 220px !important;
+    height: 450px !important;
+    transform: perspective(800px) rotateY(-5deg) rotateX(2deg) !important;
+  }
+
+  /* Stats bar */
+  #home [style*="background:#1A1208"] {
+    flex-wrap: wrap !important;
+    gap: 20px !important;
+    padding: 24px 20px !important;
+  }
+  #home [style*="width:1px;height:50px"] { display: none !important; }
+
+  /* Platform grid 2x3 on mobile */
+  #platformGrid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  /* Services 1-col mobile */
+  #servicesGrid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  /* Process steps 1-col mobile */
+  section > div > div[style*="grid-template-columns:repeat(4"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+  }
+  section > div > div[style*="grid-template-columns:repeat(4"] > div {
+    padding: 28px 16px !important;
+  }
+
+  /* Before/After slider height */
+  #baSlider { height: 280px !important; border-radius: 20px !important; }
+
+  /* BA result cards */
+  #baSlider ~ div[style*="grid-template-columns:repeat(3"] {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Footer */
+  footer .footer-grid, footer [style*="grid-template-columns:2fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* Testimonial cards */
+  .testi-card, #testiTrack > div { width: 280px !important; }
+
+  /* Hero floating cards */
+  #heroVisuals > div:not(#heroIphoneScroll) { display: none !important; }
+
+  /* CTA section */
+  section[style*="padding:10rem"] {
+    padding: 6rem 5% !important;
+  }
+  section[style*="padding:10rem"] [style*="display:flex;gap:16px"] {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* Sticky CTA narrower */
+  #stickyCTA {
+    width: 90vw !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    padding: 14px 20px !important;
+    text-align: center !important;
+    bottom: 80px !important;
+  }
+
+  /* Process section */
+  section[style*="background:#1A1208"] > div > div[style*="grid-template-columns:repeat(4"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Universal presence tabs */
+  #platformTabs {
+    gap: 8px !important;
+  }
+  .ptab {
+    padding: 10px 18px !important;
+    font-size: 0.82rem !important;
+  }
+
+  /* Chatbot FAB */
+  #auraFab {
+    width: 50px !important; height: 50px !important;
+  }
+
+  /* WA button on mobile */
+  a[href*="wa.me"]:not(.nav-pill) {
+    bottom: 80px !important;
+    left: 14px !important;
+    width: 48px !important; height: 48px !important;
+    font-size: 1.4rem !important;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  #home h1 { font-size: clamp(2rem, 9vw, 2.8rem) !important; }
+  #heroIphoneScroll { width: 190px !important; height: 390px !important; }
+  .svc-card { min-height: 360px !important; padding: 36px 24px !important; }
+  .ptab span, .ptab { font-size: 0.78rem !important; padding: 8px 14px !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DARK-OVERHAUL OVERRIDES — Beat all specificity
+   We stay permanently light. These rules win everything.
+═══════════════════════════════════════════════════════════════ */
+
+/* Body is always beige */
+html, body,
+html[data-theme="dark"], html[data-theme="light"],
+html[data-theme="dark"] body, html[data-theme="light"] body {
+  background: #F7F4EF !important;
+  color: #1A1208 !important;
+}
+
+/* Override any dark-section backgrounds on light sections */
+html[data-theme="dark"] #home,
+html[data-theme="dark"] #arsenal,
+html[data-theme="dark"] section[style*="background:#F7F4EF"] {
+  background: #F7F4EF !important;
+}
+
+/* Keep dark sections dark */
+html[data-theme="dark"] section[style*="background:#1A1208"] {
+  background: #1A1208 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION-SPECIFIC ENHANCEMENTS
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Hero tag pill glass ── */
+#home span[style*="border-radius:100px"][style*="Outfit"] {
+  box-shadow: 0 4px 24px rgba(200,169,110,0.15), 0 1px 0 rgba(255,255,255,0.8) inset !important;
+}
+
+/* SERVICES ::before removed — watermark is in HTML only, no duplicate */
+
+/* ── Universal presence photo grid items ── */
+#platformGrid img {
+  transition: transform .4s cubic-bezier(.16,1,.3,1) !important;
+}
+#platformGrid > div:hover img {
+  transform: scale(1.05) !important;
+}
+
+/* ── Marquee mask ── */
+.testimonial-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
+/* ── Chatbot panel fix ── */
+#auraPanel {
+  background: rgba(247,244,239,0.96) !important;
+  backdrop-filter: blur(40px) !important;
+  border: 1px solid rgba(200,169,110,0.2) !important;
+}
+#auraPanel .cp-body {
+  background: #F7F4EF !important;
+}
+#auraPanel input {
+  background: #FFFFFF !important;
+  color: #1A1208 !important;
+  border-color: rgba(200,169,110,0.2) !important;
+}
+
+/* ── WhatsApp icon specific fix ── */
+a[href*="wa.me"][style*="54px"] {
+  position: fixed !important;
+}
+
+/* ── Performance: will-change on animated elements ── */
+.svc-card, #heroIphoneScroll, #platformGrid > div,
+#testiTrack, #baSlider {
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
