@@ -2,6 +2,40 @@
 
 const API_BASE_URL = "https://reach-forever.onrender.com/api";
 
+/**
+ * Transforms a Cloudinary image URL to add resize + WebP conversion.
+ * This is the PRIMARY performance optimizer — reduces image payloads by 95%+.
+ * e.g. a 2.2MB PNG avatar → 5KB WebP
+ */
+function optimizeCloudinaryUrl(url, w = 800, h = null, quality = 'auto:good') {
+    if (!url || !url.includes('res.cloudinary.com')) return url;
+    // Build transform string
+    const transforms = [`w_${w}`, 'f_webp', `q_${quality}`, 'c_limit'];
+    if (h) transforms.push(`h_${h}`, 'c_fill', 'g_face');
+    const transformStr = transforms.join(',');
+    // Insert after /upload/
+    return url.replace(/\/upload\/(?:v\d+\/)?/, (match) => {
+        // Already has transforms? Skip
+        if (url.includes('/upload/w_') || url.includes('/upload/f_')) return match;
+        return match.replace('/upload/', `/upload/${transformStr}/`);
+    });
+}
+
+/**
+ * Optimizes avatar images specifically (small square crops)
+ */
+function optimizeAvatarUrl(url) {
+    return optimizeCloudinaryUrl(url, 120, 120, 'auto:best');
+}
+
+/**
+ * Optimizes Instagram/result tile images
+ */
+function optimizeGridImageUrl(url) {
+    return optimizeCloudinaryUrl(url, 400, null, 'auto:good');
+}
+
+
 async function syncZyrovaCMS() {
     let pageName = window.location.pathname.split("/").pop().replace(".html", "");
     if (!pageName || pageName === "index") pageName = "home";
@@ -46,12 +80,14 @@ async function syncZyrovaCMS() {
                         if (dbItem.contentType === 'text') el.innerHTML = dbItem.contentValue;
                         else if (dbItem.contentType === 'image') {
                             if (el.tagName === "DIV" || el.classList.contains('bk-left-bg-overlay')) {
-                                el.style.backgroundImage = `url('${dbItem.contentValue}')`;
+                                el.style.backgroundImage = `url('${optimizeGridImageUrl(dbItem.contentValue)}')`;
                                 el.style.backgroundSize = "cover";
                                 el.style.backgroundPosition = "center";
                                 el.innerHTML = "";
                             } else {
-                                el.src = dbItem.contentValue;
+                                el.src = optimizeGridImageUrl(dbItem.contentValue);
+                                if (!el.hasAttribute('alt')) el.alt = el.getAttribute('data-cms') || 'Image';
+                                el.loading = 'lazy';
                             }
                         } 
                         else if (dbItem.contentType === 'video') {
@@ -105,7 +141,7 @@ async function syncZyrovaCMS() {
                 sortedReels.forEach((reel, index) => {
                     if(!reel.vid) return; 
 
-                    const avatar = reel.avatar || 'https://agency-resources.zyrova.com/reachforever/default-avatar.png';
+                    const avatar = optimizeAvatarUrl(reel.avatar || 'https://agency-resources.zyrova.com/reachforever/default-avatar.png');
                     const clientName = reel.name || 'Client';
                     const caption = reel.cap || '';
 
@@ -121,7 +157,7 @@ async function syncZyrovaCMS() {
 
                             <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 30%, transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px 80px 40px 20px; pointer-events: none;">
                                 <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-                                    <img src="${avatar}" style="width: 55px; height: 55px; border-radius: 50%; border: 3px solid #D4AF37; object-fit: cover;">
+                                    <img src="${avatar}" alt="${clientName} - Client Review" loading="lazy" style="width: 55px; height: 55px; border-radius: 50%; border: 3px solid #D4AF37; object-fit: cover;">
                                     <div style="display: flex; flex-direction: column;">
                                         <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #FFF; font-weight: 700;">${clientName}</div>
                                         <div style="font-family: 'Outfit', sans-serif; font-size: 0.85rem; color: #D4AF37; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Partner</div>

@@ -4,12 +4,12 @@
     // Inject HTML
     const html = `
     <div class="ai-fab-wrap magnetic-wrap" style="position:fixed;bottom:80px;right:20px;z-index:9999940;">
-        <div class="magnetic-inner ai-fab" id="auraFab" role="button" style="width:58px;height:58px;border-radius:50%;background:#0A0B0E;border:1px solid rgba(200,169,110,.22);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 10px 40px rgba(26,18,8,.2);">
-            <i class="ri-customer-service-2-fill" style="font-size:1.9rem;color:#C8A96E;"></i>
-            <div id="botBadge" style="position:absolute;top:4px;right:4px;width:11px;height:11px;background:#EF4444;border-radius:50%;border:2px solid #0A0B0E;animation:blink 1.5s infinite;"></div>
+        <div class="magnetic-inner ai-fab" id="auraFab" role="button" aria-label="Open AI Chat Assistant" tabindex="0" style="width:58px;height:58px;border-radius:50%;background:#0A0B0E;border:1px solid rgba(200,169,110,.22);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 10px 40px rgba(26,18,8,.2);">
+            <i class="ri-customer-service-2-fill" aria-hidden="true" style="font-size:1.9rem;color:#C8A96E;"></i>
+            <div id="botBadge" aria-hidden="true" style="position:absolute;top:4px;right:4px;width:11px;height:11px;background:#EF4444;border-radius:50%;border:2px solid #0A0B0E;animation:blink 1.5s infinite;"></div>
         </div>
     </div>
-    <div class="chat-panel" id="auraPanel" aria-hidden="true" style="position:fixed;bottom:150px;right:20px;width:350px;background:rgba(10,11,14,.95);backdrop-filter:blur(30px);border-radius:20px;border:1px solid rgba(200,169,110,.3);box-shadow:0 20px 60px rgba(0,0,0,.4);z-index:9999950;display:flex;flex-direction:column;opacity:0;transform:translateY(20px) scale(0.95);pointer-events:none;transition:0.4s cubic-bezier(0.16,1,0.3,1);">
+    <div class="chat-panel" id="auraPanel" aria-hidden="true" inert style="position:fixed;bottom:150px;right:20px;width:350px;background:rgba(10,11,14,.95);backdrop-filter:blur(30px);border-radius:20px;border:1px solid rgba(200,169,110,.3);box-shadow:0 20px 60px rgba(0,0,0,.4);z-index:9999950;display:flex;flex-direction:column;opacity:0;transform:translateY(20px) scale(0.95);pointer-events:none;transition:0.4s cubic-bezier(0.16,1,0.3,1);">
         <div class="cp-header" style="padding:15px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02);">
             <div class="cp-info" style="display:flex;gap:12px;align-items:center;">
                 <div class="cp-avatar" style="width:36px;height:36px;border-radius:50%;background:rgba(200,169,110,.1);border:1px solid #C8A96E;display:flex;align-items:center;justify-content:center;color:#C8A96E;"><i class="ri-user-smile-line"></i></div>
@@ -18,12 +18,12 @@
                     <span style="font-size:0.75rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:6px;"><div style="width:6px;height:6px;background:#10B981;border-radius:50%;"></div> Online Now</span>
                 </div>
             </div>
-            <button id="auraClose" style="background:none;border:none;color:rgba(255,255,255,.5);font-size:1.4rem;cursor:pointer;"><i class="ri-close-line"></i></button>
+            <button id="auraClose" aria-label="Close chat" style="background:none;border:none;color:rgba(255,255,255,.5);font-size:1.4rem;cursor:pointer;"><i class="ri-close-line" aria-hidden="true"></i></button>
         </div>
         <div class="cp-body" id="auraBody" style="padding:20px;height:300px;overflow-y:auto;display:flex;flex-direction:column;"></div>
         <div class="cp-input" style="padding:15px 20px;border-top:1px solid rgba(255,255,255,.06);display:flex;gap:10px;">
-            <input type="text" placeholder="Type your message..." id="auraInput" style="flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:10px 16px;color:#FFF;font-family:'Outfit',sans-serif;font-size:0.9rem;outline:none;">
-            <button id="auraSend" style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#C8A96E,#A67C00);border:none;color:#FFF;display:flex;align-items:center;justify-content:center;cursor:pointer;"><i class="ri-send-plane-fill"></i></button>
+            <input type="text" placeholder="Type your message..." id="auraInput" aria-label="Chat message" style="flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:10px 16px;color:#FFF;font-family:'Outfit',sans-serif;font-size:0.9rem;outline:none;">
+            <button id="auraSend" aria-label="Send message" style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#C8A96E,#A67C00);border:none;color:#FFF;display:flex;align-items:center;justify-content:center;cursor:pointer;"><i class="ri-send-plane-fill" aria-hidden="true"></i></button>
         </div>
     </div>
     </div>
@@ -72,6 +72,7 @@
         panel.style.transform = 'translateY(0) scale(1)';
         panel.style.pointerEvents = 'auto';
         panel.setAttribute('aria-hidden', 'false');
+        panel.removeAttribute('inert');
         if (badge) badge.style.display = 'none';
         
         if (body.children.length === 0) {
@@ -94,6 +95,7 @@
         panel.style.transform = 'translateY(20px) scale(0.95)';
         panel.style.pointerEvents = 'none';
         panel.setAttribute('aria-hidden', 'true');
+        panel.setAttribute('inert', '');
     });
 
     function handleSend() {
