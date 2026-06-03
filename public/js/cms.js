@@ -9,9 +9,13 @@ const API_BASE_URL = "https://reach-forever.onrender.com/api";
  */
 function optimizeCloudinaryUrl(url, w = 800, h = null, quality = 'auto:good') {
     if (!url || !url.includes('res.cloudinary.com')) return url;
-    // Build transform string
-    const transforms = [`w_${w}`, 'f_webp', `q_${quality}`, 'c_limit'];
-    if (h) transforms.push(`h_${h}`, 'c_fill', 'g_face');
+    // Build transform string — c_limit for width-only, c_fill for exact crops
+    const transforms = [`w_${w}`, 'f_webp', `q_${quality}`];
+    if (h) {
+        transforms.push(`h_${h}`, 'c_fill', 'g_face'); // c_fill crops to exact dimensions
+    } else {
+        transforms.push('c_limit'); // c_limit only scales down, preserves aspect ratio
+    }
     const transformStr = transforms.join(',');
     // Insert after /upload/
     return url.replace(/\/upload\/(?:v\d+\/)?/, (match) => {
@@ -147,7 +151,7 @@ async function syncZyrovaCMS() {
 
                     const modalHTML = `
                         <div class="rm-slide" id="modal-slide-${index}" style="width: 100%; height: 100vh; scroll-snap-align: start; position: relative; background: #111;">
-                            <video class="rm-video" loop playsinline style="width: 100%; height: 100%; object-fit: cover;" src="${reel.vid}"></video>
+                            <video class="rm-video" loop playsinline preload="none" style="width: 100%; height: 100%; object-fit: cover;" src="${reel.vid}"></video>
                             
                             <div style="position: absolute; bottom: 100px; right: 15px; display: flex; flex-direction: column; gap: 25px; z-index: 10; color: #FFF; font-size: 2rem; text-align: center; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">
                                 <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;"><i class="ri-heart-fill" style="color: #FF3B30;"></i><span style="font-size: 0.85rem; font-weight: 600;">${Math.floor(Math.random() * 20) + 5}k</span></div>
@@ -157,7 +161,7 @@ async function syncZyrovaCMS() {
 
                             <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 30%, transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px 80px 40px 20px; pointer-events: none;">
                                 <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-                                    <img src="${avatar}" alt="${clientName} - Client Review" loading="lazy" style="width: 55px; height: 55px; border-radius: 50%; border: 3px solid #D4AF37; object-fit: cover;">
+                                    <img src="${avatar}" alt="${clientName} - Client Review" loading="lazy" width="55" height="55" style="width: 55px; height: 55px; border-radius: 50%; border: 3px solid #D4AF37; object-fit: cover;">
                                     <div style="display: flex; flex-direction: column;">
                                         <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #FFF; font-weight: 700;">${clientName}</div>
                                         <div style="font-family: 'Outfit', sans-serif; font-size: 0.85rem; color: #D4AF37; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Partner</div>
@@ -205,6 +209,7 @@ async function syncZyrovaCMS() {
                         
                         const firstModalVid = document.querySelector('.rm-container .rm-video');
                         if(firstModalVid) {
+                            firstModalVid.preload = "auto";
                             firstModalVid.muted = false;
                             let playPromise = firstModalVid.play();
                             if (playPromise !== undefined) {
@@ -246,6 +251,7 @@ async function syncZyrovaCMS() {
 
                         entries.forEach(entry => {
                             if(entry.isIntersecting && isModalOpen) { 
+                                entry.target.preload = "auto";
                                 entry.target.muted = false; 
                                 let playPromise = entry.target.play();
                                 if (playPromise !== undefined) {
