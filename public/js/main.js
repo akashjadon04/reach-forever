@@ -336,17 +336,7 @@ class AppleScrollArchitect {
         if(typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
         gsap.registerPlugin(ScrollTrigger);
 
-        // LENIS SMOOTH SCROLLING INJECTION
-        if (typeof Lenis !== "undefined") {
-            const lenis = new Lenis({
-                duration: 1.2,
-                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-                smoothTouch: false, // Critical for mobile layout safety
-            });
-            lenis.on('scroll', ScrollTrigger.update);
-            gsap.ticker.add((time) => { lenis.raf(time * 1000); });
-            gsap.ticker.lagSmoothing(0);
-        }
+
 
         // 1. Sticky Header & CTA Logic
         window.addEventListener('scroll', () => { 
@@ -471,7 +461,6 @@ class AuraNeuralAgent {
 // ============================================================================
 document.addEventListener('DOMContentLoaded', () => {
     window.zyrovaPreloader = new ZyrovaPreloader();
-    new LuxuryCursor();
     new ScrollVelocityEngine();
     window.fluidWebGLInstance = new LuxuryFluidWebGL(); 
     new AppleScrollArchitect();

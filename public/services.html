@@ -69,21 +69,12 @@
 
     @media (hover:none) and (pointer:coarse) {
         body, a, button, input, select, .magnetic-wrap, .sc-tab, .faq-question { cursor:auto !important; }
-        .cursor-dot, .cursor-ring { display:none !important; }
     }
-
-    /* ── 3. CUSTOM CURSOR ── */
+    /* ── SCROLL PROGRESS ── */
     #scrollProgress { position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,var(--accent-olive),var(--accent-gold)); z-index:999999; width:0%; border-radius:0 4px 4px 0; pointer-events:none; }
-    .cursor-dot { position:fixed; top:0; left:0; width:8px; height:8px; background:#FFF; border-radius:50%; pointer-events:none; z-index:999999; transform:translate(-50%,-50%); mix-blend-mode:difference; will-change:left,top; }
-    .cursor-ring { position:fixed; top:0; left:0; width:38px; height:38px; border:1.5px solid var(--accent-gold); border-radius:50%; pointer-events:none; z-index:999998; transform:translate(-50%,-50%); transition:width .15s ease,height .15s ease,border-color .2s ease,background .2s ease; will-change:left,top; }
-    .cursor-ring.hovering { width:58px; height:58px; background:rgba(85,107,47,0.08); border-color:var(--accent-olive); }
-    .cursor-dot.hovering { opacity:0; }
-    .cursor-dot.clicking { transform:translate(-50%,-50%) scale(0.6); }
-    .cursor-ring.clicking { transform:translate(-50%,-50%) scale(0.85); }
-
+    
     /* ECO MODE — Performance Director */
     body.eco-mode * { backdrop-filter:none !important; -webkit-backdrop-filter:none !important; }
-    body.eco-mode .cursor-dot, body.eco-mode .cursor-ring { display:none !important; }
     body.eco-mode .eco-pulse, body.eco-mode .eco-particle, body.eco-mode .eco-connector { animation:none !important; }
     body.eco-mode .ambient-glow { animation:none !important; }
     body.eco-mode .hs-panel-orb { animation:none !important; }
@@ -666,9 +657,7 @@
     <!-- PARTICLE CANVAS -->
     <canvas id="particle-canvas"></canvas>
 
-    <!-- CURSOR -->
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
+
 
     <!-- SCROLL PROGRESS -->
     <div id="scrollProgress"></div>
@@ -1214,20 +1203,6 @@
   // Scroll Progress
   const prog=document.getElementById('scrollProgress');
   if(prog){window.addEventListener('scroll',function(){prog.style.width=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%';},{passive:true});}
-  // Custom Cursor
-  if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
-    const dot=document.querySelector('.cursor-dot');
-    const ring=document.querySelector('.cursor-ring');
-    if(dot&&ring){
-      let mx=0,my=0,rx=0,ry=0;
-      document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';},{passive:true});
-      (function lr(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(lr);})();
-      document.querySelectorAll('a,button,.sc-tab,.faq-question,.btn-olive,.magnetic-wrap').forEach(function(el){
-        el.addEventListener('mouseenter',function(){ring.classList.add('hovering');dot.classList.add('hovering');});
-        el.addEventListener('mouseleave',function(){ring.classList.remove('hovering');dot.classList.remove('hovering');});
-      });
-    }
-  }
   document.addEventListener('DOMContentLoaded',function(){
     // GSAP reveal animations
     if(window.gsap&&window.ScrollTrigger){

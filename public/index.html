@@ -325,7 +325,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
     </div>
     <div id="heroPhone" class="iphone-click-layer" style="position:relative; overflow:hidden;">
       <div class="phone-notch"></div><div class="phone-badge" style="top:40px;"><i class="ri-play-circle-fill" style="color:#EF4444;font-size:.78rem"></i> Tap to Watch</div>
-      <video id="heroVideoAd" autoplay muted loop playsinline onerror="this.style.display='none'">
+      <video id="heroVideoAd" autoplay muted loop playsinline poster="assets/poster_1.jpg" preload="metadata" onerror="this.style.display='none'">
         <source src="assets/video_1.mp4" type="video/mp4">
       </video>
       <div style="position:absolute; bottom:20px; left:15px; z-index:10; background:rgba(0,0,0,0.5); padding:8px 12px; border-radius:12px; backdrop-filter:blur(10px);">
@@ -487,9 +487,9 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
     <p style="font-family:var(--ss);font-size:1rem;color:var(--tx3);max-width:520px;margin:0 auto;line-height:1.75" data-cms="xray_desc">Drag the slider to see how upgrading your digital presence instantly builds trust.</p>
   </div>
   <div id="baSlider">
-    <img id="baAfter" src="assets/after.png" alt="After" data-cms="ba_img_after"
+    <img id="baAfter" src="assets/after.png" alt="After" data-cms="ba_img_after" loading="lazy"
       onerror="this.src='https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1260&q=80'">
-    <img id="baBefore" src="assets/before.png" alt="Before" data-cms="ba_img_before"
+    <img id="baBefore" src="assets/before.png" alt="Before" data-cms="ba_img_before" loading="lazy"
       onerror="this.src='https://images.pexels.com/photos/5632381/pexels-photo-5632381.jpeg?auto=compress&cs=tinysrgb&w=1260&q=80'">
     <div id="baDivider"></div>
     <div class="ba-lbl bef">BEFORE</div>
