@@ -1235,18 +1235,33 @@
       let hsOuter = document.querySelector('.hs-outer');
       let hsTrack = document.getElementById('hsTrack');
       let hsPanels = gsap.utils.toArray('.hs-panel');
-      if (hsOuter && hsTrack && hsPanels.length > 0 && window.innerWidth > 768) {
-        gsap.to(hsPanels, {
-          xPercent: -100 * (hsPanels.length - 1),
-          ease: "none",
-          scrollTrigger: {
-            trigger: hsOuter,
-            pin: true,
-            scrub: 1,
-            snap: 1 / (hsPanels.length - 1),
-            end: () => "+=" + hsTrack.offsetWidth
-          }
-        });
+      if (hsOuter && hsTrack && hsPanels.length > 0) {
+        if (window.innerWidth > 768) {
+            gsap.to(hsPanels, {
+              xPercent: -100 * (hsPanels.length - 1),
+              ease: "none",
+              scrollTrigger: {
+                trigger: hsOuter,
+                pin: true,
+                scrub: 0.1, // Reduced from 1 to 0.1 for ultra-smooth snappy feel
+                snap: 1 / (hsPanels.length - 1),
+                end: () => "+=" + hsTrack.offsetWidth
+              }
+            });
+        } else {
+            // Mobile Auto-scroll
+            let currentIndex = 0;
+            let autoScrollTimer = setInterval(() => {
+                currentIndex = (currentIndex + 1) % hsPanels.length;
+                hsOuter.scrollTo({
+                    left: hsPanels[currentIndex].offsetLeft,
+                    behavior: 'smooth'
+                });
+            }, 3500);
+            
+            // Pause on manual interaction
+            hsOuter.addEventListener('touchstart', () => clearInterval(autoScrollTimer), {passive: true});
+        }
       }
     }
     // Dev Tabs
@@ -1262,17 +1277,21 @@
       if(vids[idx]){vids[idx].classList.add('active');if(vids[idx].tagName==='VIDEO')vids[idx].play().catch(function(){});}
       if(seoOv)seoOv.classList.toggle('visible',idx===2);
       
-      if(macbook3d && iphone3d) {
+      if(macbook3d && iphone3d && typeof gsap !== 'undefined') {
           if (idx === 1) { // Mobile App
-              macbook3d.classList.add('device-pushed-back');
-              macbook3d.classList.remove('device-in-front');
-              iphone3d.classList.add('device-in-front');
-              iphone3d.classList.remove('device-pushed-back');
+              // Push Mac back
+              gsap.to(macbook3d, { z: -300, scale: 0.85, opacity: 0.6, duration: 1.2, ease: "power3.inOut" });
+              macbook3d.style.zIndex = 1;
+              // Bring iPhone front
+              gsap.to(iphone3d, { z: 50, scale: 1, opacity: 1, duration: 1.2, ease: "power3.inOut" });
+              iphone3d.style.zIndex = 2;
           } else { // Custom Website or SEO
-              iphone3d.classList.add('device-pushed-back');
-              iphone3d.classList.remove('device-in-front');
-              macbook3d.classList.add('device-in-front');
-              macbook3d.classList.remove('device-pushed-back');
+              // Push iPhone back
+              gsap.to(iphone3d, { z: -150, scale: 0.85, opacity: 0.7, duration: 1.2, ease: "power3.inOut" });
+              iphone3d.style.zIndex = 1;
+              // Bring Mac front
+              gsap.to(macbook3d, { z: 50, scale: 1.05, opacity: 1, duration: 1.2, ease: "power3.inOut" });
+              macbook3d.style.zIndex = 2;
           }
       }
     }

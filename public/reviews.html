@@ -2,11 +2,8 @@
 <html lang="en" data-theme="dark">
 <head>
     <script>
-        (function() {
-            let savedTheme = 'dark';
-            try { savedTheme = localStorage.getItem('rf-theme') || 'dark'; } catch(e) {}
-            document.documentElement.setAttribute('data-theme', savedTheme);
-        })();
+        // Theme forced to match index.html
+        document.documentElement.setAttribute('data-theme', 'dark');
     </script>
 
     <title>Client Success & Reviews | Reach Forever Agency Punjab</title>
@@ -1818,23 +1815,17 @@
         }
 
         function applyTheme(theme, notify) {
-            document.documentElement.setAttribute('data-theme', theme);
-            try { localStorage.setItem('rf-theme', theme); } catch(e) {}
-            updateIcons(theme === 'light');
-            if (notify && window.islandNotify) {
-                window.islandNotify(theme === 'light' ? 'Light Mode ☀️' : 'Dark Mode 🌙');
-            }
+            // Disabled: Theme is permanently dark to match index.html
         }
 
         function toggleTheme() {
-            const cur  = document.documentElement.getAttribute('data-theme') || 'dark';
-            const next = cur === 'light' ? 'dark' : 'light';
-            applyTheme(next, true);
+            if (window.islandNotify) {
+                window.islandNotify('Theme is locked to Premium Dark');
+            }
         }
 
-        let saved = 'dark';
-        try { saved = localStorage.getItem('rf-theme') || 'dark'; } catch(e) {}
-        applyTheme(saved, false);
+        // Apply theme is bypassed
+
 
         function bindToggle(id) {
             const el = document.getElementById(id);

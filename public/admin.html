@@ -89,7 +89,8 @@
 
     <script>
         // THE BRIDGE TO YOUR NODE.JS BACKEND
-        const API_URL = "http://localhost:5000/api/auth";
+        const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+            ? 'http://localhost:5000/api/auth' : 'https://reach-forever.onrender.com/api/auth';
 
         function showError(msg) {
             const errDiv = document.getElementById('errorMsg');
