@@ -316,12 +316,12 @@
     .fca-text { position:relative; z-index:2; }
     .sc-visuals { position:relative; height:580px; perspective:2200px; display:flex; justify-content:center; align-items:center; }
     .sc-visuals::after { content:''; position:absolute; inset:0; background:radial-gradient(circle at center,rgba(212,175,55,.07),transparent 65%); z-index:0; pointer-events:none; transition:.5s; }
-    .macbook-3d { position:absolute; width:82%; max-width:720px; aspect-ratio:16/10; transform-style:preserve-3d; z-index:5; will-change:transform,filter; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease, opacity 0.8s ease; }
+    .macbook-3d { position:absolute; width:82%; max-width:720px; aspect-ratio:16/10; transform-style:preserve-3d; z-index:5; will-change:transform,filter; transform: perspective(1400px) translateZ(0px) scale(1); transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important, filter 0.8s ease !important, opacity 0.8s ease !important; }
     .mac-lid { position:absolute; inset:0; background:#dde0e5; border-radius:18px 18px 0 0; padding:2.2%; transform-style:preserve-3d; box-shadow:inset 0 0 0 2px #b0b3b8; z-index:2; }
     .mac-screen { position:relative; width:100%; height:100%; background:#000; border-radius:6px; border:3px solid #111; overflow:hidden; }
     .mac-base { position:absolute; bottom:-14px; left:-2%; width:104%; height:14px; background:linear-gradient(180deg,#d0d3d8 0%,#a0a3a8 100%); border-radius:0 0 12px 12px; z-index:1; box-shadow:0 18px 36px rgba(0,0,0,.35); }
     .mac-base::after { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:14%; height:5px; background:#a0a3a8; border-radius:0 0 5px 5px; }
-    .iphone-3d { position:absolute; width:26%; max-width:240px; aspect-ratio:9/19.5; right:2%; bottom:0; transform-style:preserve-3d; z-index:8; will-change:transform,filter; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease, opacity 0.8s ease; }
+    .iphone-3d { position:absolute; width:26%; max-width:240px; aspect-ratio:9/19.5; right:2%; bottom:0; transform-style:preserve-3d; z-index:8; will-change:transform,filter; transform: perspective(1400px) translateZ(0px) scale(1); transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important, filter 0.8s ease !important, opacity 0.8s ease !important; }
     .iphone-body { position:absolute; inset:0; background:#111; border-radius:38px; padding:9px; box-shadow:inset 0 0 0 3px #333,inset 0 0 0 7px #d0d3d8,0 30px 60px rgba(0,0,0,.5); }
     .iphone-screen { position:relative; width:100%; height:100%; background:#000; border-radius:30px; overflow:hidden; }
     .iphone-island { position:absolute; top:10px; left:50%; transform:translateX(-50%); width:34%; height:22px; background:#000; border-radius:18px; z-index:10; }
@@ -361,8 +361,8 @@
         .dev-section { padding:4rem 5%; }
         .dev-container { grid-template-columns:1fr; gap:40px; }
         .sc-visuals { height:380px; perspective:1400px; }
-        .macbook-3d { width:88%; transition: transform 0.6s ease, filter 0.6s ease, opacity 0.6s ease; }
-        .iphone-3d { width:32%; right:2%; bottom:0; transition: transform 0.6s ease, filter 0.6s ease, opacity 0.6s ease; }
+        .macbook-3d { width:88%; transition: transform 0.6s ease !important, filter 0.6s ease !important, opacity 0.6s ease !important; }
+        .iphone-3d { width:32%; right:2%; bottom:0; transition: transform 0.6s ease !important, filter 0.6s ease !important, opacity 0.6s ease !important; }
         .device-pushed-back { transform: perspective(1400px) translateZ(-100px) translateX(20px) scale(0.9) !important; }
         /* FIX: No translateX on active tab for mobile — avoids overflow */
         .sc-tab.active { transform:translateX(0); }
@@ -377,9 +377,9 @@
     }
 
     /* ── 15. FORBES FOUNDER SECTION ── */
-    .forbes-founder { padding:5rem 5%; background:var(--rf-bg); position:relative; z-index:6; }
-    .forbes-inner { max-width:1300px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; border:1px solid rgba(212,175,55,.12); border-radius:32px; overflow:hidden; box-shadow:0 60px 120px rgba(0,0,0,.3); }
-    .ff-image-col { position:relative; height: 100%; min-height: 450px; }
+    .forbes-founder { padding:0 5%; min-height:100vh; display:flex; align-items:center; justify-content:center; background:var(--rf-bg); position:relative; z-index:6; }
+    .forbes-inner { width:100%; max-width:1300px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; border:1px solid rgba(212,175,55,.12); border-radius:32px; overflow:hidden; box-shadow:0 60px 120px rgba(0,0,0,.3); height:calc(100vh - 120px); min-height:550px; max-height:800px; }
+    .ff-image-col { position:relative; height:100%; }
     .ff-image-col img { width:100%; height:100%; object-fit:cover; object-position:center 5%; display:block; filter:contrast(1.08) brightness(.92) saturate(.9); }
     .ff-image-overlay { position:absolute; inset:0; background:linear-gradient(170deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.65) 100%); }
     .ff-issue-label { position:absolute; top:36px; left:36px; font-family:'Outfit',sans-serif; font-size:.65rem; font-weight:800; text-transform:uppercase; letter-spacing:4px; color:var(--accent-gold); padding:6px 16px; border:1px solid rgba(212,175,55,.5); border-radius:4px; background:rgba(0,0,0,.4); backdrop-filter:blur(8px); }
@@ -401,7 +401,7 @@
     .ff-stat:last-child { border-right:none; }
     .ff-stat-val { font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:700; color:var(--rf-text); display:block; line-height:1; margin-bottom:6px; }
     .ff-stat-label { font-size:.72rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--rf-muted); font-weight:700; }
-    @media (max-width:1024px) { .forbes-inner { grid-template-columns:1fr; } .ff-image-col { min-height:400px; } .ff-content-col { padding:40px 36px; } }
+    @media (max-width:1024px) { .forbes-inner { grid-template-columns:1fr; height:auto; max-height:none; min-height:auto; } .forbes-founder{ padding:6rem 5%; min-height:auto; } .ff-image-col { min-height:400px; } .ff-content-col { padding:40px 36px; } }
     @media (max-width:768px) {
         .forbes-founder { padding:4rem 4%; }
         .forbes-inner { border-radius:28px; }
@@ -1195,7 +1195,7 @@
   </div>
   <div class="foot-bot">
     <span>© 2025 Reach Forever. All rights reserved.</span>
-    <span>Made by <a href="https://zyrovadigital.online" target="_blank">zyrova digital</a></span>
+    <span>Engineered by <a href="https://evolnix.digital" target="_blank" class="evolnix-brand">Evolnix <i class="ri-flashlight-fill"></i></a></span>
   </div>
 </footer>
 <nav class="mnav">

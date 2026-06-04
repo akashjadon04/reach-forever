@@ -201,6 +201,21 @@
 }
 .foot-bot a:hover { opacity: 0.8; }
 
+.evolnix-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: linear-gradient(135deg, #FF3366, #FF9933);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.3s;
+}
+.evolnix-brand i { color: #FF9933; -webkit-text-fill-color: initial; }
+.evolnix-brand:hover { transform: scale(1.05); }
+
 @media(max-width: 900px) {
     .foot-in { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
@@ -209,5 +224,5 @@
     .foot-bot { flex-direction: column; gap: 15px; text-align: center; }
 }
 @media(max-width: 1024px) {
-    #rfFoot, .site-foot { padding-bottom: 90px !important; }
+    #rfFoot, .site-foot { padding-bottom: 120px !important; }
 }
