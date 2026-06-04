@@ -55,7 +55,7 @@
 .foot-bot a{color:#D4AF37;text-decoration:none;font-weight:700;transition:opacity 0.3s}
 .foot-bot a:hover{opacity:0.8}
 @media(max-width:900px){.foot-in{grid-template-columns:1fr 1fr;gap:40px}}
-@media(max-width:480px){.foot-in{grid-template-columns:1fr}.foot-bot{flex-direction:column;gap:15px;text-align:center}}
+@media(max-width:480px){.foot-in{grid-template-columns:1fr}.foot-bot{flex-direction:column;gap:15px;text-align:center}#rfFoot{padding-bottom:120px}}
 </style>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -376,9 +376,18 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
     </div>
     <div id="heroPhone" class="iphone-click-layer" style="position:relative; overflow:hidden;">
       <div class="phone-notch"></div><div class="phone-badge" style="top:40px;"><i class="ri-play-circle-fill" style="color:#EF4444;font-size:.78rem"></i> Tap to Watch</div>
-      <video id="heroVideoAd" autoplay muted loop playsinline poster="assets/poster_1.webp" preload="metadata" onerror="this.style.display='none'">
-        <source src="assets/video_1.mp4" type="video/mp4">
+      <video id="heroVideoAd" autoplay muted loop playsinline poster="assets/poster_1.webp" preload="none" onerror="this.style.display='none'">
+        <source data-src="assets/video_1.mp4" type="video/mp4">
       </video>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          setTimeout(() => {
+            const v = document.getElementById('heroVideoAd');
+            const s = v.querySelector('source');
+            if(s.dataset.src) { s.src = s.dataset.src; v.load(); v.play().catch(()=>{}); }
+          }, 3500); // Load video after LCP metric is safely captured
+        });
+      </script>
       <div style="position:absolute; bottom:20px; left:15px; z-index:10; background:rgba(0,0,0,0.5); padding:8px 12px; border-radius:12px; backdrop-filter:blur(10px);">
         <div data-cms="hero_iphone_client" style="color:#fff; font-family:var(--sf); font-size:1.1rem; font-weight:700;">Client</div>
         <div data-cms="hero_iphone_caption" style="color:rgba(255,255,255,0.8); font-family:var(--ss); font-size:0.75rem;">Loading results...</div>

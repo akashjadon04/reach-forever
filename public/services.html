@@ -64,7 +64,7 @@
     /* ── 2. RESET & BASE ── */
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family:'Outfit',sans-serif; background:var(--rf-bg); color:var(--rf-text); overflow-x:hidden; cursor:auto; width:100vw; -webkit-font-smoothing:antialiased; }
+    body { font-family:'Outfit',sans-serif; background:var(--rf-bg); color:var(--rf-text); overflow-x:hidden; cursor:auto; width:100%; -webkit-font-smoothing:antialiased; }
     a, button, input, select { cursor:pointer; }
     img { display:block; max-width:100%; }
 
@@ -316,12 +316,12 @@
     .fca-text { position:relative; z-index:2; }
     .sc-visuals { position:relative; height:580px; perspective:2200px; display:flex; justify-content:center; align-items:center; }
     .sc-visuals::after { content:''; position:absolute; inset:0; background:radial-gradient(circle at center,rgba(212,175,55,.07),transparent 65%); z-index:0; pointer-events:none; transition:.5s; }
-    .macbook-3d { position:absolute; width:82%; max-width:720px; aspect-ratio:16/10; transform-style:preserve-3d; z-index:5; will-change:transform,filter; transform: perspective(1400px) translateZ(0px) scale(1); transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important, filter 0.8s ease !important, opacity 0.8s ease !important; }
+    .macbook-3d { position:absolute; width:82%; max-width:720px; aspect-ratio:16/10; transform-style:preserve-3d; z-index:5; transform: perspective(1400px) translateZ(0px) scale(1); transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease, opacity 0.8s ease; }
     .mac-lid { position:absolute; inset:0; background:#dde0e5; border-radius:18px 18px 0 0; padding:2.2%; transform-style:preserve-3d; box-shadow:inset 0 0 0 2px #b0b3b8; z-index:2; }
     .mac-screen { position:relative; width:100%; height:100%; background:#000; border-radius:6px; border:3px solid #111; overflow:hidden; }
     .mac-base { position:absolute; bottom:-14px; left:-2%; width:104%; height:14px; background:linear-gradient(180deg,#d0d3d8 0%,#a0a3a8 100%); border-radius:0 0 12px 12px; z-index:1; box-shadow:0 18px 36px rgba(0,0,0,.35); }
     .mac-base::after { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:14%; height:5px; background:#a0a3a8; border-radius:0 0 5px 5px; }
-    .iphone-3d { position:absolute; width:26%; max-width:240px; aspect-ratio:9/19.5; right:2%; bottom:0; transform-style:preserve-3d; z-index:8; will-change:transform,filter; transform: perspective(1400px) translateZ(0px) scale(1); transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important, filter 0.8s ease !important, opacity 0.8s ease !important; }
+    .iphone-3d { position:absolute; width:26%; max-width:240px; aspect-ratio:9/19.5; right:2%; bottom:0; transform-style:preserve-3d; z-index:8; transform: perspective(1400px) translateZ(0px) scale(1); transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease, opacity 0.8s ease; }
     .iphone-body { position:absolute; inset:0; background:#111; border-radius:38px; padding:9px; box-shadow:inset 0 0 0 3px #333,inset 0 0 0 7px #d0d3d8,0 30px 60px rgba(0,0,0,.5); }
     .iphone-screen { position:relative; width:100%; height:100%; background:#000; border-radius:30px; overflow:hidden; }
     .iphone-island { position:absolute; top:10px; left:50%; transform:translateX(-50%); width:34%; height:22px; background:#000; border-radius:18px; z-index:10; }
@@ -330,16 +330,16 @@
     
     /* Device active state classes for animation */
     .device-in-front {
-        transform: perspective(1400px) translateZ(40px) scale(1) !important;
-        filter: blur(0px) !important;
-        z-index: 15 !important;
-        opacity: 1 !important;
+        transform: perspective(1400px) translateZ(40px) scale(1);
+        filter: blur(0px);
+        z-index: 15;
+        opacity: 1;
     }
     .device-pushed-back {
-        transform: perspective(1400px) translateZ(-150px) translateX(40px) scale(0.85) !important;
-        filter: blur(8px) !important;
-        z-index: 1 !important;
-        opacity: 0.5 !important;
+        transform: perspective(1400px) translateZ(-150px) translateX(40px) scale(0.85);
+        filter: blur(8px);
+        z-index: 1;
+        opacity: 0.5;
     }
 
     .seo-overlay { position:absolute; inset:0; z-index:5; padding:12px; display:none; flex-direction:column; gap:8px; background:#0a0f1a; }
@@ -361,9 +361,9 @@
         .dev-section { padding:4rem 5%; }
         .dev-container { grid-template-columns:1fr; gap:40px; }
         .sc-visuals { height:380px; perspective:1400px; }
-        .macbook-3d { width:88%; transition: transform 0.6s ease !important, filter 0.6s ease !important, opacity 0.6s ease !important; }
-        .iphone-3d { width:32%; right:2%; bottom:0; transition: transform 0.6s ease !important, filter 0.6s ease !important, opacity 0.6s ease !important; }
-        .device-pushed-back { transform: perspective(1400px) translateZ(-100px) translateX(20px) scale(0.9) !important; }
+        .macbook-3d { width:88%; transition: transform 0.6s ease, filter 0.6s ease, opacity 0.6s ease; }
+        .iphone-3d { width:32%; right:2%; bottom:0; transition: transform 0.6s ease, filter 0.6s ease, opacity 0.6s ease; }
+        .device-pushed-back { transform: perspective(1400px) translateZ(-100px) translateX(20px) scale(0.9); }
         /* FIX: No translateX on active tab for mobile — avoids overflow */
         .sc-tab.active { transform:translateX(0); }
     }
@@ -386,14 +386,14 @@
     .ff-nameplate { position:absolute; bottom:0; left:0; right:0; padding:40px 30px 30px; background:linear-gradient(0deg,rgba(0,0,0,.95) 0%,transparent 100%); }
     .ff-nameplate h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.4rem,3.5vw,3.8rem); font-weight:700; color:#FFF; line-height:1; margin-bottom:8px; letter-spacing:-1px; }
     .ff-nameplate-role { font-size:.82rem; font-weight:800; text-transform:uppercase; letter-spacing:3px; color:var(--accent-gold); }
-    .ff-content-col { padding:40px 45px; background:var(--rf-surface); display:flex; flex-direction:column; justify-content:center; gap:0; }
+    .ff-content-col { padding:40px 45px; background:var(--rf-surface); display:flex; flex-direction:column; justify-content:space-between; gap:20px; }
     [data-theme="light"] .ff-content-col { background:#FFF; }
-    .ff-eyebrow { font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:4px; color:var(--accent-gold); margin-bottom:15px; }
-    .ff-headline { font-family:'Cormorant Garamond',serif; font-size:clamp(1.9rem,3vw,3rem); font-weight:700; color:var(--rf-text); line-height:1.1; margin-bottom:20px; letter-spacing:-.5px; }
+    .ff-eyebrow { font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:4px; color:var(--accent-gold); margin-bottom:10px; }
+    .ff-headline { font-family:'Cormorant Garamond',serif; font-size:clamp(1.9rem,3vw,3rem); font-weight:700; color:var(--rf-text); line-height:1.1; margin-bottom:15px; letter-spacing:-.5px; }
     .ff-headline em { color:var(--accent-olive); font-style:italic; }
-    .ff-divider { width:100%; height:1px; background:rgba(212,175,55,.2); margin-bottom:20px; }
-    .ff-bio { font-size:.95rem; color:var(--rf-muted); line-height:1.6; margin-bottom:15px; }
-    .ff-pull-quote { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-style:italic; color:var(--rf-text); line-height:1.4; padding-left:24px; border-left:3px solid var(--accent-gold); margin:15px 0 20px; }
+    .ff-divider { width:100%; height:1px; background:rgba(212,175,55,.2); margin-bottom:15px; }
+    .ff-bio { font-size:.95rem; color:var(--rf-muted); line-height:1.6; margin-bottom:10px; }
+    .ff-pull-quote { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-style:italic; color:var(--rf-text); line-height:1.4; padding-left:24px; border-left:3px solid var(--accent-gold); margin:10px 0; }
     /* Magnetic pull-quote words */
     .pq-word { display:inline-block; }
     .ff-stats { display:flex; gap:0; border:1px solid rgba(212,175,55,.15); border-radius:16px; overflow:hidden; margin-top:10px; }
@@ -936,13 +936,15 @@
                     </div>
                 </div>
                 <div class="ff-content-col">
-                    <p class="ff-eyebrow"><i class="ri-vip-crown-fill" style="color:var(--accent-gold);margin-right:6px;"></i> The Viral Architect</p>
-                    <h2 class="ff-headline decode-h2">Architecting Punjab's Digital <em>Empire.</em></h2>
-                    <div class="ff-divider"></div>
-                    <p class="ff-bio">Ansh Khatri doesn't just run agencies; he builds local empires. With a deep mastery of consumer psychology and aggressive performance marketing, Ansh has scaled Reach Forever into the premier growth partner for high-end local businesses across Punjab.</p>
-                    <!-- Magnetic pull-quote: words get wrapped in JS -->
-                    <blockquote class="ff-pull-quote" id="pullQuote">"If your marketing isn't generating a massive, measurable ROI, it's not marketing — it's charity."</blockquote>
-                    <p class="ff-bio">He engineers every campaign to dominate competitors and flood your calendar with high-value buyers. Every strategy, every rupee of ad spend, every creative asset is built with a single obsessive goal: measurable revenue.</p>
+                    <div>
+                        <p class="ff-eyebrow"><i class="ri-vip-crown-fill" style="color:var(--accent-gold);margin-right:6px;"></i> The Viral Architect</p>
+                        <h2 class="ff-headline decode-h2">Architecting Punjab's Digital <em>Empire.</em></h2>
+                        <div class="ff-divider"></div>
+                        <p class="ff-bio">Ansh Khatri doesn't just run agencies; he builds local empires. With a deep mastery of consumer psychology and aggressive performance marketing, Ansh has scaled Reach Forever into the premier growth partner for high-end local businesses across Punjab.</p>
+                        <!-- Magnetic pull-quote: words get wrapped in JS -->
+                        <blockquote class="ff-pull-quote" id="pullQuote">"If your marketing isn't generating a massive, measurable ROI, it's not marketing — it's charity."</blockquote>
+                        <p class="ff-bio">He engineers every campaign to dominate competitors and flood your calendar with high-value buyers. Every strategy, every rupee of ad spend, every creative asset is built with a single obsessive goal: measurable revenue.</p>
+                    </div>
                     <div class="ff-stats">
                         <div class="ff-stat">
                             <span class="ff-stat-val">₹85L+</span>
