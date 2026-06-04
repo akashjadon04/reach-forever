@@ -208,3 +208,6 @@
     .foot-in { grid-template-columns: 1fr; }
     .foot-bot { flex-direction: column; gap: 15px; text-align: center; }
 }
+@media(max-width: 1024px) {
+    #rfFoot, .site-foot { padding-bottom: 90px !important; }
+}

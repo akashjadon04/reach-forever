@@ -23,6 +23,8 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Service","serviceType":"Digital Marketing & Web Development","provider":{"@type":"MarketingAgency","name":"Reach Forever","image":"https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png","priceRange":"$$"},"areaServed":["Punjab","Jalandhar","Phagwara","Amritsar"]}
     </script>
+    <link rel="preload" href="assets/poster_1.webp" as="image">
+    <link rel="preload" href="assets/img1.webp" as="image">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,30 +40,25 @@
 
     /* ── 1. CSS VARIABLES ── */
     :root {
-        --rf-bg: #0C0A05;
-        --rf-surface: #1A1208;
+        /* Matches index.html exactly */
+        --rf-bg: #0c0a05;
+        --rf-surface: rgba(26,18,8,0.5);
+        --rf-glass: rgba(26,18,8,0.7);
         --rf-text: #F7F4EF;
-        --rf-muted: #9B8E7A;
-        --rf-glass: rgba(12, 10, 5, 0.75);
-        --glass-border: rgba(200, 169, 110, 0.2);
-        --glass-bg: rgba(26, 18, 8, 0.6);
+        --rf-muted: rgba(247,244,239,0.6);
+        --accent-gold: #D4AF37;
         --accent-olive: #556B2F;
-        --accent-gold: #C8A96E;
-        --bg-dark: #070809;
-        --nav-bg: rgba(12, 10, 5, 0.8);
+        --glass-border: rgba(200,169,110,0.15);
+        --nav-bg: rgba(12, 10, 5, 0.95);
     }
     [data-theme="light"] {
-        --rf-bg: #F5F2EC;
-        --rf-surface: #FFFFFF;
-        --rf-text: #0A0B0E;
-        --rf-muted: #6B6C7E;
-        --rf-glass: rgba(255,255,255,0.8);
-        --glass-border: rgba(212,175,55,0.3);
-        --glass-bg: rgba(255,255,255,0.65);
-        --accent-olive: #4A5E28;
-        --accent-gold: #C8A020;
-        --bg-dark: #0A0B0E;
-        --nav-bg: rgba(245,242,236,0.85);
+        --rf-bg: #f7f4ef;
+        --rf-surface: #ffffff;
+        --rf-glass: rgba(255,255,255,0.85);
+        --rf-text: #0c0a05;
+        --rf-muted: #555555;
+        --glass-border: rgba(0,0,0,0.08);
+        --nav-bg: rgba(247,244,239,0.95);
     }
 
     /* ── 2. RESET & BASE ── */
@@ -127,8 +124,8 @@
     #particle-canvas { position:fixed; inset:0; width:100vw; height:100vh; z-index:1; pointer-events:none; opacity:.5; }
 
     /* ── 9. NAVBAR ── */
-    .header-wrap { position:fixed; top:15px; left:0; width:100%; z-index:10000; display:flex; justify-content:center; pointer-events:none; }
-    .navbar { pointer-events:auto; width:92%; max-width:1250px; height:70px; background:var(--nav-bg); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border-radius:100px; border:1px solid rgba(200,169,110,.25); box-shadow:0 0 25px rgba(200,169,110,.15); display:flex; justify-content:space-between; align-items:center; padding:0 10px 0 25px; }
+    .header-wrap { position:fixed; top:0; left:0; width:100%; z-index:10000; display:flex; justify-content:center; pointer-events:none; padding-top:15px; background:linear-gradient(180deg, var(--rf-bg) 0%, rgba(12,10,5,0) 100%); padding-bottom: 20px; }
+    .navbar { pointer-events:auto; width:92%; max-width:1250px; height:70px; background:var(--nav-bg); border-radius:100px; border:1px solid rgba(200,169,110,.25); box-shadow:0 0 25px rgba(200,169,110,.15); display:flex; justify-content:space-between; align-items:center; padding:0 10px 0 25px; }
     .nav-links { display:flex; gap:4px; list-style:none; }
     .nav-pill { padding:10px 22px; border-radius:100px; color:var(--rf-text); font-family:'Outfit',sans-serif; font-size:.9rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; text-decoration:none; transition:color .3s; }
     .nav-pill:hover, .nav-pill.active { color:var(--accent-olive); }
@@ -319,12 +316,12 @@
     .fca-text { position:relative; z-index:2; }
     .sc-visuals { position:relative; height:580px; perspective:2200px; display:flex; justify-content:center; align-items:center; }
     .sc-visuals::after { content:''; position:absolute; inset:0; background:radial-gradient(circle at center,rgba(212,175,55,.07),transparent 65%); z-index:0; pointer-events:none; transition:.5s; }
-    .macbook-3d { position:absolute; width:82%; max-width:720px; aspect-ratio:16/10; transform-style:preserve-3d; z-index:5; will-change:transform,filter; }
+    .macbook-3d { position:absolute; width:82%; max-width:720px; aspect-ratio:16/10; transform-style:preserve-3d; z-index:5; will-change:transform,filter; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease, opacity 0.8s ease; }
     .mac-lid { position:absolute; inset:0; background:#dde0e5; border-radius:18px 18px 0 0; padding:2.2%; transform-style:preserve-3d; box-shadow:inset 0 0 0 2px #b0b3b8; z-index:2; }
     .mac-screen { position:relative; width:100%; height:100%; background:#000; border-radius:6px; border:3px solid #111; overflow:hidden; }
     .mac-base { position:absolute; bottom:-14px; left:-2%; width:104%; height:14px; background:linear-gradient(180deg,#d0d3d8 0%,#a0a3a8 100%); border-radius:0 0 12px 12px; z-index:1; box-shadow:0 18px 36px rgba(0,0,0,.35); }
     .mac-base::after { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:14%; height:5px; background:#a0a3a8; border-radius:0 0 5px 5px; }
-    .iphone-3d { position:absolute; width:26%; max-width:240px; aspect-ratio:9/19.5; right:2%; bottom:0; transform-style:preserve-3d; z-index:8; will-change:transform,filter; }
+    .iphone-3d { position:absolute; width:26%; max-width:240px; aspect-ratio:9/19.5; right:2%; bottom:0; transform-style:preserve-3d; z-index:8; will-change:transform,filter; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease, opacity 0.8s ease; }
     .iphone-body { position:absolute; inset:0; background:#111; border-radius:38px; padding:9px; box-shadow:inset 0 0 0 3px #333,inset 0 0 0 7px #d0d3d8,0 30px 60px rgba(0,0,0,.5); }
     .iphone-screen { position:relative; width:100%; height:100%; background:#000; border-radius:30px; overflow:hidden; }
     .iphone-island { position:absolute; top:10px; left:50%; transform:translateX(-50%); width:34%; height:22px; background:#000; border-radius:18px; z-index:10; }
@@ -380,23 +377,23 @@
     }
 
     /* ── 15. FORBES FOUNDER SECTION ── */
-    .forbes-founder { padding:6rem 5%; background:var(--rf-bg); position:relative; z-index:6; }
-    .forbes-inner { max-width:1400px; margin:0 auto; display:grid; grid-template-columns:1.15fr 1fr; border:1px solid rgba(212,175,55,.12); border-radius:48px; overflow:hidden; box-shadow:0 60px 120px rgba(0,0,0,.3); }
-    .ff-image-col { position:relative; min-height:100%; height: auto; }
-    .ff-image-col img { width:100%; height:100%; object-fit:cover; object-position:center 15%; display:block; filter:contrast(1.08) brightness(.92) saturate(.9); }
+    .forbes-founder { padding:5rem 5%; background:var(--rf-bg); position:relative; z-index:6; }
+    .forbes-inner { max-width:1300px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; border:1px solid rgba(212,175,55,.12); border-radius:32px; overflow:hidden; box-shadow:0 60px 120px rgba(0,0,0,.3); }
+    .ff-image-col { position:relative; height: 100%; min-height: 450px; }
+    .ff-image-col img { width:100%; height:100%; object-fit:cover; object-position:center 5%; display:block; filter:contrast(1.08) brightness(.92) saturate(.9); }
     .ff-image-overlay { position:absolute; inset:0; background:linear-gradient(170deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.65) 100%); }
     .ff-issue-label { position:absolute; top:36px; left:36px; font-family:'Outfit',sans-serif; font-size:.65rem; font-weight:800; text-transform:uppercase; letter-spacing:4px; color:var(--accent-gold); padding:6px 16px; border:1px solid rgba(212,175,55,.5); border-radius:4px; background:rgba(0,0,0,.4); backdrop-filter:blur(8px); }
-    .ff-nameplate { position:absolute; bottom:0; left:0; right:0; padding:50px 40px 40px; background:linear-gradient(0deg,rgba(0,0,0,.95) 0%,transparent 100%); }
-    .ff-nameplate h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.8rem,4vw,4.5rem); font-weight:700; color:#FFF; line-height:1; margin-bottom:8px; letter-spacing:-1px; }
+    .ff-nameplate { position:absolute; bottom:0; left:0; right:0; padding:40px 30px 30px; background:linear-gradient(0deg,rgba(0,0,0,.95) 0%,transparent 100%); }
+    .ff-nameplate h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.4rem,3.5vw,3.8rem); font-weight:700; color:#FFF; line-height:1; margin-bottom:8px; letter-spacing:-1px; }
     .ff-nameplate-role { font-size:.82rem; font-weight:800; text-transform:uppercase; letter-spacing:3px; color:var(--accent-gold); }
-    .ff-content-col { padding:60px 60px; background:var(--rf-surface); display:flex; flex-direction:column; justify-content:center; gap:0; }
+    .ff-content-col { padding:40px 45px; background:var(--rf-surface); display:flex; flex-direction:column; justify-content:center; gap:0; }
     [data-theme="light"] .ff-content-col { background:#FFF; }
-    .ff-eyebrow { font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:4px; color:var(--accent-gold); margin-bottom:20px; }
-    .ff-headline { font-family:'Cormorant Garamond',serif; font-size:clamp(2.2rem,3.5vw,3.8rem); font-weight:700; color:var(--rf-text); line-height:1.1; margin-bottom:28px; letter-spacing:-.5px; }
+    .ff-eyebrow { font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:4px; color:var(--accent-gold); margin-bottom:15px; }
+    .ff-headline { font-family:'Cormorant Garamond',serif; font-size:clamp(1.9rem,3vw,3rem); font-weight:700; color:var(--rf-text); line-height:1.1; margin-bottom:20px; letter-spacing:-.5px; }
     .ff-headline em { color:var(--accent-olive); font-style:italic; }
-    .ff-divider { width:100%; height:1px; background:rgba(212,175,55,.2); margin-bottom:28px; }
-    .ff-bio { font-size:1.05rem; color:var(--rf-muted); line-height:1.75; margin-bottom:20px; }
-    .ff-pull-quote { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-style:italic; color:var(--rf-text); line-height:1.4; padding-left:24px; border-left:3px solid var(--accent-gold); margin:24px 0 30px; }
+    .ff-divider { width:100%; height:1px; background:rgba(212,175,55,.2); margin-bottom:20px; }
+    .ff-bio { font-size:.95rem; color:var(--rf-muted); line-height:1.6; margin-bottom:15px; }
+    .ff-pull-quote { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-style:italic; color:var(--rf-text); line-height:1.4; padding-left:24px; border-left:3px solid var(--accent-gold); margin:15px 0 20px; }
     /* Magnetic pull-quote words */
     .pq-word { display:inline-block; }
     .ff-stats { display:flex; gap:0; border:1px solid rgba(212,175,55,.15); border-radius:16px; overflow:hidden; margin-top:10px; }
@@ -719,8 +716,8 @@
                     </div>
                 </div>
                 <div class="hero-visuals reveal-up">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Marketing Success" class="hero-img-main" data-cms="srv_hero_img_main">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Web Development" class="hero-img-sub" data-cms="srv_hero_img_sub">
+                    <img src="assets/poster_1.webp" alt="Marketing Success" class="hero-img-main" data-cms="srv_hero_img_main">
+                    <img src="assets/img1.webp" alt="Web Development" class="hero-img-sub" data-cms="srv_hero_img_sub">
                     <div class="hero-float-badge">
                         <div class="hfb-icon"><i class="ri-rocket-fill"></i></div>
                         <div class="hfb-text">
