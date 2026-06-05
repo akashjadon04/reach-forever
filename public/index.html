@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- ============================================== -->
+<!-- EVOLNEX MAINTENANCE SHIELD (Secret Bypass Active) -->
+<!-- ============================================== -->
+<script>
+  window.EVOLNEX_MAINTENANCE = true; // Toggle this to false to reveal the site globally
+  if (window.EVOLNEX_MAINTENANCE && new URLSearchParams(window.location.search).get('dev') !== 'evolnex') {
+      document.documentElement.style.display = 'none';
+      const script = document.createElement('script');
+      script.src = 'js/maintenance.js';
+      document.head.appendChild(script);
+  }
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Reach Forever — Punjab's #1 Digital Marketing Agency</title>
