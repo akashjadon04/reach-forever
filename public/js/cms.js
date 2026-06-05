@@ -268,21 +268,26 @@ async function syncZyrovaCMS() {
                 }
             }, 300);
         } else {
-            const heroVid = document.getElementById('heroVideoAd');
-            if (heroVid && !heroVid.src) {
-                const fallbackSrc = document.querySelector('[data-cms="home_iphone_reel"]');
-                if (fallbackSrc && fallbackSrc.src) {
-                    heroVid.src = fallbackSrc.src;
-                    heroVid.play();
+            // Load fallback video after 3.5s to preserve LCP metric
+            setTimeout(() => {
+                const heroVid = document.getElementById('heroVideoAd');
+                if (heroVid) {
+                    const sourceEl = heroVid.querySelector('source');
+                    if (sourceEl && sourceEl.dataset.src && !heroVid.src) {
+                        sourceEl.src = sourceEl.dataset.src;
+                        heroVid.load();
+                        let p = heroVid.play();
+                        if(p !== undefined) p.catch(()=>{});
+                    }
                 }
-            }
+            }, 3500);
         }
 
         // ==========================================
         // SIGNAL PRELOADER TO FINISH AND REVEAL UI
         // ==========================================
         document.querySelectorAll('[data-cms]').forEach(el => el.classList.add('cms-loaded'));
-        if(window.zyrovaPreloader) window.zyrovaPreloader.isDataLoaded = true;
+        if(window.hidePreloader) window.hidePreloader();
 
     } catch (error) {
         console.error("[CMS] ❌ Connection Failed.", error);
