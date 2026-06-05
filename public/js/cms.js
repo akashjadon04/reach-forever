@@ -29,14 +29,14 @@ function optimizeCloudinaryUrl(url, w = 800, h = null, quality = 'auto:good') {
  * Optimizes avatar images specifically (small square crops)
  */
 function optimizeAvatarUrl(url) {
-    return optimizeCloudinaryUrl(url, 120, 120, 'auto:best');
+    return optimizeCloudinaryUrl(url, 80, 80, 'auto:best');
 }
 
 /**
  * Optimizes Instagram/result tile images
  */
 function optimizeGridImageUrl(url) {
-    return optimizeCloudinaryUrl(url, 400, null, 'auto:good');
+    return optimizeCloudinaryUrl(url, 200, null, 'auto:good');
 }
 
 
@@ -121,7 +121,7 @@ async function syncZyrovaCMS() {
                 const heroCaption = document.querySelector('[data-cms="hero_iphone_caption"]');
                 
                 if(heroVid) { 
-                    heroVid.src = newestReel.vid; 
+                    heroVid.src = optimizeCloudinaryVideoUrl(newestReel.vid); 
                     heroVid.load(); 
                     let playPromise = heroVid.play();
                     if (playPromise !== undefined) {
@@ -151,7 +151,7 @@ async function syncZyrovaCMS() {
 
                     const modalHTML = `
                         <div class="rm-slide" id="modal-slide-${index}" style="width: 100%; height: 100vh; scroll-snap-align: start; position: relative; background: #111;">
-                            <video class="rm-video" loop playsinline preload="none" style="width: 100%; height: 100%; object-fit: cover;" src="${reel.vid}"></video>
+                            <video class="rm-video" loop playsinline preload="none" style="width: 100%; height: 100%; object-fit: cover;" src="${optimizeCloudinaryVideoUrl(reel.vid)}"></video>
                             
                             <div style="position: absolute; bottom: 100px; right: 15px; display: flex; flex-direction: column; gap: 25px; z-index: 10; color: #FFF; font-size: 2rem; text-align: center; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">
                                 <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;"><i class="ri-heart-fill" style="color: #FF3B30;"></i><span style="font-size: 0.85rem; font-weight: 600;">${Math.floor(Math.random() * 20) + 5}k</span></div>
