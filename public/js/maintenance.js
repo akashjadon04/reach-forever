@@ -24,27 +24,27 @@
         ":root { --gold: #E5C158; --gold-dark: #A67B27; --bg: #030407; }\n" +
         "* { box-sizing: border-box; }\n" +
         ".noise-overlay { position: fixed; inset: 0; z-index: 999999; pointer-events: none; opacity: 0.04; background-image: url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\"); }\n" +
-        ".maint-wrap { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 99999; background: radial-gradient(circle at 50% 50%, #0a0d14 0%, var(--bg) 100%); overflow: hidden; }\n" +
-        ".marquee-container { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-15deg); width: 200vw; overflow: hidden; z-index: 0; opacity: 0.03; pointer-events: none; }\n" +
+        ".maint-wrap { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 99999; background: radial-gradient(circle at 50% 50%, #151a28 0%, var(--bg) 100%); overflow: hidden; }\n" +
+        ".marquee-container { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-15deg); width: 200vw; overflow: hidden; z-index: 0; opacity: 0.05; pointer-events: none; }\n" +
         ".marquee-track { display: flex; width: max-content; animation: scrollText 40s linear infinite; }\n" +
         ".marquee-text { font-family: 'Space Grotesk', sans-serif; font-size: 15vw; font-weight: 700; color: transparent; -webkit-text-stroke: 2px #FFF; white-space: nowrap; padding: 0 2vw; letter-spacing: -2px; }\n" +
         "@keyframes scrollText { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }\n" +
         ".eclipse-container { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80vw; height: 80vw; max-width: 800px; max-height: 800px; z-index: 1; pointer-events: none; }\n" +
-        ".eclipse-glow { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle, rgba(229,193,88,0.15) 0%, rgba(229,193,88,0) 70%); filter: blur(40px); animation: breathe 8s ease-in-out infinite alternate; }\n" +
-        ".eclipse-ring { position: absolute; inset: 10%; border-radius: 50%; border: 1px solid rgba(229,193,88,0.3); border-top-color: transparent; border-bottom-color: transparent; animation: spin 20s linear infinite; }\n" +
-        ".eclipse-ring-2 { position: absolute; inset: 15%; border-radius: 50%; border: 1px dashed rgba(255,255,255,0.1); animation: spinReverse 30s linear infinite; }\n" +
-        "@keyframes breathe { 0% { transform: scale(0.9); opacity: 0.5; } 100% { transform: scale(1.1); opacity: 1; } }\n" +
+        ".eclipse-glow { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle, rgba(229,193,88,0.25) 0%, rgba(229,193,88,0) 70%); filter: blur(50px); animation: breathe 8s ease-in-out infinite alternate; }\n" +
+        ".eclipse-ring { position: absolute; inset: 10%; border-radius: 50%; border: 2px solid rgba(229,193,88,0.4); border-top-color: transparent; border-bottom-color: transparent; animation: spin 20s linear infinite; }\n" +
+        ".eclipse-ring-2 { position: absolute; inset: 15%; border-radius: 50%; border: 2px dashed rgba(255,255,255,0.2); animation: spinReverse 30s linear infinite; }\n" +
+        "@keyframes breathe { 0% { transform: scale(0.9); opacity: 0.6; } 100% { transform: scale(1.1); opacity: 1; } }\n" +
         "@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }\n" +
         "@keyframes spinReverse { 0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } }\n" +
-        "#maintCanvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; opacity: 0.8; }\n" +
+        "#maintCanvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; opacity: 1; }\n" +
         ".maint-content { position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 0 5%; text-align: center; }\n" +
         ".eyebrow { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 500; color: var(--gold); letter-spacing: 10px; text-transform: uppercase; margin-bottom: 2vh; display: flex; align-items: center; gap: 15px; }\n" +
         ".eyebrow::before, .eyebrow::after { content: ''; width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }\n" +
         ".h1-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; }\n" +
-        ".maint-h1 { font-family: 'Cinzel', serif; font-size: clamp(4rem, 9vw, 10rem); font-weight: 700; color: #FFF; line-height: 0.9; margin: 0; letter-spacing: 2px; text-shadow: 0 20px 40px rgba(0,0,0,0.8); }\n" +
+        ".maint-h1 { font-family: 'Cinzel', serif; font-size: clamp(3.5rem, 8vw, 9rem); font-weight: 700; color: #FFF; line-height: 1; margin: 0; letter-spacing: 2px; text-shadow: 0 20px 40px rgba(0,0,0,0.8); }\n" +
         ".char { display: inline-block; opacity: 0; transform: translateY(50px) rotateX(-40deg); }\n" +
-        ".maint-h1.gold-text { color: transparent; background: linear-gradient(180deg, #FFFFFF 0%, #E5C158 100%); -webkit-background-clip: text; background-clip: text; font-style: italic; font-weight: 600; padding-right: 1vw; }\n" +
-        ".maint-sub { font-family: 'Outfit', sans-serif; font-size: clamp(1.1rem, 1.5vw, 1.5rem); font-weight: 300; color: rgba(255,255,255,0.7); line-height: 1.6; max-width: 800px; margin-top: 4vh; margin-bottom: 6vh; letter-spacing: 1px; }\n" +
+        ".maint-h1.gold-text { color: var(--gold); text-shadow: 0 0 30px rgba(229,193,88,0.6); font-style: italic; font-weight: 600; padding-right: 1vw; }\n" +
+        ".maint-sub { font-family: 'Outfit', sans-serif; font-size: clamp(1.1rem, 1.5vw, 1.5rem); font-weight: 300; color: rgba(255,255,255,0.8); line-height: 1.6; max-width: 800px; margin-top: 4vh; margin-bottom: 6vh; letter-spacing: 1px; }\n" +
         ".evolnex-card-wrap { position: relative; perspective: 1000px; z-index: 20; }\n" +
         ".evolnex-card { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 30px; padding: 25px 40px; background: rgba(20,22,28,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; text-decoration: none; position: relative; overflow: hidden; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(229,193,88,0); transform-style: preserve-3d; }\n" +
         ".card-bg-glow { position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(229,193,88,0.15), transparent 70%); opacity: 0; transition: opacity 0.6s ease; pointer-events: none; }\n" +
@@ -179,8 +179,11 @@
             
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-            ctx.fillStyle = distMouse < 150 ? '#FFF' : 'rgba(229, 193, 88, 0.4)';
+            ctx.fillStyle = distMouse < 150 ? '#FFF' : 'rgba(229, 193, 88, 0.8)';
+            ctx.shadowBlur = distMouse < 150 ? 15 : 8;
+            ctx.shadowColor = 'rgba(229, 193, 88, 0.6)';
             ctx.fill();
+            ctx.shadowBlur = 0;
             
             for (var j = i + 1; j < particles.length; j++) {
                 var p2 = particles[j];
@@ -188,12 +191,12 @@
                 var dy = p.y - p2.y;
                 var dist = Math.sqrt(dx * dx + dy * dy);
                 
-                if (dist < 100) {
+                if (dist < 120) {
                     ctx.beginPath();
                     ctx.moveTo(p.x, p.y);
                     ctx.lineTo(p2.x, p2.y);
-                    ctx.strokeStyle = 'rgba(229, 193, 88, ' + (0.2 - dist/500) + ')';
-                    ctx.lineWidth = 0.5;
+                    ctx.strokeStyle = 'rgba(229, 193, 88, ' + (0.4 - dist/300) + ')';
+                    ctx.lineWidth = 1;
                     ctx.stroke();
                 }
             }
