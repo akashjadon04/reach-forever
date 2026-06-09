@@ -128,12 +128,14 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
 .phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:110px;height:30px;background:#000;border-bottom-left-radius:18px;border-bottom-right-radius:18px;z-index:20;display:flex;justify-content:center;align-items:center}
 .phone-notch::before{content:'';width:12px;height:12px;border-radius:50%;background:#090909;box-shadow:inset 0 0 4px rgba(255,255,255,.1);margin-right:12px}
 .phone-notch::after{content:'';width:40px;height:4px;background:#151515;border-radius:10px}
-#heroPhone{width:270px;height:560px;border:14px solid #000;border-radius:48px;background:#000;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2), inset 0 0 0 4px rgba(0,0,0,1), 0 60px 140px rgba(26,18,8,.4), 0 0 0 1px rgba(216,27,96,.2);cursor:pointer;position:relative;z-index:2;transform:perspective(1200px) rotateY(-14deg) rotateX(4deg);transition:transform .7s cubic-bezier(0.16,1,0.3,1);margin-left:5vw;}
-#heroPhone:hover{transform:perspective(1200px) rotateY(-5deg) rotateX(0deg) scale(1.02)}
-#heroPhone::before{content:'';position:absolute;top:100px;bottom:100px;left:-16px;width:2px;background:#333;border-radius:2px} /* volume buttons mock */
-#heroPhone::after{content:'';position:absolute;top:150px;bottom:250px;right:-16px;width:2px;background:#333;border-radius:2px} /* power button mock */
-#heroPhone video, #heroPhone img {width:100%;height:100%;object-fit:cover;display:block;border-radius:34px}
-#heroPhone .ph-fallback{width:100%;height:100%;object-fit:cover;display:none;border-radius:34px}
+#heroPhoneWrap{width:270px;height:560px;position:relative;z-index:2;margin-left:5vw;perspective:1500px;cursor:pointer;}
+#heroPhoneWrap::before{content:'';position:absolute;top:100px;bottom:100px;left:-4px;width:2px;background:#333;border-radius:2px;z-index:1} /* volume buttons mock */
+#heroPhoneWrap::after{content:'';position:absolute;top:150px;bottom:250px;right:-4px;width:2px;background:#333;border-radius:2px;z-index:1} /* power button mock */
+#heroPhone{width:100%;height:100%;position:relative;transform-style:preserve-3d;transform:rotateY(-14deg) rotateX(4deg);transition:transform .7s cubic-bezier(0.16,1,0.3,1);}
+#heroPhoneWrap:hover #heroPhone{transform:rotateY(-5deg) rotateX(0deg) scale(1.02)}
+.phone-face{position:absolute;inset:0;backface-visibility:hidden;border:14px solid #000;border-radius:48px;background:#000;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2), inset 0 0 0 4px rgba(0,0,0,1), 0 60px 140px rgba(26,18,8,.4), 0 0 0 1px rgba(216,27,96,.2);overflow:hidden;}
+.phone-back{transform:rotateY(180deg);background:#0a0b0e;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.phone-face video, .phone-face img {width:100%;height:100%;object-fit:cover;display:block;border-radius:34px}
 .h-visual{position:relative;display:flex;justify-content:center;align-items:center;z-index:2;opacity:0;transform:translateY(40px)}
 
 
@@ -359,12 +361,24 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
       <div class="fsc-ic" style="background:linear-gradient(135deg,#d81b60,#881337)"><i class="ri-group-fill"></i></div>
       <div><div class="fsc-num">320+</div><div class="fsc-lbl" style="color:#d81b60">Happy Clients</div></div>
     </div>
-    <div id="heroPhone" class="iphone-click-layer" style="position:relative; overflow:hidden;">
-      <div class="phone-notch"></div><div class="phone-badge" style="top:40px;"><i class="ri-play-circle-fill" style="color:#EF4444;font-size:.78rem"></i> Tap to Watch</div>
-      <video id="heroVideoAd" autoplay muted loop playsinline poster="assets/poster_1.webp" preload="auto" onerror="this.style.display='none'"></video>
-      <div style="position:absolute; bottom:20px; left:15px; z-index:10; background:rgba(0,0,0,0.5); padding:8px 12px; border-radius:12px; backdrop-filter:blur(10px);">
-        <div data-cms="hero_iphone_client" style="color:#fff; font-family:var(--sf); font-size:1.1rem; font-weight:700;">Ansh_khatri001</div>
-        <div data-cms="hero_iphone_caption" style="color:rgba(255,255,255,0.8); font-family:var(--ss); font-size:0.75rem;">Best Marketer</div>
+    <div id="heroPhoneWrap" class="iphone-click-layer">
+      <div id="heroPhone">
+        <!-- FRONT -->
+        <div class="phone-face phone-front">
+          <div class="phone-notch"></div><div class="phone-badge" style="top:40px;"><i class="ri-play-circle-fill" style="color:#EF4444;font-size:.78rem"></i> Tap to Watch</div>
+          <video id="heroVideoAd" autoplay muted loop playsinline poster="assets/poster_1.webp" preload="auto" onerror="this.style.display='none'"></video>
+          <div style="position:absolute; bottom:20px; left:15px; z-index:10; background:rgba(0,0,0,0.5); padding:8px 12px; border-radius:12px; backdrop-filter:blur(10px);">
+            <div data-cms="hero_iphone_client" style="color:#fff; font-family:var(--sf); font-size:1.1rem; font-weight:700;">Ansh_khatri001</div>
+            <div data-cms="hero_iphone_caption" style="color:rgba(255,255,255,0.8); font-family:var(--ss); font-size:0.75rem;">Best Marketer</div>
+          </div>
+        </div>
+        <!-- BACK -->
+        <div class="phone-face phone-back">
+          <div style="width:120px; height:120px; border-radius:50%; background:linear-gradient(135deg, #8b5cf6, #ec4899); filter:blur(40px); position:absolute; top:20%; opacity:0.4;"></div>
+          <img src="assets/rf-logo.png" alt="Reach Forever" style="width:100px; height:auto; position:relative; z-index:2; object-fit:contain;">
+          <div style="font-family:var(--sf); font-size:1.4rem; font-weight:700; color:#fff; margin-top:20px; z-index:2;">Reach Forever</div>
+          <div style="font-family:var(--ss); font-size:0.7rem; color:rgba(255,255,255,0.6); z-index:2; text-transform:uppercase; letter-spacing:2px; margin-top:4px;">Digital Agency</div>
+        </div>
       </div>
     </div>
     <div class="fsc fsc-2">
@@ -385,7 +399,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
 <!-- PLATFORM -->
 <section id="platformSec" class="sec" style="padding: 6rem 0;">
   <div class="testi-hdr" style="text-align:center; position:relative; z-index:2; margin-bottom:50px;">
-    <span class="sec-lbl gold" style="color:#b3277b"><i class="ri-global-line"></i> Client results</span>
+    <span class="sec-lbl gold" style="color:#b3277b"><i class="ri-global-line"></i> Proofs, not just promises.</span>
     <h2 class="plat-h2" data-cms="s2_title">Be everywhere<br>your <em>customers look.</em></h2>
     <p class="plat-sub" data-cms="s2_desc" style="margin: 0 auto; max-width:480px; padding-bottom:20px;">We manage your brand across every platform — simultaneously.</p>
   </div>
@@ -825,13 +839,20 @@ window.addEventListener('load',function(){
     });
   });
 
-  // Phone parallax on desktop
+  // Phone 3D Scroll Flip
   const ph=document.getElementById('heroPhone');
-  if(ph&&window.innerWidth>1000){
-    document.addEventListener('mousemove',e=>{
-      const cx=(e.clientX/window.innerWidth-.5)*2;
-      const cy=(e.clientY/window.innerHeight-.5)*2;
-      ph.style.transform='perspective(1000px) rotateY('+(-12+cx*9)+'deg) rotateX('+(2+cy*-5)+'deg)';
+  if(ph && typeof gsap !== 'undefined') {
+    gsap.to(ph, {
+      scrollTrigger: {
+        trigger: '#hero',
+        start: 'top top',
+        end: 'bottom 20%',
+        scrub: 1.2
+      },
+      rotateY: 166,
+      rotateX: 0,
+      scale: 1.15,
+      ease: 'power1.inOut'
     });
   }
 });

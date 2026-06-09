@@ -101,13 +101,43 @@
         panel.setAttribute('inert', '');
     });
 
+    // Heuristic 2B-Brain Engine (0-Lag NLP Simulation)
+    const CORE_BRAIN = [
+        { t: ['price', 'cost', 'pricing', 'how much', 'fee', 'charge'], r: "Our funnels start around $1.5k-$3k depending on the complexity (Meta Ads, Web Dev, SEO). But let's be real—if we build a system that generates $20k/month, the cost is irrelevant. Click 'Start Growing Now' to get a custom quote." },
+        { t: ['seo', 'google', 'rank', 'search', 'organic'], r: "We engineer Google SEO architectures that dominate first-page rankings. We don't just do basic keywords; we build high-authority backlink profiles and technical on-page structures." },
+        { t: ['meta', 'facebook', 'ads', 'instagram', 'lead', 'roas'], r: "Our Meta Ads division is ruthless. We design viral creatives, split-test audiences aggressively, and scale winning campaigns to 5x-10x ROAS." },
+        { t: ['web', 'design', 'development', 'site', 'slow', 'landing page'], r: "A slow website kills conversions. We build ultra-fast, luxury, high-converting architectures using Next.js/React and premium GSAP animations." },
+        { t: ['time', 'how long', 'timeline', 'duration', 'when'], r: "We move fast. Standard onboarding takes 24 hours, and we launch V1 of your growth engine within 7-14 days. You'll see initial traction almost immediately." },
+        { t: ['guarantee', 'refund', 'promise', 'sure', 'risk'], r: "We don't do vague promises. We do Proofs. Check our 'Client Results' section. If we don't hit the agreed KPIs, we work for free until we do." },
+        { t: ['hello', 'hi', 'hey', 'sup', 'morning'], r: "Hey there! Ready to scale your business? What's the biggest bottleneck you're facing right now—Traffic, Leads, or Conversions?" },
+        { t: ['who are you', 'what are you', 'name'], r: "I'm Chloe, the advanced AI architect for Reach Forever. I'm here to analyze your business needs and route you to our growth team." },
+        { t: ['result', 'proof', 'case study', 'portfolio', 'happy'], r: "We've scaled clients from zero to fully booked in weeks. Over 320+ happy clients. Head over to our Reviews page to see the exact numbers." }
+    ];
+
     function handleSend() {
         if (busy || !input.value.trim()) return;
-        const msg = input.value.trim(); input.value = ''; busy = true;
+        const msg = input.value.trim().toLowerCase(); 
+        input.value = ''; busy = true;
         addMsg(msg, false);
-        let reply = KB[KB.length - 1].r;
-        for (const k of KB) { if (k.re.test(msg)) { reply = k.r; break; } }
-        
+
+        // Heuristic Scoring
+        let bestMatch = "I analyze business bottlenecks. To give you the best strategy, I need more context. Click 'Book Consultancy' and let's map out your growth on a call.";
+        let highestScore = 0;
+
+        for (const node of CORE_BRAIN) {
+            let score = 0;
+            for (const token of node.t) {
+                if (msg.includes(token)) score += token.length;
+            }
+            if (score > highestScore) {
+                highestScore = score;
+                bestMatch = node.r;
+            }
+        }
+
+        // Simulate Neural Latency (feels authentic)
+        const latency = Math.min(600 + (bestMatch.length * 12), 2500);
+
         const tid = 'typ' + Date.now();
         const typ = document.createElement('div');
         typ.id = tid;
@@ -122,9 +152,9 @@
         
         setTimeout(() => {
             document.getElementById(tid)?.remove();
-            addMsg(reply, true);
+            addMsg(bestMatch, true);
             busy = false;
-        }, 850);
+        }, latency);
     }
 
     send.addEventListener('click', handleSend);
