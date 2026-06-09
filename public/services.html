@@ -206,11 +206,11 @@
     .hs-section-label p { font-size:1rem; color:var(--rf-muted); }
     .hs-track { display:flex; flex-wrap:nowrap; width:300vw; height:100vh; will-change:transform; }
     .hs-panel { width:100vw; height:100vh; display:flex; align-items:center; justify-content:center; padding:0 5%; flex-shrink:0; position:relative; }
-    .hs-panel-insta { background:linear-gradient(135deg,#0A0B0E 0%,#1a0a1e 50%,#0d0618 100%); }
-    .hs-panel-fb { background:linear-gradient(135deg,#0A0B0E 0%,#080e1a 50%,#060a15 100%); }
-    .hs-panel-seo { background:linear-gradient(135deg,#0A0B0E 0%,#051510 50%,#06120c 100%); }
-    .hs-panel-num { position:absolute; top:50%; right:5%; transform:translateY(-50%); font-family:'Cormorant Garamond',serif; font-size:clamp(8rem,15vw,18rem); font-weight:700; line-height:1; pointer-events:none; user-select:none; opacity:.04; color:#FFF; }
-    .hs-glass-card { width:100%; max-width:1300px; height:75vh; background:rgba(255,255,255,.03); backdrop-filter:blur(30px); -webkit-backdrop-filter:blur(30px); border-radius:40px; border:1px solid rgba(255,255,255,.07); padding:60px 80px; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; position:relative; overflow:hidden; box-shadow:0 60px 120px rgba(0,0,0,.4); }
+    .hs-panel-insta { background:linear-gradient(135deg,#fdfbfb 0%,#fcecf1 50%,#fbf0f6 100%); }
+    .hs-panel-fb { background:linear-gradient(135deg,#fdfbfb 0%,#eff4fc 50%,#ebf0fa 100%); }
+    .hs-panel-seo { background:linear-gradient(135deg,#fdfbfb 0%,#edf7f5 50%,#eaf5f2 100%); }
+    .hs-panel-num { position:absolute; top:50%; right:5%; transform:translateY(-50%); font-family:'Cormorant Garamond',serif; font-size:clamp(8rem,15vw,18rem); font-weight:700; line-height:1; pointer-events:none; user-select:none; opacity:.04; color:var(--rf-text); }
+    .hs-glass-card { width:100%; max-width:1300px; height:75vh; background:rgba(255,255,255,.6); backdrop-filter:blur(30px); -webkit-backdrop-filter:blur(30px); border-radius:40px; border:1px solid rgba(0,0,0,.04); padding:60px 80px; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; position:relative; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.05); }
     .hs-panel-insta .hs-glass-card { border-color:rgba(228,64,95,.25); }
     .hs-panel-fb .hs-glass-card { border-color:rgba(24,119,242,.25); }
     .hs-panel-seo .hs-glass-card { border-color:rgba(20,184,166,.25); }
@@ -223,11 +223,11 @@
     .hs-panel-insta .hs-panel-badge-pill { background:rgba(228,64,95,.12); color:#e0405f; border:1px solid rgba(228,64,95,.3); }
     .hs-panel-fb .hs-panel-badge-pill { background:rgba(24,119,242,.12); color:#4A90D9; border:1px solid rgba(24,119,242,.3); }
     .hs-panel-seo .hs-panel-badge-pill { background:rgba(20,184,166,.12); color:#14B8A6; border:1px solid rgba(20,184,166,.3); }
-    .hs-panel-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,4vw,4.5rem); font-weight:700; line-height:1.05; margin-bottom:18px; color:#FFF; }
-    .hs-panel-desc { font-size:1.1rem; color:rgba(255,255,255,.6); line-height:1.6; margin-bottom:28px; max-width:460px; }
+    .hs-panel-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,4vw,4.5rem); font-weight:700; line-height:1.05; margin-bottom:18px; color:var(--rf-text); }
+    .hs-panel-desc { font-size:1.1rem; color:var(--rf-muted); line-height:1.6; margin-bottom:28px; max-width:460px; }
     .hs-panel-list { list-style:none; display:flex; flex-direction:column; gap:12px; }
-    .hs-panel-list li { display:flex; align-items:center; gap:12px; font-size:1rem; font-weight:600; color:rgba(255,255,255,.85); }
-    .hs-panel-list li i { width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+    .hs-panel-list li { display:flex; align-items:center; gap:12px; font-size:1rem; font-weight:600; color:var(--rf-text); }
+    .hs-panel-list li i { width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; background:rgba(0,0,0,.03); }
     .hs-panel-insta .hs-panel-list li i { background:rgba(228,64,95,.12); color:#e0405f; }
     .hs-panel-fb .hs-panel-list li i { background:rgba(24,119,242,.12); color:#4A90D9; }
     .hs-panel-seo .hs-panel-list li i { background:rgba(20,184,166,.12); color:#14B8A6; }
@@ -652,7 +652,7 @@
 </head>
 <body>\n<nav id="rfNav">
   <a href="index.html" class="nl" id="nl">
-    <img src="assets/rf-logo.png" alt="Reach Forever" id="nlImg" style="height:36px;width:auto;object-fit:cover;object-position:left;filter:none!important">
+    <img src="assets/rf-logo.png" alt="Reach Forever" id="nlImg" style="height:61px;width:auto;object-fit:cover;object-position:left;filter:none!important">
   </a>
   <div class="nlinks">
     <a href="index.html" class="nlink">Home</a>
@@ -1169,7 +1169,7 @@
   <div class="foot-in">
     <div>
       <div class="foot-logo">
-        <img src="assets/rf-logo.png" alt="Reach Forever" style="height:36px;width:auto;object-fit:cover;object-position:left;filter:none!important"
+        <img src="assets/rf-logo.png" alt="Reach Forever" style="height:61px;width:auto;object-fit:cover;object-position:left;filter:none!important"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <div class="foot-logo-fb">Reach Forever</div>
       </div>
