@@ -100,7 +100,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
 .grain::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.02;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/OqR+AAAACHRSTlMAMwA0MwA0M1b5W2oAAAA8SURBVDjLY2AYBaNgFIyCUYAMOBgYGBgYGIAEQwMGwMIAJAyMDBBBEI0MQMJAHKYYCUMwM4qGUYBhAAA02AMBM+6LdAAAAABJRU5ErkJggg==");background-size:100px;background-repeat:repeat;}
 
 /* ── hero ── */
-#hero{background:var(--bg);padding:160px 5% 100px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;min-height:100vh;position:relative;overflow:hidden}
+#hero{background:var(--bg);padding:140px 5% 100px;min-height:95vh;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;position:relative;overflow:hidden}
 .h-orb{position:absolute;border-radius:50%;pointer-events:none;}
 .h-orb1{width:600px;height:600px;top:-200px;right:-80px;background:radial-gradient(circle,rgba(200,169,110,.05) 0%,rgba(200,169,110,0) 70%);}
 .h-orb2{width:380px;height:380px;bottom:-80px;left:-80px;background:radial-gradient(circle,rgba(200,169,110,.03) 0%,rgba(200,169,110,0) 70%);}
@@ -114,7 +114,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
 .h-rot span{display:block;height:1.1em;line-height:1.1em;font-style:italic}
 .h-sub{font-family:var(--ss);font-size:1rem;color:var(--tx3);line-height:1.8;max-width:480px;margin-bottom:38px;border-left:3px solid var(--gold);padding-left:18px}
 .h-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
-.btn-g{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#b3277b,#51307c);color:#FFF;padding:15px 38px;border-radius:100px;font-family:var(--ss);font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;text-decoration:none;box-shadow:0 12px 36px rgba(81,48,124,.38);transition:all .4s var(--ex)}
+.btn-g{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#8b5cf6,#ec4899);color:#FFF;padding:15px 38px;border-radius:100px;font-family:var(--ss);font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;text-decoration:none;box-shadow:0 12px 36px rgba(139,92,246,.38);transition:all .4s var(--ex)}
 .btn-g:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(81,48,124,.55)}
 .btn-o{display:inline-flex;align-items:center;gap:10px;background:rgba(81,48,124,.05);border:1px solid rgba(81,48,124,.3);color:var(--tx);padding:15px 32px;border-radius:100px;font-family:var(--ss);font-size:.9rem;font-weight:700;text-decoration:none;transition:all .3s var(--ex)}
 .btn-o:hover{background:rgba(81,48,124,.15);transform:translateY(-2px)}
@@ -331,7 +331,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
   <div class="h-content" id="hContent">
     <div class="h-tag" data-cms="hero_tag"><span class="h-dot"></span> Punjab's #1 Digital Agency</div>
     <h1 class="h1" id="heroH1">
-      <span class="grad-text">We turn</span><br>
+      We turn<br>
       <span class="h-rot-wrap">
         <span class="h-rot" id="hRot">
           <span class="grad-text">Ad Spend</span>
@@ -340,7 +340,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
           <span class="grad-text">Leads</span>
           <span class="grad-text">Revenue</span>
         </span>
-      </span><br><span class="grad-text">into paying clients.</span>
+      </span><br>into paying clients.
     </h1>
     <p class="h-sub" data-cms="hero_desc">We engineer full-funnel digital systems — Meta Ads, Google SEO, viral reels & high-converting websites — that flood your business with customers on autopilot.</p>
     <div class="h-btns">
@@ -361,7 +361,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
     </div>
     <div id="heroPhone" class="iphone-click-layer" style="position:relative; overflow:hidden;">
       <div class="phone-notch"></div><div class="phone-badge" style="top:40px;"><i class="ri-play-circle-fill" style="color:#EF4444;font-size:.78rem"></i> Tap to Watch</div>
-      <video id="heroVideoAd" autoplay muted loop playsinline poster="assets/poster_1.webp" preload="auto" onerror="this.style.display='none'" src="https://res.cloudinary.com/dwniivgg5/video/upload/w_500,f_auto,q_auto/v1777127365/reachforever_assets/gy7gzdvvqrpycr4tqh08.mp4"></video>
+      <video id="heroVideoAd" autoplay muted loop playsinline poster="assets/poster_1.webp" preload="auto" onerror="this.style.display='none'"></video>
       <div style="position:absolute; bottom:20px; left:15px; z-index:10; background:rgba(0,0,0,0.5); padding:8px 12px; border-radius:12px; backdrop-filter:blur(10px);">
         <div data-cms="hero_iphone_client" style="color:#fff; font-family:var(--sf); font-size:1.1rem; font-weight:700;">Ansh_khatri001</div>
         <div data-cms="hero_iphone_caption" style="color:rgba(255,255,255,0.8); font-family:var(--ss); font-size:0.75rem;">Best Marketer</div>
@@ -385,7 +385,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
 <!-- PLATFORM -->
 <section id="platformSec" class="sec" style="padding: 6rem 0;">
   <div class="testi-hdr" style="text-align:center; position:relative; z-index:2; margin-bottom:50px;">
-    <span class="sec-lbl gold" style="color:#b3277b"><i class="ri-global-line"></i> Real Clients</span>
+    <span class="sec-lbl gold" style="color:#b3277b"><i class="ri-global-line"></i> Client results</span>
     <h2 class="plat-h2" data-cms="s2_title">Be everywhere<br>your <em>customers look.</em></h2>
     <p class="plat-sub" data-cms="s2_desc" style="margin: 0 auto; max-width:480px; padding-bottom:20px;">We manage your brand across every platform — simultaneously.</p>
   </div>
@@ -673,10 +673,6 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
   <div id="fsClose" role="button" tabindex="0" aria-label="Close image viewer"><i class="ri-close-line" aria-hidden="true"></i></div>
   <img id="fsImg" src="" alt="Result image" width="900" height="600">
 </div>
-
-<script>
-// ═══ PLATFORM GRID ═══
-
 
 <script>
 // ═══ CORE ═══
