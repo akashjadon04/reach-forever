@@ -132,7 +132,6 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
 #heroPhoneWrap::before{content:'';position:absolute;top:100px;bottom:100px;left:-4px;width:2px;background:#333;border-radius:2px;z-index:1} /* volume buttons mock */
 #heroPhoneWrap::after{content:'';position:absolute;top:150px;bottom:250px;right:-4px;width:2px;background:#333;border-radius:2px;z-index:1} /* power button mock */
 #heroPhone{width:100%;height:100%;position:relative;transform-style:preserve-3d;transform:rotateY(-14deg) rotateX(4deg);}
-#heroPhoneWrap:hover #heroPhone{transform:rotateY(-5deg) rotateX(0deg) scale(1.02)}
 .phone-face{position:absolute;inset:0;backface-visibility:hidden;border:14px solid #000;border-radius:48px;background:#000;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2), inset 0 0 0 4px rgba(0,0,0,1), 0 60px 140px rgba(26,18,8,.4), 0 0 0 1px rgba(216,27,96,.2);overflow:hidden;}
 .phone-back{transform:rotateY(180deg);background:#0a0b0e;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .phone-face video, .phone-face img {width:100%;height:100%;object-fit:cover;display:block;border-radius:34px}
@@ -399,7 +398,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
 <!-- PLATFORM -->
 <section id="platformSec" class="sec" style="padding: 6rem 0;">
   <div class="testi-hdr" style="text-align:center; position:relative; z-index:2; margin-bottom:50px;">
-    <span class="sec-lbl gold" style="color:#b3277b"><i class="ri-global-line"></i> Proofs, not just promises.</span>
+    <span class="sec-lbl gold" style="color:#b3277b"><i class="ri-global-line"></i> Proof not just clients.</span>
     <h2 class="plat-h2" data-cms="s2_title">Be everywhere<br>your <em>customers look.</em></h2>
     <p class="plat-sub" data-cms="s2_desc" style="margin: 0 auto; max-width:480px; padding-bottom:20px;">We manage your brand across every platform — simultaneously.</p>
   </div>
@@ -433,8 +432,8 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
   <div class="svc-glare"></div>
 </div>
 <div class="svc-card" data-tilt>
-  <div class="svc-glow" style="--gc:236,72,153"></div>
-  <div class="svc-top-line" style="--lc:rgb(236,72,153)"></div>
+  <div class="svc-glow" style="--gc:139,92,246"></div>
+  <div class="svc-top-line" style="--lc:rgb(139,92,246)"></div>
   <div class="svc-icon" style="background:#FFF;color:#ec4899;box-shadow:0 4px 12px rgba(0,0,0,.08)"><i class="ri-macbook-fill"></i></div>
   <div class="svc-title" data-cms="ars_c2_title">Automated Websites</div>
   <div class="svc-desc" data-cms="ars_c2_desc">Lightning-fast, booking-optimised landing pages that convert strangers into paying customers 24/7 — even while you sleep.</div>
@@ -451,8 +450,8 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
   <div class="svc-glare"></div>
 </div>
 <div class="svc-card" data-tilt>
-  <div class="svc-glow" style="--gc:236,72,153"></div>
-  <div class="svc-top-line" style="--lc:rgb(236,72,153)"></div>
+  <div class="svc-glow" style="--gc:139,92,246"></div>
+  <div class="svc-top-line" style="--lc:rgb(139,92,246)"></div>
   <div class="svc-icon" style="background:#FFF;color:#ec4899;box-shadow:0 4px 12px rgba(0,0,0,.08)"><i class="ri-video-fill"></i></div>
   <div class="svc-title" data-cms="ars_c4_title">Viral Reel Production</div>
   <div class="svc-desc" data-cms="ars_c4_desc">We script, shoot, and edit short-form content that captures attention, builds massive authority, and drives organic leads.</div>
@@ -824,18 +823,21 @@ window.addEventListener('load',function(){
     // Phone 3D Scroll Flip
     const ph=document.getElementById('heroPhone');
     if(ph) {
-      gsap.to(ph, {
-        scrollTrigger: {
-          trigger: '#hero',
-          start: 'top top',
-          end: 'bottom 20%',
-          scrub: 1.2
-        },
-        rotationY: 166,
-        rotationX: 0,
-        scale: 1.15,
-        ease: 'power1.inOut'
-      });
+      gsap.fromTo(ph, 
+        { rotationY: -14, rotationX: 4, scale: 1 },
+        {
+          scrollTrigger: {
+            trigger: '#hero',
+            start: 'top top',
+            end: '+=600',
+            scrub: 1
+          },
+          rotationY: 166,
+          rotationX: 0,
+          scale: 1.15,
+          ease: 'none'
+        }
+      );
     }
   }
 

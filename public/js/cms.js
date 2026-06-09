@@ -8,21 +8,7 @@ const API_BASE_URL = "https://reach-forever.onrender.com/api";
  * e.g. a 2.2MB PNG avatar → 5KB WebP
  */
 function optimizeCloudinaryUrl(url, w = 1200, h = null, quality = 'auto:best') {
-    if (!url || !url.includes('res.cloudinary.com')) return url;
-    // Build transform string — c_limit for width-only, c_fill for exact crops
-    const transforms = [`w_${w}`, 'f_webp', `q_${quality}`];
-    if (h) {
-        transforms.push(`h_${h}`, 'c_fill', 'g_face'); // c_fill crops to exact dimensions
-    } else {
-        transforms.push('c_limit'); // c_limit only scales down, preserves aspect ratio
-    }
-    const transformStr = transforms.join(',');
-    // Insert after /upload/
-    return url.replace(/\/upload\/(?:v\d+\/)?/, (match) => {
-        // Already has transforms? Skip
-        if (url.includes('/upload/w_') || url.includes('/upload/f_')) return match;
-        return match.replace('/upload/', `/upload/${transformStr}/`);
-    });
+    return url; // Bypassed to preserve 100% original CMS quality
 }
 
 /**
