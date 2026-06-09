@@ -75,7 +75,7 @@
 [data-theme="light"] .btn-l { background:rgba(0,0,0,0.05); border-color:rgba(0,0,0,0.1); color:var(--tx); }
 [data-theme="light"] .btn-o { background:rgba(200,169,110,0.1); color:var(--tx); }
 [data-theme="light"] .pl-logo { color:var(--goldd); }
-body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidden}
+body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflow-x:hidden}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
 
 /* ── progress ── */
@@ -855,40 +855,22 @@ window.addEventListener('load',function(){
     ScrollTrigger.create({trigger:'#rushSec',start:'top 80%',once:true,onEnter:()=>{
       gsap.fromTo('.rush-h2,.rush-sub,.rush-btns',{opacity:0,y:50},{opacity:1,y:0,duration:.8,stagger:.14,ease:'power4.out'});
     }});
-    // Bulletproof Vanilla JS Scroll Rotation (Bypasses GSAP and Tor limitations)
+    // Bulletproof Vanilla JS Scroll Rotation (Bypasses GSAP and Tor limitations, pure scrollY)
     const ph = document.getElementById('heroPhone');
     if(ph) {
-      const heroSec = document.getElementById('hero');
-      let ticking = false;
-      const onScroll = () => {
-        if(!ticking) {
-          ticking = true;
-          setTimeout(() => {
-            const rect = heroSec.getBoundingClientRect();
-            // Calculate progress based on hero section leaving the viewport
-            let progress = -rect.top / (rect.height * 0.8);
-            if (progress < 0) progress = 0;
-            if (progress > 1) progress = 1;
-            
-            const currentY = -14 + (progress * 180);
-            const currentX = 4 - (progress * 4);
-            const currentScale = 1 + (progress * 0.15);
-            
-            ph.style.transform = `rotateY(${currentY}deg) rotateX(${currentX}deg) scale(${currentScale})`;
-            ticking = false;
-          }, 10); // Minimal throttle without requestAnimationFrame
-        }
-      };
-      
-      const observer = new IntersectionObserver((entries) => {
-        if(entries[0].isIntersecting) {
-          window.addEventListener('scroll', onScroll, { passive: true });
-          onScroll(); // trigger once
-        } else {
-          window.removeEventListener('scroll', onScroll);
-        }
-      });
-      if(heroSec) observer.observe(heroSec);
+      window.addEventListener('scroll', () => {
+        const sy = window.scrollY;
+        // Assume rotation completes over 800px of scrolling
+        let progress = sy / 800;
+        if (progress < 0) progress = 0;
+        if (progress > 1) progress = 1;
+        
+        const currentY = -14 + (progress * 180);
+        const currentX = 4 - (progress * 4);
+        const currentScale = 1 + (progress * 0.15);
+        
+        ph.style.transform = `rotateY(${currentY}deg) rotateX(${currentX}deg) scale(${currentScale})`;
+      }, { passive: true });
     }
   }
 
