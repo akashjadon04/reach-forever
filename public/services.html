@@ -46,6 +46,7 @@
     <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="css/global-ui.css?v=20260609">
 
     <style>
     /* =====================================================================
@@ -54,16 +55,35 @@
 
     /* ── 1. CSS VARIABLES ── */
     :root {
-        --rf-bg: #FFFFFF;
-        --rf-surface: #F8F9FA;
+        --bg:#FFFFFF;--dark:#F8F9FA;--dark2:#F1F3F5;
+        --gold:#b3277b;--gold2:#51307c;--goldd:#032f62;
+        --tx:#032f62;--tx2:#1A202C;--tx3:#4A5568;--txm:#718096;
+        --sf:'Cormorant Garamond',Georgia,serif;
+        --ss:'Outfit',system-ui,sans-serif;
+        --ex:cubic-bezier(0.16,1,0.3,1);
+
+        --rf-bg: var(--bg);
+        --rf-surface: var(--dark);
         --rf-glass: rgba(255, 255, 255, 0.85);
-        --rf-text: #032f62;
-        --rf-muted: #718096;
-        --accent-gold: #b3277b;
-        --accent-olive: #51307c;
+        --rf-text: var(--tx);
+        --rf-muted: var(--txm);
+        --accent-gold: var(--gold);
+        --accent-olive: var(--gold2);
         --glass-border: rgba(179, 39, 123, 0.2);
         --nav-bg: rgba(255, 255, 255, 0.95);
     }
+    
+    /* GLOBAL THEME OVERRIDES */
+    h1, h2, h3, .hero-title, .hs-section-label h2, .hs-panel-title, .dev-header h2, .perf-header h2, .ff-headline {
+        background: linear-gradient(135deg, #8b5cf6, #ec4899) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        color: transparent !important;
+    }
+    .hero-title { font-family:var(--sf); font-size:clamp(3.14rem, 4.5vw, 4.71rem) !important; letter-spacing:-3px; line-height:.95; }
+    .hs-section-label h2, .hs-panel-title, .dev-header h2, .perf-header h2, .ff-headline { font-size:clamp(3.14rem, 5vw, 4.71rem) !important; letter-spacing:-2px; line-height:1; }
+    p, .hero-desc, .hs-panel-desc, .dev-header p, .perf-header p, .ff-bio { font-size:clamp(1.1rem, 1.5vw, 1.57rem) !important; line-height:1.6; color:var(--tx2) !important; }
+
 
     /* ── 2. RESET & BASE ── */
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -720,8 +740,65 @@
                     </div>
                 </div>
                 <div class="hero-visuals reveal-up">
-                    <img src="assets/poster_1.webp" alt="Marketing Success" class="hero-img-main" data-cms="srv_hero_img_main">
-                    <img src="assets/img1.webp" alt="Web Development" class="hero-img-sub" data-cms="srv_hero_img_sub">
+                    <!-- NEW PREMIUM SVG GRAPHIC -->
+                    <svg viewBox="0 0 800 600" width="100%" height="100%" style="position:absolute; right:0; top:0; z-index:2; filter:drop-shadow(0 30px 60px rgba(0,0,0,0.15));" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="svgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#8b5cf6" />
+                                <stop offset="100%" stop-color="#ec4899" />
+                            </linearGradient>
+                            <linearGradient id="svgGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="rgba(139,92,246,0.2)" />
+                                <stop offset="100%" stop-color="rgba(236,72,153,0.2)" />
+                            </linearGradient>
+                            <filter id="svgGlow">
+                                <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        
+                        <!-- Abstract Background Elements -->
+                        <circle cx="400" cy="300" r="250" fill="url(#svgGradLight)" />
+                        <circle cx="400" cy="300" r="180" fill="none" stroke="url(#svgGrad)" stroke-width="2" stroke-dasharray="10 15">
+                            <animateTransform attributeName="transform" type="rotate" from="0 400 300" to="360 400 300" dur="20s" repeatCount="indefinite" />
+                        </circle>
+                        
+                        <!-- Main Dashboard Glass Panel -->
+                        <rect x="150" y="150" width="500" height="320" rx="24" fill="rgba(255,255,255,0.85)" stroke="rgba(236,72,153,0.3)" stroke-width="2" />
+                        
+                        <!-- Dashboard UI Elements -->
+                        <rect x="180" y="180" width="120" height="16" rx="8" fill="rgba(139,92,246,0.1)" />
+                        <rect x="180" y="210" width="80" height="12" rx="6" fill="rgba(139,92,246,0.1)" />
+                        
+                        <!-- Rising Chart Line -->
+                        <path d="M180 400 Q250 380 300 320 T420 280 T520 220 T620 180" fill="none" stroke="url(#svgGrad)" stroke-width="6" stroke-linecap="round" filter="url(#svgGlow)">
+                            <animate attributeName="stroke-dasharray" values="0,1000; 1000,0" dur="3s" fill="freeze" />
+                        </path>
+                        
+                        <!-- Data Nodes -->
+                        <circle cx="300" cy="320" r="8" fill="#fff" stroke="url(#svgGrad)" stroke-width="4" />
+                        <circle cx="420" cy="280" r="8" fill="#fff" stroke="url(#svgGrad)" stroke-width="4" />
+                        <circle cx="520" cy="220" r="8" fill="#fff" stroke="url(#svgGrad)" stroke-width="4" />
+                        <circle cx="620" cy="180" r="8" fill="#fff" stroke="url(#svgGrad)" stroke-width="4">
+                            <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" />
+                        </circle>
+                        
+                        <!-- Floating Tech Elements -->
+                        <g transform="translate(100, 100)">
+                            <rect width="80" height="80" rx="16" fill="#fff" stroke="rgba(236,72,153,0.2)" stroke-width="2" filter="url(#svgGlow)" />
+                            <path d="M40 25 L40 55 M25 40 L55 40" stroke="url(#svgGrad)" stroke-width="4" stroke-linecap="round" />
+                            <animateTransform attributeName="transform" type="translate" values="100,100; 100,80; 100,100" dur="4s" repeatCount="indefinite" />
+                        </g>
+                        
+                        <g transform="translate(620, 350)">
+                            <circle cx="40" cy="40" r="40" fill="#fff" stroke="rgba(139,92,246,0.2)" stroke-width="2" filter="url(#svgGlow)" />
+                            <path d="M30 40 L40 50 L55 30" fill="none" stroke="url(#svgGrad)" stroke-width="4" stroke-linecap="round" />
+                            <animateTransform attributeName="transform" type="translate" values="620,350; 620,370; 620,350" dur="5s" repeatCount="indefinite" />
+                        </g>
+                    </svg>
                     <div class="hero-float-badge">
                         <div class="hfb-icon"><i class="ri-rocket-fill"></i></div>
                         <div class="hfb-text">
