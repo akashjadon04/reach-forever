@@ -239,7 +239,15 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
 .ba-s{text-align:center;padding:28px;border-radius:20px;background:rgba(26,18,8,.04);border:1px solid rgba(26,18,8,.07)}
 .ba-sn{font-family:var(--sf);font-size:2.5rem;font-weight:700;color:var(--goldd);letter-spacing:-1px}
 .ba-sl{font-family:var(--ss);font-size:.79rem;color:var(--tx3);margin-top:4px;font-weight:600}
-@media(max-width:600px){#baSlider{height:320px}.ba-stats{grid-template-columns:1fr;max-width:320px}}
+@media(max-width:600px){
+  #baSlider{height:550px}
+  #baBefore{clip-path:inset(0 0 50% 0)}
+  #baDivider{width:100%;height:2px;left:0;right:0;top:50%;bottom:auto;transform:translateY(-1px);cursor:row-resize}
+  #baDivider::after{content:'\2195'}
+  .ba-lbl.bef{top:20px;left:50%;transform:translateX(-50%);bottom:auto}
+  .ba-lbl.aft{bottom:20px;left:50%;transform:translateX(-50%);top:auto;right:auto}
+  .ba-stats{grid-template-columns:1fr;max-width:320px}
+}
 
 /* ── testimonials ── */
 #testiSec{background:var(--bg);padding:8rem 0;overflow:hidden;position:relative}
@@ -716,12 +724,26 @@ document.addEventListener('DOMContentLoaded',()=>{
   const bd=document.getElementById('baDivider');
   if(bsl&&bb&&bd){
     let drag=false;
-    const mv=x=>{const r=bsl.getBoundingClientRect();const p=Math.min(Math.max((x-r.left)/r.width,.04),.96);bb.style.clipPath='inset(0 '+((1-p)*100)+'% 0 0)';bd.style.transform='translateX('+((p*r.width)-r.width/2)+'px)';};
-    bsl.addEventListener('mousedown',e=>{drag=true;mv(e.clientX);});
-    document.addEventListener('mousemove',e=>{if(drag)mv(e.clientX);});
+    const mv = (e) => {
+      const isMob = window.innerWidth <= 600;
+      const r = bsl.getBoundingClientRect();
+      if(isMob) {
+        const y = e.touches ? e.touches[0].clientY : e.clientY;
+        const p = Math.min(Math.max((y - r.top)/r.height, 0.04), 0.96);
+        bb.style.clipPath = 'inset(0 0 '+((1-p)*100)+'% 0)';
+        bd.style.transform = 'translateY('+((p*r.height)-r.height/2)+'px)';
+      } else {
+        const x = e.touches ? e.touches[0].clientX : e.clientX;
+        const p = Math.min(Math.max((x - r.left)/r.width, 0.04), 0.96);
+        bb.style.clipPath = 'inset(0 '+((1-p)*100)+'% 0 0)';
+        bd.style.transform = 'translateX('+((p*r.width)-r.width/2)+'px)';
+      }
+    };
+    bsl.addEventListener('mousedown',e=>{drag=true;mv(e);});
+    document.addEventListener('mousemove',e=>{if(drag)mv(e);});
     document.addEventListener('mouseup',()=>{drag=false;});
-    bsl.addEventListener('touchstart',e=>{drag=true;mv(e.touches[0].clientX);},{passive:true});
-    document.addEventListener('touchmove',e=>{if(drag)mv(e.touches[0].clientX);},{passive:true});
+    bsl.addEventListener('touchstart',e=>{drag=true;mv(e);},{passive:true});
+    document.addEventListener('touchmove',e=>{if(drag)mv(e);},{passive:true});
     document.addEventListener('touchend',()=>{drag=false;});
   }
 
@@ -816,30 +838,30 @@ window.addEventListener('load',function(){
     ScrollTrigger.create({trigger:'#rushSec',start:'top 80%',once:true,onEnter:()=>{
       gsap.fromTo('.rush-h2,.rush-sub,.rush-btns',{opacity:0,y:50},{opacity:1,y:0,duration:.8,stagger:.14,ease:'power4.out'});
     }});
+  }
 
-    // Phone 3D Scroll Flip (Vanilla JS with requestAnimationFrame to fix lag)
-    const ph = document.getElementById('heroPhone');
-    if(ph) {
-      let ticking = false;
-      window.addEventListener('scroll', () => {
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            const scrollY = window.scrollY;
-            let progress = scrollY / 700;
-            if(progress > 1) progress = 1;
-            if(progress < 0) progress = 0;
-            
-            const currentY = -14 + (progress * 180);
-            const currentX = 4 - (progress * 4);
-            const currentScale = 1 + (progress * 0.15);
-            
-            ph.style.transform = `rotateY(${currentY}deg) rotateX(${currentX}deg) scale(${currentScale})`;
-            ticking = false;
-          });
-          ticking = true;
-        }
-      }, { passive: true });
-    }
+  // Phone 3D Scroll Flip (Vanilla JS for 100% reliability, placed outside GSAP condition)
+  const ph = document.getElementById('heroPhone');
+  if(ph) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const sY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
+          let progress = sY / 700;
+          if(progress > 1) progress = 1;
+          if(progress < 0) progress = 0;
+          
+          const currentY = -14 + (progress * 180);
+          const currentX = 4 - (progress * 4);
+          const currentScale = 1 + (progress * 0.15);
+          
+          ph.style.transform = `rotateY(${currentY}deg) rotateX(${currentX}deg) scale(${currentScale})`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
   }
 
   // 3D tilt service cards
