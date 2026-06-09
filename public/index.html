@@ -374,10 +374,10 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
     
     <!-- 3D Phone Mockup -->
     <div id="heroPhoneWrap" class="iphone-click-layer">
-      <div class="phone-notch"></div>
       <div id="heroPhone">
         <!-- FRONT -->
         <div class="phone-face phone-front">
+          <div class="phone-notch"></div>
           <video id="heroVideoAd" autoplay muted loop playsinline poster="assets/poster_1.webp" preload="auto" onerror="this.style.display='none'"></video>
           <div class="phone-badge" data-cms="hero_iphone_badge">Live Result</div>
           
@@ -855,24 +855,40 @@ window.addEventListener('load',function(){
     ScrollTrigger.create({trigger:'#rushSec',start:'top 80%',once:true,onEnter:()=>{
       gsap.fromTo('.rush-h2,.rush-sub,.rush-btns',{opacity:0,y:50},{opacity:1,y:0,duration:.8,stagger:.14,ease:'power4.out'});
     }});
-    // Phone GSAP ScrollTrigger (Bulletproof for Tor)
+    // Bulletproof Vanilla JS Scroll Rotation (Bypasses GSAP and Tor limitations)
     const ph = document.getElementById('heroPhone');
     if(ph) {
-      gsap.fromTo(ph, 
-        { rotationY: -14, rotationX: 4, scale: 1 },
-        {
-          scrollTrigger: {
-            trigger: '#hero',
-            start: 'top top',
-            end: '+=700',
-            scrub: 1
-          },
-          rotationY: 166,
-          rotationX: 0,
-          scale: 1.15,
-          ease: 'none'
+      const heroSec = document.getElementById('hero');
+      let ticking = false;
+      const onScroll = () => {
+        if(!ticking) {
+          ticking = true;
+          setTimeout(() => {
+            const rect = heroSec.getBoundingClientRect();
+            // Calculate progress based on hero section leaving the viewport
+            let progress = -rect.top / (rect.height * 0.8);
+            if (progress < 0) progress = 0;
+            if (progress > 1) progress = 1;
+            
+            const currentY = -14 + (progress * 180);
+            const currentX = 4 - (progress * 4);
+            const currentScale = 1 + (progress * 0.15);
+            
+            ph.style.transform = `rotateY(${currentY}deg) rotateX(${currentX}deg) scale(${currentScale})`;
+            ticking = false;
+          }, 10); // Minimal throttle without requestAnimationFrame
         }
-      );
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        if(entries[0].isIntersecting) {
+          window.addEventListener('scroll', onScroll, { passive: true });
+          onScroll(); // trigger once
+        } else {
+          window.removeEventListener('scroll', onScroll);
+        }
+      });
+      if(heroSec) observer.observe(heroSec);
     }
   }
 
