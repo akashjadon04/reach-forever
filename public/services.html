@@ -30,6 +30,8 @@
     <meta property="og:url" content="https://reachforever.in/services.html">
     <meta property="og:image" content="https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png">
+    <link rel="icon" type="image/png" href="assets/rf-logo.png">
     <link rel="canonical" href="https://reachforever.in/services.html">
 
     <script type="application/ld+json">
@@ -52,25 +54,15 @@
 
     /* ── 1. CSS VARIABLES ── */
     :root {
-        /* Matches index.html exactly */
-        --rf-bg: #0c0a05;
-        --rf-surface: rgba(26,18,8,0.5);
-        --rf-glass: rgba(26,18,8,0.7);
-        --rf-text: #F7F4EF;
-        --rf-muted: rgba(247,244,239,0.6);
-        --accent-gold: #D4AF37;
-        --accent-olive: #556B2F;
-        --glass-border: rgba(200,169,110,0.15);
-        --nav-bg: rgba(12, 10, 5, 0.95);
-    }
-    [data-theme="light"] {
-        --rf-bg: #f7f4ef;
-        --rf-surface: #ffffff;
-        --rf-glass: rgba(255,255,255,0.85);
-        --rf-text: #0c0a05;
-        --rf-muted: #555555;
-        --glass-border: rgba(0,0,0,0.08);
-        --nav-bg: rgba(247,244,239,0.95);
+        --rf-bg: #FFFFFF;
+        --rf-surface: #F8F9FA;
+        --rf-glass: rgba(255, 255, 255, 0.85);
+        --rf-text: #032f62;
+        --rf-muted: #718096;
+        --accent-gold: #b3277b;
+        --accent-olive: #51307c;
+        --glass-border: rgba(179, 39, 123, 0.2);
+        --nav-bg: rgba(255, 255, 255, 0.95);
     }
 
     /* ── 2. RESET & BASE ── */
@@ -141,8 +133,8 @@
     .nav-links { display:flex; gap:4px; list-style:none; }
     .nav-pill { padding:10px 22px; border-radius:100px; color:var(--rf-text); font-family:'Outfit',sans-serif; font-size:.9rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; text-decoration:none; transition:color .3s; }
     .nav-pill:hover, .nav-pill.active { color:var(--accent-olive); }
-    .btn-olive { background:linear-gradient(135deg,#C8A96E,#A67C00); color:#FFF; padding:12px 26px; border-radius:100px; font-family:'Outfit',sans-serif; font-size:.88rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; text-decoration:none; box-shadow:0 10px 25px rgba(200,169,110,.3); display:inline-block; transition:.3s; border:none; }
-    .btn-olive:hover { transform:translateY(-3px); box-shadow:0 16px 36px rgba(200,169,110,.45); }
+    .btn-olive { background:linear-gradient(135deg,#b3277b,#51307c); color:#FFF; padding:12px 26px; border-radius:100px; font-family:'Outfit',sans-serif; font-size:.88rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; text-decoration:none; box-shadow:0 10px 25px rgba(81,48,124,.3); display:inline-block; transition:.3s; border:none; }
+    .btn-olive:hover { transform:translateY(-3px); box-shadow:0 16px 36px rgba(81,48,124,.45); }
     .magnetic-wrap { display:inline-block; position:relative; }
     .magnetic-inner { display:inline-block; }
     .theme-toggle-btn { width:42px; height:42px; border-radius:50%; background:rgba(255,255,255,.06); border:1px solid rgba(200,169,110,.25); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:.3s; flex-shrink:0; margin-right:8px; }
@@ -660,7 +652,7 @@
 </head>
 <body>\n<nav id="rfNav">
   <a href="index.html" class="nl" id="nl">
-    <img src="assets/logo.png" alt="Reach Forever" id="nlImg" style="height:36px;width:auto;object-fit:contain;filter:none!important">
+    <img src="assets/rf-logo.png" alt="Reach Forever" id="nlImg" style="height:36px;width:46px;object-fit:cover;object-position:left;filter:none!important">
   </a>
   <div class="nlinks">
     <a href="index.html" class="nlink">Home</a>
@@ -1177,7 +1169,7 @@
   <div class="foot-in">
     <div>
       <div class="foot-logo">
-        <img src="assets/logo.png" alt="Reach Forever" style="filter:none!important"
+        <img src="assets/rf-logo.png" alt="Reach Forever" style="height:36px;width:46px;object-fit:cover;object-position:left;filter:none!important"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <div class="foot-logo-fb">Reach Forever</div>
       </div>

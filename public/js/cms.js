@@ -36,7 +36,7 @@ function optimizeAvatarUrl(url) {
  * Optimizes Instagram/result tile images
  */
 function optimizeGridImageUrl(url) {
-    return optimizeCloudinaryUrl(url, 200, null, 'auto:good');
+    return optimizeCloudinaryUrl(url, 800, null, 'auto:good');
 }
 
 /**
@@ -70,6 +70,7 @@ async function syncZyrovaCMS() {
         if (allContent.length === 0) {
             console.log("[CMS] Database empty. Using hardcoded fallback.");
             document.querySelectorAll('[data-cms]').forEach(el => el.classList.add('cms-loaded'));
+            if(window.hidePreloader) window.hidePreloader();
             if(window.zyrovaPreloader) window.zyrovaPreloader.isDataLoaded = true;
             return;
         }
