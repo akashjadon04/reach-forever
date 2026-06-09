@@ -59,7 +59,7 @@
   --tx:#1A1208;--tx2:#333333;--tx3:#555555;--txm:#777777;
 }
 [data-theme="light"] .tc { background:rgba(255,255,255,0.8); border-color:rgba(0,0,0,0.1); box-shadow:0 10px 30px rgba(0,0,0,0.05); }
-[data-theme="light"] .proc-h2, [data-theme="light"] .rush-h2, [data-theme="light"] .proc-num, [data-theme="light"] .proc-title { color:var(--tx); }
+[data-theme="light"] .proc-h2, [data-theme="light"] .rush-h2, [data-theme="light"] .proc-title { color:var(--tx); }
 [data-theme="light"] .ba-lbl { color:#FFF; }
 [data-theme="light"] .proc-spin { border-color:rgba(0,0,0,0.2); }
 [data-theme="light"] .proc-line { background:linear-gradient(90deg,transparent,rgba(0,0,0,.1) 20%,rgba(0,0,0,.1) 80%,transparent); }
@@ -210,7 +210,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
 .proc-step{padding:0 18px;text-align:center;position:relative;z-index:1;transition:transform .5s var(--ex)}
 .proc-step:hover{transform:translateY(-12px)}
 .proc-circle{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 32px;position:relative}
-.proc-num{font-family:var(--sf);font-size:2.2rem;font-weight:700;color:var(--tx);position:relative;z-index:1}
+.proc-num{font-family:var(--sf);font-size:2.2rem;font-weight:700;color:#FFF;position:relative;z-index:1}
 .proc-spin{position:absolute;inset:-5px;border-radius:50%;border:1px dashed var(--lc);animation:spin 20s linear infinite}
 @keyframes spin{100%{transform:rotate(360deg)}}
 .proc-title{font-family:var(--sf);font-size:1.7rem;font-weight:700;color:var(--tx);margin-bottom:12px}
@@ -387,7 +387,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
 <!-- PLATFORM -->
 <section id="platformSec" class="sec" style="padding: 6rem 0;">
   <div class="testi-hdr" style="text-align:center; position:relative; z-index:2; margin-bottom:50px;">
-    <span class="sec-lbl gold" style="color:#b3277b"><i class="ri-global-line"></i> Universal Presence</span>
+    <span class="sec-lbl gold" style="color:#b3277b"><i class="ri-global-line"></i> Real Clients</span>
     <h2 class="plat-h2" data-cms="s2_title">Be everywhere<br>your <em>customers look.</em></h2>
     <p class="plat-sub" data-cms="s2_desc" style="margin: 0 auto; max-width:480px; padding-bottom:20px;">We manage your brand across every platform — simultaneously.</p>
   </div>
@@ -480,7 +480,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
     <div class="proc-line"></div>
     
 <div class="proc-step">
-  <div class="proc-circle" style="background:linear-gradient(135deg,#d81b60,#881337);box-shadow:0 16px 48px rgba(216,27,96,0.4)">
+  <div class="proc-circle" style="background:linear-gradient(135deg,#b3277b,#51307c);box-shadow:0 16px 48px rgba(179,39,123,0.3)">
     <span class="proc-num">01</span>
     <div class="proc-spin"></div>
   </div>
@@ -488,7 +488,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
   <div class="proc-desc">We dissect your market, competitors, and existing digital footprint to uncover hidden revenue opportunities.</div>
 </div>
 <div class="proc-step">
-  <div class="proc-circle" style="background:linear-gradient(135deg,#6450FF,#4F3FCC);box-shadow:0 16px 48px rgba(100,80,255,0.4)">
+  <div class="proc-circle" style="background:linear-gradient(135deg,#b3277b,#51307c);box-shadow:0 16px 48px rgba(179,39,123,0.3)">
     <span class="proc-num">02</span>
     <div class="proc-spin"></div>
   </div>
@@ -496,7 +496,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
   <div class="proc-desc">A bespoke growth blueprint — channels, creatives, funnels — all mapped precisely to your business goals.</div>
 </div>
 <div class="proc-step">
-  <div class="proc-circle" style="background:linear-gradient(135deg,#10B981,#059669);box-shadow:0 16px 48px rgba(16,185,129,0.4)">
+  <div class="proc-circle" style="background:linear-gradient(135deg,#b3277b,#51307c);box-shadow:0 16px 48px rgba(179,39,123,0.3)">
     <span class="proc-num">03</span>
     <div class="proc-spin"></div>
   </div>
@@ -504,7 +504,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
   <div class="proc-desc">We go live within 14 days and relentlessly optimise for maximum ROI across every active channel simultaneously.</div>
 </div>
 <div class="proc-step">
-  <div class="proc-circle" style="background:linear-gradient(135deg,#DB4437,#B91C1C);box-shadow:0 16px 48px rgba(219,68,55,0.4)">
+  <div class="proc-circle" style="background:linear-gradient(135deg,#b3277b,#51307c);box-shadow:0 16px 48px rgba(179,39,123,0.3)">
     <span class="proc-num">04</span>
     <div class="proc-spin"></div>
   </div>
@@ -704,7 +704,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   // Hero rotator
   let ri=0; const rot=document.getElementById('hRot');
-  if(rot) setInterval(()=>{ri=(ri+1)%5;rot.style.transform='translateY(-'+(ri*20)+'%)';},2800);
+  if(rot){ setInterval(()=>{ri=(ri+1)%5; const h=rot.children[0].offsetHeight; rot.style.transform=`translateY(-${ri*h}px)`;}, 2800); }
 
   // B/A slider
   const bsl=document.getElementById('baSlider');
