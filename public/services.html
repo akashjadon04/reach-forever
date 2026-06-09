@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     
 <!-- ============================================== -->
@@ -55,40 +55,52 @@
 
     /* ── 1. CSS VARIABLES ── */
     :root {
-        --bg:#FFFFFF;--dark:#F8F9FA;--dark2:#F1F3F5;
-        --gold:#b3277b;--gold2:#51307c;--goldd:#032f62;
-        --tx:#032f62;--tx2:#1A202C;--tx3:#4A5568;--txm:#718096;
+        --bg:#0A0B0E;--dark:#1A1D24;--dark2:#252A34;
+        --gold:#D4AF37;--gold2:#b3277b;--goldd:#51307c;
+        --tx:#FFFFFF;--tx2:#E2E8F0;--tx3:#CBD5E1;--txm:#94A3B8;
         --sf:'Cormorant Garamond',Georgia,serif;
         --ss:'Outfit',system-ui,sans-serif;
         --ex:cubic-bezier(0.16,1,0.3,1);
 
         --rf-bg: var(--bg);
         --rf-surface: var(--dark);
-        --rf-glass: rgba(255, 255, 255, 0.85);
+        --rf-glass: rgba(10, 11, 14, 0.85);
         --rf-text: var(--tx);
         --rf-muted: var(--txm);
         --accent-gold: var(--gold);
         --accent-olive: var(--gold2);
-        --glass-border: rgba(179, 39, 123, 0.2);
+        --glass-border: rgba(212, 175, 55, 0.2);
+        --nav-bg: rgba(10, 11, 14, 0.95);
+    }
+    
+    [data-theme="light"] {
+        --bg:#F7F4EF;--dark:#FFFFFF;--dark2:#EAEAEA;
+        --tx:#1A1208;--tx2:#333333;--tx3:#555555;--txm:#777777;
+        --rf-bg: var(--bg);
+        --rf-surface: var(--dark);
+        --rf-glass: rgba(255, 255, 255, 0.85);
+        --rf-text: var(--tx);
+        --rf-muted: var(--txm);
+        --glass-border: rgba(0, 0, 0, 0.1);
         --nav-bg: rgba(255, 255, 255, 0.95);
     }
     
-    /* GLOBAL THEME OVERRIDES */
-    h1, h2, h3, .hero-title, .hs-section-label h2, .hs-panel-title, .dev-header h2, .perf-header h2, .ff-headline {
-        background: linear-gradient(135deg, #8b5cf6, #ec4899) !important;
-        -webkit-background-clip: text !important;
-        -webkit-text-fill-color: transparent !important;
-        color: transparent !important;
-    }
-    .hero-title { font-family:var(--sf); font-size:clamp(3.14rem, 4.5vw, 4.71rem) !important; letter-spacing:-3px; line-height:.95; }
-    .hs-section-label h2, .hs-panel-title, .dev-header h2, .perf-header h2, .ff-headline { font-size:clamp(3.14rem, 5vw, 4.71rem) !important; letter-spacing:-2px; line-height:1; }
-    p, .hero-desc, .hs-panel-desc, .dev-header p, .perf-header p, .ff-bio { font-size:clamp(1.1rem, 1.5vw, 1.57rem) !important; line-height:1.6; color:var(--tx2) !important; }
+    [data-theme="light"] .hs-metric-val,
+    [data-theme="light"] .island-text,
+    [data-theme="light"] .wa-float,
+    [data-theme="light"] .hfb-icon,
+    [data-theme="light"] .ff-nameplate h1,
+    [data-theme="light"] .ps-icon,
+    [data-theme="light"] .pf-col h4,
+    [data-theme="light"] .pf-zyrova-link:hover { color: var(--rf-text); }
+    
+    [data-theme="light"] .hs-panel-orb { opacity: 0.1; }
 
 
     /* ── 2. RESET & BASE ── */
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family:'Outfit',sans-serif; background:#FFFFFF !important; color:var(--rf-text); overflow-x:hidden; cursor:auto; width:100%; -webkit-font-smoothing:antialiased; }
+    body { font-family:'Outfit',sans-serif; background:var(--rf-bg); color:var(--rf-text); overflow-x:hidden; cursor:auto; width:100%; -webkit-font-smoothing:antialiased; }
     a, button, input, select { cursor:pointer; }
     img { display:block; max-width:100%; }
 
@@ -179,7 +191,7 @@
     }
 
     /* ── 12. HERO ── */
-    .services-hero { padding:max(80px,8vh) 5% 40px; position:relative; min-height:85vh; display:flex; align-items:center; justify-content:center; background:#FFFFFF !important; z-index:1; overflow:hidden; }
+    .services-hero { padding:max(80px,8vh) 5% 40px; position:relative; min-height:85vh; display:flex; align-items:center; justify-content:center; background:var(--rf-bg); z-index:1; overflow:hidden; }
     .hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; max-width:1500px; width:100%; align-items:center; z-index:2; position:relative; }
     .hero-tag { display:inline-flex; align-items:center; gap:8px; padding:11px 26px; background:var(--rf-surface); border:1px solid var(--glass-border); border-radius:100px; font-size:.88rem; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:var(--accent-olive); margin-bottom:28px; }
     .hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(3rem,5.5vw,6rem); line-height:1.05; margin-bottom:22px; font-weight:700; letter-spacing:-1px; }
@@ -188,11 +200,6 @@
     .hero-visuals { position:relative; width:100%; height:580px; }
     .hero-img-main { position:absolute; width:80%; height:88%; right:0; top:0; border-radius:40px; object-fit:cover; box-shadow:0 40px 80px rgba(0,0,0,.2); border:1px solid rgba(212,175,55,.25); z-index:2; }
     .hero-img-sub { position:absolute; width:58%; height:48%; left:-8%; bottom:5%; border-radius:30px; object-fit:cover; box-shadow:-20px 30px 60px rgba(0,0,0,.25); border:8px solid var(--rf-bg); z-index:3; }
-    .hero-float-badge { position:absolute; top:12%; left:-6%; background:var(--rf-glass); backdrop-filter:blur(20px); border:1px solid var(--accent-gold); padding:18px 28px; border-radius:20px; box-shadow:0 20px 40px rgba(0,0,0,.15); display:flex; align-items:center; gap:14px; z-index:4; animation:floaty 5s ease-in-out infinite alternate; }
-    .hfb-icon { width:48px; height:48px; border-radius:50%; background:var(--accent-olive); color:#FFF; display:flex; justify-content:center; align-items:center; font-size:1.4rem; }
-    .hfb-text h4 { font-size:.82rem; color:var(--rf-muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
-    .hfb-text span { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:700; line-height:1; }
-    @keyframes floaty { 0%{transform:translateY(0)} 100%{transform:translateY(-18px)} }
     .hero-parallax-bg {
         position:absolute; top:50%; left:50%;
         transform:translate(-50%,-50%);
@@ -208,14 +215,12 @@
     @media (max-width:1024px) {
         .hero-grid { grid-template-columns:1fr; gap:40px; }
         .hero-visuals { height:380px; }
-        .hero-float-badge { left:0; top:8%; padding:14px 20px; }
     }
     @media (max-width:768px) {
         .services-hero { padding:max(100px,12vh) 5% 40px; }
         .hero-visuals { height:280px; }
         .hero-img-main { width:90%; height:90%; right:0; }
         .hero-img-sub { width:55%; height:42%; left:-3%; }
-        .hero-float-badge { display:none; }
     }
 
     /* ── 13. HORIZONTAL SCROLL SECTION ── */
@@ -226,9 +231,9 @@
     .hs-section-label p { font-size:1rem; color:var(--rf-muted); }
     .hs-track { display:flex; flex-wrap:nowrap; width:300vw; height:100vh; will-change:transform; }
     .hs-panel { width:100vw; height:100vh; display:flex; align-items:center; justify-content:center; padding:0 5%; flex-shrink:0; position:relative; }
-    .hs-panel-insta { background:linear-gradient(135deg,#fdfbfb 0%,#fcecf1 50%,#fbf0f6 100%); }
-    .hs-panel-fb { background:linear-gradient(135deg,#fdfbfb 0%,#eff4fc 50%,#ebf0fa 100%); }
-    .hs-panel-seo { background:linear-gradient(135deg,#fdfbfb 0%,#edf7f5 50%,#eaf5f2 100%); }
+    .hs-panel-insta { background:var(--rf-bg); }
+    .hs-panel-fb { background:var(--rf-bg); }
+    .hs-panel-seo { background:var(--rf-bg); }
     .hs-panel-num { position:absolute; top:50%; right:5%; transform:translateY(-50%); font-family:'Cormorant Garamond',serif; font-size:clamp(8rem,15vw,18rem); font-weight:700; line-height:1; pointer-events:none; user-select:none; opacity:.04; color:var(--rf-text); }
     .hs-glass-card { width:100%; max-width:1300px; height:75vh; background:rgba(255,255,255,.6); backdrop-filter:blur(30px); -webkit-backdrop-filter:blur(30px); border-radius:40px; border:1px solid rgba(0,0,0,.04); padding:60px 80px; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; position:relative; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.05); }
     .hs-panel-insta .hs-glass-card { border-color:rgba(228,64,95,.25); }
@@ -741,7 +746,7 @@
                 </div>
                 <div class="hero-visuals reveal-up">
                     <!-- MASTERPIECE SVG GRAPHIC: DIGITAL ECOSYSTEM -->
-                    <svg viewBox="0 0 1000 700" width="100%" height="100%" style="position:absolute; right:-5%; top:0; z-index:2; filter:drop-shadow(0 40px 80px rgba(0,0,0,0.1)); transform: scale(1.15); transform-origin: center right;" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 1000 700" width="100%" height="100%" style="position:absolute; right:-5%; top:0; z-index:2; filter:drop-shadow(0 40px 80px rgba(0,0,0,0.1)); transform: scale(1.35); transform-origin: center right;" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" stop-color="#8b5cf6" />
