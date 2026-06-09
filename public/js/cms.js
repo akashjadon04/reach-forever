@@ -7,7 +7,7 @@ const API_BASE_URL = "https://reach-forever.onrender.com/api";
  * This is the PRIMARY performance optimizer — reduces image payloads by 95%+.
  * e.g. a 2.2MB PNG avatar → 5KB WebP
  */
-function optimizeCloudinaryUrl(url, w = 800, h = null, quality = 'auto:good') {
+function optimizeCloudinaryUrl(url, w = 1200, h = null, quality = 'auto:best') {
     if (!url || !url.includes('res.cloudinary.com')) return url;
     // Build transform string — c_limit for width-only, c_fill for exact crops
     const transforms = [`w_${w}`, 'f_webp', `q_${quality}`];
@@ -29,14 +29,14 @@ function optimizeCloudinaryUrl(url, w = 800, h = null, quality = 'auto:good') {
  * Optimizes avatar images specifically (small square crops)
  */
 function optimizeAvatarUrl(url) {
-    return optimizeCloudinaryUrl(url, 80, 80, 'auto:best');
+    return optimizeCloudinaryUrl(url, 150, 150, 'auto:best');
 }
 
 /**
  * Optimizes Instagram/result tile images
  */
 function optimizeGridImageUrl(url) {
-    return optimizeCloudinaryUrl(url, 800, null, 'auto:good');
+    return optimizeCloudinaryUrl(url, 1200, null, 'auto:best');
 }
 
 /**
@@ -97,7 +97,7 @@ async function syncZyrovaCMS() {
                         else if (dbItem.contentType === 'image') {
                             let imgUrl = dbItem.contentValue;
                             if (dbItem.elementId.includes('ba_') || dbItem.elementId.includes('hero') || dbItem.elementId.includes('bg') || dbItem.elementId.includes('founder') || dbItem.elementId.includes('banner')) {
-                                imgUrl = optimizeCloudinaryUrl(dbItem.contentValue, 1200, null, 'auto:good');
+                                imgUrl = optimizeCloudinaryUrl(dbItem.contentValue, 1600, null, 'auto:best');
                             } else if (dbItem.elementId.includes('avatar')) {
                                 imgUrl = optimizeAvatarUrl(dbItem.contentValue);
                             } else {

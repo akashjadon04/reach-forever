@@ -42,42 +42,7 @@
 <!-- Remixicon: deferred -->
 <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"></noscript>
-<!-- global-ui.css inlined to eliminate render-blocking external stylesheet -->
-<style id="global-ui-inline">
-#rfNav{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,0.85);backdrop-filter:blur(25px) saturate(2);-webkit-backdrop-filter:blur(25px) saturate(2);border-bottom:1px solid rgba(179,39,123,0.15);padding:16px 5%;display:flex;align-items:center;justify-content:space-between;z-index:9999990;box-shadow:0 4px 30px rgba(0,0,0,0.05);transition:all 0.4s cubic-bezier(0.4,0,0.2,1)}
-#rfNav.scrolled{background:rgba(255,255,255,0.95);box-shadow:0 10px 40px rgba(0,0,0,0.1);border-bottom:1px solid rgba(179,39,123,0.25);padding:12px 5%}
-.nl img{height:38px;width:auto;filter:none !important;display:block}
-.nlinks{display:flex;align-items:center;gap:10px}
-.nlink{font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:600;color:rgba(3,47,98,0.85);text-decoration:none;padding:8px 18px;border-radius:8px;text-transform:uppercase;letter-spacing:1px;transition:all 0.3s}
-.nlink:hover,.nlink.active{color:#b3277b;background:rgba(179,39,123,0.1)}
-.ncta{font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:700;color:#FFFFFF;background:linear-gradient(135deg,#b3277b,#51307c);text-decoration:none;padding:12px 26px;border-radius:8px;text-transform:uppercase;letter-spacing:1px;box-shadow:0 8px 24px rgba(179,39,123,0.25);transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
-.ncta:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(81,48,124,0.4);background:linear-gradient(135deg,#c73a90,#6a409f)}
-@media(max-width:768px){.nlinks{display:none}#rfNav{padding:12px 5%}}
-.mnav{display:none;position:fixed;bottom:0;left:0;width:100%;background:rgba(255,255,255,0.95);backdrop-filter:blur(25px) saturate(2);-webkit-backdrop-filter:blur(25px) saturate(2);border-top:1px solid rgba(179,39,123,0.15);padding:12px 0 calc(12px + env(safe-area-inset-bottom));z-index:9999930;justify-content:space-around;align-items:center}
-@media(max-width:768px){.mnav{display:flex}}
-.mni{display:flex;flex-direction:column;align-items:center;gap:4px;color:rgba(3,47,98,0.65);font-family:'Outfit',sans-serif;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;text-decoration:none;padding:6px 12px;border-radius:8px;transition:all 0.3s}
-.mni i{font-size:1.35rem}
-.mni:hover,.mni.active{color:#b3277b;background:rgba(179,39,123,0.08)}
-#rfFoot{background:#F8F9FA;border-top:1px solid rgba(179,39,123,0.1);padding:80px 5% 40px}
-.foot-in{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px}
-.foot-logo img{height:42px;filter:none !important;margin-bottom:18px;display:block}
-.foot-desc{font-family:'Outfit',sans-serif;font-size:0.9rem;color:rgba(3,47,98,0.72);line-height:1.8;max-width:280px}
-.foot-col-t{font-family:'Outfit',sans-serif;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#b3277b;margin-bottom:20px}
-.foot-lk{display:block;font-family:'Outfit',sans-serif;font-size:0.9rem;color:rgba(3,47,98,0.72);text-decoration:none;margin-bottom:12px;transition:color 0.3s,transform 0.3s}
-.foot-lk:hover{color:#b3277b;transform:translateX(4px)}
-.foot-bot{max-width:1320px;margin:0 auto;padding-top:30px;border-top:1px solid rgba(179,39,123,0.08);display:flex;justify-content:space-between;align-items:center;font-family:'Outfit',sans-serif;font-size:0.8rem;color:rgba(3,47,98,0.6)}
-.foot-bot a{color:#b3277b;text-decoration:none;font-weight:700;transition:opacity 0.3s}
-.foot-bot a{opacity:0.8}
-.evolnex-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 100px; background: rgba(179,39,123, 0.05); border: 1px solid rgba(179,39,123, 0.2); text-decoration: none; font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 700; color: #51307c; position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); margin-left: 4px; }
-.evolnex-badge::before { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(179,39,123, 0.4), transparent); transform: skewX(-20deg); transition: all 0.6s ease; }
-.evolnex-badge:hover { background: rgba(179,39,123, 0.15); border-color: rgba(179,39,123, 0.5); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 0 15px rgba(179,39,123, 0.2); }
-.evolnex-badge:hover::before { left: 200%; }
-.evolnex-badge span { color: #b3277b; letter-spacing: 0.5px; }
-.evolnex-badge i { font-size: 1rem; color: #D4AF37; transition: transform 0.4s ease; }
-.evolnex-badge:hover i { transform: scale(1.1); color: #FFF; }
-@media(max-width:900px){.foot-in{grid-template-columns:1fr 1fr;gap:40px}}
-@media(max-width:480px){.foot-in{grid-template-columns:1fr}.foot-bot{flex-direction:column;gap:15px;text-align:center}#rfFoot{padding-bottom:120px}}
-</style>
+<link rel="stylesheet" href="css/global-ui.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -258,8 +223,8 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
 .ba-h2{font-family:var(--sf);font-size:clamp(2.5rem,4.5vw,5.2rem);font-weight:700;color:var(--tx);line-height:.98;letter-spacing:-2px;margin-bottom:12px}
 .ba-h2 em{color:var(--gold);font-style:italic}
 #baSlider{position:relative;width:100%;max-width:960px;height:500px;border-radius:32px;overflow:hidden;cursor:col-resize;box-shadow:0 40px 100px rgba(26,18,8,.14);border:1px solid rgba(216,27,96,.2);margin:0 auto;user-select:none;touch-action:pan-y}
-#baAfter{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
-#baBefore{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;clip-path:inset(0 50% 0 0)}
+#baAfter{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none}
+#baBefore{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;clip-path:inset(0 50% 0 0);pointer-events:none}
 #baDivider{position:absolute;top:0;bottom:0;left:50%;z-index:3;width:2px;background:#FFF;cursor:col-resize;transform:translateX(-1px)}
 #baDivider::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;background:#FFF;border-radius:50%;box-shadow:0 4px 20px rgba(0,0,0,.28)}
 #baDivider::after{content:'\2194';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:.6rem;color:var(--tx);letter-spacing:-1px;font-weight:900}
@@ -354,7 +319,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
     <a href="services.html" class="nlink">Services</a>
     <a href="reviews.html" class="nlink">Reviews</a>
   </div>
-  <a href="form.html" class="ncta">Initiate Project</a>
+  <a href="form.html" class="ncta">Book Consultancy</a>
 </nav>
 
 <main id="mainContent">
@@ -365,7 +330,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
   <div class="h-orb h-orb2"></div>
   <div class="h-content" id="hContent">
     <div class="h-tag" data-cms="hero_tag"><span class="h-dot"></span> Punjab's #1 Digital Agency</div>
-    <h1 class="h1" id="heroH1" data-cms="home_hero_text">
+    <h1 class="h1" id="heroH1">
       We turn<br>
       <span class="h-rot-wrap">
         <span class="h-rot" id="hRot">
@@ -559,8 +524,8 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
     <p style="font-family:var(--ss);font-size:1rem;color:var(--tx3);max-width:520px;margin:0 auto;line-height:1.75" data-cms="xray_desc">Drag the slider to see how upgrading your digital presence instantly builds trust.</p>
   </div>
   <div id="baSlider">
-    <img id="baAfter" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="After digital transformation" width="960" height="500" data-cms="ba_img_after" loading="lazy">
-    <img id="baBefore" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Before digital transformation" width="960" height="500" data-cms="ba_img_before" loading="lazy">
+    <img id="baAfter" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="After digital transformation" width="960" height="500" data-cms="ba_img_after" loading="lazy" draggable="false">
+    <img id="baBefore" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Before digital transformation" width="960" height="500" data-cms="ba_img_before" loading="lazy" draggable="false">
     <div id="baDivider"></div>
     <div class="ba-lbl bef">BEFORE</div>
     <div class="ba-lbl aft">AFTER</div>

@@ -126,8 +126,8 @@
 
 /* ── UNIVERSAL FOOTER ── */
 #rfFoot {
-    background: #F8F9FA;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    background: #0A0B0E;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding: 80px 5% 40px;
 }
 
@@ -150,7 +150,7 @@
 .foot-desc {
     font-family: 'Outfit', sans-serif;
     font-size: 0.9rem;
-    color: #4A5568;
+    color: rgba(255, 255, 255, 0.6);
     line-height: 1.8;
     max-width: 280px;
 }
@@ -161,7 +161,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #51307c;
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 20px;
 }
 
@@ -169,14 +169,14 @@
     display: block;
     font-family: 'Outfit', sans-serif;
     font-size: 0.9rem;
-    color: #4A5568;
+    color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
     margin-bottom: 12px;
     transition: color 0.3s, transform 0.3s;
 }
 
 .foot-lk:hover {
-    color: #b3277b;
+    color: #FFF;
     transform: translateX(4px);
 }
 
@@ -184,22 +184,22 @@
     max-width: 1320px;
     margin: 0 auto;
     padding-top: 30px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: 'Outfit', sans-serif;
     font-size: 0.8rem;
-    color: #718096;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .foot-bot a {
-    color: #51307c;
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     font-weight: 700;
     transition: opacity 0.3s;
 }
-.foot-bot a:hover { opacity: 0.8; }
+.foot-bot a:hover { opacity: 1; }
 
 .evolnex-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 100px; background: rgba(81, 48, 124, 0.05); border: 1px solid rgba(81, 48, 124, 0.2); text-decoration: none; font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 700; color: #51307c; position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); margin-left: 4px; }
 .evolnex-badge::before { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(179, 39, 123, 0.4), transparent); transform: skewX(-20deg); transition: all 0.6s ease; }
