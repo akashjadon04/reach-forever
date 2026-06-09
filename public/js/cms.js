@@ -142,11 +142,16 @@ async function syncZyrovaCMS() {
                 const heroCaption = document.querySelector('[data-cms="hero_iphone_caption"]');
                 
                 if(heroVid) { 
-                    heroVid.src = optimizeCloudinaryVideoUrl(newestReel.vid); 
-                    heroVid.load(); 
-                    let playPromise = heroVid.play();
-                    if (playPromise !== undefined) {
-                        playPromise.catch(error => console.log("iPhone Play Blocked by browser until interaction."));
+                    const optimizedUrl = optimizeCloudinaryVideoUrl(newestReel.vid);
+                    // Extract filename to check if it's already playing
+                    const filename = newestReel.vid.split('/').pop().split('.')[0];
+                    if (!heroVid.src.includes(filename)) {
+                        heroVid.src = optimizedUrl; 
+                        heroVid.load(); 
+                        let playPromise = heroVid.play();
+                        if (playPromise !== undefined) {
+                            playPromise.catch(error => console.log("iPhone Play Blocked by browser until interaction."));
+                        }
                     }
                 }
                 if(heroClient) heroClient.innerHTML = newestReel.name || 'Client';

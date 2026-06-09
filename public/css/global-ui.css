@@ -27,8 +27,8 @@
 }
 
 /* ── PI SCALE & GLOBAL GRADIENTS ── */
-.h1, .proc-h2, .rush-h2, .ba-h2, .testi-h2, .plat-h2, .svc-h2, .form-h2, .faq-h2 {
-    background: linear-gradient(135deg, #b3277b, #51307c) !important;
+.proc-h2, .rush-h2, .ba-h2, .testi-h2, .plat-h2, .svc-h2, .form-h2, .faq-h2, .grad-text {
+    background: linear-gradient(135deg, #b3277b, #51307c, #032f62) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     color: transparent !important;
@@ -36,8 +36,8 @@
 .h1 { font-size: clamp(3.14rem, 6.28vw, 6.28rem) !important; }
 .proc-h2, .rush-h2, .ba-h2, .testi-h2, .plat-h2, .svc-h2, .form-h2, .faq-h2 { font-size: clamp(2rem, 3.14vw, 3.14rem) !important; }
 .h2 em, .h1 em, .proc-h2 em, .rush-h2 em, .ba-h2 em, .testi-h2 em, .plat-h2 em, .svc-h2 em {
-    color: transparent !important; /* Let gradient shine through */
-    background: linear-gradient(135deg, #b3277b, #51307c) !important;
+    color: transparent !important;
+    background: linear-gradient(135deg, #b3277b, #51307c, #032f62) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
 }
