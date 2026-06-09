@@ -74,7 +74,6 @@
 [data-theme="light"] .btn-l { background:rgba(0,0,0,0.05); border-color:rgba(0,0,0,0.1); color:var(--tx); }
 [data-theme="light"] .btn-o { background:rgba(200,169,110,0.1); color:var(--tx); }
 [data-theme="light"] .pl-logo { color:var(--goldd); }
-html{scroll-behavior:smooth}
 body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidden}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
 
@@ -132,14 +131,12 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
 .phone-notch::before{content:'';width:12px;height:12px;border-radius:50%;background:#090909;box-shadow:inset 0 0 4px rgba(255,255,255,.1);margin-right:12px}
 .phone-notch::after{content:'';width:40px;height:4px;background:#151515;border-radius:10px}
 #heroPhoneWrap{width:270px;height:560px;position:relative;z-index:2;margin-left:5vw;perspective:1500px;cursor:pointer;}
-#heroPhoneWrap::before{content:'';position:absolute;top:100px;bottom:100px;left:-4px;width:2px;background:#333;border-radius:2px;z-index:1} /* volume buttons mock */
-#heroPhoneWrap::after{content:'';position:absolute;top:150px;bottom:250px;right:-4px;width:2px;background:#333;border-radius:2px;z-index:1} /* power button mock */
 #heroPhone{width:100%;height:100%;position:relative;transform-style:preserve-3d;transform:rotateY(-14deg) rotateX(4deg);}
 .phone-face{position:absolute;inset:0;backface-visibility:hidden;border:14px solid #000;border-radius:48px;background:#000;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2), inset 0 0 0 4px rgba(0,0,0,1), 0 0 0 1px rgba(216,27,96,.2);overflow:hidden;}
-.phone-front{transform:translateZ(6px);box-shadow:0 60px 140px rgba(26,18,8,.4);}
-.phone-back{transform:rotateY(180deg) translateZ(6px);background:#0a0b0e;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.phone-front{transform:translateZ(12px);box-shadow:0 60px 140px rgba(26,18,8,.4);}
+.phone-back{transform:rotateY(180deg) translateZ(12px);background:#0a0b0e;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 /* 3D Sides for thickness */
-#heroPhone::before{content:'';position:absolute;inset:0;background:#111;border-radius:48px;transform:translateZ(0px);box-shadow:inset 0 0 10px rgba(0,0,0,1), 0 0 10px rgba(255,255,255,0.05);}
+#heroPhone::before{content:'';position:absolute;inset:0;background:#222;border-radius:48px;transform:translateZ(0px);box-shadow:inset 0 0 15px rgba(0,0,0,1);}
 .phone-face video, .phone-face img {width:100%;height:100%;object-fit:cover;display:block;border-radius:34px}
 .h-visual{position:relative;display:flex;justify-content:center;align-items:center;z-index:2;opacity:0;transform:translateY(40px)}
 
