@@ -155,9 +155,9 @@
     .island-text { font-family:'Outfit',sans-serif; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:#FFF; }
 
     /* ── 5. AMBIENT GLOW ── */
-    .ambient-glow { position:fixed; border-radius:50%; filter:blur(160px); z-index:0; pointer-events:none; transition:background 3s ease; }
-    .glow-1 { top:-15%; left:-10%; width:55vw; height:55vw; background:rgba(85,107,47,.1); opacity:.6; }
-    .glow-2 { bottom:-15%; right:-10%; width:45vw; height:45vw; background:rgba(212,175,55,.1); opacity:.5; }
+    .ambient-glow { position:fixed; border-radius:50%; z-index:0; pointer-events:none; transition:background 3s ease; }
+    .glow-1 { top:-15%; left:-10%; width:55vw; height:55vw; background:radial-gradient(circle, rgba(85,107,47,.1) 0%, transparent 70%); opacity:.6; }
+    .glow-2 { bottom:-15%; right:-10%; width:45vw; height:45vw; background:radial-gradient(circle, rgba(212,175,55,.1) 0%, transparent 70%); opacity:.5; }
 
     /* ── 6. PRELOADER ── */
     #preloader { position:fixed; inset:0; background:var(--rf-bg); z-index:9999999; display:flex; flex-direction:column; align-items:center; justify-content:center; transition:opacity .6s ease; }
@@ -286,10 +286,10 @@
     .hs-metric { position:relative; z-index:2; background:rgba(255,255,255,.1); backdrop-filter:none; border:1px solid rgba(255,255,255,.1); border-radius:20px; padding:20px 30px; text-align:center; }
     .hs-metric-val { font-family:'Cormorant Garamond',serif; font-size:3.5rem; font-weight:700; line-height:1; color:#FFF; display:block; margin-bottom:4px; }
     .hs-metric-label { font-size:.78rem; text-transform:uppercase; letter-spacing:2px; color:rgba(255,255,255,.5); font-weight:700; }
-    .hs-panel-orb { position:absolute; border-radius:50%; filter:blur(80px); pointer-events:none; opacity:.25; z-index:0; }
-    .hs-panel-insta .hs-panel-orb { width:400px; height:400px; background:#e0405f; top:-100px; right:-100px; }
-    .hs-panel-fb .hs-panel-orb { width:400px; height:400px; background:#1877F2; top:-100px; right:-100px; }
-    .hs-panel-seo .hs-panel-orb { width:400px; height:400px; background:#14B8A6; top:-100px; right:-100px; }
+    .hs-panel-orb { position:absolute; border-radius:50%; pointer-events:none; opacity:.25; z-index:0; }
+    .hs-panel-insta .hs-panel-orb { width:400px; height:400px; background:radial-gradient(circle, #e0405f 0%, transparent 70%); top:-100px; right:-100px; }
+    .hs-panel-fb .hs-panel-orb { width:400px; height:400px; background:radial-gradient(circle, #1877F2 0%, transparent 70%); top:-100px; right:-100px; }
+    .hs-panel-seo .hs-panel-orb { width:400px; height:400px; background:radial-gradient(circle, #14B8A6 0%, transparent 70%); top:-100px; right:-100px; }
     .hs-dots { position:absolute; bottom:30px; left:50%; transform:translateX(-50%); display:flex; gap:10px; z-index:30; pointer-events:none; }
     .hs-dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.2); transition:.4s; }
     .hs-dot.active { width:28px; border-radius:4px; background:var(--accent-gold); }
