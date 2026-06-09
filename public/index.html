@@ -45,7 +45,8 @@
 <!-- Remixicon: deferred -->
 <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"></noscript>
-<link rel="stylesheet" href="css/global-ui.css">
+<link rel="stylesheet" href="css/global-ui.css?v=20260609">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -133,10 +134,9 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
 #heroPhoneWrap{width:270px;height:560px;position:relative;z-index:2;margin-left:5vw;perspective:1500px;cursor:pointer;}
 #heroPhone{width:100%;height:100%;position:relative;transform-style:preserve-3d;transform:rotateY(-14deg) rotateX(4deg);}
 .phone-face{position:absolute;inset:0;backface-visibility:hidden;border:14px solid #000;border-radius:48px;background:#000;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2), inset 0 0 0 4px rgba(0,0,0,1), 0 0 0 1px rgba(216,27,96,.2);overflow:hidden;}
-.phone-front{transform:translateZ(12px);box-shadow:0 60px 140px rgba(26,18,8,.4);}
-.phone-back{transform:rotateY(180deg) translateZ(12px);background:#0a0b0e;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-/* 3D Sides for thickness */
-#heroPhone::before{content:'';position:absolute;inset:0;background:#222;border-radius:48px;transform:translateZ(0px);box-shadow:inset 0 0 15px rgba(0,0,0,1);}
+.phone-mid{border-width:0;box-shadow:none;border-radius:48px;}
+.phone-front{transform:translateZ(14px);box-shadow:0 60px 140px rgba(26,18,8,.4);}
+.phone-back{transform:rotateY(180deg) translateZ(0px);background:#0a0b0e;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .phone-face video, .phone-face img {width:100%;height:100%;object-fit:cover;display:block;border-radius:34px}
 .h-visual{position:relative;display:flex;justify-content:center;align-items:center;z-index:2;opacity:0;transform:translateY(40px)}
 
@@ -371,17 +371,33 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
       <div class="fsc-ic" style="background:linear-gradient(135deg,#d81b60,#881337)"><i class="ri-group-fill"></i></div>
       <div><div class="fsc-num">320+</div><div class="fsc-lbl" style="color:#d81b60">Happy Clients</div></div>
     </div>
+    
+    <!-- 3D Phone Mockup -->
     <div id="heroPhoneWrap" class="iphone-click-layer">
+      <div class="phone-notch"></div>
       <div id="heroPhone">
         <!-- FRONT -->
         <div class="phone-face phone-front">
-          <div class="phone-notch"></div><div class="phone-badge" style="top:40px;"><i class="ri-play-circle-fill" style="color:#EF4444;font-size:.78rem"></i> Tap to Watch</div>
           <video id="heroVideoAd" autoplay muted loop playsinline poster="assets/poster_1.webp" preload="auto" onerror="this.style.display='none'"></video>
-          <div style="position:absolute; bottom:20px; left:15px; z-index:10; background:rgba(0,0,0,0.5); padding:8px 12px; border-radius:12px; backdrop-filter:blur(10px);">
-            <div data-cms="hero_iphone_client" style="color:#fff; font-family:var(--sf); font-size:1.1rem; font-weight:700;">Ansh_khatri001</div>
-            <div data-cms="hero_iphone_caption" style="color:rgba(255,255,255,0.8); font-family:var(--ss); font-size:0.75rem;">Best Marketer</div>
+          <div class="phone-badge" data-cms="hero_iphone_badge">Live Result</div>
+          
+          <div style="position:absolute; bottom:14px; left:14px; right:14px; background:rgba(0,0,0,0.7); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-radius:20px; padding:12px; display:flex; align-items:center; gap:10px;">
+            <div style="width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg, #d81b60, #881337); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <i class="ri-rocket-fill" style="color:#fff; font-size:1.2rem;"></i>
+            </div>
+            <div>
+              <div data-cms="hero_iphone_client" style="color:#fff; font-family:var(--sf); font-size:1.1rem; font-weight:700;">Ansh_khatri001</div>
+              <div data-cms="hero_iphone_caption" style="color:rgba(255,255,255,0.8); font-family:var(--ss); font-size:0.75rem;">Best Marketer</div>
+            </div>
           </div>
         </div>
+        <!-- SIDES (VOXELS) -->
+        <div class="phone-face phone-mid" style="transform:translateZ(12px); background:#000;"></div>
+        <div class="phone-face phone-mid" style="transform:translateZ(10px); background:#050505;"></div>
+        <div class="phone-face phone-mid" style="transform:translateZ(8px); background:#111;"></div>
+        <div class="phone-face phone-mid" style="transform:translateZ(6px); background:#1a1a1a;"></div>
+        <div class="phone-face phone-mid" style="transform:translateZ(4px); background:#222;"></div>
+        <div class="phone-face phone-mid" style="transform:translateZ(2px); background:#2a2a2a;"></div>
         <!-- BACK -->
         <div class="phone-face phone-back">
           <div style="width:120px; height:120px; border-radius:50%; background:linear-gradient(135deg, #8b5cf6, #ec4899); filter:blur(40px); position:absolute; top:20%; opacity:0.4;"></div>
@@ -391,6 +407,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
         </div>
       </div>
     </div>
+    
     <div class="fsc fsc-2">
       <div class="fsc-ic" style="background:linear-gradient(135deg,#10B981,#059669)"><i class="ri-line-chart-fill"></i></div>
       <div><div class="fsc-num">4.8×</div><div class="fsc-lbl" style="color:#10B981">Avg ROAS</div></div>
@@ -838,30 +855,25 @@ window.addEventListener('load',function(){
     ScrollTrigger.create({trigger:'#rushSec',start:'top 80%',once:true,onEnter:()=>{
       gsap.fromTo('.rush-h2,.rush-sub,.rush-btns',{opacity:0,y:50},{opacity:1,y:0,duration:.8,stagger:.14,ease:'power4.out'});
     }});
-  }
-
-  // Phone 3D Scroll Flip (Vanilla JS for 100% reliability, placed outside GSAP condition)
-  const ph = document.getElementById('heroPhone');
-  if(ph) {
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const sY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
-          let progress = sY / 700;
-          if(progress > 1) progress = 1;
-          if(progress < 0) progress = 0;
-          
-          const currentY = -14 + (progress * 180);
-          const currentX = 4 - (progress * 4);
-          const currentScale = 1 + (progress * 0.15);
-          
-          ph.style.transform = `rotateY(${currentY}deg) rotateX(${currentX}deg) scale(${currentScale})`;
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }, { passive: true });
+    // Phone GSAP ScrollTrigger (Bulletproof for Tor)
+    const ph = document.getElementById('heroPhone');
+    if(ph) {
+      gsap.fromTo(ph, 
+        { rotationY: -14, rotationX: 4, scale: 1 },
+        {
+          scrollTrigger: {
+            trigger: '#hero',
+            start: 'top top',
+            end: '+=700',
+            scrub: 1
+          },
+          rotationY: 166,
+          rotationX: 0,
+          scale: 1.15,
+          ease: 'none'
+        }
+      );
+    }
   }
 
   // 3D tilt service cards
