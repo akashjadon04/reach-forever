@@ -39,6 +39,17 @@ function optimizeGridImageUrl(url) {
     return optimizeCloudinaryUrl(url, 200, null, 'auto:good');
 }
 
+/**
+ * Optimizes Cloudinary videos by restricting width and quality
+ */
+function optimizeCloudinaryVideoUrl(url) {
+    if (!url || !url.includes('res.cloudinary.com') || !url.includes('/video/upload/')) return url;
+    return url.replace(/\/video\/upload\/(?:v\d+\/)?/, (match) => {
+        if (url.includes('/upload/w_') || url.includes('/upload/f_')) return match;
+        return match.replace('/upload/', `/upload/w_500,f_auto,q_auto/`);
+    });
+}
+
 
 async function syncZyrovaCMS() {
     let pageName = window.location.pathname.split("/").pop().replace(".html", "");
