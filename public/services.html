@@ -90,9 +90,29 @@
     [data-theme="light"] .wa-float,
     [data-theme="light"] .hfb-icon,
     [data-theme="light"] .ff-nameplate h1,
-    [data-theme="light"] .ps-icon,
-    [data-theme="light"] .pf-col h4,
-    [data-theme="light"] .pf-zyrova-link:hover { color: var(--rf-text); }
+    [data-theme="light"] .wa-float::before, [data-theme="light"] .wa-float::after { border-color: rgba(0,0,0,0.1); }
+    [data-theme="light"] .hs-metric-val { color: var(--rf-text); }
+    
+    [data-theme="light"] .decode-h2 {
+        background: linear-gradient(135deg, #8b5cf6, #ec4899);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    }
+    
+    [data-theme="light"] .dev-header h2 {
+        background: linear-gradient(135deg, #8b5cf6, #ec4899);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    }
+
+    [data-theme="light"] .hs-section-label h2 {
+        background: linear-gradient(135deg, #8b5cf6, #ec4899);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    }
     
     [data-theme="light"] .hs-panel-orb { opacity: 0.1; }
 
@@ -225,10 +245,10 @@
 
     /* ── 13. HORIZONTAL SCROLL SECTION ── */
     .hs-outer { position:relative; background:var(--rf-bg); overflow:hidden; }
-    .hs-section-label { position:absolute; top:0; left:0; width:100%; padding:50px 5% 0; z-index:20; pointer-events:none; text-align:center; }
+    .hs-section-label { position:relative; width:100%; padding:max(100px, 12vh) 5% 40px; z-index:20; text-align:center; }
     .hs-section-label .tag-pill { display:inline-flex; align-items:center; gap:8px; padding:10px 24px; background:rgba(15,8,25,.6); backdrop-filter:blur(12px); border:1px solid rgba(212,175,55,.2); border-radius:100px; font-size:.82rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--accent-gold); margin-bottom:14px; }
-    .hs-section-label h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,4rem); font-weight:700; color:var(--rf-text); line-height:1.1; margin-bottom:8px; }
-    .hs-section-label p { font-size:1rem; color:var(--rf-muted); }
+    .hs-section-label h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,5vw,5rem); font-weight:700; color:var(--rf-text); line-height:1.1; margin-bottom:8px; }
+    .hs-section-label p { font-size:1.1rem; color:var(--rf-muted); }
     .hs-track { display:flex; flex-wrap:nowrap; width:300vw; height:100vh; will-change:transform; }
     .hs-panel { width:100vw; height:100vh; display:flex; align-items:center; justify-content:center; padding:0 5%; flex-shrink:0; position:relative; }
     .hs-panel-insta { background:var(--rf-bg); }
@@ -405,13 +425,15 @@
         .sc-tab h3 { font-size:1.6rem; }
     }
 
-    /* ── 15. FORBES FOUNDER SECTION ── */
-    .forbes-founder { padding:0 5%; min-height:100vh; display:flex; align-items:center; justify-content:center; background:var(--rf-bg); position:relative; z-index:6; }
-    .forbes-inner { width:100%; max-width:1300px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; border:1px solid rgba(212,175,55,.12); border-radius:32px; overflow:hidden; box-shadow:0 60px 120px rgba(0,0,0,.3); height:calc(100vh - 120px); min-height:550px; max-height:800px; }
-    .ff-image-col { position:relative; height:100%; }
-    .ff-image-col img { width:100%; height:100%; object-fit:cover; object-position:center 5%; display:block; filter:contrast(1.08) brightness(.92) saturate(.9); }
-    .ff-image-overlay { position:absolute; inset:0; background:linear-gradient(170deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.65) 100%); }
-    .ff-issue-label { position:absolute; top:36px; left:36px; font-family:'Outfit',sans-serif; font-size:.65rem; font-weight:800; text-transform:uppercase; letter-spacing:4px; color:var(--accent-gold); padding:6px 16px; border:1px solid rgba(212,175,55,.5); border-radius:4px; background:rgba(0,0,0,.4); backdrop-filter:blur(8px); }
+    /* ── 15. FOUNDER SECTION ── */
+    .forbes-founder { background:var(--rf-bg); padding:100px 5%; position:relative; overflow:hidden; }
+    .forbes-founder::before { content:''; position:absolute; top:0; left:50%; width:1px; height:100px; background:linear-gradient(to bottom,transparent,var(--accent-gold),transparent); }
+    .forbes-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:350px 1fr; gap:80px; align-items:center; }
+    .ff-image-col { position:relative; width:100%; aspect-ratio:3/4; border-radius:30px; }
+    .ff-image-col img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:grayscale(20%) contrast(1.1); transition:transform .8s; border-radius:24px; }
+    .ff-image-col:hover img { transform:scale(1.05); filter:grayscale(0%); }
+    .ff-image-overlay { position:absolute; inset:0; background:linear-gradient(to top,var(--rf-bg) 0%,transparent 60%); z-index:3; pointer-events:none; }
+    .ff-issue-label { position:absolute; top:30px; left:0; background:var(--rf-text); color:var(--rf-bg); padding:6px 14px; font-size:.65rem; font-weight:800; text-transform:uppercase; letter-spacing:3px; z-index:4; border-top-right-radius:4px; border-bottom-right-radius:4px; }
     .ff-nameplate { position:absolute; bottom:0; left:0; right:0; padding:40px 30px 30px; background:linear-gradient(0deg,rgba(0,0,0,.95) 0%,transparent 100%); }
     .ff-nameplate h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.4rem,3.5vw,3.8rem); font-weight:700; color:#FFF; line-height:1; margin-bottom:8px; letter-spacing:-1px; }
     .ff-nameplate-role { font-size:.82rem; font-weight:800; text-transform:uppercase; letter-spacing:3px; color:var(--accent-gold); }
@@ -914,7 +936,26 @@
                         </div>
                         <div class="hs-visual-col">
                             <div class="hs-panel-visual">
-                                <i class="ri-instagram-fill hpv-icon-big"></i>
+                                <svg width="180" height="180" viewBox="0 0 200 200" style="margin-bottom:20px; filter:drop-shadow(0 20px 30px rgba(228,64,95,0.4))">
+                                    <defs>
+                                        <linearGradient id="igGrad" x1="0" y1="1" x2="1" y2="0">
+                                            <stop offset="0%" stop-color="#fd5949" />
+                                            <stop offset="50%" stop-color="#d6249f" />
+                                            <stop offset="100%" stop-color="#285AEB" />
+                                        </linearGradient>
+                                        <style>
+                                            @keyframes igDraw { to { stroke-dashoffset:0; opacity:1; } }
+                                            @keyframes igPulse { 0% { r:50; opacity:0.8; } 100% { r:70; opacity:0; } }
+                                            @keyframes igFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+                                        </style>
+                                    </defs>
+                                    <g style="animation: igFloat 4s ease-in-out infinite;">
+                                        <rect x="30" y="30" width="140" height="140" rx="35" fill="none" stroke="url(#igGrad)" stroke-width="12" stroke-dasharray="600" stroke-dashoffset="600" style="animation: igDraw 2s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.5s;" />
+                                        <circle cx="100" cy="100" r="35" fill="none" stroke="url(#igGrad)" stroke-width="12" stroke-dasharray="250" stroke-dashoffset="250" style="animation: igDraw 2s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.8s;" />
+                                        <circle cx="145" cy="55" r="8" fill="url(#igGrad)" opacity="0" style="animation: igDraw 0.5s forwards 1.2s;" />
+                                        <circle cx="100" cy="100" r="50" fill="url(#igGrad)" style="animation: igPulse 2s infinite ease-out 1s;" opacity="0" />
+                                    </g>
+                                </svg>
                                 <div class="hs-metric">
                                     <span class="hs-metric-val">380%</span>
                                     <span class="hs-metric-label">Average Profile Growth</span>
@@ -943,7 +984,26 @@
                         </div>
                         <div class="hs-visual-col">
                             <div class="hs-panel-visual">
-                                <i class="ri-facebook-circle-fill hpv-icon-big"></i>
+                                <svg width="180" height="180" viewBox="0 0 200 200" style="margin-bottom:20px; filter:drop-shadow(0 20px 30px rgba(24,119,242,0.4))">
+                                    <defs>
+                                        <linearGradient id="fbGrad" x1="0" y1="0" x2="1" y2="1">
+                                            <stop offset="0%" stop-color="#1877F2" />
+                                            <stop offset="100%" stop-color="#0d5fc7" />
+                                        </linearGradient>
+                                        <style>
+                                            @keyframes fbDraw { to { stroke-dashoffset:0; } }
+                                            @keyframes fbTarget { 0% { transform: scale(0.8); opacity:0; } 50% { opacity:1; } 100% { transform: scale(1.2); opacity:0; } }
+                                        </style>
+                                    </defs>
+                                    <circle cx="100" cy="100" r="80" fill="none" stroke="#1877F2" stroke-width="2" stroke-dasharray="505" stroke-dashoffset="505" style="animation: fbDraw 2s forwards;" />
+                                    <circle cx="100" cy="100" r="50" fill="none" stroke="#1877F2" stroke-width="2" stroke-dasharray="4 8" stroke-dashoffset="300" style="animation: fbDraw 2s forwards 0.3s;" />
+                                    <circle cx="100" cy="100" r="20" fill="url(#fbGrad)" />
+                                    <path d="M100 0 L100 20 M100 180 L100 200 M0 100 L20 100 M180 100 L200 100" stroke="#1877F2" stroke-width="4" stroke-dasharray="20" stroke-dashoffset="20" style="animation: fbDraw 1s forwards 0.6s;" />
+                                    <circle cx="100" cy="100" r="20" fill="none" stroke="#1877F2" stroke-width="2" style="animation: fbTarget 2s infinite;" />
+                                    <circle cx="60" cy="60" r="8" fill="url(#fbGrad)" opacity="0" style="animation: igDraw 0.5s forwards 1s;" />
+                                    <circle cx="140" cy="130" r="10" fill="url(#fbGrad)" opacity="0" style="animation: igDraw 0.5s forwards 1.2s;" />
+                                    <circle cx="150" cy="60" r="6" fill="url(#fbGrad)" opacity="0" style="animation: igDraw 0.5s forwards 1.4s;" />
+                                </svg>
                                 <div class="hs-metric">
                                     <span class="hs-metric-val">4.8x</span>
                                     <span class="hs-metric-label">Average Ad ROAS</span>
@@ -972,10 +1032,30 @@
                         </div>
                         <div class="hs-visual-col">
                             <div class="hs-panel-visual">
-                                <i class="ri-search-eye-line hpv-icon-big"></i>
+                                <svg width="180" height="180" viewBox="0 0 200 200" style="margin-bottom:20px; filter:drop-shadow(0 20px 30px rgba(20,184,166,0.4))">
+                                    <defs>
+                                        <linearGradient id="seoGrad" x1="0" y1="1" x2="0" y2="0">
+                                            <stop offset="0%" stop-color="rgba(20,184,166,0)" />
+                                            <stop offset="100%" stop-color="rgba(20,184,166,0.6)" />
+                                        </linearGradient>
+                                        <style>
+                                            @keyframes seoPath { to { stroke-dashoffset:0; } }
+                                            @keyframes seoFill { to { opacity:1; transform:translateY(0); } }
+                                            @keyframes seoFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+                                        </style>
+                                    </defs>
+                                    <path d="M20 160 L60 120 L100 140 L160 40 L180 60" fill="none" stroke="#14B8A6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="400" stroke-dashoffset="400" style="animation: seoPath 2s forwards 0.5s;" />
+                                    <path d="M20 180 L20 160 L60 120 L100 140 L160 40 L180 60 L180 180 Z" fill="url(#seoGrad)" opacity="0" style="animation: seoFill 1s forwards 1.5s;" />
+                                    <circle cx="160" cy="40" r="10" fill="#14B8A6" opacity="0" style="animation: igDraw 0.5s forwards 2s;" />
+                                    <!-- Search glass -->
+                                    <g style="animation: seoFloat 3s infinite ease-in-out;">
+                                        <circle cx="60" cy="60" r="25" fill="none" stroke="#fff" stroke-width="6" stroke-dasharray="200" stroke-dashoffset="200" style="animation: seoPath 1s forwards 0.8s;" />
+                                        <line x1="78" y1="78" x2="100" y2="100" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-dasharray="50" stroke-dashoffset="50" style="animation: seoPath 0.5s forwards 1.8s;" />
+                                    </g>
+                                </svg>
                                 <div class="hs-metric">
                                     <span class="hs-metric-val">#1</span>
-                                    <span class="hs-metric-label">Google Map Placements</span>
+                                    <span class="hs-metric-label">Google Rankings</span>
                                 </div>
                             </div>
                         </div>
@@ -1079,12 +1159,36 @@
 
         <!-- ══ FORBES FOUNDER ══ -->
         <section class="forbes-founder reveal-up" id="founder">
-            <div class="forbes-inner">
+            <!-- Background floating SVGs for premium feel -->
+            <svg class="founder-bg-svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="position:absolute; top:0; left:0; width:100%; height:100%; opacity:0.04; pointer-events:none; z-index:0;">
+                <circle cx="20" cy="20" r="40" fill="url(#founderBgGrad)" />
+                <circle cx="80" cy="80" r="50" fill="url(#founderBgGrad)" />
+                <defs>
+                    <radialGradient id="founderBgGrad" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#D4AF37" />
+                        <stop offset="100%" stop-color="transparent" />
+                    </radialGradient>
+                </defs>
+            </svg>
+            <div class="forbes-inner" style="position:relative; z-index:2;">
                 <div class="ff-image-col">
+                    <!-- Premium SVG Frame -->
+                    <svg viewBox="0 0 350 466" style="position:absolute; inset:0; width:100%; height:100%; z-index:4; pointer-events:none;">
+                        <rect x="10" y="10" width="330" height="446" rx="20" fill="none" stroke="url(#frameGrad)" stroke-width="2" />
+                        <path d="M 0 40 L 40 0" stroke="#D4AF37" stroke-width="2" />
+                        <path d="M 310 466 L 350 426" stroke="#D4AF37" stroke-width="2" />
+                        <defs>
+                            <linearGradient id="frameGrad" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.8"/>
+                                <stop offset="50%" stop-color="transparent" />
+                                <stop offset="100%" stop-color="#D4AF37" stop-opacity="0.8"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
                     <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Ansh Khatri CEO" data-cms="mkt_ansh_img">
-                    <div class="ff-image-overlay"></div>
+                    <div class="ff-image-overlay" style="border-radius:24px;"></div>
                     <div class="ff-issue-label">The Mastermind · Reach Forever</div>
-                    <div class="ff-nameplate">
+                    <div class="ff-nameplate" style="z-index:4;">
                         <h1>Ansh Khatri</h1>
                         <p class="ff-nameplate-role">Founder &amp; CEO</p>
                     </div>

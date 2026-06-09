@@ -378,7 +378,7 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
         <!-- FRONT -->
         <div class="phone-face phone-front">
           <div class="phone-notch"></div>
-          <video id="heroVideoAd" autoplay muted loop playsinline poster="assets/poster_1.webp" preload="auto" onerror="this.style.display='none'"></video>
+          <video id="heroVideoAd" autoplay muted loop playsinline preload="auto" onerror="this.style.display='none'"></video>
           <div class="phone-badge" data-cms="hero_iphone_badge">Live Result</div>
           
           <div style="position:absolute; bottom:14px; left:14px; right:14px; background:rgba(0,0,0,0.7); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-radius:20px; padding:12px; display:flex; align-items:center; gap:10px;">
@@ -855,6 +855,8 @@ window.addEventListener('load',function(){
     ScrollTrigger.create({trigger:'#rushSec',start:'top 80%',once:true,onEnter:()=>{
       gsap.fromTo('.rush-h2,.rush-sub,.rush-btns',{opacity:0,y:50},{opacity:1,y:0,duration:.8,stagger:.14,ease:'power4.out'});
     }});
+    }
+
     // Bulletproof Vanilla JS Scroll Rotation (Bypasses GSAP and Tor limitations, pure scrollY)
     const ph = document.getElementById('heroPhone');
     if(ph) {
@@ -872,7 +874,6 @@ window.addEventListener('load',function(){
         ph.style.transform = `rotateY(${currentY}deg) rotateX(${currentX}deg) scale(${currentScale})`;
       }, { passive: true });
     }
-  }
 
   // 3D tilt service cards
   document.querySelectorAll('.svc-card[data-tilt]').forEach(c=>{
