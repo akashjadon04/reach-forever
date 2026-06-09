@@ -38,7 +38,7 @@
     <meta name="twitter:title" content="Client Success & Reviews | Reach Forever Agency Punjab">
     <meta name="twitter:image" content="https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png">
 
-    <link rel="icon" type="image/png" href="assets/rf-logo.png">
+    <link rel="icon" type="image/png" href="assets/logo.png">
 
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"MarketingAgency","name":"Reach Forever","image":"https://agency-resources.zyrova.com/reachforever/ReachForever_Illustrative_Logo_8K.png","description":"Premium Digital Marketing Agency serving Jalandhar, Phagwara, Amritsar, and all of Punjab.","url":"https://reachforever.in","telephone":"+917668758238","address":{"@type":"PostalAddress","addressLocality":"Jalandhar","addressRegion":"Punjab","addressCountry":"IN"},"areaServed":["Jalandhar","Phagwara","Amritsar","Punjab"],"priceRange":"$$$$"}
@@ -693,14 +693,15 @@
     .wol-track {
         display:flex; width:max-content;
         animation:scrollLeft 40s linear infinite; gap:28px; padding:15px 0;
+        will-change:transform; transform:translateZ(0);
     }
     .wol-track.reverse {
         animation:scrollRight 45s linear infinite; margin-top:20px;
     }
     .wol-track:hover, .wol-track.reverse:hover { animation-play-state:paused; }
     .wol-card {
-        width:430px; background:var(--rf-glass); backdrop-filter:blur(20px);
-        padding:38px; border-radius:28px; border:1px solid rgba(255,255,255,.06);
+        width:430px; background:#FFFFFF;
+        padding:38px; border-radius:28px; border:1px solid var(--glass-border);
         box-shadow:0 10px 30px rgba(0,0,0,.04); white-space:normal;
         transition:transform .4s ease, border-color .3s ease, box-shadow .3s ease;
         flex-shrink:0;
@@ -879,7 +880,7 @@
     <!-- NAVBAR -->
     <nav id="rfNav">
   <a href="index.html" class="nl" id="nl">
-    <img src="assets/rf-logo.png" alt="Reach Forever" id="nlImg" style="height:36px;width:46px;object-fit:cover;object-position:left;filter:none!important">
+    <img src="assets/rf-logo.png" alt="Reach Forever" id="nlImg" style="height:36px;width:auto;object-fit:cover;object-position:left;filter:none!important">
   </a>
   <div class="nlinks">
     <a href="index.html" class="nlink">Home</a>
@@ -1084,7 +1085,7 @@
       <div class="foot-in">
         <div>
           <div class="foot-logo">
-            <img src="assets/rf-logo.png" alt="Reach Forever" style="height:36px;width:46px;object-fit:cover;object-position:left;filter:none!important"
+            <img src="assets/rf-logo.png" alt="Reach Forever" style="height:36px;width:auto;object-fit:cover;object-position:left;filter:none!important"
               onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
             <div class="foot-logo-fb">Reach Forever</div>
           </div>
