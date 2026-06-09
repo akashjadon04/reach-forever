@@ -47,20 +47,37 @@
     const send = document.getElementById('auraSend');
     const badge = document.getElementById('botBadge');
 
-    let KB = [
-        { re:/.*/, r:"Stop guessing. Click 'Start a Project' and our team builds your custom revenue blueprint within 24 hours." }
+    // Advanced Heuristic NLP Engine (0-Lag Local Simulation)
+    const CORE_BRAIN = [
+        { keywords: ['price', 'pricing', 'cost', 'fee', 'charge', 'money', 'much'], r: "We build custom revenue systems, not cookie-cutter packages. Pricing strictly depends on your business goals, but our minimum engagement starts at ₹25,000/mo. Want a custom quote?" },
+        { keywords: ['seo', 'google', 'rank', 'ranking', 'search'], r: "We are Punjab's #1 Local SEO experts. We dominate Google My Business (GMB) map packs and organic search. We guarantee front-page visibility for your primary keywords." },
+        { keywords: ['ads', 'meta', 'facebook', 'instagram', 'lead', 'leads'], r: "Our Meta & Google Ads campaigns average a 4.8x ROAS. We build hyper-targeted funnels that capture high-intent customers in your exact area." },
+        { keywords: ['time', 'how long', 'timeline', 'days', 'weeks'], r: "Our standard turnaround is lightning fast. We launch automated websites in 14 days, and you'll see your first targeted leads within 48 hours of ad launch." },
+        { keywords: ['guarantee', 'promise', 'refund', 'sure'], r: "We don't deal in promises. We deal in mathematical proof. If we don't hit the agreed KPIs, we work for free until we do. Simple as that." },
+        { keywords: ['website', 'design', 'development', 'web', 'site'], r: "We build lightning-fast, conversion-optimized landing pages designed strictly to turn cold traffic into booked appointments." },
+        { keywords: ['contact', 'call', 'book', 'talk', 'speak', 'number'], r: "You can reach us immediately at +91 8146652870 or simply click 'Book Consultancy' at the top of the page to schedule a free strategy call!" },
+        { keywords: ['hello', 'hi', 'hey', 'greetings', 'morning'], r: "Hello! How can I help you dominate your local market today?" },
+        { keywords: ['result', 'results', 'proof', 'case study', 'portfolio'], r: "Numbers don't lie. We've generated massive ROI for local businesses across Punjab. Head over to our 'Reviews' page to see the raw proof." }
     ];
-    let busy = false;
 
-    // Load full trained dataset
-    fetch('chatbot.json')
-        .then(res => res.json())
-        .then(data => {
-            if(data && data.length > 0) {
-                KB = data.map(item => ({ re: new RegExp(item.regex, 'i'), r: item.response }));
+    function getHeuristicResponse(userInput) {
+        const words = userInput.toLowerCase().replace(/[^a-z0-9 ]/g, '').split(' ');
+        let bestMatch = null;
+        let highestScore = 0;
+
+        CORE_BRAIN.forEach(intent => {
+            let score = 0;
+            intent.keywords.forEach(kw => {
+                if(words.includes(kw) || userInput.toLowerCase().includes(kw)) score++;
+            });
+            if (score > highestScore) {
+                highestScore = score;
+                bestMatch = intent.r;
             }
-        })
-        .catch(err => console.error("Chatbot KB Error:", err));
+        });
+
+        return bestMatch || "I see. Every business is unique. The absolute fastest way to get a precise answer is to book a free consultancy call with our growth engineers. Click the button at the top!";
+    }
 
     function addMsg(txt, isAi = false) {
         const m = document.createElement('div');
@@ -79,14 +96,14 @@
         if (badge) badge.style.display = 'none';
         
         if (body.children.length === 0) {
-            addMsg("Hello there! Welcome to Reach Forever. I'm Chloe, your friendly assistant. How can I help your business grow today?", true);
+            addMsg("Hello there! Welcome to Reach Forever. I'm Reach Assistant. How can I help your business grow today?", true);
             const suggWrap = document.createElement('div');
             suggWrap.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;';
-            ['Pricing?', 'Results?'].forEach(label => {
+            ['Pricing?', 'Results?', 'SEO?'].forEach(label => {
                 const btn = document.createElement('button');
                 btn.textContent = label;
                 btn.style.cssText = 'padding:6px 12px;background:rgba(200,169,110,.1);border:1px solid rgba(200,169,110,.3);border-radius:100px;font-family:Outfit,sans-serif;font-size:.75rem;font-weight:600;color:#C8A96E;cursor:pointer;';
-                btn.onclick = () => { input.value = (label === 'Pricing?' ? 'What is the price?' : 'Show me results.'); handleSend(); };
+                btn.onclick = () => { input.value = label; handleSend(); };
                 suggWrap.appendChild(btn);
             });
             body.appendChild(suggWrap);
@@ -101,63 +118,37 @@
         panel.setAttribute('inert', '');
     });
 
-    // Heuristic 2B-Brain Engine (0-Lag NLP Simulation)
-    const CORE_BRAIN = [
-        { t: ['price', 'cost', 'pricing', 'how much', 'fee', 'charge'], r: "Our funnels start around $1.5k-$3k depending on the complexity (Meta Ads, Web Dev, SEO). But let's be real—if we build a system that generates $20k/month, the cost is irrelevant. Click 'Start Growing Now' to get a custom quote." },
-        { t: ['seo', 'google', 'rank', 'search', 'organic'], r: "We engineer Google SEO architectures that dominate first-page rankings. We don't just do basic keywords; we build high-authority backlink profiles and technical on-page structures." },
-        { t: ['meta', 'facebook', 'ads', 'instagram', 'lead', 'roas'], r: "Our Meta Ads division is ruthless. We design viral creatives, split-test audiences aggressively, and scale winning campaigns to 5x-10x ROAS." },
-        { t: ['web', 'design', 'development', 'site', 'slow', 'landing page'], r: "A slow website kills conversions. We build ultra-fast, luxury, high-converting architectures using Next.js/React and premium GSAP animations." },
-        { t: ['time', 'how long', 'timeline', 'duration', 'when'], r: "We move fast. Standard onboarding takes 24 hours, and we launch V1 of your growth engine within 7-14 days. You'll see initial traction almost immediately." },
-        { t: ['guarantee', 'refund', 'promise', 'sure', 'risk'], r: "We don't do vague promises. We do Proofs. Check our 'Client Results' section. If we don't hit the agreed KPIs, we work for free until we do." },
-        { t: ['hello', 'hi', 'hey', 'sup', 'morning'], r: "Hey there! Ready to scale your business? What's the biggest bottleneck you're facing right now—Traffic, Leads, or Conversions?" },
-        { t: ['who are you', 'what are you', 'name'], r: "I'm Chloe, the advanced AI architect for Reach Forever. I'm here to analyze your business needs and route you to our growth team." },
-        { t: ['result', 'proof', 'case study', 'portfolio', 'happy'], r: "We've scaled clients from zero to fully booked in weeks. Over 320+ happy clients. Head over to our Reviews page to see the exact numbers." }
-    ];
-
     function handleSend() {
         if (busy || !input.value.trim()) return;
-        const msg = input.value.trim().toLowerCase(); 
-        input.value = ''; busy = true;
-        addMsg(msg, false);
+        const txt = input.value.trim(); 
+        input.value = ''; 
+        busy = true;
+        addMsg(txt, false);
 
-        // Heuristic Scoring
-        let bestMatch = "I analyze business bottlenecks. To give you the best strategy, I need more context. Click 'Book Consultancy' and let's map out your growth on a call.";
-        let highestScore = 0;
-
-        for (const node of CORE_BRAIN) {
-            let score = 0;
-            for (const token of node.t) {
-                if (msg.includes(token)) score += token.length;
-            }
-            if (score > highestScore) {
-                highestScore = score;
-                bestMatch = node.r;
-            }
-        }
-
-        // Simulate Neural Latency (feels authentic)
-        const latency = Math.min(600 + (bestMatch.length * 12), 2500);
-
-        const tid = 'typ' + Date.now();
-        const typ = document.createElement('div');
-        typ.id = tid;
-        typ.style.cssText = 'display:flex;gap:4px;padding:12px 16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;border-bottom-left-radius:3px;align-self:flex-start;margin-bottom:10px;';
-        for (let i = 0; i < 3; i++) {
-            const d = document.createElement('div');
-            d.style.cssText = `width:5px;height:5px;background:#C8A96E;border-radius:50%;animation:blink 1s ${i*.2}s infinite;`;
-            typ.appendChild(d);
-        }
-        body.appendChild(typ);
-        body.scrollTop = body.scrollHeight;
-        
+        // Simulated Neural Latency (mimics LLM thinking)
+        const typingId = 'typing-' + Date.now();
         setTimeout(() => {
-            document.getElementById(tid)?.remove();
-            addMsg(bestMatch, true);
-            busy = false;
-        }, latency);
+            const m = document.createElement('div');
+            m.id = typingId;
+            m.style.cssText = "padding:12px 16px;border-radius:16px;font-size:0.9rem;align-self:flex-start;background:rgba(255,255,255,.05);color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.1);border-bottom-left-radius:4px;margin-bottom:10px;";
+            m.innerHTML = 'Thinking... <span style="animation:blink 1s infinite">|</span>';
+            body.appendChild(m);
+            body.scrollTop = body.scrollHeight;
+
+            const answer = getHeuristicResponse(txt);
+            // Dynamic delay based on response length
+            const delay = Math.min(Math.max(answer.length * 15, 800), 2500);
+
+            setTimeout(() => {
+                const el = document.getElementById(typingId);
+                if(el) el.remove();
+                addMsg(answer, true);
+                busy = false;
+            }, delay);
+        }, 300);
     }
 
     send.addEventListener('click', handleSend);
-    input.addEventListener('keydown', e => { if (e.key === 'Enter') handleSend(); });
+    input.addEventListener('keypress', e => { if (e.key === 'Enter') handleSend(); });
 
 })();

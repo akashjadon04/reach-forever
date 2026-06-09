@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <!-- ============================================== -->
 <!-- EVOLNEX MAINTENANCE SHIELD (Secret Bypass Active) -->
 <!-- ============================================== -->
@@ -132,8 +135,11 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
 #heroPhoneWrap::before{content:'';position:absolute;top:100px;bottom:100px;left:-4px;width:2px;background:#333;border-radius:2px;z-index:1} /* volume buttons mock */
 #heroPhoneWrap::after{content:'';position:absolute;top:150px;bottom:250px;right:-4px;width:2px;background:#333;border-radius:2px;z-index:1} /* power button mock */
 #heroPhone{width:100%;height:100%;position:relative;transform-style:preserve-3d;transform:rotateY(-14deg) rotateX(4deg);}
-.phone-face{position:absolute;inset:0;backface-visibility:hidden;border:14px solid #000;border-radius:48px;background:#000;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2), inset 0 0 0 4px rgba(0,0,0,1), 0 60px 140px rgba(26,18,8,.4), 0 0 0 1px rgba(216,27,96,.2);overflow:hidden;}
-.phone-back{transform:rotateY(180deg);background:#0a0b0e;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.phone-face{position:absolute;inset:0;backface-visibility:hidden;border:14px solid #000;border-radius:48px;background:#000;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2), inset 0 0 0 4px rgba(0,0,0,1), 0 0 0 1px rgba(216,27,96,.2);overflow:hidden;}
+.phone-front{transform:translateZ(6px);box-shadow:0 60px 140px rgba(26,18,8,.4);}
+.phone-back{transform:rotateY(180deg) translateZ(6px);background:#0a0b0e;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+/* 3D Sides for thickness */
+#heroPhone::before{content:'';position:absolute;inset:0;background:#111;border-radius:48px;transform:translateZ(0px);box-shadow:inset 0 0 10px rgba(0,0,0,1), 0 0 10px rgba(255,255,255,0.05);}
 .phone-face video, .phone-face img {width:100%;height:100%;object-fit:cover;display:block;border-radius:34px}
 .h-visual{position:relative;display:flex;justify-content:center;align-items:center;z-index:2;opacity:0;transform:translateY(40px)}
 
@@ -398,7 +404,7 @@ body{font-family:var(--ss);background:var(--bg);color:var(--tx);overflow-x:hidde
 <!-- PLATFORM -->
 <section id="platformSec" class="sec" style="padding: 6rem 0;">
   <div class="testi-hdr" style="text-align:center; position:relative; z-index:2; margin-bottom:50px;">
-    <span class="sec-lbl gold" style="color:#b3277b"><i class="ri-global-line"></i> Proof not just clients.</span>
+    <span class="sec-lbl gold" style="color:#b3277b"><i class="ri-global-line"></i> Client reviews.</span>
     <h2 class="plat-h2" data-cms="s2_title">Be everywhere<br>your <em>customers look.</em></h2>
     <p class="plat-sub" data-cms="s2_desc" style="margin: 0 auto; max-width:480px; padding-bottom:20px;">We manage your brand across every platform — simultaneously.</p>
   </div>
@@ -814,21 +820,27 @@ window.addEventListener('load',function(){
       gsap.fromTo('.rush-h2,.rush-sub,.rush-btns',{opacity:0,y:50},{opacity:1,y:0,duration:.8,stagger:.14,ease:'power4.out'});
     }});
 
-    // Phone 3D Scroll Flip (Vanilla JS for 100% reliability)
+    // Phone 3D Scroll Flip (Vanilla JS with requestAnimationFrame to fix lag)
     const ph = document.getElementById('heroPhone');
     if(ph) {
+      let ticking = false;
       window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        // Map 0 -> 700px scroll to -14 -> 166 degrees rotation
-        let progress = scrollY / 700;
-        if(progress > 1) progress = 1;
-        if(progress < 0) progress = 0;
-        
-        const currentY = -14 + (progress * 180);
-        const currentX = 4 - (progress * 4); // Flatten X as it flips
-        const currentScale = 1 + (progress * 0.15); // Slight zoom
-        
-        ph.style.transform = `rotateY(${currentY}deg) rotateX(${currentX}deg) scale(${currentScale})`;
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const scrollY = window.scrollY;
+            let progress = scrollY / 700;
+            if(progress > 1) progress = 1;
+            if(progress < 0) progress = 0;
+            
+            const currentY = -14 + (progress * 180);
+            const currentX = 4 - (progress * 4);
+            const currentScale = 1 + (progress * 0.15);
+            
+            ph.style.transform = `rotateY(${currentY}deg) rotateX(${currentX}deg) scale(${currentScale})`;
+            ticking = false;
+          });
+          ticking = true;
+        }
       }, { passive: true });
     }
   }
