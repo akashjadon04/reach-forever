@@ -94,13 +94,22 @@ async function syncZyrovaCMS() {
                     elements.forEach(el => {
                         if (dbItem.contentType === 'text') el.innerHTML = dbItem.contentValue;
                         else if (dbItem.contentType === 'image') {
+                            let imgUrl = dbItem.contentValue;
+                            if (dbItem.elementId.includes('ba_') || dbItem.elementId.includes('hero') || dbItem.elementId.includes('bg') || dbItem.elementId.includes('founder') || dbItem.elementId.includes('banner')) {
+                                imgUrl = optimizeCloudinaryUrl(dbItem.contentValue, 1200, null, 'auto:good');
+                            } else if (dbItem.elementId.includes('avatar')) {
+                                imgUrl = optimizeAvatarUrl(dbItem.contentValue);
+                            } else {
+                                imgUrl = optimizeGridImageUrl(dbItem.contentValue);
+                            }
+
                             if (el.tagName === "DIV" || el.classList.contains('bk-left-bg-overlay')) {
-                                el.style.backgroundImage = `url('${optimizeGridImageUrl(dbItem.contentValue)}')`;
+                                el.style.backgroundImage = `url('${imgUrl}')`;
                                 el.style.backgroundSize = "cover";
                                 el.style.backgroundPosition = "center";
                                 el.innerHTML = "";
                             } else {
-                                el.src = optimizeGridImageUrl(dbItem.contentValue);
+                                el.src = imgUrl;
                                 if (!el.hasAttribute('alt')) el.alt = el.getAttribute('data-cms') || 'Image';
                                 el.loading = 'lazy';
                             }

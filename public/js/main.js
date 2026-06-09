@@ -11,7 +11,17 @@
 console.log("%c Zyrova Digital Engine v12.0 | Apple-Tier Active ", "background: #D4AF37; color: #000; font-weight: bold; padding: 4px; border-radius: 2px;");
 
 // ============================================================================
-// MODULE 0: MOBILE GUARD (PREVENTS IOS LAYOUT OVERLAPS)
+// MODULE 0: GLOBAL ERROR MONITORING (CONSOLE VISIBILITY SYSTEM)
+// ============================================================================
+window.addEventListener('error', function(e) {
+    console.log("%c [Zyrova Error Guard] " + e.message, "background:#EF4444; color:#FFF; font-weight:bold; padding:4px 8px; border-radius:4px;", "\nFile: " + e.filename + "\nLine: " + e.lineno + ":" + e.colno + "\nStack: " + (e.error ? e.error.stack : 'N/A'));
+});
+window.addEventListener('unhandledrejection', function(e) {
+    console.log("%c [Zyrova Promise Guard] Unhandled Rejection: ", "background:#F59E0B; color:#000; font-weight:bold; padding:4px 8px; border-radius:4px;", e.reason);
+});
+
+// ============================================================================
+// MODULE 1: MOBILE GUARD (PREVENTS IOS LAYOUT OVERLAPS)
 // ============================================================================
 class MobileGuard {
     constructor() {

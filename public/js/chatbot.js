@@ -47,17 +47,20 @@
     const send = document.getElementById('auraSend');
     const badge = document.getElementById('botBadge');
 
-    const KB = [
-        { re:/^(hi|hello|hey)[!?]*$/i,            r:"Hey! I'm the Reach Forever AI. We scale local businesses aggressively. What's your monthly revenue goal?" },
-        { re:/(price|pricing|cost|how much)/i,     r:"We build high-ROI revenue machines, not cheap templates. Pricing is custom — book a Strategy Call and let's talk numbers." },
-        { re:/(how long|time|launch|14 days)/i,    r:"14 Days. That's our rapid-launch guarantee. Funnel built, ads live, leads flowing in exactly two weeks." },
-        { re:/(proof|results|case|review)/i,       r:"Numbers don't lie. We've generated ₹85L+ for our clients. You're literally on the proof page right now 😄" },
-        { re:/(akash|web|website|app|code)/i,      r:"Akash Jadon is our Lead Engineer — custom React/Node builds only. Your site will be the fastest in your city." },
-        { re:/(ansh|marketing|ads|seo|instagram)/i,r:"Ansh Khatri architects our viral campaigns. He's flooded hundreds of businesses with paying customers." },
-        { re:/(guarantee|risk|refund)/i,           r:"We guarantee a positive ROI. If you don't make more than you spend with us, we aren't doing our job." },
-        { re:/.*/,                                 r:"Stop guessing. Click 'Start a Project' and our team builds your custom revenue blueprint within 24 hours." }
+    let KB = [
+        { re:/.*/, r:"Stop guessing. Click 'Start a Project' and our team builds your custom revenue blueprint within 24 hours." }
     ];
     let busy = false;
+
+    // Load full trained dataset
+    fetch('chatbot.json')
+        .then(res => res.json())
+        .then(data => {
+            if(data && data.length > 0) {
+                KB = data.map(item => ({ re: new RegExp(item.regex, 'i'), r: item.response }));
+            }
+        })
+        .catch(err => console.error("Chatbot KB Error:", err));
 
     function addMsg(txt, isAi = false) {
         const m = document.createElement('div');
@@ -76,7 +79,7 @@
         if (badge) badge.style.display = 'none';
         
         if (body.children.length === 0) {
-            addMsg("Tired of wasting money on ads that don't work? I'm here to help.", true);
+            addMsg("Hello there! Welcome to Reach Forever. I'm Chloe, your friendly assistant. How can I help your business grow today?", true);
             const suggWrap = document.createElement('div');
             suggWrap.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;';
             ['Pricing?', 'Results?'].forEach(label => {
