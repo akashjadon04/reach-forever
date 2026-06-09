@@ -308,6 +308,7 @@ async function syncZyrovaCMS() {
         // ==========================================
         document.querySelectorAll('[data-cms]').forEach(el => el.classList.add('cms-loaded'));
         if(window.hidePreloader) window.hidePreloader();
+        if(window.zyrovaPreloader) window.zyrovaPreloader.isDataLoaded = true;
 
     } catch (error) {
         console.error("[CMS] ❌ Connection Failed.", error);
