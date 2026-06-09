@@ -530,7 +530,7 @@
     @keyframes ecoPulseSeo { 0%{transform:scale(1);stroke-opacity:.8;transform-origin:700px 340px} 100%{transform:scale(1.75);stroke-opacity:0;transform-origin:700px 340px} }
     @keyframes ecoPulseWeb { 0%{transform:scale(1);stroke-opacity:.8;transform-origin:700px 140px} 100%{transform:scale(1.75);stroke-opacity:0;transform-origin:700px 140px} }
     .eco-hub-text { font-family:'Cormorant Garamond',serif; font-weight:700; fill:var(--accent-gold); text-anchor:middle; dominant-baseline:central; }
-    .eco-sat-text { font-family:'Outfit',sans-serif; font-weight:700; text-anchor:middle; dominant-baseline:central; font-size:11px; fill:rgba(255,255,255,.8); }
+    .eco-sat-text { font-family:'Outfit',sans-serif; font-weight:700; text-anchor:middle; dominant-baseline:central; font-size:11px; fill:var(--rf-text); opacity:0.8; }
     .perf-cards { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; max-width:1300px; margin:0 auto; position:relative; z-index:2; }
     .perf-card {
         background:var(--rf-glass); backdrop-filter:blur(20px); border:1px solid var(--glass-border);
@@ -906,15 +906,14 @@
         </section>
 
         <!-- ══ CLIENT ACQUISITION HORIZONTAL SCROLL ══ -->
+        <div class="hs-section-label" style="text-align:center; padding-top:80px; padding-bottom:40px; background:var(--rf-bg);">
+            <span class="tag-pill reveal-up" data-cms="mkt_tag" style="background:rgba(10,11,14,.7);backdrop-filter:blur(12px);border:1px solid rgba(212,175,55,.2);color:var(--accent-gold);">
+                <i class="ri-flashlight-fill"></i> Client Acquisition System
+            </span>
+            <h2 class="reveal-up decode-h2" data-cms="mkt_header_title">How we flood your business with <em style="color:var(--accent-olive);font-style:italic;">buyers.</em></h2>
+            <p class="reveal-up" data-cms="mkt_header_sub" style="font-size:1rem;color:var(--rf-text);opacity:0.6;">Scroll to explore our three core acquisition channels.</p>
+        </div>
         <section id="marketing" class="hs-outer">
-            <div class="hs-section-label">
-                <span class="tag-pill reveal-up" data-cms="mkt_tag" style="background:rgba(10,11,14,.7);backdrop-filter:blur(12px);border:1px solid rgba(212,175,55,.2);color:var(--accent-gold);">
-                    <i class="ri-flashlight-fill"></i> Client Acquisition System
-                </span>
-                <h2 class="reveal-up decode-h2" data-cms="mkt_header_title">How we flood your business with <em style="color:var(--accent-olive);font-style:italic;">buyers.</em></h2>
-                <p class="reveal-up" data-cms="mkt_header_sub" style="font-size:1rem;color:rgba(255,255,255,.5);">Scroll to explore our three core acquisition channels.</p>
-            </div>
-
             <div class="hs-track" id="hsTrack">
 
                 <!-- Panel 1: Instagram -->
@@ -1110,58 +1109,18 @@
                     <div class="macbook-3d magnetic-wrap" id="macbook3d">
                         <div class="magnetic-inner" style="width:100%;height:100%;position:relative;">
                             <div class="mac-lid">
-                                <div class="mac-screen" style="background:#050505; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative;">
-                                    <svg width="100%" height="100%" viewBox="0 0 800 500" style="position:absolute; inset:0; z-index:1;">
-                                        <defs>
-                                            <linearGradient id="macBg" x1="0" y1="0" x2="1" y2="1">
-                                                <stop offset="0%" stop-color="#11052C" />
-                                                <stop offset="100%" stop-color="#3D0846" />
-                                            </linearGradient>
-                                            <linearGradient id="macAccent" x1="0" y1="0" x2="1" y2="0">
-                                                <stop offset="0%" stop-color="#8b5cf6" />
-                                                <stop offset="100%" stop-color="#ec4899" />
-                                            </linearGradient>
-                                            <style>
-                                                @keyframes gridMove { from { transform: translateY(0); } to { transform: translateY(40px); } }
-                                                @keyframes codeScroll { 0% { transform: translateY(100%); opacity:0; } 10% { opacity:1; } 90% { opacity:1; } 100% { transform: translateY(-100%); opacity:0; } }
-                                                @keyframes orbit1 { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-                                            </style>
-                                        </defs>
-                                        <rect width="800" height="500" fill="url(#macBg)" />
-                                        <g stroke="rgba(255,255,255,0.05)" stroke-width="2" style="animation: gridMove 2s linear infinite;">
-                                            <!-- Horizontal Lines -->
-                                            <line x1="0" y1="-40" x2="800" y2="-40" />
-                                            <line x1="0" y1="0" x2="800" y2="0" />
-                                            <line x1="0" y1="40" x2="800" y2="40" />
-                                            <line x1="0" y1="80" x2="800" y2="80" />
-                                            <line x1="0" y1="120" x2="800" y2="120" />
-                                            <line x1="0" y1="160" x2="800" y2="160" />
-                                            <line x1="0" y1="200" x2="800" y2="200" />
-                                            <line x1="0" y1="240" x2="800" y2="240" />
-                                            <line x1="0" y1="280" x2="800" y2="280" />
-                                            <line x1="0" y1="320" x2="800" y2="320" />
-                                            <line x1="0" y1="360" x2="800" y2="360" />
-                                            <line x1="0" y1="400" x2="800" y2="400" />
-                                            <line x1="0" y1="440" x2="800" y2="440" />
-                                            <line x1="0" y1="480" x2="800" y2="480" />
-                                        </g>
-                                        <!-- Center glowing orb -->
-                                        <circle cx="400" cy="250" r="120" fill="none" stroke="url(#macAccent)" stroke-width="2" stroke-dasharray="20 10" style="animation: orbit1 10s linear infinite; transform-origin: 400px 250px;" />
-                                        <circle cx="400" cy="250" r="80" fill="none" stroke="url(#macAccent)" stroke-width="4" stroke-dasharray="50 30" style="animation: orbit1 6s linear infinite reverse; transform-origin: 400px 250px;" />
-                                        <circle cx="400" cy="250" r="40" fill="url(#macAccent)" style="filter: drop-shadow(0 0 40px #ec4899);" />
-                                        <!-- Code lines scrolling -->
-                                        <g style="animation: codeScroll 5s linear infinite;">
-                                            <rect x="50" y="300" width="150" height="10" rx="5" fill="#8b5cf6" opacity="0.6" />
-                                            <rect x="50" y="330" width="200" height="10" rx="5" fill="#ec4899" opacity="0.4" />
-                                            <rect x="50" y="360" width="100" height="10" rx="5" fill="#8b5cf6" opacity="0.8" />
-                                        </g>
-                                    </svg>
-                                    <div class="seo-overlay" id="seoMacOverlay" style="padding:20px;gap:10px; z-index:2; position:absolute; bottom:20px; right:20px; background:rgba(0,0,0,0.6); border:1px solid rgba(255,255,255,0.1); border-radius:12px; backdrop-filter:blur(10px);">
-                                        <div style="font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--accent-gold);margin-bottom:6px;">System Performance</div>
+                                <div class="mac-screen">
+                                    <video class="device-media active" id="vid-web" autoplay loop muted playsinline data-cms="dev_vid_web"></video>
+                                    <div class="seo-overlay" id="seoMacOverlay" style="padding:20px;gap:10px;">
+                                        <div style="font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--accent-gold);margin-bottom:6px;">Google Rankings — Your Business</div>
+                                        <div class="seo-rank-row"><span class="seo-rank-num">#1</span><div class="seo-rank-bar-wrap"><div class="seo-rank-bar r1"></div></div><span class="seo-rank-label">YOU</span></div>
+                                        <div class="seo-rank-row"><span class="seo-rank-num">#2</span><div class="seo-rank-bar-wrap"><div class="seo-rank-bar r2"></div></div><span class="seo-rank-label">Comp</span></div>
+                                        <div class="seo-rank-row"><span class="seo-rank-num">#3</span><div class="seo-rank-bar-wrap"><div class="seo-rank-bar r3"></div></div><span class="seo-rank-label">Comp</span></div>
+                                        <div class="seo-rank-row"><span class="seo-rank-num">#4</span><div class="seo-rank-bar-wrap"><div class="seo-rank-bar r4"></div></div><span class="seo-rank-label">Comp</span></div>
                                         <div class="seo-kpi-row">
-                                            <div class="seo-kpi"><span class="seo-kpi-val" style="color:#fff;">99.9%</span><span class="seo-kpi-label">Uptime</span></div>
-                                            <div class="seo-kpi"><span class="seo-kpi-val" style="color:#fff;">0.4s</span><span class="seo-kpi-label">Speed</span></div>
-                                            <div class="seo-kpi"><span class="seo-kpi-val" style="color:#fff;">10k+</span><span class="seo-kpi-label">Req/s</span></div>
+                                            <div class="seo-kpi"><span class="seo-kpi-val">94</span><span class="seo-kpi-label">Domain</span></div>
+                                            <div class="seo-kpi"><span class="seo-kpi-val">12k</span><span class="seo-kpi-label">Clicks</span></div>
+                                            <div class="seo-kpi"><span class="seo-kpi-val">98%</span><span class="seo-kpi-label">CTR</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -1174,10 +1133,7 @@
                         <div class="iphone-body magnetic-inner">
                             <div class="iphone-screen">
                                 <div class="iphone-island"></div>
-                                <!-- FIX: vid-app now has 'active' class so iPhone shows content in web mode -->
-                                <video class="device-media active" id="vid-app" autoplay loop muted playsinline data-cms="dev_vid_app">
-                                    <!-- Removed Pexels Stock Video -->
-                                </video>
+                                <video class="device-media active" id="vid-app" autoplay loop muted playsinline data-cms="dev_vid_app"></video>
                                 <div class="seo-overlay" id="seoPhoneOverlay">
                                     <div style="font-size:.48rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent-gold);margin-bottom:4px;">Rankings</div>
                                     <div class="seo-rank-row"><span class="seo-rank-num">#1</span><div class="seo-rank-bar-wrap"><div class="seo-rank-bar r1"></div></div><span class="seo-rank-label">YOU</span></div>
@@ -1321,64 +1277,124 @@
                 </svg>
             </div>
 
-            <div class="perf-bento">
-                <div class="perf-card pc-1">
-                    <div class="pc-icon">
-                        <svg width="40" height="40" viewBox="0 0 100 100">
-                            <defs>
-                                <linearGradient id="pc1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#ec4899"/></linearGradient>
-                                <style>@keyframes spin3D { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }</style>
-                            </defs>
-                            <rect x="20" y="20" width="60" height="60" rx="15" fill="none" stroke="url(#pc1)" stroke-width="8" style="animation: spin3D 4s infinite linear; transform-origin: 50px 50px;" />
-                            <circle cx="50" cy="50" r="15" fill="url(#pc1)" />
-                        </svg>
-                    </div>
-                    <h3 class="pc-title" data-cms="bento_c1_title">Ad Creative Testing</h3>
-                    <p class="pc-desc" data-cms="bento_c1_desc">We rapidly test 50+ ad variations to find the winning creative that slashes your cost-per-lead.</p>
-                </div>
-                <div class="perf-card pc-2">
-                    <div class="pc-icon">
-                        <svg width="40" height="40" viewBox="0 0 100 100">
-                            <defs>
-                                <linearGradient id="pc2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#14B8A6"/><stop offset="100%" stop-color="#0d5fc7"/></linearGradient>
-                                <style>@keyframes bounceBar { 0%, 100% { height:20px; } 50% { height:50px; } }</style>
-                            </defs>
-                            <rect x="20" y="70" width="15" height="20" rx="4" fill="url(#pc2)" style="animation: bounceBar 2s infinite ease-in-out;" />
-                            <rect x="45" y="40" width="15" height="50" rx="4" fill="url(#pc2)" style="animation: bounceBar 2s infinite ease-in-out 0.3s;" />
-                            <rect x="70" y="10" width="15" height="80" rx="4" fill="url(#pc2)" style="animation: bounceBar 2s infinite ease-in-out 0.6s;" />
-                        </svg>
-                    </div>
-                    <h3 class="pc-title" data-cms="bento_c2_title">Search Dominance</h3>
-                    <p class="pc-desc" data-cms="bento_c2_desc">We put your business at the #1 spot on Google when people actively search for your services.</p>
-                </div>
-                <div class="perf-card pc-3">
-                    <div class="pc-icon">
-                        <svg width="40" height="40" viewBox="0 0 100 100">
-                            <defs>
-                                <linearGradient id="pc3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f97316"/><stop offset="100%" stop-color="#ec4899"/></linearGradient>
-                                <style>@keyframes flyMail { 0% { transform: translate(0,0); opacity:1; } 100% { transform: translate(30px,-30px); opacity:0; } }</style>
-                            </defs>
-                            <path d="M10 50 L90 20 L50 90 L40 60 Z" fill="none" stroke="url(#pc3)" stroke-width="8" stroke-linejoin="round" />
-                            <path d="M10 50 L90 20 L50 90 L40 60 Z" fill="url(#pc3)" style="animation: flyMail 2s infinite cubic-bezier(0.4, 0, 0.2, 1);" />
-                        </svg>
-                    </div>
-                    <h3 class="pc-title" data-cms="bento_c3_title">Automated Follow-ups</h3>
-                    <p class="pc-desc" data-cms="bento_c3_desc">Missed calls turn into lost money. We build SMS sequences that automatically text leads back instantly.</p>
-                </div>
-                <div class="perf-card pc-4">
-                    <div class="pc-icon">
-                        <svg width="40" height="40" viewBox="0 0 100 100">
-                            <defs>
-                                <linearGradient id="pc4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#D4AF37"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient>
-                                <style>@keyframes pulsePie { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }</style>
-                            </defs>
-                            <circle cx="50" cy="50" r="40" fill="none" stroke="url(#pc4)" stroke-width="8" />
-                            <path d="M50 10 A40 40 0 0 1 90 50 L50 50 Z" fill="url(#pc4)" style="animation: pulsePie 2s infinite ease-in-out; transform-origin: 50px 50px;" />
-                        </svg>
-                    </div>
-                    <h3 class="pc-title" data-cms="bento_c4_title">Revenue Tracking</h3>
-                    <p class="pc-desc" data-cms="bento_c4_desc">You see every rupee spent and earned. Real-time dashboards showing exactly how many clients we booked for you.</p>
-                </div>
+            <!-- MASSIVE DASHBOARD SVG REPLACING UGLY TILES -->
+            <div style="width:100%; max-width:1200px; margin:0 auto; padding:20px 0; display:flex; justify-content:center;">
+                <svg viewBox="0 0 1200 600" width="100%" height="auto" style="filter:drop-shadow(0 30px 60px rgba(0,0,0,0.1));">
+                    <defs>
+                        <linearGradient id="dashGrad" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#11052C" />
+                            <stop offset="100%" stop-color="#3D0846" />
+                        </linearGradient>
+                        <linearGradient id="accentG1" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stop-color="#8b5cf6" />
+                            <stop offset="100%" stop-color="#ec4899" />
+                        </linearGradient>
+                        <linearGradient id="accentG2" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stop-color="#14B8A6" />
+                            <stop offset="100%" stop-color="#0d5fc7" />
+                        </linearGradient>
+                        <linearGradient id="accentG3" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stop-color="#f97316" />
+                            <stop offset="100%" stop-color="#ec4899" />
+                        </linearGradient>
+                        <filter id="dashGlow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="8" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                        <style>
+                            @keyframes barRise { 0% { height:0; y:250; } 100% { height:var(--h); y:calc(250 - var(--h)); } }
+                            @keyframes pingNode { 0% { r:8; opacity:1; } 100% { r:25; opacity:0; } }
+                            @keyframes dashScan { 0% { transform:translateX(-100%); } 100% { transform:translateX(200%); } }
+                            @keyframes circlePulse { 0%, 100% { stroke-width:4; } 50% { stroke-width:8; } }
+                        </style>
+                    </defs>
+
+                    <!-- Main Dashboard Background -->
+                    <rect x="0" y="0" width="1200" height="600" rx="30" fill="url(#dashGrad)" stroke="rgba(255,255,255,0.1)" stroke-width="2" />
+                    
+                    <!-- Scanner Line -->
+                    <g style="animation:dashScan 4s linear infinite;">
+                        <line x1="0" y1="0" x2="0" y2="600" stroke="rgba(255,255,255,0.05)" stroke-width="100" />
+                    </g>
+
+                    <!-- HEADER UI -->
+                    <rect x="40" y="30" width="1120" height="60" rx="15" fill="rgba(255,255,255,0.05)" />
+                    <circle cx="70" cy="60" r="6" fill="#ec4899" />
+                    <circle cx="90" cy="60" r="6" fill="#8b5cf6" />
+                    <circle cx="110" cy="60" r="6" fill="#14B8A6" />
+                    <text x="140" y="65" font-family="'Outfit', sans-serif" font-size="16" font-weight="700" fill="#FFF" letter-spacing="2">CLIENT ACQUISITION COMMAND CENTER</text>
+
+                    <!-- SECTION 1: AD CREATIVE TESTING (TOP LEFT) -->
+                    <rect x="40" y="120" width="540" height="210" rx="20" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.05)" />
+                    <text x="70" y="160" font-family="'Outfit', sans-serif" font-size="18" font-weight="800" fill="#FFF">1. AD CREATIVE TESTING</text>
+                    <text x="70" y="185" font-family="'Outfit', sans-serif" font-size="12" fill="rgba(255,255,255,0.6)">Rapid 50+ variations split testing</text>
+                    
+                    <!-- A/B Test Bars -->
+                    <line x1="70" y1="290" x2="300" y2="290" stroke="rgba(255,255,255,0.1)" stroke-width="2" />
+                    <rect x="90" y="190" width="40" height="100" rx="6" fill="url(#accentG1)" filter="url(#dashGlow)" style="--h:100px; animation:barRise 2s forwards ease-out;" />
+                    <text x="110" y="315" font-family="'Outfit', sans-serif" font-size="12" fill="#FFF" text-anchor="middle">Winning Ad</text>
+                    
+                    <rect x="170" y="240" width="40" height="50" rx="6" fill="rgba(255,255,255,0.1)" style="--h:50px; animation:barRise 2s forwards ease-out;" />
+                    <text x="190" y="315" font-family="'Outfit', sans-serif" font-size="12" fill="rgba(255,255,255,0.5)" text-anchor="middle">Losing Ad</text>
+
+                    <rect x="250" y="260" width="40" height="30" rx="6" fill="rgba(255,255,255,0.1)" style="--h:30px; animation:barRise 2s forwards ease-out;" />
+                    <text x="270" y="315" font-family="'Outfit', sans-serif" font-size="12" fill="rgba(255,255,255,0.5)" text-anchor="middle">Losing Ad</text>
+
+                    <!-- SECTION 2: SEARCH DOMINANCE (TOP RIGHT) -->
+                    <rect x="620" y="120" width="540" height="210" rx="20" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.05)" />
+                    <text x="650" y="160" font-family="'Outfit', sans-serif" font-size="18" font-weight="800" fill="#FFF">2. SEARCH DOMINANCE</text>
+                    <text x="650" y="185" font-family="'Outfit', sans-serif" font-size="12" fill="rgba(255,255,255,0.6)">Owning the #1 spot on Google Search</text>
+
+                    <!-- SEO Graph Line -->
+                    <path d="M 650 290 Q 750 280, 850 200 T 1100 150" fill="none" stroke="url(#accentG2)" stroke-width="8" stroke-linecap="round" filter="url(#dashGlow)" stroke-dasharray="800" stroke-dashoffset="800">
+                        <animate attributeName="stroke-dashoffset" values="800;0" dur="3s" fill="freeze" />
+                    </path>
+                    <circle cx="1100" cy="150" r="8" fill="#FFF" />
+                    <circle cx="1100" cy="150" r="8" fill="none" stroke="url(#accentG2)" stroke-width="2" style="animation:pingNode 2s infinite;" />
+                    <text x="1100" y="130" font-family="'Outfit', sans-serif" font-size="14" font-weight="800" fill="#14B8A6" text-anchor="middle">#1 RANKING</text>
+
+                    <!-- SECTION 3: AUTOMATED FOLLOW-UPS (BOTTOM LEFT) -->
+                    <rect x="40" y="360" width="540" height="210" rx="20" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.05)" />
+                    <text x="70" y="400" font-family="'Outfit', sans-serif" font-size="18" font-weight="800" fill="#FFF">3. AUTOMATED FOLLOW-UPS</text>
+                    <text x="70" y="425" font-family="'Outfit', sans-serif" font-size="12" fill="rgba(255,255,255,0.6)">Instant SMS & Email Sequences</text>
+
+                    <!-- Network Map -->
+                    <g stroke="url(#accentG3)" stroke-width="3" stroke-dasharray="10 10">
+                        <line x1="250" y1="480" x2="380" y2="430"><animate attributeName="stroke-dashoffset" values="100;0" dur="2s" infinite linear/></line>
+                        <line x1="250" y1="480" x2="420" y2="480"><animate attributeName="stroke-dashoffset" values="100;0" dur="1.5s" infinite linear/></line>
+                        <line x1="250" y1="480" x2="360" y2="530"><animate attributeName="stroke-dashoffset" values="100;0" dur="2.5s" infinite linear/></line>
+                    </g>
+                    <!-- CRM Node -->
+                    <circle cx="250" cy="480" r="24" fill="#11052C" stroke="url(#accentG3)" stroke-width="4" filter="url(#dashGlow)" />
+                    <text x="250" y="485" font-family="'Outfit', sans-serif" font-size="12" font-weight="800" fill="#FFF" text-anchor="middle">CRM</text>
+                    <!-- Leads Nodes -->
+                    <circle cx="380" cy="430" r="12" fill="#ec4899" />
+                    <circle cx="420" cy="480" r="14" fill="#f97316" />
+                    <circle cx="360" cy="530" r="10" fill="#ec4899" />
+
+                    <!-- SECTION 4: REVENUE TRACKING (BOTTOM RIGHT) -->
+                    <rect x="620" y="360" width="540" height="210" rx="20" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.05)" />
+                    <text x="650" y="400" font-family="'Outfit', sans-serif" font-size="18" font-weight="800" fill="#FFF">4. REVENUE TRACKING</text>
+                    <text x="650" y="425" font-family="'Outfit', sans-serif" font-size="12" fill="rgba(255,255,255,0.6)">Real-time ROI & Closed Deals Dashboard</text>
+
+                    <!-- 3D Pie / Data Visualization -->
+                    <g transform="translate(850, 480)">
+                        <circle cx="0" cy="0" r="60" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="20" />
+                        <circle cx="0" cy="0" r="60" fill="none" stroke="url(#accentG1)" stroke-width="20" stroke-dasharray="300" stroke-dashoffset="300" transform="rotate(-90)" filter="url(#dashGlow)">
+                            <animate attributeName="stroke-dashoffset" values="300;60" dur="2s" fill="freeze" />
+                        </circle>
+                        <text x="0" y="5" font-family="'Cormorant Garamond', serif" font-size="28" font-weight="800" fill="#FFF" text-anchor="middle">4.8x</text>
+                        <text x="0" y="25" font-family="'Outfit', sans-serif" font-size="10" font-weight="700" fill="rgba(255,255,255,0.6)" text-anchor="middle">Avg ROI</text>
+                    </g>
+                    
+                    <g transform="translate(1000, 480)">
+                        <circle cx="0" cy="0" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="12" />
+                        <circle cx="0" cy="0" r="40" fill="none" stroke="url(#accentG2)" stroke-width="12" stroke-dasharray="200" stroke-dashoffset="200" transform="rotate(-90)" style="animation:circlePulse 2s infinite;">
+                            <animate attributeName="stroke-dashoffset" values="200;40" dur="2s" fill="freeze" />
+                        </circle>
+                        <text x="0" y="5" font-family="'Cormorant Garamond', serif" font-size="20" font-weight="800" fill="#FFF" text-anchor="middle">98%</text>
+                    </g>
+                </svg>
             </div>
         </section>
 
