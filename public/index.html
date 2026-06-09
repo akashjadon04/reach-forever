@@ -5,7 +5,7 @@
 <!-- EVOLNEX MAINTENANCE SHIELD (Secret Bypass Active) -->
 <!-- ============================================== -->
 <script>
-  window.EVOLNEX_MAINTENANCE = true; // Toggle this to false to reveal the site globally
+  window.EVOLNEX_MAINTENANCE = false; // Toggle this to false to reveal the site globally
   if (window.EVOLNEX_MAINTENANCE && new URLSearchParams(window.location.search).get('dev') !== 'evolnex') {
       document.documentElement.style.display = 'none';
       const script = document.createElement('script');
