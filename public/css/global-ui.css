@@ -1,4 +1,17 @@
 /* global-ui.css - Universal Premium Header & Footer */
+/* ── FONT VARIABLES (applied globally) ── */
+:root {
+  --rf-font-heading: 'Outfit', system-ui, sans-serif;   /* Outfit Bold for headings */
+  --rf-font-sub:     'Manrope', system-ui, sans-serif;   /* Manrope for subheadings */
+  --rf-font-body:    'Montserrat', system-ui, sans-serif; /* Montserrat for body text */
+}
+/* Apply body font globally (non-hero sections), override hero specifically later */
+body { font-family: var(--rf-font-body); }
+/* Subheadings, labels, tags use Manrope */
+.sec-lbl, .h-tag, .fsc-lbl, .si-lbl, .tc-biz, .foot-col-t,
+.svc-tag, .proc-desc, .ba-sl, .rush-sub { font-family: var(--rf-font-sub) !important; }
+/* Body paragraphs, descriptions use Montserrat */
+.svc-desc, .foot-desc, .foot-lk, .tc-text, .proc-desc { font-family: var(--rf-font-body) !important; }
 
 /* ── PREMIUM HEADER (Not Pill Shaped, Glassmorphic) ── */
 #rfNav {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 
     <!-- CRITICAL THEME SYNC SCRIPT (Must run before CSS loads) -->
@@ -76,8 +76,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"></noscript>
 
@@ -153,18 +153,18 @@
         .f-feat-text h4 { font-size: 1.1rem; color: var(--rf-text); margin-bottom: 5px; font-weight: 700;}
         .f-feat-text p { font-size: 0.95rem; color: var(--rf-muted); line-height: 1.4;}
 
-        /* Right Side: The Form */
-        .f-form-wrap { background: #050507; padding: 40px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05); box-shadow: inset 0 0 20px rgba(0,0,0,0.5); }
+        /* Right Side: The Form — LIGHT MODE */
+        .f-form-wrap { background: #FFFFFF; padding: 40px; border-radius: 30px; border: 1px solid rgba(179,39,123,0.15); box-shadow: 0 8px 40px rgba(0,0,0,0.08); }
         
         .input-group { margin-bottom: 20px; }
-        .input-group label { display: block; font-size: 0.85rem; color: var(--rf-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; font-weight: 700; }
+        .input-group label { display: block; font-size: 0.85rem; color: #51307c; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; font-weight: 700; font-family: 'Manrope', sans-serif; }
         
-        .form-control { width: 100%; background: #12141A; border: 1px solid rgba(255,255,255,0.1); color: var(--rf-text); padding: 18px 20px; border-radius: 15px; font-size: 1rem; font-family: 'Outfit', sans-serif; outline: none; transition: 0.3s; }
-        .form-control:focus { border-color: var(--accent-gold); background: #1A1C20; box-shadow: 0 0 15px rgba(212,175,55,0.1); }
-        .form-control::placeholder { color: #4A4D55; }
+        .form-control { width: 100%; background: #F8F9FA; border: 1.5px solid rgba(81,48,124,0.15); color: #032f62; padding: 18px 20px; border-radius: 15px; font-size: 1rem; font-family: 'Montserrat', sans-serif; outline: none; transition: 0.3s; }
+        .form-control:focus { border-color: var(--accent-gold); background: #FFFFFF; box-shadow: 0 0 0 4px rgba(179,39,123,0.08); }
+        .form-control::placeholder { color: #adb5bd; }
         
-        select.form-control { appearance: none; background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%238b8d98%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"); background-repeat: no-repeat; background-position: right 20px top 50%; background-size: 12px auto; }
-        select.form-control option { background: #12141A; color: var(--rf-text); }
+        select.form-control { appearance: none; background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2351307c%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"); background-repeat: no-repeat; background-position: right 20px top 50%; background-size: 12px auto; background-color: #F8F9FA; }
+        select.form-control option { background: #FFFFFF; color: #032f62; }
         
         textarea.form-control { resize: vertical; min-height: 120px; }
 
@@ -454,6 +454,9 @@
 <script src="js/cms.js" defer></script>
 <script src="js/chatbot.js" defer></script>
 <script>
+    // Google Sheets App Script URL
+    const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxFAOe3Ln3NUMoiiRXY-2r_b4vT9tpqHPUaHT09aMC5LlFHjn5uBB3VqMi9Hp8SkA/exec';
+
     document.addEventListener('DOMContentLoaded', () => {
         const form = document.getElementById('mainContactForm');
         if(form) {
@@ -466,19 +469,22 @@
                 submitBtn.disabled = true;
 
                 const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
 
-                const anshReq = fetch('https://formsubmit.co/ajax/itskhatriansh@gmail.com', {
+                // 1. Email via formsubmit (dual recipients)
+                const emailReq1 = fetch('https://formsubmit.co/ajax/mk074377@gmail.com', { method: 'POST', body: formData });
+                const emailReq2 = fetch('https://formsubmit.co/ajax/itskhatriansh@gmail.com', { method: 'POST', body: formData });
+
+                // 2. Google Sheets via Apps Script
+                const sheetsReq = fetch(SHEETS_URL, {
                     method: 'POST',
-                    body: formData
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ...data, timestamp: new Date().toISOString() })
                 });
 
-                const akashReq = fetch('https://formsubmit.co/ajax/mk074377@gmail.com', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                Promise.all([anshReq, akashReq]).then(() => {
-                    form.innerHTML = '<div style="text-align:center; padding: 40px;"><i class="ri-checkbox-circle-fill" style="font-size:4rem;color:var(--accent-gold);"></i><h3 style="font-family: \'Cormorant Garamond\', serif; font-size: 2rem; color: var(--rf-text); margin-top: 20px;">Application Received</h3><p style="color: var(--rf-muted); font-size: 1.1rem; margin-top: 10px;">We will review your details and contact you shortly.</p></div>';
+                Promise.allSettled([emailReq1, emailReq2, sheetsReq]).then(() => {
+                    form.innerHTML = '<div style="text-align:center; padding: 40px;"><i class="ri-checkbox-circle-fill" style="font-size:4rem;color:#b3277b;"></i><h3 style="font-family: \'Cormorant Garamond\', serif; font-size: 2rem; color: #032f62; margin-top: 20px;">Application Received!</h3><p style="color: #718096; font-size: 1.1rem; margin-top: 10px;">We will review your details and contact you shortly.</p></div>';
                 }).catch(() => {
                     submitBtn.innerHTML = '<span class="magnetic-inner" style="display:flex; align-items:center; gap:10px;">Error. Try Again.</span>';
                     submitBtn.disabled = false;

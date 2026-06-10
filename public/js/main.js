@@ -374,14 +374,7 @@ class AppleScrollArchitect {
             );
         });
 
-        // 4. Hero iPhone Scroll Interaction
-        const iphoneMockup = document.querySelector('.iphone-mockup');
-        if(iphoneMockup) {
-            gsap.to(iphoneMockup, {
-                scale: 1.1, yPercent: -5, rotateY: 0, rotateX: 0,
-                scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1 }
-            });
-        }
+        // 4. Hero iPhone Scroll Interaction (Removed by user request as it was buggy)
     }
 }
 
@@ -472,7 +465,7 @@ class AuraNeuralAgent {
 document.addEventListener('DOMContentLoaded', () => {
     window.zyrovaPreloader = new ZyrovaPreloader();
     new ScrollVelocityEngine();
-    window.fluidWebGLInstance = new LuxuryFluidWebGL(); 
+    // window.fluidWebGLInstance = new LuxuryFluidWebGL(); // DISABLED: Fixed massive scroll lag
     new AppleScrollArchitect();
     new AuraNeuralAgent();
 

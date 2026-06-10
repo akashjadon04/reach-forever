@@ -40,8 +40,8 @@
 </script>
 <link rel="preload" href="assets/poster_1.webp" as="image">
 <!-- Fonts: deferred to avoid render-blocking -->
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" as="style" onload="this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
 <!-- Remixicon: deferred -->
 <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"></noscript>
@@ -55,6 +55,8 @@
   --tx:#032f62;--tx2:#1A202C;--tx3:#4A5568;--txm:#718096;
   --sf:'Cormorant Garamond',Georgia,serif;
   --ss:'Outfit',system-ui,sans-serif;
+  --sm:'Manrope',system-ui,sans-serif;
+  --sb:'Montserrat',system-ui,sans-serif;
   --ex:cubic-bezier(0.16,1,0.3,1);
   --bk:cubic-bezier(0.34,1.56,0.64,1);
 }
@@ -149,8 +151,14 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
 @keyframes flt{0%{transform:translateY(0) rotate(-.4deg)}100%{transform:translateY(-16px) rotate(.4deg)}}
 .fsc-ic{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;color:#FFF}
 .fsc-num{font-family:var(--sf);font-size:1.9rem;font-weight:700;color:var(--tx);line-height:1}
-.fsc-lbl{font-family:var(--ss);font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-top:2px;color:var(--tx2)}
-@media(max-width:1000px){#hero{grid-template-columns:1fr;text-align:center;padding:140px 5% 80px; overflow: hidden; width: 100%;}.h-visual{margin-top:0px}.h-sub{margin:0 auto 38px}.h-btns,.h-trust{justify-content:center}.fsc{display:none}#heroPhone{margin:0 auto;transform:perspective(1200px) rotateY(0deg) rotateX(0deg);}}
+.fsc-lbl{font-family:var(--sm);font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-top:2px;color:var(--tx2)}
+/* On mobile, shrink floating cards, remove blur */
+@media(max-width:1000px){
+  #hero{grid-template-columns:1fr;text-align:center;padding:140px 5% 80px; overflow: hidden; width: 100%;}
+  .h-visual{margin-top:0px}.h-sub{margin:0 auto 38px}.h-btns,.h-trust{justify-content:center}
+  .fsc{display:none}
+  #heroPhone{margin:0 auto;transform:perspective(1200px) rotateY(0deg) rotateX(0deg);}
+}
 
 /* ── stats bar ── */
 #statsBar{background:var(--dark);padding:60px 5%;display:grid;grid-template-columns:repeat(4,1fr);position:relative;overflow:hidden}
@@ -158,7 +166,7 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
 .si{text-align:center;padding:20px;border-right:1px solid rgba(247,244,239,.05);position:relative;z-index:1}
 .si:last-child{border-right:none}
 .si-num{font-family:var(--sf);font-size:clamp(2.6rem,4vw,4.5rem);font-weight:700;color:var(--gold);letter-spacing:-2px;line-height:1}
-.si-lbl{font-family:var(--ss);font-size:.8rem;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:1.5px;margin-top:6px}
+.si-lbl{font-family:var(--sm);font-size:.8rem;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:1.5px;margin-top:6px}
 @media(max-width:768px){#statsBar{grid-template-columns:repeat(2,1fr)}.si:nth-child(2){border-right:none}}
 
 /* ── platform sec ── */
@@ -216,7 +224,7 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
 .proc-spin{position:absolute;inset:-5px;border-radius:50%;border:1px dashed var(--lc);animation:spin 20s linear infinite}
 @keyframes spin{100%{transform:rotate(360deg)}}
 .proc-title{font-family:var(--sf);font-size:1.7rem;font-weight:700;color:var(--tx);margin-bottom:12px}
-.proc-desc{font-family:var(--ss);font-size:.87rem;color:var(--tx3);line-height:1.78}
+.proc-desc{font-family:var(--sb);font-size:.87rem;color:var(--tx3);line-height:1.78}
 @media(max-width:900px){.proc-grid{grid-template-columns:repeat(2,1fr);gap:40px}.proc-line{display:none}}
 
 /* ── before/after ── */
@@ -224,25 +232,27 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
 .ba-hdr{text-align:center;margin-bottom:60px}
 .ba-h2{font-family:var(--sf);font-size:clamp(2.5rem,4.5vw,5.2rem);font-weight:700;color:var(--tx);line-height:.98;letter-spacing:-2px;margin-bottom:12px}
 .ba-h2 em{color:var(--gold);font-style:italic}
-#baSlider{position:relative;width:100%;max-width:960px;height:500px;border-radius:32px;overflow:hidden;cursor:col-resize;box-shadow:0 40px 100px rgba(26,18,8,.14);border:1px solid rgba(216,27,96,.2);margin:0 auto;user-select:none;touch-action:pan-y}
+#baSlider{position:relative;width:100%;max-width:960px;height:500px;border-radius:32px;overflow:hidden;box-shadow:0 40px 100px rgba(26,18,8,.14);border:1px solid rgba(216,27,96,.2);margin:0 auto;user-select:none;touch-action:none;cursor:col-resize}
 #baAfter{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none}
 #baBefore{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;clip-path:inset(0 50% 0 0);pointer-events:none}
 #baDivider{position:absolute;top:0;bottom:0;left:50%;z-index:3;width:2px;background:#FFF;cursor:col-resize;transform:translateX(-1px)}
 #baDivider::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;background:#FFF;border-radius:50%;box-shadow:0 4px 20px rgba(0,0,0,.28)}
 #baDivider::after{content:'\2194';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:.6rem;color:var(--tx);letter-spacing:-1px;font-weight:900}
-.ba-lbl{position:absolute;top:20px;z-index:4;color:#FFF;font-family:var(--ss);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:6px 14px;border-radius:100px}
+.ba-lbl{position:absolute;top:20px;z-index:4;color:#FFF;font-family:var(--sm);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:6px 14px;border-radius:100px}
 .ba-lbl.bef{left:20px;background:rgba(219,68,55,.85)}
 .ba-lbl.aft{right:20px;background:rgba(16,185,129,.85)}
 .ba-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:40px auto 0}
 .ba-s{text-align:center;padding:28px;border-radius:20px;background:rgba(26,18,8,.04);border:1px solid rgba(26,18,8,.07)}
 .ba-sn{font-family:var(--sf);font-size:2.5rem;font-weight:700;color:var(--goldd);letter-spacing:-1px}
-.ba-sl{font-family:var(--ss);font-size:.79rem;color:var(--tx3);margin-top:4px;font-weight:600}
+.ba-sl{font-family:var(--sm);font-size:.79rem;color:var(--tx3);margin-top:4px;font-weight:600}
+/* Mobile: flip slider to vertical, fix image visibility */
 @media(max-width:600px){
-  #baSlider{height:550px}
-  #baBefore{clip-path:inset(0 0 50% 0)}
+  #baSlider{aspect-ratio:3/4;height:auto}
+  #baAfter,#baBefore{width:100%;height:100%}
+  #baBefore{clip-path:inset(50% 0 0 0)}
   #baDivider{width:100%;height:2px;left:0;right:0;top:50%;bottom:auto;transform:translateY(-1px);cursor:row-resize}
   #baDivider::after{content:'\2195'}
-  .ba-lbl.bef{top:20px;left:50%;transform:translateX(-50%);bottom:auto}
+  .ba-lbl.bef{top:20px;left:50%;transform:translateX(-50%);bottom:auto;right:auto}
   .ba-lbl.aft{bottom:20px;left:50%;transform:translateX(-50%);top:auto;right:auto}
   .ba-stats{grid-template-columns:1fr;max-width:320px}
 }
@@ -262,7 +272,7 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
 .tc{width:360px;flex-shrink:0;padding:30px;background:#FFFFFF;border:1px solid var(--lc);border-radius:24px;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:transform .4s var(--ex),box-shadow .4s}
 .tc:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.5)}
 .tc-stars{color:var(--gold);font-size:.88rem;margin-bottom:14px;letter-spacing:2px}
-.tc-text{font-family:var(--ss);font-size:.93rem;color:var(--tx2);line-height:1.72;margin-bottom:18px;font-style:italic}
+.tc-text{font-family:var(--sb);font-size:.93rem;color:var(--tx2);line-height:1.72;margin-bottom:18px;font-style:italic}
 .tc-author{display:flex;align-items:center;gap:12px}
 .tc-av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--goldd));display:flex;align-items:center;justify-content:center;font-family:var(--sf);font-size:1.2rem;font-weight:700;color:#FFF;border:2px solid rgba(216,27,96,.3);flex-shrink:0}
 .tc-name{font-family:var(--ss);font-size:.87rem;font-weight:700;color:var(--tx)}
@@ -380,16 +390,6 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
             <source src="https://res.cloudinary.com/dwniivgg5/video/upload/v1734533036/WhatsApp_Video_2024-12-18_at_20.13.06_c06e30eb_g8yftz.mp4" type="video/mp4">
           </video>
           <div class="phone-badge" data-cms="hero_iphone_badge">Live Result</div>
-          
-          <div style="position:absolute; bottom:14px; left:14px; right:14px; background:rgba(0,0,0,0.9); backdrop-filter:none; -webkit-backdrop-filter:none; border-radius:20px; padding:12px; display:flex; align-items:center; gap:10px;">
-            <div style="width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg, #d81b60, #881337); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-              <i class="ri-rocket-fill" style="color:#fff; font-size:1.2rem;"></i>
-            </div>
-            <div>
-              <div data-cms="hero_iphone_client" style="color:#fff; font-family:var(--sf); font-size:1.1rem; font-weight:700;">Ansh_khatri001</div>
-              <div data-cms="hero_iphone_caption" style="color:rgba(255,255,255,0.8); font-family:var(--ss); font-size:0.75rem;">Best Marketer</div>
-            </div>
-          </div>
         </div>
         <!-- SIDES (VOXELS) -->
         <div class="phone-face phone-mid" style="transform:translateZ(12px); background:#000;"></div>
@@ -410,7 +410,7 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
     
     <div class="fsc fsc-2">
       <div class="fsc-ic" style="background:linear-gradient(135deg,#10B981,#059669)"><i class="ri-line-chart-fill"></i></div>
-      <div><div class="fsc-num">4.8×</div><div class="fsc-lbl" style="color:#10B981">Avg ROAS</div></div>
+      <div><div class="fsc-num">10×</div><div class="fsc-lbl" style="color:#10B981">Avg ROI</div></div>
     </div>
   </div>
 </section>
@@ -418,7 +418,7 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
 <!-- STATS -->
 <div id="statsBar">
   <div class="si"><div class="si-num" data-c="320" data-s="+" data-cms="stat_clients">320+</div><div class="si-lbl" data-cms="stat_clients_lbl">Happy Clients</div></div>
-  <div class="si"><div class="si-num" data-c="4.8" data-s="×" data-f="1" data-cms="stat_roas">4.8×</div><div class="si-lbl" data-cms="stat_roas_lbl">Average ROAS</div></div>
+  <div class="si"><div class="si-num" data-c="10" data-s="×" data-f="1" data-cms="stat_roas">10×</div><div class="si-lbl" data-cms="stat_roas_lbl">Average ROI</div></div>
   <div class="si"><div class="si-num" data-c="60" data-s="%" data-cms="stat_cpl">60%</div><div class="si-lbl" data-cms="stat_cpl_lbl">Less Cost Per Lead</div></div>
   <div class="si"><div class="si-num" data-c="14" data-s=" Days" data-cms="stat_days">14 Days</div><div class="si-lbl" data-cms="stat_days_lbl">To First Results</div></div>
 </div>
@@ -462,7 +462,7 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
   </div>
   <div class="svc-title" data-cms="ars_c1_title">Local Business Ads</div>
   <div class="svc-desc" data-cms="ars_c1_desc">Hyper-targeted Meta & Google campaigns that capture high-intent customers in your exact area — precisely when they're ready to buy.</div>
-  <div class="svc-tags"><span class="svc-tag" style="background:#FFF;border-color:rgba(0,0,0,.1);color:var(--tx2);box-shadow:0 2px 8px rgba(0,0,0,.04)">Retargeting</span><span class="svc-tag" style="background:#FFF;border-color:rgba(0,0,0,.1);color:var(--tx2);box-shadow:0 2px 8px rgba(0,0,0,.04)">4.8× ROAS</span><span class="svc-tag" style="background:#FFF;border-color:rgba(0,0,0,.1);color:var(--tx2);box-shadow:0 2px 8px rgba(0,0,0,.04)">Lookalikes</span></div>
+  <div class="svc-tags"><span class="svc-tag" style="background:#FFF;border-color:rgba(0,0,0,.1);color:var(--tx2);box-shadow:0 2px 8px rgba(0,0,0,.04)">Retargeting</span><span class="svc-tag" style="background:#FFF;border-color:rgba(0,0,0,.1);color:var(--tx2);box-shadow:0 2px 8px rgba(0,0,0,.04)">10× ROI</span><span class="svc-tag" style="background:#FFF;border-color:rgba(0,0,0,.1);color:var(--tx2);box-shadow:0 2px 8px rgba(0,0,0,.04)">Lookalikes</span></div>
   <div class="svc-glare"></div>
 </div>
 <div class="svc-card" data-tilt>
@@ -609,7 +609,7 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
   </div>
   <div class="ba-stats">
     <div class="ba-s"><div class="ba-sn">-62%</div><div class="ba-sl">Cost Per Lead Reduced</div></div>
-    <div class="ba-s"><div class="ba-sn">4.8×</div><div class="ba-sl">Return on Ad Spend</div></div>
+    <div class="ba-s"><div class="ba-sn">10×</div><div class="ba-sl">Return on Investment</div></div>
     <div class="ba-s"><div class="ba-sn">14 Days</div><div class="ba-sl">To First Results</div></div>
   </div>
 </div>
@@ -920,26 +920,68 @@ window.addEventListener('load',function(){
 
 }); // End DOMContentLoaded
 
-// Bulletproof iPhone Scroll using GSAP on window load
-window.addEventListener('load', () => {
-  if (window.gsap && window.ScrollTrigger) {
-    const ph = document.getElementById('heroPhoneWrap');
-    if (ph) {
-      gsap.to(ph, {
-        scrollTrigger: {
-          trigger: 'body',
-          start: 'top top',
-          end: '800px top',
-          scrub: 1.5 // Added smoothing (scrub: 1.5 seconds) to prevent jumping
-        },
-        rotationY: 160, 
-        rotationX: 0, 
-        scale: 1.15, 
-        ease: 'none'
-      });
+// B/A Slider — mouse + touch, works horizontal desktop, vertical mobile
+(function(){
+  const slider = document.getElementById('baSlider');
+  const bBefore = document.getElementById('baBefore');
+  const divider = document.getElementById('baDivider');
+  if (!slider || !bBefore || !divider) return;
+  let dragging = false;
+  const isMob = () => window.innerWidth <= 600;
+
+  function setPos(e) {
+    const rect = slider.getBoundingClientRect();
+    if (isMob()) {
+      // vertical mode on mobile
+      const y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
+      const pct = Math.max(0, Math.min(100, (y / rect.height) * 100));
+      bBefore.style.clipPath = `inset(0 0 ${100-pct}% 0)`;
+      divider.style.top = pct + '%';
+      divider.style.left = '0';
+    } else {
+      // horizontal mode on desktop
+      const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+      const pct = Math.max(0, Math.min(100, (x / rect.width) * 100));
+      bBefore.style.clipPath = `inset(0 ${100-pct}% 0 0)`;
+      divider.style.left = pct + '%';
+      divider.style.top = '0';
     }
   }
-});
+
+  slider.addEventListener('mousedown', e => { dragging = true; setPos(e); e.preventDefault(); });
+  window.addEventListener('mousemove', e => { if (dragging) setPos(e); });
+  window.addEventListener('mouseup', () => { dragging = false; });
+  slider.addEventListener('touchstart', e => { dragging = true; setPos(e); }, { passive: true });
+  window.addEventListener('touchmove', e => { if (dragging) setPos(e); }, { passive: true });
+  window.addEventListener('touchend', () => { dragging = false; });
+})();
+
+// platformSec — add mouse drag scroll to the flowing carousel
+(function(){
+  const track = document.getElementById('pt');
+  if (!track) return;
+  let isDown = false, startX, scrollLeft;
+  track.addEventListener('mousedown', e => {
+    isDown = true;
+    track.style.animationPlayState = 'paused';
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+    track.style.cursor = 'grabbing';
+  });
+  window.addEventListener('mouseup', () => {
+    isDown = false;
+    track.style.cursor = 'grab';
+    // resume animation after 1s of no drag
+    setTimeout(() => { track.style.animationPlayState = 'running'; }, 1000);
+  });
+  track.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    track.scrollLeft = scrollLeft - walk;
+  });
+})();
 </script>
 <script src="js/cms.js" defer></script>
 <script src="js/chatbot.js" defer></script>
