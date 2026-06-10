@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://reachforever.in/sitemap.xml
+Sitemap: https://reachforever.com/sitemap.xml
