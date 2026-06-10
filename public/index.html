@@ -412,35 +412,7 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
   </div>
 </section>
 
-<!-- PROOF NOT PROMISES -->
-<section id="proofSec" style="padding: 100px 0; background: #fff; overflow: hidden;">
-    <div style="text-align: center; margin-bottom: 50px;">
-        <span style="font-family: var(--rf-font-sub); font-size: 0.9rem; font-weight: 700; color: #d81b60; letter-spacing: 2px; text-transform: uppercase;">Real Results</span>
-        <h2 style="font-family: var(--rf-font-heading); font-size: clamp(2.5rem, 4vw, 4rem); color: #111;">Proof, Not <em style="font-style:normal; color:transparent; background:linear-gradient(135deg,#8b5cf6,#ec4899); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Promises</em>.</h2>
-    </div>
-    <div class="marquee-wrap" style="width: 100%; display: flex; overflow: hidden; white-space: nowrap; padding: 20px 0;">
-        <div class="marquee-track" style="display: flex; gap: 20px; animation: marquee 25s linear infinite;">
-            <img src="assets/poster_1.webp" style="height: 400px; border-radius: 20px; object-fit: cover;">
-            <video src="assets/video_1.mp4" autoplay muted loop playsinline style="height: 400px; border-radius: 20px; object-fit: cover;"></video>
-            <video src="assets/video_2.mp4" autoplay muted loop playsinline style="height: 400px; border-radius: 20px; object-fit: cover;"></video>
-            <video src="assets/video_3.mp4" autoplay muted loop playsinline style="height: 400px; border-radius: 20px; object-fit: cover;"></video>
-            <video src="assets/video_4.mp4" autoplay muted loop playsinline style="height: 400px; border-radius: 20px; object-fit: cover;"></video>
-            <!-- Duplicate for infinite loop -->
-            <img src="assets/poster_1.webp" style="height: 400px; border-radius: 20px; object-fit: cover;">
-            <video src="assets/video_1.mp4" autoplay muted loop playsinline style="height: 400px; border-radius: 20px; object-fit: cover;"></video>
-            <video src="assets/video_2.mp4" autoplay muted loop playsinline style="height: 400px; border-radius: 20px; object-fit: cover;"></video>
-        </div>
-    </div>
-    <style>
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-50% - 10px)); }
-        }
-        @media(max-width: 768px) {
-            .marquee-track img, .marquee-track video { height: 250px !important; }
-        }
-    </style>
-</section>
+
 
 
 
@@ -621,7 +593,28 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
 </div>
 </section>
 
-
+<!-- B/A -->
+<section id="baSec" class="sec">
+<div class="sin">
+  <div class="ba-hdr">
+    <span class="sec-lbl gold" data-cms="xray_tag"><i class="ri-magic-line"></i> The Difference</span>
+    <h2 class="ba-h2" data-cms="xray_title">Before vs <em>After.</em></h2>
+    <p style="font-family:var(--ss);font-size:1rem;color:var(--tx3);max-width:520px;margin:0 auto;line-height:1.75" data-cms="xray_desc">Drag the slider to see how upgrading your digital presence instantly builds trust.</p>
+  </div>
+  <div id="baSlider">
+    <img id="baAfter" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="After digital transformation" width="960" height="500" data-cms="ba_img_after" loading="lazy" draggable="false">
+    <img id="baBefore" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Before digital transformation" width="960" height="500" data-cms="ba_img_before" loading="lazy" draggable="false">
+    <div id="baDivider"></div>
+    <div class="ba-lbl bef">BEFORE</div>
+    <div class="ba-lbl aft">AFTER</div>
+  </div>
+  <div class="ba-stats">
+    <div class="ba-s"><div class="ba-sn">-62%</div><div class="ba-sl">Cost Per Lead Reduced</div></div>
+    <div class="ba-s"><div class="ba-sn">10×</div><div class="ba-sl">Return on Investment</div></div>
+    <div class="ba-s"><div class="ba-sn">14 Days</div><div class="ba-sl">To First Results</div></div>
+  </div>
+</div>
+</section>
 
 <!-- The Reach Difference (Before vs After) -->
 <section id="diffSec" style="padding: 100px 5%; background: #F8F9FA; position: relative; overflow: hidden;">
