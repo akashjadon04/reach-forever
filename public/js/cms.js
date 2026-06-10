@@ -169,7 +169,7 @@ async function syncZyrovaCMS() {
 
                             <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 30%, transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px 80px 40px 20px; pointer-events: none;">
                                 <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-                                    <img src="assets/rf-logo.png" alt="Reach Forever" loading="lazy" width="55" height="55" style="width: 55px; height: 55px; border-radius: 50%; border: 3px solid #D4AF37; object-fit: cover;">
+                                    <img src="assets/rf_small.png" alt="Reach Forever" loading="lazy" width="55" height="55" style="width: 55px; height: 55px; border-radius: 50%; border: 3px solid #D4AF37; object-fit: cover;">
                                     <div style="display: flex; flex-direction: column;">
                                         <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #FFF; font-weight: 700;">@reachforever</div>
                                     </div>
