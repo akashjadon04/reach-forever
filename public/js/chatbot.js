@@ -6,7 +6,7 @@
     existFabs.forEach(el => el.remove());
 
     const html = `
-    <div class="rf-aifab-wrap" style="position:fixed;bottom:80px;right:20px;z-index:9999940;">
+    <div class="rf-aifab-wrap" style="position:fixed;bottom:20px;right:20px;z-index:9999940;">
         <div class="rf-aifab" id="rfAuraFab" role="button" aria-label="Open AI Chat Assistant" tabindex="0">
             <i class="ri-customer-service-2-fill" aria-hidden="true"></i>
             <div id="rfBotBadge" aria-hidden="true"></div>
@@ -31,7 +31,7 @@
     </div>
     <style>
       /* ─── Chatbot FAB ─── */
-      .rf-aifab-wrap { position:fixed; bottom:80px; right:20px; z-index:9999940; }
+      .rf-aifab-wrap { position:fixed; bottom:20px; right:20px; z-index:9999940; }
       .rf-aifab {
         width:52px; height:52px; border-radius:50%;
         background:#0A0B0E; border:1px solid rgba(200,169,110,.3);
@@ -52,7 +52,7 @@
       /* ─── Chat Panel ─── */
       .rf-chat-panel {
         position:fixed; bottom:144px; right:20px;
-        width:320px; max-height:440px;
+        width:320px; height:auto; max-height: 400px;
         background:rgba(10,11,14,.96); backdrop-filter:blur(28px);
         border-radius:18px; border:1px solid rgba(200,169,110,.25);
         box-shadow:0 20px 60px rgba(0,0,0,.4);
@@ -101,9 +101,9 @@
         #rfAuraBody { height:240px; }
       }
       @media(max-width:768px) {
-        .rf-aifab-wrap { bottom:100px; right:16px; }
+        .rf-aifab-wrap { bottom:90px; right:16px; }
         .rf-aifab { width:46px; height:46px; }
-        .rf-chat-panel { width:calc(100vw - 32px); right:16px; bottom:160px; max-height:55vh; }
+        .rf-chat-panel { width:calc(100vw - 32px); right:16px; bottom:150px; max-height:55vh; }
         #rfAuraBody { height:calc(55vh - 140px); }
       }
     </style>
@@ -181,7 +181,10 @@
         panel.setAttribute('inert', '');
     }
 
-    fab.addEventListener('click', () => { panelOpen ? closePanel() : openPanel(); });
+    fab.addEventListener('click', (e) => { 
+        e.stopPropagation();
+        panelOpen ? closePanel() : openPanel(); 
+    });
 
     close.addEventListener('click', closePanel);
 

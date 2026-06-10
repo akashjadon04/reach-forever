@@ -7,6 +7,7 @@
 }
 /* Apply body font globally (non-hero sections), override hero specifically later */
 body { font-family: var(--rf-font-body); }
+html, body { overflow-x: hidden !important; max-width: 100vw !important; }
 /* Subheadings, labels, tags use Manrope */
 .sec-lbl, .h-tag, .fsc-lbl, .si-lbl, .tc-biz, .foot-col-t,
 .svc-tag, .proc-desc, .ba-sl, .rush-sub { font-family: var(--rf-font-sub) !important; }
@@ -248,4 +249,40 @@ p, .h-sub, .proc-sub, .rush-sub, .plat-sub, .svc-sub, .testi-desc { font-size: c
 }
 @media(max-width: 1024px) {
     #rfFoot, .site-foot { padding-bottom: 120px !important; }
+}
+
+/* ============================================================
+   USER REQUESTED STRICT GLOBAL FONTS
+   ============================================================ */
+/* Montserrat for Body */
+body { font-family: 'Montserrat', sans-serif !important; }
+p, a, li { font-family: 'Montserrat', sans-serif; }
+
+/* Outfit Bold for Headings (Ignoring hero sections .h1 / .ah-h1 if they use Cormorant) */
+h1:not(.h1):not(.ah-h1), 
+h2, h3, h4, h5, h6, 
+.vm-h2, .svc-title, .proc-h2, .rush-h2, .ba-h2, .testi-h2, .form-h2, .faq-h2 {
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+/* Manrope for Subheadings */
+.subheading, .sec-lbl, .h-sub, .ah-sub, .proc-sub, .rush-sub, .f-feat-text p, .vm-desc {
+  font-family: 'Manrope', sans-serif !important;
+}
+
+/* Protect Icons from being overridden by generic span/div rules if applied later */
+[class^="ri-"], [class*=" ri-"] {
+  font-family: 'remixicon' !important;
+}
+
+/* Fix User Request: NO ITALICS anywhere in headings or text (except icons) */
+em {
+  font-style: normal !important;
+}
+
+/* Fix User Request: Marketing 'G' cut off due to gradient clipping */
+.proc-h2, .rush-h2, .ba-h2, .testi-h2, .plat-h2, .svc-h2, .form-h2, .faq-h2, .grad-text, h1, h2, h3, h4, h5, h6, em {
+  padding-bottom: 0.15em !important;
+  line-height: 1.15 !important;
 }
