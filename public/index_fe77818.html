@@ -263,9 +263,9 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
 .testi-h2{font-family:var(--sf);font-size:clamp(2.5rem,4.5vw,5.2rem);font-weight:700;color:var(--tx);letter-spacing:-2px;line-height:.98;margin-bottom:12px}
 .testi-h2 em{color:var(--gold);font-style:italic}
 .tt-wrap{overflow:hidden;position:relative}
-
-
-
+.tt-wrap::before,.tt-wrap::after{content:'';position:absolute;top:0;bottom:0;z-index:2;width:100px;pointer-events:none}
+.tt-wrap::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.tt-wrap::after{right:0;background:linear-gradient(270deg,var(--bg),transparent)}
 .tt{display:flex;gap:20px;width:max-content;animation:mq 42s linear infinite;will-change:transform;transform:translateZ(0)}
 .tt:hover{animation-play-state:paused}
 @keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
@@ -385,11 +385,11 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
       <div id="heroPhone">
         <!-- FRONT -->
         <div class="phone-face phone-front">
-          <div class="phone-notch" style="color:white; font-family:var(--ss); font-size:10px; display:flex; align-items:center; justify-content:center; letter-spacing:1px; font-weight:bold;">Results</div>
+          <div class="phone-notch"></div>
           <video id="heroVideoAd" autoplay muted loop playsinline preload="auto" style="background:#000; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
             <source src="https://res.cloudinary.com/dwniivgg5/video/upload/v1734533036/WhatsApp_Video_2024-12-18_at_20.13.06_c06e30eb_g8yftz.mp4" type="video/mp4">
           </video>
-          
+          <div class="phone-badge" data-cms="hero_iphone_badge">Live Result</div>
         </div>
         <!-- SIDES (VOXELS) -->
         <div class="phone-face phone-mid" style="transform:translateZ(12px); background:#000;"></div>
@@ -442,7 +442,85 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
     </style>
 </section>
 
+<!-- The Reach Difference (Before vs After) -->
+<section id="diffSec" style="padding: 100px 5%; background: #F8F9FA; position: relative; overflow: hidden;">
+  <div style="position:absolute; top:-100px; right:-100px; width:400px; height:400px; background:radial-gradient(circle,rgba(236,72,153,.15) 0%,transparent 70%); border-radius:50%; pointer-events:none;"></div>
+  <div style="position:absolute; bottom:-100px; left:-100px; width:400px; height:400px; background:radial-gradient(circle,rgba(16,185,129,.1) 0%,transparent 70%); border-radius:50%; pointer-events:none;"></div>
+  
+  <div style="max-width:1200px; margin:0 auto; position:relative; z-index:2; text-align:center; margin-bottom:70px;">
+    <span style="font-family:var(--ss); font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--gold); display:block; margin-bottom:15px;">The Paradigm Shift</span>
+    <h2 class="ba-h2" style="font-family:var(--ss); font-size:clamp(2.5rem,4vw,4rem); font-weight:800; color:#111; margin-bottom:15px; letter-spacing:-1px;">Before vs <span style="color:transparent; background:linear-gradient(135deg,#8b5cf6,#ec4899); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-style:normal;">After</span></h2>
+  </div>
 
+  <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:40px; position:relative; z-index:2;">
+    
+    <!-- Before -->
+    <div style="background:#FFF; border-radius:32px; padding:50px; border:1px solid rgba(239,68,68,.15); position:relative; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,0.05);">
+      <div style="position:absolute; top:0; left:0; width:100%; height:4px; background:linear-gradient(90deg, #ef4444, #991b1b);"></div>
+      <div style="display:flex; align-items:center; gap:15px; margin-bottom:40px;">
+        <div style="width:50px; height:50px; border-radius:12px; background:rgba(239,68,68,.1); display:flex; align-items:center; justify-content:center; color:#ef4444; font-size:1.5rem;"><i class="ri-close-circle-fill"></i></div>
+        <h3 style="font-family:var(--ss); font-size:1.8rem; font-weight:700; color:#111;">Before Reach Forever</h3>
+      </div>
+      
+      <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:25px;">
+        <li style="display:flex; align-items:flex-start; gap:15px;">
+          <i class="ri-arrow-right-line" style="color:#ef4444; font-size:1.2rem; margin-top:2px;"></i>
+          <div>
+            <h4 style="font-family:var(--ss); font-size:1.1rem; color:#111; margin-bottom:5px;">Hope Marketing</h4>
+            <p style="font-family:var(--sb); font-size:0.95rem; color:#666; line-height:1.6;">Posting blindly and praying for customers without a measurable system.</p>
+          </div>
+        </li>
+        <li style="display:flex; align-items:flex-start; gap:15px;">
+          <i class="ri-arrow-right-line" style="color:#ef4444; font-size:1.2rem; margin-top:2px;"></i>
+          <div>
+            <h4 style="font-family:var(--ss); font-size:1.1rem; color:#111; margin-bottom:5px;">Vanity Metrics Trap</h4>
+            <p style="font-family:var(--sb); font-size:0.95rem; color:#666; line-height:1.6;">Celebrating likes and followers while revenue remains stagnant.</p>
+          </div>
+        </li>
+        <li style="display:flex; align-items:flex-start; gap:15px;">
+          <i class="ri-arrow-right-line" style="color:#ef4444; font-size:1.2rem; margin-top:2px;"></i>
+          <div>
+            <h4 style="font-family:var(--ss); font-size:1.1rem; color:#111; margin-bottom:5px;">Unpredictable Growth</h4>
+            <p style="font-family:var(--sb); font-size:0.95rem; color:#666; line-height:1.6;">Relying purely on referrals or seasonal spikes to survive.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- After -->
+    <div style="background:linear-gradient(180deg, rgba(16,185,129,.05) 0%, #FFF 100%); border-radius:32px; padding:50px; border:1px solid rgba(16,185,129,.3); position:relative; overflow:hidden; box-shadow: 0 20px 60px rgba(16,185,129,.1);">
+      <div style="position:absolute; top:0; left:0; width:100%; height:4px; background:linear-gradient(90deg, #10b981, #059669);"></div>
+      <div style="display:flex; align-items:center; gap:15px; margin-bottom:40px;">
+        <div style="width:50px; height:50px; border-radius:12px; background:rgba(16,185,129,.1); display:flex; align-items:center; justify-content:center; color:#10b981; font-size:1.5rem;"><i class="ri-checkbox-circle-fill"></i></div>
+        <h3 style="font-family:var(--ss); font-size:1.8rem; font-weight:700; color:#111;">With Reach Forever</h3>
+      </div>
+      
+      <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:25px;">
+        <li style="display:flex; align-items:flex-start; gap:15px;">
+          <i class="ri-check-line" style="color:#10b981; font-size:1.2rem; margin-top:2px; font-weight:800;"></i>
+          <div>
+            <h4 style="font-family:var(--ss); font-size:1.1rem; color:#111; margin-bottom:5px;">Engineered Acquisition</h4>
+            <p style="font-family:var(--sb); font-size:0.95rem; color:#555; line-height:1.6;">Data-driven funnels designed strictly to convert strangers into buyers.</p>
+          </div>
+        </li>
+        <li style="display:flex; align-items:flex-start; gap:15px;">
+          <i class="ri-check-line" style="color:#10b981; font-size:1.2rem; margin-top:2px; font-weight:800;"></i>
+          <div>
+            <h4 style="font-family:var(--ss); font-size:1.1rem; color:#111; margin-bottom:5px;">Aggressive ROI Focus</h4>
+            <p style="font-family:var(--sb); font-size:0.95rem; color:#555; line-height:1.6;">Every campaign is rigorously tracked and optimized for maximum profit.</p>
+          </div>
+        </li>
+        <li style="display:flex; align-items:flex-start; gap:15px;">
+          <i class="ri-check-line" style="color:#10b981; font-size:1.2rem; margin-top:2px; font-weight:800;"></i>
+          <div>
+            <h4 style="font-family:var(--ss); font-size:1.1rem; color:#111; margin-bottom:5px;">Predictable Scalability</h4>
+            <p style="font-family:var(--sb); font-size:0.95rem; color:#555; line-height:1.6;">A reliable system where ₹1 in predictably generates ₹5+ out.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 <!-- STATS -->
 <div id="statsBar">
@@ -621,87 +699,29 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
 </div>
 </section>
 
-
-
-<!-- The Reach Difference (Before vs After) -->
-<section id="diffSec" style="padding: 100px 5%; background: #F8F9FA; position: relative; overflow: hidden;">
-  <div style="position:absolute; top:-100px; right:-100px; width:400px; height:400px; background:radial-gradient(circle,rgba(236,72,153,.15) 0%,transparent 70%); border-radius:50%; pointer-events:none;"></div>
-  <div style="position:absolute; bottom:-100px; left:-100px; width:400px; height:400px; background:radial-gradient(circle,rgba(16,185,129,.1) 0%,transparent 70%); border-radius:50%; pointer-events:none;"></div>
-  
-  <div style="max-width:1200px; margin:0 auto; position:relative; z-index:2; text-align:center; margin-bottom:70px;">
-    <span style="font-family:var(--ss); font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--gold); display:block; margin-bottom:15px;">The Paradigm Shift</span>
-    <h2 class="ba-h2" style="font-family:var(--ss); font-size:clamp(2.5rem,4vw,4rem); font-weight:800; color:#111; margin-bottom:15px; letter-spacing:-1px;">Before vs <span style="color:transparent; background:linear-gradient(135deg,#8b5cf6,#ec4899); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-style:normal;">After</span></h2>
+<!-- B/A -->
+<section id="baSec" class="sec">
+<div class="sin">
+  <div class="ba-hdr">
+    <span class="sec-lbl gold" data-cms="xray_tag"><i class="ri-magic-line"></i> The Difference</span>
+    <h2 class="ba-h2" data-cms="xray_title">Before vs <em>After.</em></h2>
+    <p style="font-family:var(--ss);font-size:1rem;color:var(--tx3);max-width:520px;margin:0 auto;line-height:1.75" data-cms="xray_desc">Drag the slider to see how upgrading your digital presence instantly builds trust.</p>
   </div>
-
-  <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:40px; position:relative; z-index:2;">
-    
-    <!-- Before -->
-    <div style="background:#FFF; border-radius:32px; padding:50px; border:1px solid rgba(239,68,68,.15); position:relative; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,0.05);">
-      <div style="position:absolute; top:0; left:0; width:100%; height:4px; background:linear-gradient(90deg, #ef4444, #991b1b);"></div>
-      <div style="display:flex; align-items:center; gap:15px; margin-bottom:40px;">
-        <div style="width:50px; height:50px; border-radius:12px; background:rgba(239,68,68,.1); display:flex; align-items:center; justify-content:center; color:#ef4444; font-size:1.5rem;"><i class="ri-close-circle-fill"></i></div>
-        <h3 style="font-family:var(--ss); font-size:1.8rem; font-weight:700; color:#111;">Before Reach Forever</h3>
-      </div>
-      
-      <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:25px;">
-        <li style="display:flex; align-items:flex-start; gap:15px;">
-          <i class="ri-arrow-right-line" style="color:#ef4444; font-size:1.2rem; margin-top:2px;"></i>
-          <div>
-            <h4 style="font-family:var(--ss); font-size:1.1rem; color:#111; margin-bottom:5px;">Hope Marketing</h4>
-            <p style="font-family:var(--sb); font-size:0.95rem; color:#666; line-height:1.6;">Posting blindly and praying for customers without a measurable system.</p>
-          </div>
-        </li>
-        <li style="display:flex; align-items:flex-start; gap:15px;">
-          <i class="ri-arrow-right-line" style="color:#ef4444; font-size:1.2rem; margin-top:2px;"></i>
-          <div>
-            <h4 style="font-family:var(--ss); font-size:1.1rem; color:#111; margin-bottom:5px;">Vanity Metrics Trap</h4>
-            <p style="font-family:var(--sb); font-size:0.95rem; color:#666; line-height:1.6;">Celebrating likes and followers while revenue remains stagnant.</p>
-          </div>
-        </li>
-        <li style="display:flex; align-items:flex-start; gap:15px;">
-          <i class="ri-arrow-right-line" style="color:#ef4444; font-size:1.2rem; margin-top:2px;"></i>
-          <div>
-            <h4 style="font-family:var(--ss); font-size:1.1rem; color:#111; margin-bottom:5px;">Unpredictable Growth</h4>
-            <p style="font-family:var(--sb); font-size:0.95rem; color:#666; line-height:1.6;">Relying purely on referrals or seasonal spikes to survive.</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <!-- After -->
-    <div style="background:linear-gradient(180deg, rgba(16,185,129,.05) 0%, #FFF 100%); border-radius:32px; padding:50px; border:1px solid rgba(16,185,129,.3); position:relative; overflow:hidden; box-shadow: 0 20px 60px rgba(16,185,129,.1);">
-      <div style="position:absolute; top:0; left:0; width:100%; height:4px; background:linear-gradient(90deg, #10b981, #059669);"></div>
-      <div style="display:flex; align-items:center; gap:15px; margin-bottom:40px;">
-        <div style="width:50px; height:50px; border-radius:12px; background:rgba(16,185,129,.1); display:flex; align-items:center; justify-content:center; color:#10b981; font-size:1.5rem;"><i class="ri-checkbox-circle-fill"></i></div>
-        <h3 style="font-family:var(--ss); font-size:1.8rem; font-weight:700; color:#111;">With Reach Forever</h3>
-      </div>
-      
-      <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:25px;">
-        <li style="display:flex; align-items:flex-start; gap:15px;">
-          <i class="ri-check-line" style="color:#10b981; font-size:1.2rem; margin-top:2px; font-weight:800;"></i>
-          <div>
-            <h4 style="font-family:var(--ss); font-size:1.1rem; color:#111; margin-bottom:5px;">Engineered Acquisition</h4>
-            <p style="font-family:var(--sb); font-size:0.95rem; color:#555; line-height:1.6;">Data-driven funnels designed strictly to convert strangers into buyers.</p>
-          </div>
-        </li>
-        <li style="display:flex; align-items:flex-start; gap:15px;">
-          <i class="ri-check-line" style="color:#10b981; font-size:1.2rem; margin-top:2px; font-weight:800;"></i>
-          <div>
-            <h4 style="font-family:var(--ss); font-size:1.1rem; color:#111; margin-bottom:5px;">Aggressive ROI Focus</h4>
-            <p style="font-family:var(--sb); font-size:0.95rem; color:#555; line-height:1.6;">Every campaign is rigorously tracked and optimized for maximum profit.</p>
-          </div>
-        </li>
-        <li style="display:flex; align-items:flex-start; gap:15px;">
-          <i class="ri-check-line" style="color:#10b981; font-size:1.2rem; margin-top:2px; font-weight:800;"></i>
-          <div>
-            <h4 style="font-family:var(--ss); font-size:1.1rem; color:#111; margin-bottom:5px;">Predictable Scalability</h4>
-            <p style="font-family:var(--sb); font-size:0.95rem; color:#555; line-height:1.6;">A reliable system where ₹1 in predictably generates ₹5+ out.</p>
-          </div>
-        </li>
-      </ul>
-    </div>
+  <div id="baSlider">
+    <img id="baAfter" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="After digital transformation" width="960" height="500" data-cms="ba_img_after" loading="lazy" draggable="false">
+    <img id="baBefore" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Before digital transformation" width="960" height="500" data-cms="ba_img_before" loading="lazy" draggable="false">
+    <div id="baDivider"></div>
+    <div class="ba-lbl bef">BEFORE</div>
+    <div class="ba-lbl aft">AFTER</div>
   </div>
+  <div class="ba-stats">
+    <div class="ba-s"><div class="ba-sn">-62%</div><div class="ba-sl">Cost Per Lead Reduced</div></div>
+    <div class="ba-s"><div class="ba-sn">10×</div><div class="ba-sl">Return on Investment</div></div>
+    <div class="ba-s"><div class="ba-sn">14 Days</div><div class="ba-sl">To First Results</div></div>
+  </div>
+</div>
 </section>
+
 <!-- TESTIMONIALS -->
 <section id="testiSec" class="sec">
   <div class="testi-hdr">
@@ -763,8 +783,8 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
 <section id="rushSec" class="sec">
   <div class="rush-in">
     <span class="sec-lbl light" style="margin-bottom:28px"><i class="ri-fire-fill"></i> Limited Availability</span>
-    <h2 class="rush-h2" data-cms="cta_title">Crowd at your store matters,<br><em>not just a following list.</em></h2>
-    <p class="rush-sub" data-cms="cta_desc">We accept only a few clients to ensure every client gets our full, undivided attention and best results.</p>
+    <h2 class="rush-h2" data-cms="cta_title">Only <em>3 Spots</em><br>Left This Month.</h2>
+    <p class="rush-sub" data-cms="cta_desc">We only take on 5 clients per month to ensure every client gets our full, undivided attention and best results.</p>
     <div class="rush-btns">
       <a href="form.html" class="btn-g" data-cms="cta_btn">Book Your Free Call <i class="ri-arrow-right-line"></i></a>
       <a href="reviews.html" class="btn-l"><i class="ri-star-fill" style="color:var(--gold)"></i> See All Reviews</a>
