@@ -291,7 +291,10 @@
         max-width:1400px; width:100%; margin:0 auto;
         align-items:center; position:relative; z-index:2;
     }
-    .hero-text-content { max-width:650px; }
+    .hero-text-content {
+        max-width:650px; display: flex; flex-direction: column;
+        align-items: flex-start; justify-content: center;
+    }
     .hero-tag {
         display:inline-flex; align-items:center; gap:8px;
         padding:8px 18px; border-radius:100px;
@@ -310,6 +313,30 @@
         font-size:clamp(1.1rem,1.5vw,1.35rem); color:var(--rf-muted);
         margin-bottom:40px; line-height:1.7; font-weight: 500;
     }
+    
+    /* ── MINIMAL HERO TRUST GRAPHIC ── */
+    .hero-trust-graphic {
+        display: flex; align-items: center; gap: 20px;
+        padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.05);
+        max-width: max-content;
+    }
+    [data-theme="light"] .hero-trust-graphic { border-top-color: rgba(0,0,0,0.05); }
+    .trust-avatars { display: flex; align-items: center; }
+    .trust-avatars img {
+        width: 44px; height: 44px; border-radius: 50%; object-fit: cover;
+        border: 2px solid var(--rf-bg); margin-right: -12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .avatar-more {
+        width: 44px; height: 44px; border-radius: 50%;
+        background: linear-gradient(135deg, #8b5cf6, #ec4899);
+        color: white; display: flex; align-items: center; justify-content: center;
+        font-size: 0.8rem; font-weight: 800; border: 2px solid var(--rf-bg);
+        z-index: 5; box-shadow: 0 4px 10px rgba(236,72,153,0.3);
+    }
+    .trust-text { display: flex; flex-direction: column; gap: 4px; }
+    .trust-stars { color: #f59e0b; display: flex; gap: 2px; font-size: 1rem; }
+    .trust-text span { font-size: 0.85rem; font-weight: 600; color: var(--rf-muted); text-transform: uppercase; letter-spacing: 1px; }
     /* ── DASHBOARD UI (ANIMATED & BEAUTIFUL) ── */
     .dashboard-ui-showcase { perspective: 1000px; display: flex; justify-content: flex-end; position: relative; z-index: 5; }
     
@@ -939,6 +966,21 @@
                     <div class="hero-tag" data-cms="rev_hero_tag"><i class="ri-verified-badge-fill"></i> Verified Success</div>
                     <h1 class="hero-title decode-h2 grad-text" data-cms="rev_hero_title">Client <br><span>Results.</span></h1>
                     <p class="hero-desc" data-cms="rev_hero_desc">We don't measure success by "likes" or "impressions". We measure success by how much predictable revenue we deposit into your bank account. See the numbers below.</p>
+                    
+                    <div class="hero-trust-graphic reveal-up" style="animation-delay: 0.2s;">
+                        <div class="trust-avatars">
+                            <img src="https://i.pravatar.cc/100?img=33" alt="Client 1">
+                            <img src="https://i.pravatar.cc/100?img=47" alt="Client 2">
+                            <img src="https://i.pravatar.cc/100?img=12" alt="Client 3">
+                            <div class="avatar-more">50+</div>
+                        </div>
+                        <div class="trust-text">
+                            <div class="trust-stars">
+                                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                            </div>
+                            <span>Local brands scaled with Reach Forever</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="dashboard-ui-showcase reveal-up">
                     <div class="dash-glass-panel">
