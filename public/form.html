@@ -478,11 +478,12 @@
                 const emailReq2 = fetch('https://formsubmit.co/ajax/itskhatriansh@gmail.com', { method: 'POST', body: formData });
 
                 // 2. Google Sheets via Apps Script
+                const urlData = new URLSearchParams(formData);
+                urlData.append('timestamp', new Date().toISOString());
                 const sheetsReq = fetch(SHEETS_URL, {
                     method: 'POST',
                     mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ ...data, timestamp: new Date().toISOString() })
+                    body: urlData
                 });
 
                 Promise.allSettled([emailReq1, emailReq2, sheetsReq]).then(() => {
