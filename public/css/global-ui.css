@@ -286,3 +286,8 @@ em {
   padding-bottom: 0.15em !important;
   line-height: 1.15 !important;
 }
+
+/* Mobile Navbar Logo Fix */
+@media(max-width:800px) {
+  .ncta { display: none !important; }
+}

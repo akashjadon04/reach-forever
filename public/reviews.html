@@ -891,6 +891,13 @@
     .dash-main-metric h2 { font-size: 3rem !important; }
     .hero-wrapper { grid-template-columns: 1fr !important; gap: 40px !important; }
 }
+
+/* Anti-Lag Hardcore Fix */
+@media(max-width:800px) {
+  .ambient-glow, #particle-canvas, .roi-bg-graphic, .glow-card::before, .dashboard-ui-showcase::before { display: none !important; animation: none !important; }
+  * { filter: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; box-shadow: none !important; }
+  .dash-glass-panel, .roi-graph-box, .roi-results, .cs-card, .wol-card { background: var(--rf-surface) !important; border: 1px solid var(--glass-border) !important; }
+}
 </style>
 
 
