@@ -319,7 +319,21 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
 #fsImg{max-width:90vw;max-height:90vh;border-radius:16px;object-fit:contain}
 
 
+
+/* Mobile Fixes */
+.ba-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+@media(max-width:800px) {
+  .ba-grid { grid-template-columns:1fr; gap:24px; }
+  #platformSec, #svcSec, #procSec, #diffSec, #testiSec, #rushSec { padding: 4rem 5% !important; }
+  .h1 { font-size: clamp(2.5rem, 8vw, 3.5rem); }
+  .svc-h2, .plat-h2, .proc-h2, .ba-h2, .testi-h2, .rush-h2 { font-size: clamp(2rem, 7vw, 2.5rem) !important; }
+  .proc-grid { grid-template-columns: 1fr !important; gap: 30px !important; }
+}
+@media(max-width:1000px) {
+  #heroPhoneWrap { margin: 40px auto 0 !important; width: 240px !important; height: 500px !important; }
+}
 </style>
+
 </head>
 <body>
 
@@ -387,7 +401,7 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
         <!-- FRONT -->
         <div class="phone-face phone-front">
           <div class="phone-notch" style="color:white; font-family:var(--ss); font-size:10px; display:flex; align-items:center; justify-content:center; letter-spacing:1px; font-weight:bold;">Results</div>
-          <video id="heroVideoAd" autoplay muted loop playsinline preload="auto" style="background:#000; width:100%; height:100%; object-fit:cover;">
+          <video id="heroVideoAd" autoplay muted loop playsinline preload="auto" poster="assets/poster_1.webp" style="background:#000; width:100%; height:100%; object-fit:cover;">
             <source src="https://res.cloudinary.com/dwniivgg5/video/upload/v1734533036/WhatsApp_Video_2024-12-18_at_20.13.06_c06e30eb_g8yftz.mp4" type="video/mp4">
           </video>
           
@@ -456,7 +470,21 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
   <div class="svc-icon" style="background:#FFF;box-shadow:0 4px 12px rgba(0,0,0,.08)">
     <svg width="24" height="24" viewBox="0 0 100 100">
       <defs><linearGradient id="idxSvc1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#ec4899"/></linearGradient>
-      <style>@keyframes sPulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }</style></defs>
+      <style>@keyframes sPulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+/* Mobile Fixes */
+.ba-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+@media(max-width:800px) {
+  .ba-grid { grid-template-columns:1fr; gap:24px; }
+  #platformSec, #svcSec, #procSec, #diffSec, #testiSec, #rushSec { padding: 4rem 5% !important; }
+  .h1 { font-size: clamp(2.5rem, 8vw, 3.5rem); }
+  .svc-h2, .plat-h2, .proc-h2, .ba-h2, .testi-h2, .rush-h2 { font-size: clamp(2rem, 7vw, 2.5rem) !important; }
+  .proc-grid { grid-template-columns: 1fr !important; gap: 30px !important; }
+}
+@media(max-width:1000px) {
+  #heroPhoneWrap { margin: 40px auto 0 !important; width: 240px !important; height: 500px !important; }
+}
+</style>
+</defs>
       <circle cx="50" cy="50" r="40" fill="none" stroke="url(#idxSvc1)" stroke-width="8" />
       <path d="M50 10 A40 40 0 0 1 90 50 L50 50 Z" fill="url(#idxSvc1)" style="animation: sPulse 2s infinite ease-in-out; transform-origin:50px 50px;" />
     </svg>
@@ -471,7 +499,21 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
   <div class="svc-icon" style="background:#FFF;box-shadow:0 4px 12px rgba(0,0,0,.08)">
     <svg width="24" height="24" viewBox="0 0 100 100">
       <defs><linearGradient id="idxSvc2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ec4899"/><stop offset="100%" stop-color="#d81b60"/></linearGradient>
-      <style>@keyframes sCode { 0% { opacity:0; transform:translateY(10px); } 50% { opacity:1; } 100% { opacity:0; transform:translateY(-10px); } }</style></defs>
+      <style>@keyframes sCode { 0% { opacity:0; transform:translateY(10px); } 50% { opacity:1; } 100% { opacity:0; transform:translateY(-10px); } }
+/* Mobile Fixes */
+.ba-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+@media(max-width:800px) {
+  .ba-grid { grid-template-columns:1fr; gap:24px; }
+  #platformSec, #svcSec, #procSec, #diffSec, #testiSec, #rushSec { padding: 4rem 5% !important; }
+  .h1 { font-size: clamp(2.5rem, 8vw, 3.5rem); }
+  .svc-h2, .plat-h2, .proc-h2, .ba-h2, .testi-h2, .rush-h2 { font-size: clamp(2rem, 7vw, 2.5rem) !important; }
+  .proc-grid { grid-template-columns: 1fr !important; gap: 30px !important; }
+}
+@media(max-width:1000px) {
+  #heroPhoneWrap { margin: 40px auto 0 !important; width: 240px !important; height: 500px !important; }
+}
+</style>
+</defs>
       <rect x="10" y="20" width="80" height="50" rx="4" fill="none" stroke="url(#idxSvc2)" stroke-width="6" />
       <path d="M25 70 L75 70 L85 90 L15 90 Z" fill="url(#idxSvc2)" />
       <circle cx="50" cy="45" r="10" fill="url(#idxSvc2)" style="animation: sCode 2s infinite;" />
@@ -487,7 +529,21 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
   <div class="svc-icon" style="background:#FFF;box-shadow:0 4px 12px rgba(0,0,0,.08)">
     <svg width="24" height="24" viewBox="0 0 100 100">
       <defs><linearGradient id="idxSvc3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#14B8A6"/><stop offset="100%" stop-color="#0d5fc7"/></linearGradient>
-      <style>@keyframes sFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }</style></defs>
+      <style>@keyframes sFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+/* Mobile Fixes */
+.ba-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+@media(max-width:800px) {
+  .ba-grid { grid-template-columns:1fr; gap:24px; }
+  #platformSec, #svcSec, #procSec, #diffSec, #testiSec, #rushSec { padding: 4rem 5% !important; }
+  .h1 { font-size: clamp(2.5rem, 8vw, 3.5rem); }
+  .svc-h2, .plat-h2, .proc-h2, .ba-h2, .testi-h2, .rush-h2 { font-size: clamp(2rem, 7vw, 2.5rem) !important; }
+  .proc-grid { grid-template-columns: 1fr !important; gap: 30px !important; }
+}
+@media(max-width:1000px) {
+  #heroPhoneWrap { margin: 40px auto 0 !important; width: 240px !important; height: 500px !important; }
+}
+</style>
+</defs>
       <circle cx="45" cy="45" r="25" fill="none" stroke="url(#idxSvc3)" stroke-width="8" style="animation: sFloat 2s infinite ease-in-out;" />
       <line x1="65" y1="65" x2="90" y2="90" stroke="url(#idxSvc3)" stroke-width="10" stroke-linecap="round" />
     </svg>
@@ -502,7 +558,21 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
   <div class="svc-icon" style="background:#FFF;box-shadow:0 4px 12px rgba(0,0,0,.08)">
     <svg width="24" height="24" viewBox="0 0 100 100">
       <defs><linearGradient id="idxSvc4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ec4899"/><stop offset="100%" stop-color="#D4AF37"/></linearGradient>
-      <style>@keyframes sPlay { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }</style></defs>
+      <style>@keyframes sPlay { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+/* Mobile Fixes */
+.ba-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+@media(max-width:800px) {
+  .ba-grid { grid-template-columns:1fr; gap:24px; }
+  #platformSec, #svcSec, #procSec, #diffSec, #testiSec, #rushSec { padding: 4rem 5% !important; }
+  .h1 { font-size: clamp(2.5rem, 8vw, 3.5rem); }
+  .svc-h2, .plat-h2, .proc-h2, .ba-h2, .testi-h2, .rush-h2 { font-size: clamp(2rem, 7vw, 2.5rem) !important; }
+  .proc-grid { grid-template-columns: 1fr !important; gap: 30px !important; }
+}
+@media(max-width:1000px) {
+  #heroPhoneWrap { margin: 40px auto 0 !important; width: 240px !important; height: 500px !important; }
+}
+</style>
+</defs>
       <rect x="15" y="25" width="70" height="50" rx="8" fill="none" stroke="url(#idxSvc4)" stroke-width="6" />
       <polygon points="40,35 40,65 65,50" fill="url(#idxSvc4)" style="animation: sPlay 1.5s infinite; transform-origin: 50px 50px;" />
     </svg>
@@ -517,7 +587,21 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
   <div class="svc-icon" style="background:#FFF;box-shadow:0 4px 12px rgba(0,0,0,.08)">
     <svg width="24" height="24" viewBox="0 0 100 100">
       <defs><linearGradient id="idxSvc5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#14B8A6"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient>
-      <style>@keyframes sMail { 0% { transform: translate(0,0); opacity:1; } 100% { transform: translate(15px,-15px); opacity:0; } }</style></defs>
+      <style>@keyframes sMail { 0% { transform: translate(0,0); opacity:1; } 100% { transform: translate(15px,-15px); opacity:0; } }
+/* Mobile Fixes */
+.ba-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+@media(max-width:800px) {
+  .ba-grid { grid-template-columns:1fr; gap:24px; }
+  #platformSec, #svcSec, #procSec, #diffSec, #testiSec, #rushSec { padding: 4rem 5% !important; }
+  .h1 { font-size: clamp(2.5rem, 8vw, 3.5rem); }
+  .svc-h2, .plat-h2, .proc-h2, .ba-h2, .testi-h2, .rush-h2 { font-size: clamp(2rem, 7vw, 2.5rem) !important; }
+  .proc-grid { grid-template-columns: 1fr !important; gap: 30px !important; }
+}
+@media(max-width:1000px) {
+  #heroPhoneWrap { margin: 40px auto 0 !important; width: 240px !important; height: 500px !important; }
+}
+</style>
+</defs>
       <path d="M10 50 L90 20 L50 90 L40 60 Z" fill="none" stroke="url(#idxSvc5)" stroke-width="6" stroke-linejoin="round" />
       <path d="M10 50 L90 20 L50 90 L40 60 Z" fill="url(#idxSvc5)" style="animation: sMail 2s infinite cubic-bezier(0.4, 0, 0.2, 1);" />
     </svg>
@@ -532,7 +616,21 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
   <div class="svc-icon" style="background:#FFF;box-shadow:0 4px 12px rgba(0,0,0,.08)">
     <svg width="24" height="24" viewBox="0 0 100 100">
       <defs><linearGradient id="idxSvc6" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f97316"/><stop offset="100%" stop-color="#d81b60"/></linearGradient>
-      <style>@keyframes sCam { 0% { transform: rotate(0deg); } 25% { transform: rotate(-10deg); } 75% { transform: rotate(10deg); } 100% { transform: rotate(0deg); } }</style></defs>
+      <style>@keyframes sCam { 0% { transform: rotate(0deg); } 25% { transform: rotate(-10deg); } 75% { transform: rotate(10deg); } 100% { transform: rotate(0deg); } }
+/* Mobile Fixes */
+.ba-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+@media(max-width:800px) {
+  .ba-grid { grid-template-columns:1fr; gap:24px; }
+  #platformSec, #svcSec, #procSec, #diffSec, #testiSec, #rushSec { padding: 4rem 5% !important; }
+  .h1 { font-size: clamp(2.5rem, 8vw, 3.5rem); }
+  .svc-h2, .plat-h2, .proc-h2, .ba-h2, .testi-h2, .rush-h2 { font-size: clamp(2rem, 7vw, 2.5rem) !important; }
+  .proc-grid { grid-template-columns: 1fr !important; gap: 30px !important; }
+}
+@media(max-width:1000px) {
+  #heroPhoneWrap { margin: 40px auto 0 !important; width: 240px !important; height: 500px !important; }
+}
+</style>
+</defs>
       <rect x="10" y="30" width="60" height="40" rx="8" fill="url(#idxSvc6)" />
       <polygon points="70,40 95,25 95,75 70,60" fill="url(#idxSvc6)" />
       <circle cx="40" cy="50" r="10" fill="#fff" style="animation: sCam 2s infinite;" />
@@ -605,7 +703,7 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
     <h2 class="ba-h2" style="font-family:var(--ss); font-size:clamp(2.5rem,4vw,4rem); font-weight:800; color:#111; margin-bottom:15px; letter-spacing:-1px;">Before vs <span style="color:transparent; background:linear-gradient(135deg,#8b5cf6,#ec4899); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-style:normal;">After</span></h2>
   </div>
 
-  <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:40px; position:relative; z-index:2;">
+  <div class="ba-grid" style="max-width:1200px; margin:0 auto; position:relative; z-index:2;">
     
     <!-- Before -->
     <div style="background:#FFF; border-radius:32px; padding:50px; border:1px solid rgba(239,68,68,.15); position:relative; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,0.05);">
