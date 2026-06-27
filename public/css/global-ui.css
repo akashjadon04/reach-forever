@@ -287,7 +287,30 @@ em {
   line-height: 1.15 !important;
 }
 
-/* Mobile Navbar Logo Fix */
+
+
+/* Mobile Navbar Compact Fix */
 @media(max-width:800px) {
-  .ncta { display: none !important; }
+  /* Restore CTA but make it ultra-compact */
+  .ncta {
+    display: inline-block !important;
+    padding: 6px 14px !important;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.5px !important;
+    white-space: nowrap !important;
+  }
+  
+  /* Override the bulky inline style on the logo */
+  .nl img, #nlImg {
+    height: 32px !important;
+    max-height: 32px !important;
+  }
+  
+  /* Shrink header container padding to remove bulk */
+  #rfNav, .navbar {
+    padding: 8px 4% !important;
+    height: auto !important;
+    min-height: 50px !important;
+    gap: 8px !important;
+  }
 }
