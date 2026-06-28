@@ -127,7 +127,8 @@ async function syncZyrovaCMS() {
                     const optimizedUrl = optimizeCloudinaryVideoUrl(newestReel.vid);
                     // Extract filename to check if it's already playing
                     const filename = newestReel.vid.split('/').pop().split('.')[0];
-                    if (!heroVid.src.includes(filename)) {
+                    const currentSrc = heroVid.getAttribute('src') || '';
+                    if (!currentSrc.includes(filename)) {
                         heroVid.src = optimizedUrl; 
                         heroVid.load(); 
                         let playPromise = heroVid.play();
@@ -216,7 +217,7 @@ async function syncZyrovaCMS() {
                         
                         const firstModalVid = document.querySelector('.rm-container .rm-video');
                         if(firstModalVid) {
-                            if (!firstModalVid.src) {
+                            if (!firstModalVid.getAttribute('src') && firstModalVid.dataset.src) {
                                 firstModalVid.src = firstModalVid.dataset.src;
                                 firstModalVid.load();
                             }
@@ -261,21 +262,24 @@ async function syncZyrovaCMS() {
                         const isModalOpen = rm && rm.style.opacity === '1';
 
                         entries.forEach(entry => {
-                            if(entry.isIntersecting && isModalOpen) { 
-                                if (!entry.target.src) {
+                            if(entry.isIntersecting) {
+                                // Lazy load src when it comes into view
+                                if (!entry.target.getAttribute('src') && entry.target.dataset.src) {
                                     entry.target.src = entry.target.dataset.src;
                                     entry.target.load();
                                 }
-                                entry.target.preload = "auto";
-                                entry.target.muted = false; 
-                                let playPromise = entry.target.play();
-                                if (playPromise !== undefined) {
-                                    playPromise.catch(error => console.log("Scroll play blocked"));
+                                // Only play if modal is actually open
+                                const rm = document.getElementById('reelsModal');
+                                if (rm && rm.style.opacity === '1') {
+                                    entry.target.preload = "auto";
+                                    entry.target.muted = false; 
+                                    let playPromise = entry.target.play();
+                                    if (playPromise !== undefined) {
+                                        playPromise.catch(error => console.log("Scroll play blocked"));
+                                    }
                                 }
-                            } 
-                            else { 
+                            } else { 
                                 entry.target.pause(); 
-                                entry.target.currentTime = 0; 
                             }
                         });
                     }, { threshold: 0.6 }); 
@@ -287,9 +291,8 @@ async function syncZyrovaCMS() {
             setTimeout(() => {
                 const heroVid = document.getElementById('heroVideoAd');
                 if (heroVid) {
-                    const sourceEl = heroVid.querySelector('source');
-                    if (sourceEl && sourceEl.dataset.src && !heroVid.src) {
-                        sourceEl.src = sourceEl.dataset.src;
+                    if (heroVid.dataset.fallbackSrc && !heroVid.getAttribute('src')) {
+                        heroVid.src = heroVid.dataset.fallbackSrc;
                         heroVid.load();
                         let p = heroVid.play();
                         if(p !== undefined) p.catch(()=>{});
