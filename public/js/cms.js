@@ -129,7 +129,7 @@ async function syncZyrovaCMS() {
                     const filename = newestReel.vid.split('/').pop().split('.')[0];
                     const currentSrc = heroVid.getAttribute('src') || '';
                     if (!currentSrc.includes(filename)) {
-                        heroVid.src = optimizedUrl; 
+                        heroVid.setAttribute('src', optimizedUrl);
                         heroVid.load(); 
                         let playPromise = heroVid.play();
                         if (playPromise !== undefined) {
@@ -200,6 +200,12 @@ async function syncZyrovaCMS() {
                             rm.style.pointerEvents = 'none';
                             document.querySelectorAll('.rm-video').forEach(v => { v.pause(); v.muted = true; }); 
                             document.body.style.overflow = '';
+                            
+                            const hv = document.getElementById('heroVideoAd');
+                            if(hv) {
+                                let p = hv.play();
+                                if(p !== undefined) p.catch(()=>{});
+                            }
                         }
                     });
                 }
@@ -218,7 +224,7 @@ async function syncZyrovaCMS() {
                         const firstModalVid = document.querySelector('.rm-container .rm-video');
                         if(firstModalVid) {
                             if (!firstModalVid.getAttribute('src') && firstModalVid.dataset.src) {
-                                firstModalVid.src = firstModalVid.dataset.src;
+                                firstModalVid.setAttribute('src', firstModalVid.dataset.src);
                                 firstModalVid.load();
                             }
                             firstModalVid.preload = "auto";
@@ -265,7 +271,7 @@ async function syncZyrovaCMS() {
                             if(entry.isIntersecting) {
                                 // Lazy load src when it comes into view
                                 if (!entry.target.getAttribute('src') && entry.target.dataset.src) {
-                                    entry.target.src = entry.target.dataset.src;
+                                    entry.target.setAttribute('src', entry.target.dataset.src);
                                     entry.target.load();
                                 }
                                 // Only play if modal is actually open
@@ -292,7 +298,7 @@ async function syncZyrovaCMS() {
                 const heroVid = document.getElementById('heroVideoAd');
                 if (heroVid) {
                     if (heroVid.dataset.fallbackSrc && !heroVid.getAttribute('src')) {
-                        heroVid.src = heroVid.dataset.fallbackSrc;
+                        heroVid.setAttribute('src', heroVid.dataset.fallbackSrc);
                         heroVid.load();
                         let p = heroVid.play();
                         if(p !== undefined) p.catch(()=>{});
