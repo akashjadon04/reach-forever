@@ -159,7 +159,7 @@ async function syncZyrovaCMS() {
 
                     const modalHTML = `
                         <div class="rm-slide" id="modal-slide-${index}" style="width: 100%; height: 100vh; scroll-snap-align: start; position: relative; background: #111;">
-                            <video class="rm-video" loop playsinline preload="none" style="width: 100%; height: 100%; object-fit: cover;" src="${optimizeCloudinaryVideoUrl(reel.vid)}"></video>
+                            <video class="rm-video" loop playsinline preload="none" style="width: 100%; height: 100%; object-fit: cover;" data-src="${optimizeCloudinaryVideoUrl(reel.vid)}"></video>
                             
                             <div style="position: absolute; bottom: 100px; right: 15px; display: flex; flex-direction: column; gap: 25px; z-index: 10; color: #FFF; font-size: 2rem; text-align: center; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">
                                 <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;"><i class="ri-heart-fill" style="color: #FF3B30;"></i><span style="font-size: 0.85rem; font-weight: 600;">${Math.floor(Math.random() * 20) + 5}k</span></div>
@@ -216,6 +216,10 @@ async function syncZyrovaCMS() {
                         
                         const firstModalVid = document.querySelector('.rm-container .rm-video');
                         if(firstModalVid) {
+                            if (!firstModalVid.src) {
+                                firstModalVid.src = firstModalVid.dataset.src;
+                                firstModalVid.load();
+                            }
                             firstModalVid.preload = "auto";
                             firstModalVid.muted = false;
                             let playPromise = firstModalVid.play();
@@ -258,6 +262,10 @@ async function syncZyrovaCMS() {
 
                         entries.forEach(entry => {
                             if(entry.isIntersecting && isModalOpen) { 
+                                if (!entry.target.src) {
+                                    entry.target.src = entry.target.dataset.src;
+                                    entry.target.load();
+                                }
                                 entry.target.preload = "auto";
                                 entry.target.muted = false; 
                                 let playPromise = entry.target.play();

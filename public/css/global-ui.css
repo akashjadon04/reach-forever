@@ -314,3 +314,12 @@ em {
     gap: 8px !important;
   }
 }
+
+/* Fix WhatsApp float overlapping mobile nav */
+@media(max-width:800px) {
+  .wa-float {
+    bottom: 90px !important;
+    left: 15px !important;
+    z-index: 999999 !important;
+  }
+}
