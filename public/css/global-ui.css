@@ -323,3 +323,16 @@ em {
     z-index: 999999 !important;
   }
 }
+
+/* Fix Chatbot float overlapping mobile nav */
+@media(max-width:800px) {
+  #auraFab, .ai-fab-wrap, .ai-fab {
+    bottom: 90px !important;
+    z-index: 999999 !important;
+  }
+  
+  /* Ensure the chat panel itself also doesn't get obscured */
+  #auraPanel, .chat-panel {
+    bottom: 150px !important;
+  }
+}
