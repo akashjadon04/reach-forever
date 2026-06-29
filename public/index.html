@@ -327,6 +327,23 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
 }
 </style>
 
+
+<script>
+/* PERF_PASSIVE: Upgrade scroll listeners to passive */
+(function(){
+  var _origAdd = EventTarget.prototype.addEventListener;
+  EventTarget.prototype.addEventListener = function(type, fn, options) {
+    if (type === 'scroll' || type === 'touchmove' || type === 'wheel') {
+      if (typeof options === 'object') {
+        options.passive = true;
+      } else {
+        options = { passive: true, capture: !!options };
+      }
+    }
+    return _origAdd.call(this, type, fn, options);
+  };
+})();
+</script>
 </head>
 <body>
 

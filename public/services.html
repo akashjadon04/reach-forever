@@ -703,7 +703,23 @@
 </style>
 
     <link rel="stylesheet" href="css/overhaul-vars.css">
-    <link rel="stylesheet" href="css/global-ui.css">
+
+<script>
+/* PERF_PASSIVE: Upgrade scroll listeners to passive for smooth scrolling */
+(function(){
+  var _origAdd = EventTarget.prototype.addEventListener;
+  EventTarget.prototype.addEventListener = function(type, fn, options) {
+    if (type === 'scroll' || type === 'touchmove' || type === 'wheel') {
+      if (typeof options === 'object') {
+        options.passive = true;
+      } else {
+        options = { passive: true, capture: !!options };
+      }
+    }
+    return _origAdd.call(this, type, fn, options);
+  };
+})();
+</script>
 </head>
 <body>\n<nav id="rfNav">
   <a href="index.html" class="nl" id="nl">

@@ -331,3 +331,11 @@ em {
     bottom: 150px !important;
   }
 }
+
+/* PERF-BLUR-FIX: Reduce backdrop-filter on mobile for smooth scrolling */
+@media(max-width:1024px) {
+  #rfNav, .navbar, .mobile-nav {
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+}
