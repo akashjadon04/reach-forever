@@ -1,4 +1,3 @@
-// ZYROVA CMS - INFINITE SCALING ENGINE (IPHONE MASTER FEED)
 
 const API_BASE_URL = "https://reach-forever.onrender.com/api";
 
@@ -32,15 +31,13 @@ function optimizeCloudinaryVideoUrl(url) {
     return url; // Bypassed to preserve 100% original video quality
 }
 
-
-async function syncZyrovaCMS() {
+async function initCMS() {
     let pageName = window.location.pathname.split("/").pop().replace(".html", "");
     if (!pageName || pageName === "index") pageName = "home";
     if (pageName === "results") pageName = "reviews";
 
     try {
-        console.log("[CMS] 📡 Connecting to Database...");
-        const response = await fetch(`${API_BASE_URL}/content/${pageName}`);
+                const response = await fetch(`${API_BASE_URL}/content/${pageName}`);
         const data = await response.json();
         const globalResponse = await fetch(`${API_BASE_URL}/content/global`);
         const globalData = await globalResponse.json();
@@ -53,7 +50,7 @@ async function syncZyrovaCMS() {
             console.log("[CMS] Database empty. Using hardcoded fallback.");
             document.querySelectorAll('[data-cms]').forEach(el => el.classList.add('cms-loaded'));
             if(window.hidePreloader) window.hidePreloader();
-            if(window.zyrovaPreloader) window.zyrovaPreloader.isDataLoaded = true;
+            if(window.sitePreloader) window.sitePreloader.isDataLoaded = true;
             return;
         }
 
@@ -307,21 +304,19 @@ async function syncZyrovaCMS() {
             }, 3500);
         }
 
-        // ==========================================
-        // SIGNAL PRELOADER TO FINISH AND REVEAL UI
-        // ==========================================
-        document.querySelectorAll('[data-cms]').forEach(el => el.classList.add('cms-loaded'));
+                // SIGNAL PRELOADER TO FINISH AND REVEAL UI
+                document.querySelectorAll('[data-cms]').forEach(el => el.classList.add('cms-loaded'));
         if(window.hidePreloader) window.hidePreloader();
-        if(window.zyrovaPreloader) window.zyrovaPreloader.isDataLoaded = true;
+        if(window.sitePreloader) window.sitePreloader.isDataLoaded = true;
 
     } catch (error) {
         console.error("[CMS] ❌ Connection Failed.", error);
         // FAILSAFE: Unhide content and kill preloader so site doesn't break if Render goes offline
         document.querySelectorAll('[data-cms]').forEach(el => el.classList.add('cms-loaded'));
-        if(window.zyrovaPreloader) window.zyrovaPreloader.isDataLoaded = true;
+        if(window.sitePreloader) window.sitePreloader.isDataLoaded = true;
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    syncZyrovaCMS();
+    initCMS();
 });

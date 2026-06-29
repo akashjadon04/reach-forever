@@ -1,5 +1,4 @@
 // public/js/chatbot.js
-// ZYROVA UNIVERSAL CHATBOT — v2.1
 (function initChatbot() {
     // Remove existing chatbot elements injected by HTML files
     const existFabs = document.querySelectorAll('.aifab, #auraFab, .ai-fab-wrap, .chat-panel, #auraPanel');
@@ -30,7 +29,7 @@
         </div>
     </div>
     <style>
-      /* ─── Chatbot FAB ─── */
+      
       .rf-aifab-wrap { position:fixed; bottom:20px; right:20px; z-index:9999940; }
       .rf-aifab {
         width:52px; height:52px; border-radius:50%;
@@ -49,7 +48,7 @@
       }
       @keyframes rfBlink { 0%,100%{opacity:1} 50%{opacity:.3} }
 
-      /* ─── Chat Panel ─── */
+      
       .rf-chat-panel {
         position:fixed; bottom:144px; right:20px;
         width:320px; height:auto; max-height: 400px;
@@ -93,7 +92,7 @@
       .rf-msg.rf-ai  { align-self:flex-start; background:rgba(255,255,255,.07); color:#FFF; border:1px solid rgba(255,255,255,.1); border-bottom-left-radius:4px; }
       .rf-msg.rf-usr { align-self:flex-end; background:linear-gradient(135deg,#C8A96E,#A67C00); color:#000; font-weight:600; border-bottom-right-radius:4px; }
 
-      /* ─── Responsive ─── */
+      
       @media(max-width:1366px) {
         .rf-aifab { width:48px; height:48px; }
         .rf-aifab i { font-size:1.4rem; }

@@ -1,28 +1,12 @@
-/**
- * ============================================================================
- * ZYROVA DIGITAL : ENTERPRISE INTERACTIVE ENGINE (TITANIUM BUILD 12.0)
- * Project: Reach Forever - Premium Digital Marketing
- * Architecture: ES6 Classes, WebGL, Spring Physics, GSAP, Lenis, MobileGuard
- * ============================================================================
- */
+
 
 'use strict';
 
-console.log("%c Zyrova Digital Engine v12.0 | Apple-Tier Active ", "background: #D4AF37; color: #000; font-weight: bold; padding: 4px; border-radius: 2px;");
-
-// ============================================================================
-// MODULE 0: GLOBAL ERROR MONITORING (CONSOLE VISIBILITY SYSTEM)
-// ============================================================================
 window.addEventListener('error', function(e) {
-    console.log("%c [Zyrova Error Guard] " + e.message, "background:#EF4444; color:#FFF; font-weight:bold; padding:4px 8px; border-radius:4px;", "\nFile: " + e.filename + "\nLine: " + e.lineno + ":" + e.colno + "\nStack: " + (e.error ? e.error.stack : 'N/A'));
-});
+    });
 window.addEventListener('unhandledrejection', function(e) {
-    console.log("%c [Zyrova Promise Guard] Unhandled Rejection: ", "background:#F59E0B; color:#000; font-weight:bold; padding:4px 8px; border-radius:4px;", e.reason);
-});
+    });
 
-// ============================================================================
-// MODULE 1: MOBILE GUARD (PREVENTS IOS LAYOUT OVERLAPS)
-// ============================================================================
 class MobileGuard {
     constructor() {
         this.isMobile = window.innerWidth <= 1024;
@@ -39,12 +23,9 @@ class MobileGuard {
         fixViewport();
     }
 }
-const ZyrovaGuard = new MobileGuard();
+const MobileGuardInst = new MobileGuard();
 
-// ============================================================================
-// MODULE 1: BLAZING FAST PRELOADER (OPTIMIZED)
-// ============================================================================
-class ZyrovaPreloader {
+class SitePreloader {
     constructor() {
         this.plScreen = document.getElementById('preloader');
         this.plBar = document.getElementById('pl-bar');
@@ -88,9 +69,6 @@ class ZyrovaPreloader {
     }
 }
 
-// ============================================================================
-// MODULE 2: HOOKE'S LAW SPRING PHYSICS (LUXURY CURSOR)
-// ============================================================================
 class SpringPhysics {
     constructor(mass = 1, tension = 120, friction = 14) {
         this.m = mass; this.k = tension; this.b = friction;
@@ -110,7 +88,7 @@ class LuxuryCursor {
         this.dot = document.getElementById("cursorDot");
         this.ring = document.getElementById("cursorRing");
         // KILL SWITCH: Do not run heavy physics on mobile
-        if (!this.dot || !this.ring || ZyrovaGuard.isMobile) return;
+        if (!this.dot || !this.ring || MobileGuardInst.isMobile) return;
 
         this.mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
         this.springX = new SpringPhysics(1, 140, 16);
@@ -157,9 +135,6 @@ class LuxuryCursor {
     }
 }
 
-// ============================================================================
-// MODULE 3: KINEMATIC SCROLL VELOCITY ENGINE 
-// ============================================================================
 class ScrollVelocityEngine {
     constructor() {
         this.tracks = document.querySelectorAll('.marquee-track');
@@ -194,9 +169,6 @@ class ScrollVelocityEngine {
     }
 }
 
-// ============================================================================
-// MODULE 4: THREE.JS WEBGL LUXURY FLUID SWARM (MEMORY LEAK FIXED)
-// ============================================================================
 class LuxuryFluidWebGL {
     constructor() {
         this.container = document.getElementById('particle-canvas');
@@ -206,7 +178,7 @@ class LuxuryFluidWebGL {
         this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
         
         // DYNAMIC SCALING: Reduces count on mobile to save RAM
-        this.count = ZyrovaGuard.isMobile ? 300 : 1200; 
+        this.count = MobileGuardInst.isMobile ? 300 : 1200; 
         this.mouse = new THREE.Vector2(9999, 9999);
         this.raycaster = new THREE.Raycaster();
         this.plane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
@@ -245,7 +217,7 @@ class LuxuryFluidWebGL {
         
         
         this.material = new THREE.PointsMaterial({ 
-            size: ZyrovaGuard.isMobile ? 0.08 : 0.05, 
+            size: MobileGuardInst.isMobile ? 0.08 : 0.05, 
             vertexColors: true, 
             transparent: true, 
             opacity: true ? 0.8 : 0.6, 
@@ -292,7 +264,7 @@ class LuxuryFluidWebGL {
     }
 
     bindEvents() {
-        if (!ZyrovaGuard.isMobile) {
+        if (!MobileGuardInst.isMobile) {
             window.addEventListener('mousemove', (e) => {
                 this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
                 this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
@@ -318,7 +290,7 @@ class LuxuryFluidWebGL {
             const bx = this.basePositions[ix]; const by = this.basePositions[iy]; const bz = this.basePositions[iz];
             let px = positions[ix]; let py = positions[iy]; let pz = positions[iz];
 
-            if (!ZyrovaGuard.isMobile) {
+            if (!MobileGuardInst.isMobile) {
                 const dx = this.pointOfIntersection.x - px; const dy = this.pointOfIntersection.y - py;
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 if (dist < 4.0) { const force = (4.0 - dist) / 4.0; px -= dx * force * 0.03; py -= dy * force * 0.03; }
@@ -334,9 +306,6 @@ class LuxuryFluidWebGL {
     }
 }
 
-// ============================================================================
-// MODULE 5: APPLE-STYLE GSAP + LENIS ARCHITECT
-// ============================================================================
 class AppleScrollArchitect {
     constructor() {
         this.init();
@@ -345,8 +314,6 @@ class AppleScrollArchitect {
     init() {
         if(typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
         gsap.registerPlugin(ScrollTrigger);
-
-
 
         // 1. Sticky Header & CTA Logic
         window.addEventListener('scroll', () => { 
@@ -378,9 +345,6 @@ class AppleScrollArchitect {
     }
 }
 
-// ============================================================================
-// MODULE 6: AURA 13.0 NEURAL AI CONCIERGE (Unchanged - Logic is flawless)
-// ============================================================================
 class AuraNeuralAgent {
     constructor() {
         this.fab = document.getElementById('auraFab');
@@ -459,18 +423,16 @@ class AuraNeuralAgent {
     }
 }
 
-// ============================================================================
 // MASTER INITIALIZATION HOOK
-// ============================================================================
 document.addEventListener('DOMContentLoaded', () => {
-    window.zyrovaPreloader = new ZyrovaPreloader();
+    window.sitePreloader = new SitePreloader();
     new ScrollVelocityEngine();
     // window.fluidWebGLInstance = new LuxuryFluidWebGL(); // DISABLED: Fixed massive scroll lag
     new AppleScrollArchitect();
     new AuraNeuralAgent();
 
     if (window.location.pathname.includes('dashboard')) {
-        if (!localStorage.getItem('zyrova_token')) window.location.href = 'admin.html';
+        if (!localStorage.getItem('rf_token')) window.location.href = 'admin.html';
     }
 });
 
