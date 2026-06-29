@@ -1,13 +1,4 @@
-/**
- * ============================================================================
- * REACH FOREVER — PERMANENT LIGHT BEIGE MODE
- * Dark mode has been permanently removed. Site always uses light beige.
- * ============================================================================
- */
 
-/* ==========================================================================
-   1. THEME TOKENS — Always Light Beige
-   ========================================================================== */
 :root {
     --rf-bg: #F7F4EF;
     --rf-surface: #FFFFFF;
@@ -28,9 +19,6 @@
     --rf-muted: #6B5E4A;
 }
 
-/* ==========================================================================
-   2. UNIVERSAL DARK MODE — NAVBAR (all pages)
-   ========================================================================== */
 .navbar {
     background: var(--rf-glass) !important;
     backdrop-filter: blur(40px) saturate(180%) !important;
@@ -75,9 +63,6 @@
     transform: rotate(15deg) !important;
 }
 
-/* ==========================================================================
-   3. PRELOADER — Dark
-   ========================================================================== */
 #preloader {
     background: var(--rf-bg) !important;
 }
@@ -85,9 +70,6 @@
     color: var(--rf-text) !important;
 }
 
-/* ==========================================================================
-   4. SCROLLBAR — Gold
-   ========================================================================== */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--rf-bg); }
 ::-webkit-scrollbar-thumb { 
@@ -101,9 +83,6 @@
     box-shadow: 0 2px 15px var(--rf-accent-glow) !important;
 }
 
-/* ==========================================================================
-   5. DARK MODE TEXT FIXES — Force readable text on dark backgrounds
-   ========================================================================== */
 /* Sticky CTA */
 .sticky-cta {
     background: var(--rf-glass) !important;
@@ -131,9 +110,6 @@
     color: var(--rf-text) !important;
 }
 
-/* ==========================================================================
-   6. SOCIAL CARDS — Dark glass instead of white
-   ========================================================================== */
 .s2-social-card {
     background: var(--rf-surface) !important;
     border-color: var(--rf-glass-border-soft) !important;
@@ -150,9 +126,6 @@
     color: var(--rf-text) !important;
 }
 
-/* ==========================================================================
-   7. MOBILE BOTTOM NAV — iOS App-Style
-   ========================================================================== */
 @keyframes mobileNavGlow {
     0%, 100% { box-shadow: 0 10px 40px rgba(0,0,0,0.8), 0 0 15px rgba(200, 169, 110, 0.1) !important; }
     50% { box-shadow: 0 10px 40px rgba(0,0,0,0.8), 0 0 25px rgba(200, 169, 110, 0.3) !important; }
@@ -191,9 +164,6 @@
     color: var(--rf-accent-bright) !important;
 }
 
-/* ==========================================================================
-   8. AI CHATBOT — Dark glass
-   ========================================================================== */
 .chat-panel, #auraPanel {
     background: rgba(10, 10, 18, 0.95) !important;
     backdrop-filter: blur(30px) !important;
@@ -226,9 +196,6 @@
     box-shadow: 0 8px 30px rgba(200, 169, 110, 0.4) !important;
 }
 
-/* ==========================================================================
-   9. WHATSAPP FLOAT
-   ========================================================================== */
 .wa-float {
     position: fixed !important;
     bottom: 25px !important;
@@ -252,9 +219,6 @@
     box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6) !important;
 }
 
-/* ==========================================================================
-   10. FULLSCREEN LIGHTBOX (for cylinder images)
-   ========================================================================== */
 .fullscreen-lightbox {
     position: fixed; inset: 0;
     background: rgba(0,0,0,0.95);
@@ -300,9 +264,6 @@
     box-shadow: 0 0 40px rgba(200, 169, 110, 0.4) !important;
 }
 
-/* ==========================================================================
-   11. APPLE-STYLE SCROLL REVEAL ANIMATIONS
-   ========================================================================== */
 .reveal-on-scroll {
     opacity: 0;
     transform: translateY(50px);
@@ -320,9 +281,6 @@
 .reveal-on-scroll.delay-3 { transition-delay: 0.3s; }
 .reveal-on-scroll.delay-4 { transition-delay: 0.4s; }
 
-/* ==========================================================================
-   12. PREMIUM POLISH — Gold Gradients & Glassmorphism
-   ========================================================================== */
 /* Arsenal/service cards */
 .ars-card {
     background: var(--rf-surface) !important;
@@ -371,18 +329,12 @@
 /* Marquee */
 .marquee-text { color: rgba(255,255,255,0.04) !important; }
 
-/* ==========================================================================
-   13. SUB-PAGES — Dark Navbar Override for services/reviews/form  
-   ========================================================================== */
 /* These pages have light backgrounds but need the same dark glass nav */
 body .header-wrap .navbar {
     background: var(--rf-glass) !important;
     border-color: var(--rf-glass-border) !important;
 }
 
-/* ==========================================================================
-   14. MOBILE LAYOUT FIXES — App-like compact design
-   ========================================================================== */
 @media (max-width: 1024px) {
     /* Prevent horizontal overflow */
     html, body { overflow-x: hidden !important; }
@@ -520,9 +472,6 @@ body .header-wrap .navbar {
     .s2-social-grid { grid-template-columns: 1fr !important; }
 }
 
-/* ==========================================================================
-   15. LIGHT MODE — [data-theme="light"]
-   ========================================================================== */
 [data-theme="light"] {
     --rf-bg: #FDFDFB;
     --rf-surface: #FFFFFF;
@@ -642,9 +591,6 @@ body .header-wrap .navbar {
     background: linear-gradient(180deg, #556B2F, #D4AF37); 
 }
 
-/* ==========================================================================
-   16. LIGHT MODE — Index page inline style overrides
-   ========================================================================== */
 /* Main wrapper background */
 [data-theme="light"] .main-wrapper {
     background-color: #FDFDFB !important;
@@ -761,9 +707,6 @@ body .header-wrap .navbar {
 [data-theme="light"] .city-card h4 { color: #1A1C20 !important; }
 [data-theme="light"] .city-card p { color: #6B7280 !important; }
 
-/* ==========================================================================
-   17. LOGO TEXT FALLBACK STYLING
-   ========================================================================== */
 .logo-text-fallback {
     white-space: nowrap;
 }
@@ -773,10 +716,6 @@ body .header-wrap .navbar {
 [data-theme="light"] .logo-text-fallback span {
     color: #556B2F !important;
 }
-
-/* ==========================================================================
-   18. PREMIUM "ALIVE" ANIMATIONS — Making the site feel like ₹10 Lakh
-   ========================================================================== */
 
 /* --- Navbar breathing gold glow --- */
 @keyframes navGlow {
@@ -983,11 +922,6 @@ body .header-wrap .navbar {
     -webkit-text-fill-color: currentcolor !important;
 }
 
-
-/* ==========================================================================
-   15. FINAL PREMIUM FIXES & ALIVE EFFECTS
-   ========================================================================== */
-
 /* Mobile Logo Constraint */
 @media (max-width: 1024px) {
     .nav-brand img { max-width: 160px !important; max-height: 40px !important; width: auto !important; height: auto !important; }
@@ -1017,10 +951,6 @@ body {
 .services-section, .reviews-section, .form-section {
     background-color: transparent !important;
 }
-
-/* ==========================================================================
-   DEEP OVERHAUL - FORCED DARK MODE & PREMIUM ALIVE FX
-   ========================================================================== */
 
 /* Universal Dark Mode Overrides */
 [data-theme="dark"] .main-wrapper,
@@ -1117,8 +1047,6 @@ body {
     font-weight: 700;
 }
 
-
-
 /* FIXED: Only reset non-dark sections. Dark sections (#1A1208) keep their background. */
 .main-wrapper, .bg-white, div[style*="background: #FFF"], div[style*="background: white"], div[style*="background-color: #FFF"] {
     background-color: var(--bg-main) !important;
@@ -1128,10 +1056,6 @@ section[style*="background:#1A1208"] {
     background: #1A1208 !important;
     background-color: #1A1208 !important;
 }
-
-/* ==========================================================================
-   ELEGANT UI/UX FIXES V4
-   ========================================================================== */
 
 /* 1. Logo Colorization (Force Gold across all themes) */
 .nav-brand img[data-cms="header_logo"] {
@@ -1181,10 +1105,6 @@ section[style*="background:#1A1208"] {
     color: var(--text-light) !important;
 }
 
-/* ==========================================================================
-   MASTER FULL-POWER FIXES V5
-   ========================================================================== */
-
 /* 1. UNIVERSAL LOGO COLORIZATION (Pure Gold) */
 .nav-brand img[data-cms="header_logo"], .nav-brand img {
     filter: none !important;
@@ -1192,7 +1112,6 @@ section[style*="background:#1A1208"] {
     mix-blend-mode: normal !important;
 }
 
-/* 2. DYNAMIC ISLAND MOBILE HEADER */
 @media (max-width: 1024px) {
     #navbar {
         background: rgba(10, 10, 15, 0.85) !important;
@@ -1233,7 +1152,6 @@ section[style*="background:#1A1208"] {
     }
 }
 
-
 /* 4. HOLOGRAM CARDS FIX (Ensure Grid stays intact) */
 .s2-social-card {
     position: relative !important;
@@ -1245,7 +1163,6 @@ section[style*="background:#1A1208"] {
     /* Keep 3D faces absolute */
 }
 
-/* 5. FOOTER OVERLAP FIX */
 .footer-fixed {
     padding-bottom: 120px !important; 
 }
@@ -1263,7 +1180,6 @@ section[style*="background:#1A1208"] {
     font-weight: bold;
 }
 
-/* 6. UNIVERSAL DARK MODE BACKGROUND FIX */
 /* Remove !important from section backgrounds so we don't break Light Mode */
 [data-theme="dark"] .main-wrapper,
 [data-theme="dark"] .bg-white {
@@ -1274,7 +1190,6 @@ section[style*="background:#1A1208"] {
     background-color: transparent; 
 }
 
-/* 7. PROFESSIONAL FOOTER CSS */
 .premium-footer {
     position: relative;
     z-index: 50;
@@ -1345,9 +1260,6 @@ section[style*="background:#1A1208"] {
     --glass-border: rgba(200,169,110,0.15) !important;
 }
 
-/* ==========================================================================
-   MASTER PATCH CSS FIXES
-   ========================================================================== */
 @media (max-width: 1024px) {
     /* Transform top header into Logo + Toggle only on mobile */
     #navbar .nav-links, #navbar .nav-btn-wrap { display: none !important; }
@@ -1365,9 +1277,6 @@ section[style*="background:#1A1208"] {
     }
 }
 
-/* ==========================================================================
-   NUCLEAR BACKGROUND FIX FOR SUBPAGES
-   ========================================================================== */
 html[data-theme="dark"], 
 html[data-theme="dark"] body, 
 html[data-theme="dark"] .main-wrapper, 
@@ -1392,9 +1301,6 @@ html[data-theme="light"] .services-hero {
     background: #FAFAF7 !important;
 }
 
-/* ==========================================================================
-   DYNAMIC VIBRANT ROI CALCULATOR GRAPHICS
-   ========================================================================== */
 html[data-theme="light"] .roi-slider { background: #E0E0E0 !important; border-color: #D0D0D0 !important; }
 html[data-theme="light"] .roi-slider::-webkit-slider-thumb { background: #25D366 !important; border-color: #0A66C2 !important; box-shadow: 0 4px 15px rgba(37,211,102,0.5) !important; }
 html[data-theme="light"] .roi-results { background: #FFFFFF !important; border: 1px solid #EAEAEA !important; box-shadow: 0 10px 40px rgba(0,0,0,0.05) !important; }
@@ -1404,7 +1310,6 @@ html[data-theme="dark"] .roi-slider { background: rgba(255,255,255,0.1) !importa
 html[data-theme="dark"] .roi-slider::-webkit-slider-thumb { background: #D4AF37 !important; border-color: #FFF !important; box-shadow: 0 4px 20px rgba(212,175,55,0.5) !important; }
 html[data-theme="dark"] .roi-results { background: rgba(15,8,25,0.9) !important; border: 1px solid rgba(255,255,255,0.1) !important; box-shadow: 0 10px 40px rgba(0,0,0,0.3) !important; }
 html[data-theme="dark"] .result-row span { color: #D4AF37 !important; font-weight: bold; }
-
 
 /* GPU ACCELERATION & PERFORMANCE */
 .gpu-accel { will-change: transform; transform: translateZ(0); }
@@ -1442,10 +1347,6 @@ html[data-theme="dark"] .result-row span { color: #D4AF37 !important; font-weigh
         padding: 0 15px !important;
     }
 }
-
-/* =========================================
-   FINAL POLISH OVERRIDES (SERVICES + INDEX)
-   ========================================= */
 
 /* 1. Light Mode Particles (No longer hidden, handled via CSS filters or JS) */
 [data-theme="light"] #particle-canvas {

@@ -1,15 +1,4 @@
-/**
- * ============================================================================
- * ZYROVA DIGITAL : 8K LUXURY ARCHITECTURE (OLD MONEY THEME)
- * Project: Reach Forever - Master Stylesheet
- * Architecture: CSS Grid/Flexbox, True Glassmorphism, GPU-Accelerated Keyframes
- * Theme Injection: Gold (#D4AF37), Olive (#556B2F), Beige (#FDFDFB)
- * ============================================================================
- */
 
-/* ==========================================================================
-   1. GOD-TIER VARIABLES & COLOR THEORY
-   ========================================================================== */
 :root {
     --bg-base: #F4F4F0;       
     --bg-surface: #FFFFFF;    
@@ -54,9 +43,6 @@
     --z-bg: 0; --z-base: 10; --z-nav: 1000; --z-modal: 99999; --z-cursor: 999999;
 }
 
-/* ==========================================================================
-   2. BARE METAL RESET & DOCUMENT SETUP
-   ========================================================================== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html, body { width: 100%; overflow-x: hidden; background-color: var(--bg-base); scroll-behavior: auto; }
 body { font-family: var(--font-sans); color: var(--text-dark); -webkit-font-smoothing: antialiased; line-height: 1.6; cursor: pointer; position: relative; }
@@ -82,9 +68,6 @@ a { text-decoration: none; color: inherit; } ul { list-style: none; }
 .title-lg { font-size: clamp(2.5rem, 4.5vw, 4.5rem); margin-bottom: 20px; font-weight: 700;}
 .tag-pill { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: var(--bg-surface); border: 1px solid var(--border-gold); border-radius: var(--radius-pill); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-olive); box-shadow: var(--shadow-float); margin-bottom: 20px; }
 
-/* ==========================================================================
-   3. MAGNETIC CURSOR PHYSICS
-   ========================================================================== */
 #cursorDot { position: fixed; top: 0; left: 0; width: 10px; height: 10px; background: var(--accent-olive); border-radius: 50%; pointer-events: none; z-index: var(--z-cursor); transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, opacity 0.2s; box-shadow: 0 0 15px var(--accent-olive);}
 #cursorRing { position: fixed; top: 0; left: 0; width: 50px; height: 50px; border: 1px solid var(--accent-olive); border-radius: 50%; pointer-events: none; z-index: calc(var(--z-cursor) - 1); transform: translate(-50%, -50%); transition: width 0.4s, height 0.4s, background 0.4s, border-color 0.4s, backdrop-filter 0.4s; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 
@@ -105,26 +88,17 @@ body.hover-video #cursorDot { opacity: 0; }
 .btn-glass { background: var(--glass-heavy); backdrop-filter: blur(20px); color: var(--text-dark); border: 1px solid var(--border-gold); box-shadow: var(--shadow-float); }
 .magnetic-wrap:hover .btn-glass { background: var(--accent-gold); color: var(--text-light); border-color: transparent;}
 
-/* ==========================================================================
-   4. SMART STICKY CTA
-   ========================================================================== */
 .sticky-cta { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); opacity: 0; background: var(--glass-heavy); backdrop-filter: blur(20px); border: 1px solid var(--border-gold); padding: 8px 8px 8px 25px; border-radius: 100px; display: flex; align-items: center; gap: 20px; z-index: 99990; box-shadow: var(--shadow-heavy); transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none;}
 .sticky-cta.visible { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: auto;}
 .sc-text { font-weight: 700; color: var(--text-dark); font-size: 0.95rem;}
 @media (max-width: 768px) { .sticky-cta { bottom: 90px; width: 90%; justify-content: space-between; padding: 10px; } .sc-text { font-size: 0.85rem; margin-left: 10px;} .btn { padding: 12px 20px; font-size: 0.85rem;} }
 
-/* ==========================================================================
-   5. PRELOADER (Instant Fade)
-   ========================================================================== */
 #preloader { position: fixed; inset: 0; background: var(--bg-base); z-index: var(--z-cursor); display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .pl-logo { font-family: var(--font-serif); font-size: clamp(3rem, 6vw, 5rem); font-weight: 700; color: var(--text-dark); overflow: hidden; letter-spacing: -1px; }
 .pl-logo span { display: inline-block; transform: translateY(100%); }
 .pl-progress-box { width: 300px; height: 2px; background: var(--border-soft); margin-top: 40px; position: relative; overflow: hidden; }
 #pl-bar { position: absolute; top: 0; left: 0; height: 100%; width: 0%; background: var(--accent-gold); }
 
-/* ==========================================================================
-   6. HEADER (GOLDEN GLOWING BORDER, NO TEXT LOGO)
-   ========================================================================== */
 .header-wrap { position: fixed; top: 15px; left: 0; width: 100%; z-index: var(--z-nav); display: flex; justify-content: center; transition: top 0.4s ease; pointer-events: none;}
 .navbar { 
     pointer-events: auto; width: 92%; max-width: 1250px; height: 70px; 
@@ -149,9 +123,6 @@ body.hover-video #cursorDot { opacity: 0; }
 .nav-btn-wrap .btn { padding: 10px 24px; font-size: 0.85rem; }
 @media (max-width: 1024px) { .nav-links, .nav-btn-wrap { display: none; } .navbar { justify-content: center; padding: 0 30px; height: 65px;} }
 
-/* ==========================================================================
-   7. HERO SECTION (MEDIUM FIT & FLOATING ICONS)
-   ========================================================================== */
 .hero { position: relative; min-height: 90vh; display: flex; align-items: center; padding-top: 100px; padding-bottom: 20px; z-index: 5; overflow: hidden;}
 
 #particle-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.6; pointer-events: none;}
@@ -211,9 +182,6 @@ body.hover-video #cursorDot { opacity: 0; }
     .hero-social-float { display: none; }
 }
 
-/* ==========================================================================
-   8. SECTION 2: SOCIAL ANIMATIONS & PURE CSS 3D CYLINDER
-   ========================================================================== */
 .section-2-wrapper {
     background: var(--bg-elevated); border-radius: 60px; margin: 0 2%; 
     padding: 6rem 5%; position: relative; border: 1px solid var(--border-soft); 
@@ -269,9 +237,6 @@ body.hover-video #cursorDot { opacity: 0; }
     .cf-6 { transform: rotateY(300deg) translateZ(180px); }
 }
 
-/* ==========================================================================
-   9. APPLE SCROLLYTELLING TEXT REVEAL
-   ========================================================================== */
 .story-section { background: var(--bg-base); display: flex; align-items: center; justify-content: center; text-align: center; z-index: 5; position: relative; overflow: hidden; padding: 10rem 5%;}
 
 .story-p { 
@@ -286,9 +251,6 @@ body.hover-video #cursorDot { opacity: 0; }
     will-change: background-position;
 }
 
-/* ==========================================================================
-   10. DIGITAL MARKETING & WEB DEV ARSENAL (COMPACT, GRAPHIC REVEALS)
-   ========================================================================== */
 .arsenal-section { background: var(--bg-elevated); border-radius: 60px; margin: 0 2%; padding: 6rem 5%; position: relative; border: 1px solid var(--border-soft); box-shadow: var(--shadow-float); overflow: hidden;}
 
 /* 4 columns to perfectly fit Web Dev */
@@ -313,9 +275,6 @@ body.hover-video #cursorDot { opacity: 0; }
 
 @media (max-width: 1024px) { .ars-container { grid-template-columns: 1fr; } .ars-card { min-height: 400px; } }
 
-/* ==========================================================================
-   11. APPLE ANIMATED PARALLAX STATS
-   ========================================================================== */
 .parallax-break { position: relative; width: 96%; max-width: 1600px; margin: 6rem auto; height: 50vh; border-radius: 60px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-heavy); z-index: 5;}
 .px-img { position: absolute; inset: 0; width: 100%; height: 130%; object-fit: cover; filter: brightness(0.4) saturate(1.2); transform: scale(1.1); z-index: 1;}
 .px-content { position: relative; z-index: 2; text-align: center; color: #FFF; padding: 0 20px; opacity: 0; transform: translateY(50px); transition: all 1s ease;}
@@ -324,9 +283,6 @@ body.hover-video #cursorDot { opacity: 0; }
 .px-content p { font-size: 1.2rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-gold); text-shadow: 0 10px 20px rgba(0,0,0,0.8);}
 @media (max-width: 768px) { .parallax-break { height: 40vh; border-radius: 30px; margin: 4rem 2%; width: 96%; } }
 
-/* ==========================================================================
-   12. COMPACT PURE CODE INDIA MAP (NO PHOTOS)
-   ========================================================================== */
 .map-section { background: var(--bg-surface); padding: 4rem 0; position: relative; z-index: 5; border-radius: 60px; margin: 0 2%; border: 1px solid var(--border-soft); box-shadow: var(--shadow-soft); overflow: hidden;}
 
 .india-map-wrapper { position: relative; width: 100%; max-width: 400px; aspect-ratio: 1; margin: 0 auto; display: flex; align-items: center; justify-content: center;}
@@ -342,9 +298,6 @@ body.hover-video #cursorDot { opacity: 0; }
 .node-card { position: absolute; top: -50px; left: 50%; transform: translateX(-50%); background: var(--glass-heavy); backdrop-filter: blur(15px); padding: 8px 12px; border-radius: 10px; border: 1px solid var(--border-gold); font-size: 0.8rem; font-weight: 700; white-space: nowrap; box-shadow: var(--shadow-float); opacity: 0; transition: 0.3s; pointer-events: none; color: var(--text-dark);}
 .map-node:hover .node-card { opacity: 1; top: -40px; }
 
-/* ==========================================================================
-   13. COMPACT BENTO BOX (Replaces "Why We Win")
-   ========================================================================== */
 .apple-bento-section { padding: 4rem 0; position: relative; z-index: 5; background: var(--bg-base);}
 .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 250px; gap: 20px; margin-top: 30px; }
 
@@ -362,9 +315,6 @@ body.hover-video #cursorDot { opacity: 0; }
 
 @media (max-width: 1024px) { .bento-grid { grid-template-columns: 1fr; grid-auto-rows: 300px;} .bento-large { grid-column: span 1; grid-row: span 1; } }
 
-/* ==========================================================================
-   14. BEFORE VS AFTER SLIDER (FLAWLESS CLIP-PATH & SEPARATE IMAGES)
-   ========================================================================== */
 .xray-section { background: var(--bg-base); z-index: 5; position: relative;}
 .ba-container { position: relative; width: 100%; max-width: 1000px; margin: 0 auto; height: 450px; border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-surface); cursor: col-resize; box-shadow: var(--shadow-heavy); border: 1px solid var(--border-soft); touch-action: pan-y; }
 
@@ -380,9 +330,6 @@ body.hover-video #cursorDot { opacity: 0; }
 .ba-label.after { background: var(--accent-olive); color: var(--text-light); border-color: var(--accent-olive); }
 @media (max-width: 768px) { .ba-container { height: 350px; border-radius: 30px;} .ba-labels { bottom: 15px; left: 10px; right: 10px; } .ba-label { padding: 8px 12px; font-size: 0.8rem; } .ba-handle-btn { width: 45px; height: 45px; font-size: 1.2rem; } }
 
-/* ==========================================================================
-   15. REELIFY TESTIMONIAL SWIPER (UNBLURRED, FULL VISIBILITY)
-   ========================================================================== */
 .reels-section { background: var(--bg-elevated); padding: 6rem 0; position: relative; z-index: 5; border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft);}
 
 .reviews-label { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 40px; font-family: var(--font-serif); font-size: 2.5rem; font-style: italic; color: var(--accent-olive); font-weight: 600;}
@@ -404,9 +351,6 @@ body.hover-video #cursorDot { opacity: 0; }
 .reel-caption { font-size: 0.95rem; color: rgba(255,255,255,0.95); line-height: 1.5; font-weight: 400; text-shadow: 0 2px 4px rgba(0,0,0,0.5);}
 @media (max-width: 768px) { .swiper-slide-reel { width: 80vw; height: 500px; } }
 
-/* ==========================================================================
-   16. FULLSCREEN REELS MODAL (TIKTOK STYLE)
-   ========================================================================== */
 .reels-modal { position: fixed; inset: 0; background: #000; z-index: var(--z-modal); display: flex; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
 .reels-modal.open { opacity: 1; pointer-events: auto; }
 
@@ -427,9 +371,6 @@ body.hover-video #cursorDot { opacity: 0; }
 .rm-niche { font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
 .rm-caption { font-size: 1rem; color: rgba(255,255,255,0.95); line-height: 1.5; font-weight: 400;}
 
-/* ==========================================================================
-   17. NEW "RUSH" MASSIVE SECTION (SLEEK & COMPACT - 50vh)
-   ========================================================================== */
 .rush-section { background: var(--bg-dark); color: var(--text-light); padding: 6rem 5%; height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; z-index: 5; border-radius: 60px; margin: 0 2%; border: 1px solid rgba(255,255,255,0.1); box-shadow: var(--shadow-heavy);}
 .rush-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(212, 175, 55, 0.15), transparent 70%); pointer-events: none; z-index: 0; }
 
@@ -437,9 +378,6 @@ body.hover-video #cursorDot { opacity: 0; }
 .rush-title { font-family: var(--font-serif); font-size: clamp(3rem, 6vw, 6.5rem); line-height: 1.1; margin-bottom: 15px; background: var(--gradient-luxury); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .rush-desc { font-family: var(--font-sans); font-size: clamp(1rem, 1.5vw, 1.2rem); color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto; line-height: 1.6;}
 
-/* ==========================================================================
-   18. ABSOLUTE Z-INDEX SHIELDED FOOTER
-   ========================================================================== */
 .main-wrapper { position: relative; z-index: 2; background-color: var(--bg-base); border-bottom-left-radius: 60px; border-bottom-right-radius: 60px; box-shadow: 0 40px 100px rgba(0,0,0,0.3); margin-bottom: 85vh; }
 .footer-fixed { position: fixed; bottom: 0; left: 0; width: 100%; height: 85vh; background: var(--bg-dark); color: var(--text-light); z-index: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 5%; overflow: hidden;}
 
@@ -457,9 +395,6 @@ body.hover-video #cursorDot { opacity: 0; }
 .f-designer a { color: var(--accent-gold); font-weight: 700; text-decoration: none;}
 @media (max-width: 768px) { .main-wrapper { border-radius: 0; margin-bottom: 85vh; } .f-bottom { flex-direction: column; gap: 15px; } }
 
-/* ==========================================================================
-   19. AURA 13.0 (LUXURY AI CONCIERGE)
-   ========================================================================== */
 .ai-fab-wrap { position: fixed; bottom: 40px; right: 40px; z-index: 10000; cursor: pointer; pointer-events: auto; }
 .ai-fab { width: 65px; height: 65px; border-radius: 50%; background: var(--bg-surface); border: 1px solid var(--border-gold); box-shadow: var(--shadow-card); display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth); position: relative; }
 .ai-fab::before { content:''; position:absolute; inset: -8px; border-radius: 50%; background: linear-gradient(135deg, rgba(212,175,55,0.4), rgba(74,93,35,0.4)); filter: blur(15px); opacity: 0.6; z-index: -1; animation: breatheAura 3s infinite alternate ease-in-out; }

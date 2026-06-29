@@ -4,7 +4,6 @@
    Every section crafted separately. Zero compromise.
 ═══════════════════════════════════════════════════════════════════ */
 
-/* ── 0. RESET & BASE ─────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
 html { background: #F7F4EF; scroll-behavior: smooth; }
 body {
@@ -19,7 +18,6 @@ body {
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; padding: 0; margin: 0; }
 
-/* ── 1. CUSTOM CURSOR ─────────────────────────────────────────── */
 #cursorDot, .cursor-dot {
   position: fixed !important;
   width: 8px; height: 8px;
@@ -42,7 +40,6 @@ ul { list-style: none; padding: 0; margin: 0; }
   transition: width .3s, height .3s, border-color .3s;
 }
 
-/* ── 2. SCROLL PROGRESS ──────────────────────────────────────── */
 #scrollProgress {
   position: fixed; top: 0; left: 0; height: 3px; width: 0%;
   background: linear-gradient(90deg, #C8A96E, #D4AF37, #A67C00);
@@ -55,7 +52,6 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 @keyframes progressShimmer { 0%{background-position:0%} 100%{background-position:200%} }
 
-/* ── 3. PRELOADER ─────────────────────────────────────────────── */
 #preloader {
   position: fixed !important;
   inset: 0;
@@ -68,7 +64,6 @@ ul { list-style: none; padding: 0; margin: 0; }
   transition: opacity .6s ease;
 }
 
-/* ── 4. NAVBAR ────────────────────────────────────────────────── */
 .header-wrap {
   position: fixed !important;
   top: 16px !important;
@@ -107,7 +102,6 @@ ul { list-style: none; padding: 0; margin: 0; }
 .nav-pill.active { color: #A67C00 !important; }
 .nav-pill.active::after { transform: translateX(-50%) scaleX(1); }
 
-/* ── 5. MAIN WRAPPER ─────────────────────────────────────────── */
 .main-wrapper {
   background: #F7F4EF !important;
   position: relative;
@@ -128,7 +122,6 @@ ul { list-style: none; padding: 0; margin: 0; }
 /* spinSlow for process circles */
 @keyframes spinSlow { 100% { transform: rotate(360deg); } }
 
-/* ── 6. HERO SECTION ─────────────────────────────────────────── */
 #home {
   position: relative;
   overflow: hidden;
@@ -174,7 +167,6 @@ ul { list-style: none; padding: 0; margin: 0; }
   min-width: 3ch;
 }
 
-/* ── 7. UNIVERSAL PRESENCE SECTION ───────────────────────────── */
 /* Platform tabs active state */
 .ptab {
   transition: all .35s cubic-bezier(.16,1,.3,1) !important;
@@ -224,7 +216,6 @@ ul { list-style: none; padding: 0; margin: 0; }
   background: rgba(255,255,255,0.08) !important;
 }
 
-/* ── 9. PROCESS SECTION ───────────────────────────────────────── */
 .proc-card {
   background: rgba(247,244,239,0.04) !important;
   border-radius: 24px;
@@ -254,7 +245,6 @@ ul { list-style: none; padding: 0; margin: 0; }
   }
 }
 
-/* ── 10. BEFORE / AFTER SLIDER ────────────────────────────────── */
 #baSlider {
   cursor: col-resize;
   will-change: transform;
@@ -276,7 +266,6 @@ ul { list-style: none; padding: 0; margin: 0; }
   border-color: rgba(200,169,110,0.2) !important;
 }
 
-/* ── 11. TESTIMONIALS ─────────────────────────────────────────── */
 @keyframes marqueeRoll {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -299,7 +288,6 @@ ul { list-style: none; padding: 0; margin: 0; }
   border-color: rgba(200,169,110,0.2) !important;
 }
 
-/* ── 12. RUSH / CTA SECTION ──────────────────────────────────── */
 /* Gold text gradient */
 .rush-gradient-text {
   background: linear-gradient(135deg, #C8A96E, #A67C00);
@@ -314,12 +302,10 @@ ul { list-style: none; padding: 0; margin: 0; }
   50%       { transform: translate(-50%,-50%) scale(1.2); opacity: .03; }
 }
 
-/* ── 13. FOOTER ───────────────────────────────────────────────── */
 footer a {
   transition: color .25s ease !important;
 }
 
-/* ── 14. WABUTTON ─────────────────────────────────────────────── */
 /* WA bounce on load */
 @keyframes waEntrance {
   0%   { transform: scale(0) rotate(-180deg); opacity: 0; }
@@ -329,7 +315,6 @@ footer a {
   animation: waEntrance .6s cubic-bezier(.16,1,.3,1) 1.5s both !important;
 }
 
-/* ── 15. REELS MODAL ─────────────────────────────────────────── */
 .reels-modal, #reelsModal {
   background: rgba(0,0,0,0.98) !important;
 }
@@ -342,7 +327,6 @@ footer a {
   transform: scale(1.1) !important;
 }
 
-/* ── 16. LIGHTBOX ─────────────────────────────────────────────── */
 #fsLightbox {
   background: rgba(26,18,8,0.96) !important;
 }
@@ -352,12 +336,10 @@ footer a {
   transform: rotate(90deg) !important;
 }
 
-/* ── 17. STICKY CTA ──────────────────────────────────────────── */
 #stickyCTA {
   transition: all .5s cubic-bezier(.16,1,.3,1) !important;
 }
 
-/* ── 18. CHATBOT FAB ─────────────────────────────────────────── */
 #auraFab {
   transition: all .4s cubic-bezier(.16,1,.3,1) !important;
   animation: waEntrance .6s cubic-bezier(.16,1,.3,1) 2s both !important;
@@ -367,13 +349,11 @@ footer a {
   box-shadow: 0 16px 48px rgba(26,18,8,0.3) !important;
 }
 
-/* ── 19. BLINK ANIMATION ─────────────────────────────────────── */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: .25; }
 }
 
-/* ── 20. REVEAL ON SCROLL ────────────────────────────────────── */
 .reveal-on-scroll {
   opacity: 0;
   transform: translateY(48px);
@@ -389,21 +369,17 @@ footer a {
 .reveal-on-scroll.delay-2 { transition-delay: .24s !important; }
 .reveal-on-scroll.delay-3 { transition-delay: .36s !important; }
 
-/* ── 21. GLOBAL SECTION TRANSITIONS ─────────────────────────── */
 section {
   position: relative;
 }
 
-/* ── 22. SCROLLBAR ───────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #F7F4EF; }
 ::-webkit-scrollbar-thumb { background: rgba(200,169,110,0.4); border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(200,169,110,0.7); }
 
-/* ── 23. SELECTION ───────────────────────────────────────────── */
 ::selection { background: rgba(200,169,110,0.25); color: #1A1208; }
 
-/* ── 24. FOCUS STYLES ────────────────────────────────────────── */
 :focus-visible {
   outline: 2px solid rgba(200,169,110,0.6);
   outline-offset: 3px;

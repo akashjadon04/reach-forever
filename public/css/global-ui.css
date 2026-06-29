@@ -251,9 +251,6 @@ p, .h-sub, .proc-sub, .rush-sub, .plat-sub, .svc-sub, .testi-desc { font-size: c
     #rfFoot, .site-foot { padding-bottom: 120px !important; }
 }
 
-/* ============================================================
-   USER REQUESTED STRICT GLOBAL FONTS
-   ============================================================ */
 /* Montserrat for Body */
 body { font-family: 'Montserrat', sans-serif !important; }
 p, a, li { font-family: 'Montserrat', sans-serif; }
@@ -286,8 +283,6 @@ em {
   padding-bottom: 0.15em !important;
   line-height: 1.15 !important;
 }
-
-
 
 /* Mobile Navbar Compact Fix */
 @media(max-width:800px) {

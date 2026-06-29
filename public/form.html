@@ -46,9 +46,8 @@
     }
     </script>
 
-<!-- ============================================== -->
 <!-- EVOLNEX MAINTENANCE SHIELD (Secret Bypass Active) -->
-<!-- ============================================== -->
+
 <script>
   window.EVOLNEX_MAINTENANCE = false; // Toggle this to false to reveal the site globally
   if (window.EVOLNEX_MAINTENANCE && new URLSearchParams(window.location.search).get('dev') !== 'evolnex') {
@@ -82,9 +81,7 @@
     <noscript><link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"></noscript>
 
     <style>
-        /* ==========================================================================
-           1. LUXURY VARIABLES & RESET
-           ========================================================================== */
+        
         :root {
             --rf-bg: #FFFFFF;
             --rf-surface: #F8F9FA;
@@ -103,17 +100,13 @@
         body { font-family: 'Outfit', sans-serif; background-color: var(--rf-bg); color: var(--rf-text); overflow-x: hidden; cursor: auto; width: 100%;}
         a, button, input, select, textarea { cursor: pointer; }
 
-        /* ==========================================================================
-           2. GLOBAL UI: AMBIENT GLOW
-           ========================================================================== */
+        
         .ambient-glow { position: fixed; border-radius: 50%; filter: blur(150px); z-index: -1; pointer-events: none; opacity: 0.4; animation: breathe 10s infinite alternate; }
         .glow-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: rgba(74, 20, 140, 0.15); }
         .glow-2 { bottom: -10%; right: -10%; width: 40vw; height: 40vw; background: rgba(233, 30, 99, 0.15); animation-delay: -5s; }
         @keyframes breathe { 0% { transform: scale(1); opacity: 0.2; } 100% { transform: scale(1.2); opacity: 0.5; } }
 
-        /* ==========================================================================
-           3. HEADER NAVBAR (DARK MODE VERSION)
-           ========================================================================== */
+        
         .header-wrap { position: fixed; top: 15px; left: 0; width: 100%; z-index: 10000; display: flex; justify-content: center; pointer-events: none; }
         .navbar { pointer-events: auto; width: 92%; max-width: 1250px; height: 70px; background: rgba(18, 20, 26, 0.85); backdrop-filter: blur(35px); border-radius: 100px; border: 1px solid var(--glass-border); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); display: flex; justify-content: space-between; align-items: center; padding: 0 10px 0 25px; }
         .nav-brand img { filter: brightness(1); } /* White logo for dark bg */
@@ -133,9 +126,7 @@
         .m-nav-item.active, .m-nav-item:hover { color: var(--accent-gold); transform: translateY(-3px); }
         @media (max-width: 1024px) { .nav-links, .nav-btn-wrap { display: none; } .mobile-nav { display: flex; } }
 
-        /* ==========================================================================
-           4. SPLIT SCREEN FORM LAYOUT
-           ========================================================================== */
+        
         .form-section { position: relative; min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; padding: 120px 5% 60px; overflow: hidden; }
         
         .form-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1300px; width: 100%; background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 40px; padding: 60px; box-shadow: 0 30px 60px rgba(0,0,0,0.05); position: relative; z-index: 2; }
@@ -186,9 +177,7 @@
             .f-title { font-size: 2.5rem; }
         }
 
-        /* ==========================================================================
-           5. CHATBOT UI (SILENT MODE)
-           ========================================================================== */
+        
         .ai-fab-wrap { position: fixed; bottom: 40px; right: 40px; z-index: 100000; pointer-events: auto; }
         .ai-fab { width: 65px; height: 65px; border-radius: 50%; background: var(--rf-surface); border: 1px solid var(--accent-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; transition: 0.6s; }
         
@@ -393,19 +382,15 @@
 
         
 
-
     
-
 
     
     
 
     
-
 
     <!-- UNIVERSAL THEME TOGGLE SCRIPT -->
     
-
 
 <footer id="rfFoot">
   <div class="foot-in">
