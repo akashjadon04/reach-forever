@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
     <script>
@@ -71,7 +71,7 @@
     }
 
     
-    /* FIX 1: scroll-behavior:smooth REMOVED — Lenis JS handles smooth scroll.
+    /* FIX 1: scroll-behavior:smooth REMOVED â€” Lenis JS handles smooth scroll.
        Keeping both causes a muddy/stuck feeling as two engines fight for control. */
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
@@ -88,10 +88,10 @@
     }
     img { display:block; max-width:100%; }
 
-    /* ── FIX 2: TARGETED THEME TRANSITIONS ONLY ──
+    /* â”€â”€ FIX 2: TARGETED THEME TRANSITIONS ONLY â”€â”€
        The original broad transition block (applying transitions to every div,
        span, h1-h6, p, a, button, etc.) forced the browser to recalculate
-       compositor layers on every scroll tick — nuking frame rate.
+       compositor layers on every scroll tick â€” nuking frame rate.
        Now only the specific elements that VISUALLY theme-switch get transitions. */
     .navbar,
     .wol-card,
@@ -311,7 +311,7 @@
         margin-bottom:40px; line-height:1.7; font-weight: 500;
     }
     
-    /* ── MINIMAL HERO TRUST GRAPHIC ── */
+    /* â”€â”€ MINIMAL HERO TRUST GRAPHIC â”€â”€ */
     .hero-trust-graphic {
         display: flex; align-items: center; gap: 20px;
         padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.05);
@@ -330,7 +330,7 @@
     .trust-text { display: flex; flex-direction: column; gap: 4px; padding-left: 12px; }
     .trust-stars { color: #f59e0b; display: flex; gap: 2px; font-size: 1rem; }
     .trust-text span { font-size: 0.85rem; font-weight: 600; color: var(--rf-muted); text-transform: uppercase; letter-spacing: 1px; }
-    /* ── DASHBOARD UI (ANIMATED & BEAUTIFUL) ── */
+    /* â”€â”€ DASHBOARD UI (ANIMATED & BEAUTIFUL) â”€â”€ */
     .dashboard-ui-showcase { perspective: 1000px; display: flex; justify-content: flex-end; position: relative; z-index: 5; }
     
     /* Animated Gradient Backdrop */
@@ -820,7 +820,7 @@
         to   { opacity:1; transform:translateY(0); }
     }
 
-    /* ── SOCIAL PROOF TOAST ── */
+    /* â”€â”€ SOCIAL PROOF TOAST â”€â”€ */
     #sp-toast {
         position:fixed; bottom:120px; right:40px; z-index:99999;
         background:var(--rf-glass); backdrop-filter:blur(24px);
@@ -847,7 +847,7 @@
         #sp-toast { right:18px; bottom:100px; max-width:260px; padding:12px 16px; backdrop-filter:none; -webkit-backdrop-filter:none; }
     }
 
-    /* ── DOT SECTION NAVIGATOR ── */
+    /* â”€â”€ DOT SECTION NAVIGATOR â”€â”€ */
     #dot-nav {
         position:fixed; right:28px; top:50%; transform:translateY(-50%);
         z-index:9999; display:flex; flex-direction:column;
@@ -896,7 +896,13 @@
   * { filter: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; box-shadow: none !important; }
   .dash-glass-panel, .roi-graph-box, .roi-results, .cs-card, .wol-card { background: var(--rf-surface) !important; border: 1px solid var(--glass-border) !important; }
 }
-</style>
+
+    /* PERFORMANCE: Skip off-screen rendering */
+    section { content-visibility: auto; contain-intrinsic-size: 0 500px; }
+    .cms-loaded { will-change: auto !important; }
+    @media(max-width:1024px) {
+      .mobile-nav, .ncta { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+    }</style>
 
 </head>
 <body>
@@ -997,12 +1003,12 @@
                     <div class="dash-glass-panel">
                         <div class="dash-header">
                             <div class="dash-dots"><span></span><span></span><span></span></div>
-                            <div class="dash-title">Reach Forever • Revenue Engine</div>
+                            <div class="dash-title">Reach Forever â€¢ Revenue Engine</div>
                         </div>
                         <div class="dash-body">
                             <div class="dash-main-metric">
                                 <p data-cms="rev_hero_stat_1_text">Client Revenue Generated</p>
-                                <h2><span>₹</span><span class="counter" data-target="85">0</span><span>L+</span></h2>
+                                <h2><span>â‚¹</span><span class="counter" data-target="85">0</span><span>L+</span></h2>
                                 <div class="metric-trend"><i class="ri-arrow-right-up-line"></i> +312% Growth</div>
                             </div>
                             <div class="dash-grid">
@@ -1046,16 +1052,16 @@
                     </div>
                     <div class="slider-wrapper">
                         <input type="range" min="50000" max="1000000" value="200000" step="10000" class="roi-slider" id="revenueSlider" aria-label="Monthly revenue">
-                        <div class="slider-labels"><span>₹50K / Mo</span><span>₹10L+ / Mo</span></div>
+                        <div class="slider-labels"><span>â‚¹50K / Mo</span><span>â‚¹10L+ / Mo</span></div>
                     </div>
                     <div class="roi-results">
                         <div class="result-row">
                             <span class="rb-label">Current</span>
-                            <span class="rb-value" id="currentRevText">₹2,00,000</span>
+                            <span class="rb-value" id="currentRevText">â‚¹2,00,000</span>
                         </div>
                         <div class="result-row total">
                             <span class="rb-label" style="color:var(--accent-olive);">Projected</span>
-                            <span class="rb-value rb-highlight" id="projectedRevText">₹5,60,000</span>
+                            <span class="rb-value rb-highlight" id="projectedRevText">â‚¹5,60,000</span>
                         </div>
                     </div>
                 </div>
@@ -1129,15 +1135,15 @@
                         <div class="vt-info">
                             <h4 data-cms="rev_thumb_1_title">Dr. Sharma Dental</h4>
                             <p data-cms="rev_thumb_1_sub">3x Bookings in 30 Days</p>
-                            <div class="vt-tag">Dental · Jalandhar</div>
+                            <div class="vt-tag">Dental Â· Jalandhar</div>
                         </div>
                     </div>
                     <div class="vid-thumb tilt-card" data-target="2">
                         <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Real Estate" class="vt-img" data-cms="rev_thumb_2_img">
                         <div class="vt-info">
                             <h4 data-cms="rev_thumb_2_title">Apex Real Estate</h4>
-                            <p data-cms="rev_thumb_2_sub">₹1.2 Cr in Pipeline</p>
-                            <div class="vt-tag">Real Estate · Amritsar</div>
+                            <p data-cms="rev_thumb_2_sub">â‚¹1.2 Cr in Pipeline</p>
+                            <div class="vt-tag">Real Estate Â· Amritsar</div>
                         </div>
                     </div>
                     <div class="vid-thumb tilt-card" data-target="3">
@@ -1145,7 +1151,7 @@
                         <div class="vt-info">
                             <h4 data-cms="rev_thumb_3_title">Kaur Luxury Aesthetics</h4>
                             <p data-cms="rev_thumb_3_sub">Fully Booked Calendar</p>
-                            <div class="vt-tag">Aesthetics · Phagwara</div>
+                            <div class="vt-tag">Aesthetics Â· Phagwara</div>
                         </div>
                     </div>
                 </div>
@@ -1184,7 +1190,7 @@
              >
             
           </div>
-          <p class="foot-desc">Punjab's #1 Digital Marketing Agency — engineering growth through data-driven strategies and creative execution.</p>
+          <p class="foot-desc">Punjab's #1 Digital Marketing Agency â€” engineering growth through data-driven strategies and creative execution.</p>
         </div>
         <div>
           <div class="foot-col-t">Services</div>
@@ -1238,7 +1244,7 @@
         </div>
         <div class="cp-body" id="auraBody" style="height:360px;padding:22px;overflow-y:auto;display:flex;flex-direction:column;background:var(--rf-bg);"></div>
         <div style="padding:18px;border-top:1px solid rgba(212,175,55,.08);display:flex;gap:12px;align-items:center;background:var(--rf-surface);">
-            <input type="text" placeholder="Ask us anything…" id="auraInput" aria-label="Chat input"
+            <input type="text" placeholder="Ask us anythingâ€¦" id="auraInput" aria-label="Chat input"
                    style="flex:1;border:1px solid rgba(212,175,55,.15);background:var(--rf-bg);padding:13px 18px;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.9rem;color:var(--rf-text);outline:none;transition:border-color .3s ease;">
             <button id="auraSend" aria-label="Send"
                     style="width:46px;height:46px;border-radius:50%;border:none;background:var(--accent-olive);color:#FFF;font-size:1.3rem;display:flex;align-items:center;justify-content:center;transition:transform .2s ease, background .2s ease;flex-shrink:0;">
@@ -1257,10 +1263,10 @@
         const IS_TOUCH  = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
         const IS_MOBILE = window.innerWidth <= 768;
 
-        /* ══════════════════════════════════
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
            2. DYNAMIC ISLAND
            Only fires on explicit user action.
-        ══════════════════════════════════ */
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         const island     = document.getElementById('dynamicIsland');
         const islandText = document.getElementById('islandText');
         let islandTimer  = null;
@@ -1276,9 +1282,9 @@
             }, duration);
         };
 
-        /* ══════════════════════════════════
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
            4. MAGNETIC BUTTONS
-        ══════════════════════════════════ */
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         if (!IS_TOUCH && typeof gsap !== 'undefined') {
             document.querySelectorAll('.magnetic-wrap').forEach(wrap => {
                 const inner = wrap.querySelector('.magnetic-inner');
@@ -1295,10 +1301,10 @@
             });
         }
 
-        /* ══════════════════════════════════
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
            5. HEADLINE REVEAL
            Clean IntersectionObserver fade.
-        ══════════════════════════════════ */
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         const headlineObs = new IntersectionObserver(entries => {
             entries.forEach(e => {
                 if (e.isIntersecting) {
@@ -1313,11 +1319,11 @@
             headlineObs.observe(el);
         });
 
-        /* ══════════════════════════════════
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
            6. DYNAMIC AMBIENT AURA
            FIX: RAF pauses when tab is hidden
            to prevent wasted GPU work.
-        ══════════════════════════════════ */
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         const g1 = document.getElementById('aura1');
         const g2 = document.getElementById('aura2');
         let curR = 85, curG = 107, curB = 47;
@@ -1345,7 +1351,7 @@
 
         startAura();
 
-        // FIX: Pause ambient RAF when tab is hidden — saves battery & GPU on mobile
+        // FIX: Pause ambient RAF when tab is hidden â€” saves battery & GPU on mobile
         document.addEventListener('visibilitychange', () => {
             document.hidden ? stopAura() : startAura();
         });
@@ -1370,11 +1376,11 @@
         }, { threshold: 0.3 });
         auraMap.forEach(a => { const el = document.getElementById(a.id); if (el) auraObs.observe(el); });
 
-        /* ══════════════════════════════════
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
            7. SCROLL PROGRESS BAR
            rAF + ticking pattern prevents
            layout thrashing on every tick.
-        ══════════════════════════════════ */
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         const prog = document.getElementById('scrollProgress');
         let ticking = false;
         window.addEventListener('scroll', () => {
@@ -1390,9 +1396,9 @@
             }
         }, { passive: true });
 
-        /* ══════════════════════════════════
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
            8. COUNTER ANIMATION
-        ══════════════════════════════════ */
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         let countersRan = false;
         function runCounters() {
             if (countersRan) return;
@@ -1413,16 +1419,16 @@
             });
         }
 
-        /* ══════════════════════════════════
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
            9. ROI CALCULATOR
-        ══════════════════════════════════ */
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         const slider    = document.getElementById('revenueSlider');
         const curRevTx  = document.getElementById('currentRevText');
         const projRevTx = document.getElementById('projectedRevText');
         const bar1 = document.getElementById('bar1');
         const bar2 = document.getElementById('bar2');
 
-        const fmtINR = n => '₹' + n.toLocaleString('en-IN');
+        const fmtINR = n => 'â‚¹' + n.toLocaleString('en-IN');
 
         function updateROI() {
             if (!slider) return;
@@ -1437,9 +1443,9 @@
         }
         if (slider) { slider.addEventListener('input', updateROI, { passive: true }); updateROI(); }
 
-        /* ══════════════════════════════════
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
            10. VAULT VIDEO SWITCHER
-        ══════════════════════════════════ */
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         const thumbs    = document.querySelectorAll('.vid-thumb');
         const vaultVids = document.querySelectorAll('.vault-video');
         const vpLabel   = document.getElementById('vpPlayLabel');
@@ -1466,7 +1472,7 @@
                 targetVid.play().catch(() => {});
                 if (vpLabel) vpLabel.textContent = 'Tap to unmute';
             }
-            islandNotify('▶ ' + (caseTitles[targetId] || 'Case Study'));
+            islandNotify('â–¶ ' + (caseTitles[targetId] || 'Case Study'));
         }
 
         thumbs.forEach(thumb => {
@@ -1482,18 +1488,18 @@
                     active.muted = false;
                     active.play().catch(() => {});
                     if (vpLabel) vpLabel.textContent = 'Now playing';
-                    islandNotify('🔊 Audio On');
+                    islandNotify('ðŸ”Š Audio On');
                 } else {
                     active.muted = true;
                     if (vpLabel) vpLabel.textContent = 'Tap to unmute';
-                    islandNotify('🔇 Muted');
+                    islandNotify('ðŸ”‡ Muted');
                 }
             });
         }
 
-        /* ══════════════════════════════════
-           11. VANILLA TILT — desktop only
-        ══════════════════════════════════ */
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+           11. VANILLA TILT â€” desktop only
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         if (!IS_TOUCH && typeof VanillaTilt !== 'undefined') {
             VanillaTilt.init(document.querySelectorAll('.vid-thumb'), {
                 max: 7, speed: 500, glare: true, 'max-glare': 0.14, perspective: 1400
@@ -1503,14 +1509,14 @@
             });
         }
 
-        /* ══════════════════════════════════
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
            12. GSAP + STICKY CASE STUDIES
            FIX 3 (JS): All scroll-driven
            animations use GSAP ScrollTrigger
            instead of raw scroll listeners,
            keeping animation off the main
            thread via GSAP's ticker.
-        ══════════════════════════════════ */
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         if (typeof gsap !== 'undefined') {
             gsap.registerPlugin(ScrollTrigger);
 
@@ -1543,7 +1549,7 @@
 
                 const badgeData = [
                     { val: '+312%', sub: 'Increase in Patient Calls' },
-                    { val: '₹400',  sub: 'Cost Per Qualified Buyer Lead' },
+                    { val: 'â‚¹400',  sub: 'Cost Per Qualified Buyer Lead' },
                     { val: '6.2x',  sub: 'Return on Ad Spend' },
                 ];
                 const auraColors = [
@@ -1583,7 +1589,7 @@
                 });
             }
 
-            // FIX 3: GSAP ScrollTrigger parallax on hero video — replaces any
+            // FIX 3: GSAP ScrollTrigger parallax on hero video â€” replaces any
             // raw window.addEventListener('scroll') for scroll-driven effects.
             // GSAP batches all ScrollTrigger updates in its own optimized ticker.
             const heroMedia = document.querySelector('.hero-bg-media');
@@ -1600,7 +1606,7 @@
                 });
             }
 
-            // FIX: Debounced resize — avoids triggering a full ScrollTrigger
+            // FIX: Debounced resize â€” avoids triggering a full ScrollTrigger
             // refresh on every pixel of resize (which can spike CPU).
             let resizeTimer;
             window.addEventListener('resize', () => {
@@ -1609,9 +1615,9 @@
             }, { passive: true });
         }
 
-        /* ══════════════════════════════════
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
            13. CHATBOT
-        ══════════════════════════════════ */
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         const fab      = document.getElementById('auraFab');
         const panel    = document.getElementById('auraPanel');
         const closeBtn = document.getElementById('auraClose');
@@ -1634,7 +1640,7 @@
             panel.setAttribute('aria-hidden', 'false');
             const badge = document.getElementById('botBadge');
             if (badge) badge.style.display = 'none';
-            islandNotify('Chat opened ✦');
+            islandNotify('Chat opened âœ¦');
         };
         const closePanel = () => {
             if (!panel) return;
@@ -1648,10 +1654,10 @@
 
         const KB = [
             { re:/^(hi|hello|hey)[!?]*$/i,            r:"Hey! I'm the Reach Forever AI. We scale local businesses aggressively. What's your monthly revenue goal?" },
-            { re:/(price|pricing|cost|how much)/i,     r:"We build high-ROI revenue machines, not cheap templates. Pricing is custom — book a Strategy Call and let's talk numbers." },
+            { re:/(price|pricing|cost|how much)/i,     r:"We build high-ROI revenue machines, not cheap templates. Pricing is custom â€” book a Strategy Call and let's talk numbers." },
             { re:/(how long|time|launch|14 days)/i,    r:"14 Days. That's our rapid-launch guarantee. Funnel built, ads live, leads flowing in exactly two weeks." },
-            { re:/(proof|results|case|review)/i,       r:"Numbers don't lie. We've generated ₹85L+ for our clients. You're literally on the proof page right now 😄" },
-            { re:/(akash|web|website|app|code)/i,      r:"Akash Jadon is our Lead Engineer — custom React/Node builds only. Your site will be the fastest in your city." },
+            { re:/(proof|results|case|review)/i,       r:"Numbers don't lie. We've generated â‚¹85L+ for our clients. You're literally on the proof page right now ðŸ˜„" },
+            { re:/(akash|web|website|app|code)/i,      r:"Akash Jadon is our Lead Engineer â€” custom React/Node builds only. Your site will be the fastest in your city." },
             { re:/(ansh|marketing|ads|seo|instagram)/i,r:"Ansh Khatri architects our viral campaigns. He's flooded hundreds of businesses with paying customers." },
             { re:/(guarantee|risk|refund)/i,           r:"We guarantee a positive ROI. If you don't make more than you spend with us, we aren't doing our job." },
             { re:/.*/,                                 r:"Stop guessing. Click 'Book Consultancy' above and our team builds your custom revenue blueprint within 24 hours." }
@@ -1711,9 +1717,9 @@
             }
         }, 1800);
 
-        /* ══════════════════════════════════
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
            14. PRELOADER
-        ══════════════════════════════════ */
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         const pl    = document.getElementById('preloader');
         const plBar = document.getElementById('pl-bar');
         if (plBar) {
@@ -1728,9 +1734,9 @@
             }, 950);
         }
 
-        /* ══════════════════════════════════
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
            ENTERPRISE 1: SOCIAL PROOF TOAST
-        ══════════════════════════════════ */
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         const spToast  = document.getElementById('sp-toast');
         const spName   = document.getElementById('sp-name');
         const spAction = document.getElementById('sp-action');
@@ -1758,9 +1764,9 @@
 
         setTimeout(() => { showSPToast(); setInterval(showSPToast, 30000); }, 12000);
 
-        /* ══════════════════════════════════
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
            ENTERPRISE 2: DOT SECTION NAV
-        ══════════════════════════════════ */
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         const dotItems = document.querySelectorAll('.dot-nav-item');
         const navSections = ['heroScene', 'roi', 'vault', 'case-studies', 'wall-of-love'];
 
@@ -1771,7 +1777,7 @@
                 if (!section) return;
                 const top = section.getBoundingClientRect().top + window.scrollY - 80;
                 window.scrollTo({ top, behavior: 'smooth' });
-                islandNotify('↓ ' + (dot.querySelector('.dot-nav-tooltip')?.textContent || ''));
+                islandNotify('â†“ ' + (dot.querySelector('.dot-nav-tooltip')?.textContent || ''));
             });
         });
 
@@ -1791,9 +1797,9 @@
             if (el) dotNavObs.observe(el);
         });
 
-        /* ══════════════════════════════════
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
            ENTERPRISE 3: MOUSE SPOTLIGHT
-        ══════════════════════════════════ */
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         const spotlight = document.getElementById('mouse-spotlight');
         const spotlightSections = document.querySelectorAll('.spotlight-section');
 
@@ -1820,14 +1826,14 @@
 
     }); // END DOMContentLoaded
 
-    /* ═══════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        PARTICLE ENGINE
-       FIX: Adaptive quality — mobile gets 20 particles
-       with no connection lines (eliminates O(n²) loop).
+       FIX: Adaptive quality â€” mobile gets 20 particles
+       with no connection lines (eliminates O(nÂ²) loop).
        Desktop keeps 50 particles + connections.
        RAF pauses automatically when tab is hidden
        because the browser suspends it natively.
-    ═══════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     document.addEventListener('DOMContentLoaded', () => {
         const canvas = document.getElementById('particle-canvas');
         if (!canvas) return;
@@ -1836,14 +1842,14 @@
 
         // FIX: 20 particles on mobile, 50 on desktop
         const PARTICLE_COUNT = IS_MOB ? 20 : 50;
-        // FIX: No connection lines on mobile — eliminates the O(n²) nested loop
+        // FIX: No connection lines on mobile â€” eliminates the O(nÂ²) nested loop
         const DRAW_LINES = !IS_MOB;
         const LINE_DIST  = 115;
 
         const resize = () => { canvas.width = innerWidth; canvas.height = innerHeight; };
         resize();
 
-        // FIX: Debounced resize listener — avoids resize event causing canvas
+        // FIX: Debounced resize listener â€” avoids resize event causing canvas
         // reflow on every pixel of window resize.
         let resizeTimeout;
         window.addEventListener('resize', () => {
@@ -1874,7 +1880,7 @@
                 if (p.y < 0 || p.y > innerHeight)  p.dy *= -1;
             });
 
-            // FIX: O(n²) connection loop skipped on mobile entirely
+            // FIX: O(nÂ²) connection loop skipped on mobile entirely
             if (DRAW_LINES) {
                 for (let i = 0; i < pts.length; i++) {
                     for (let j = i + 1; j < pts.length; j++) {
@@ -1897,10 +1903,10 @@
         draw();
     });
 
-    /* ═══════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        THEME TOGGLE
        Island fires only on explicit user click.
-    ═══════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     (function initThemeToggle() {
         function updateIcons(isLight) {
             const d = document.getElementById('themeIconDesktop');
