@@ -325,16 +325,6 @@ body{font-family:var(--ss);background:#FFFFFF !important;color:var(--tx);overflo
 @media(max-width:600px) {
   .tc { width: 280px !important; padding: 20px !important; }
 }
-
-    /* PERFORMANCE: content-visibility for off-screen sections */
-    #platformSec, #svcSec, #procSec, #diffSec, #testiSec, #rushSec { 
-      content-visibility: auto; 
-      contain-intrinsic-size: 0 600px; 
-    }
-    /* PERFORMANCE: Reduce backdrop-filter on decorative elements */
-    .fsc { backdrop-filter: none !important; }
-    /* PERFORMANCE: will-change cleanup after CMS loads */
-    .cms-loaded { will-change: auto !important; }
 </style>
 
 </head>

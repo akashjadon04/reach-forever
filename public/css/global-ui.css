@@ -331,33 +331,3 @@ em {
     bottom: 150px !important;
   }
 }
-
-/* PERFORMANCE: Reduce navbar backdrop-filter to minimum viable */
-#rfNav, .navbar {
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-}
-
-/* PERFORMANCE: Mobile - disable all blur entirely for smooth scroll */
-@media(max-width:1024px) {
-  #rfNav, .navbar, .mobile-nav, .ncta,
-  .sc-tab, .hs-metric, .tag-pill,
-  .node-card, .audio-indicator {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-}
-
-/* PERFORMANCE: Ambient glow blobs are expensive - reduce on all screens */
-.ambient-glow {
-  filter: blur(80px) !important;
-  opacity: 0.4 !important;
-  will-change: auto !important;
-}
-
-/* PERFORMANCE: Mark scroll-container for GPU layer */
-.tt {
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}

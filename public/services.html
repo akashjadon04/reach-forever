@@ -700,44 +700,10 @@
   .hero-visuals svg { position: relative !important; right: auto !important; left: 0 !important; transform: scale(1.1) !important; transform-origin: center !important; margin: 0 auto !important; display: block !important; }
   .hero-visuals { height: auto !important; min-height: 350px !important; display: flex !important; justify-content: center !important; align-items: center !important; overflow: hidden !important; }
 }
-
-    /* PERFORMANCE: Skip off-screen rendering */
-    section { content-visibility: auto; contain-intrinsic-size: 0 500px; }
-    .hs-glass-card, .process-3d-card, .glow-card { contain: layout style; }
-    
-    /* PERFORMANCE: Reduce backdrop-filter intensity on non-navbar elements */
-    .sc-tab, .hs-metric, .tag-pill { 
-      backdrop-filter: blur(8px) !important; 
-      -webkit-backdrop-filter: blur(8px) !important; 
-    }
-
-    /* PERFORMANCE: Remove backdrop-filter from decorative elements */
-    .node-card, .audio-indicator, .review-indicator {
-      backdrop-filter: none !important;
-      -webkit-backdrop-filter: none !important;
-      background: rgba(255,255,255,0.95) !important;
-    }
-
-    /* PERFORMANCE: GPU-promote animated elements properly */
-    .tt, [style*='animation'], .reveal-up, .reveal-left, .reveal-right {
-      transform: translateZ(0);
-    }
-
-    /* PERFORMANCE: Clear will-change after animations to free GPU memory */
-    .cms-loaded { will-change: auto !important; }
-
-    /* PERFORMANCE: Reduce box-shadow complexity on non-interactive cards */
-    .perf-card, .process-3d-card {
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
-    }
-    
-    /* PERFORMANCE: Throttle scroll-driven effects on macOS */
-    @media (min-width: 1024px) {
-      * { scroll-behavior: auto; }
-    }
 </style>
 
     <link rel="stylesheet" href="css/overhaul-vars.css">
+    <link rel="stylesheet" href="css/global-ui.css">
 </head>
 <body>\n<nav id="rfNav">
   <a href="index.html" class="nl" id="nl">
@@ -1485,7 +1451,7 @@
   });
   // Scroll Progress
   const prog=document.getElementById('scrollProgress');
-  if(prog){let _ps=false;window.addEventListener('scroll',function(){if(_ps)return;_ps=true;requestAnimationFrame(function(){prog.style.width=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%';},{passive:true});}
+  if(prog){window.addEventListener('scroll',function(){prog.style.width=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%';},{passive:true});}
   document.addEventListener('DOMContentLoaded',function(){
     // GSAP reveal animations
     if(window.gsap&&window.ScrollTrigger){
@@ -1586,7 +1552,7 @@
     if(inp)inp.addEventListener('keydown',function(e){if(e.key==='Enter')sendMsg();});
     // Sticky Nav
     const nav=document.querySelector('.navbar');
-    if(nav){let _ns=false; window.addEventListener('scroll',function(){ if(_ns)return;_ns=true;requestAnimationFrame(function(){nav.style.boxShadow=window.scrollY>60?'0 0 40px rgba(200,169,110,.25)':'0 0 25px rgba(200,169,110,.15)';},{passive:true});_ns=false;});}
+    if(nav){window.addEventListener('scroll',function(){nav.style.boxShadow=window.scrollY>60?'0 0 40px rgba(200,169,110,.25)':'0 0 25px rgba(200,169,110,.15)';},{passive:true});}
   });
 })();
 </script>

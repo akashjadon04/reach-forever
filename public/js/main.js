@@ -316,21 +316,15 @@ class AppleScrollArchitect {
         gsap.registerPlugin(ScrollTrigger);
 
         // 1. Sticky Header & CTA Logic
-        let _rafScroll = false;
         window.addEventListener('scroll', () => { 
-            if (_rafScroll) return;
-            _rafScroll = true;
-            requestAnimationFrame(() => {
-                const hw = document.getElementById('headerWrap');
-                if(hw) hw.style.top = window.scrollY > 80 ? '10px' : '20px'; 
-                const stickyCta = document.getElementById('stickyCta');
-                if(stickyCta) {
-                    if(window.scrollY > 800) stickyCta.classList.add('visible');
-                    else stickyCta.classList.remove('visible');
-                }
-                _rafScroll = false;
-            });
-        }, { passive: true });
+            const hw = document.getElementById('headerWrap');
+            if(hw) hw.style.top = window.scrollY > 80 ? '10px' : '20px'; 
+            const stickyCta = document.getElementById('stickyCta');
+            if(stickyCta) {
+                if(window.scrollY > 800) stickyCta.classList.add('visible');
+                else stickyCta.classList.remove('visible');
+            }
+        });
 
         // 2. Fast Text Rotator
         const textRotator = document.getElementById('textRotator');
