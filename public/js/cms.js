@@ -36,10 +36,19 @@ async function initCMS() {
     if (!pageName || pageName === "index") pageName = "home";
     if (pageName === "results") pageName = "reviews";
 
+    // Timeout helper — aborts fetch if server takes more than 8 seconds (Render cold start)
+    function fetchWithTimeout(url, timeoutMs = 8000) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeoutMs);
+        return fetch(url, { signal: controller.signal })
+            .then(res => { clearTimeout(timer); return res; })
+            .catch(err => { clearTimeout(timer); throw err; });
+    }
+
     try {
-                const response = await fetch(`${API_BASE_URL}/content/${pageName}`);
+        const response = await fetchWithTimeout(`${API_BASE_URL}/content/${pageName}`);
         const data = await response.json();
-        const globalResponse = await fetch(`${API_BASE_URL}/content/global`);
+        const globalResponse = await fetchWithTimeout(`${API_BASE_URL}/content/global`);
         const globalData = await globalResponse.json();
 
         let allContent = [];
@@ -310,10 +319,14 @@ async function initCMS() {
         if(window.sitePreloader) window.sitePreloader.isDataLoaded = true;
 
     } catch (error) {
-        console.error("[CMS] ❌ Connection Failed.", error);
-        // FAILSAFE: Unhide content and kill preloader so site doesn't break if Render goes offline
+        const isTimeout = error.name === 'AbortError';
+        console.warn('[CMS] ' + (isTimeout ? 'Server timeout (Render cold start) — showing fallback content.' : 'Connection failed: ' + error.message));
+        // FAILSAFE: Always reveal the site — never leave user on blank screen
         document.querySelectorAll('[data-cms]').forEach(el => el.classList.add('cms-loaded'));
+        if(window.hidePreloader) window.hidePreloader();
         if(window.sitePreloader) window.sitePreloader.isDataLoaded = true;
+        // Try warm-up ping so next visitor gets fast response
+        setTimeout(() => fetch(API_BASE_URL + '/health').catch(() => {}), 2000);
     }
 }
 
